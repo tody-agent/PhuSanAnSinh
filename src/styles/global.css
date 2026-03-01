@@ -13,6 +13,12 @@
   padding: 0;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 :root {
   /* ── Brand Colors ── */
   --primary: #1B7A6D;

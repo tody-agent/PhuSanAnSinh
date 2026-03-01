@@ -176,14 +176,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     <span class="dropdown-icon">📷</span>
                     <div>
                       <strong>Siêu âm 5D</strong><span class="dropdown-desc"
-                        >Hình ảnh thai nhi sắc nét</span>
+                        >Hình ảnh thai nhi sắc nét</span
+                      >
                     </div>
                   </a>
                   <a href="/kham-thai" class="dropdown-item" role="menuitem">
                     <span class="dropdown-icon">🤰</span>
                     <div>
                       <strong>Khám thai</strong><span class="dropdown-desc"
-                        >Theo dõi thai kỳ toàn diện</span>
+                        >Theo dõi thai kỳ toàn diện</span
+                      >
                     </div>
                   </a>
                   <a
@@ -194,7 +196,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     <span class="dropdown-icon">🩺</span>
                     <div>
                       <strong>Phụ khoa</strong><span class="dropdown-desc"
-                        >Khám & điều trị bệnh phụ khoa</span>
+                        >Khám & điều trị bệnh phụ khoa</span
+                      >
                     </div>
                   </a>
                   <a
@@ -205,7 +208,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     <span class="dropdown-icon">👨‍⚕️</span>
                     <div>
                       <strong>Nam khoa</strong><span class="dropdown-desc"
-                        >Sức khỏe nam giới</span>
+                        >Sức khỏe nam giới</span
+                      >
                     </div>
                   </a>
                   <a
@@ -216,7 +220,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     <span class="dropdown-icon">💕</span>
                     <div>
                       <strong>Điều trị vô sinh</strong><span
-                        class="dropdown-desc">Hỗ trợ sinh sản hiện đại</span>
+                        class="dropdown-desc">Hỗ trợ sinh sản hiện đại</span
+                      >
                     </div>
                   </a>
                   <a
@@ -227,7 +232,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     <span class="dropdown-icon">🛡️</span>
                     <div>
                       <strong>Tránh thai</strong><span class="dropdown-desc"
-                        >Biện pháp an toàn, hiệu quả</span>
+                        >Biện pháp an toàn, hiệu quả</span
+                      >
                     </div>
                   </a>
                 </div>
@@ -355,7 +361,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     <span class="dropdown-icon">👨‍⚕️</span>
                     <div>
                       <strong>Đội ngũ bác sĩ</strong><span class="dropdown-desc"
-                        >20+ năm kinh nghiệm</span>
+                        >20+ năm kinh nghiệm</span
+                      >
                     </div>
                   </a>
                   <a
@@ -366,7 +373,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     <span class="dropdown-icon">🏥</span>
                     <div>
                       <strong>Phòng khám Từ Sơn</strong><span
-                        class="dropdown-desc">416 Minh Khai, Đồng Nguyên</span>
+                        class="dropdown-desc">416 Minh Khai, Đồng Nguyên</span
+                      >
                     </div>
                   </a>
                   <a
@@ -377,7 +385,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     <span class="dropdown-icon">💬</span>
                     <div>
                       <strong>Tư vấn trực tuyến</strong><span
-                        class="dropdown-desc">Hỏi đáp bác sĩ miễn phí</span>
+                        class="dropdown-desc">Hỏi đáp bác sĩ miễn phí</span
+                      >
                     </div>
                   </a>
                 </div>
@@ -495,7 +504,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <li><a href="/cong-cu/du-doan-sinh-non">Dự đoán sinh non</a></li>
               <li>
                 <a href="/cong-cu/sang-loc-tien-san-giat"
-                  >Sàng lọc tiền sản giật</a>
+                  >Sàng lọc tiền sản giật</a
+                >
               </li>
               <li><a href="/tu-van-truc-tuyen">Tư vấn trực tuyến</a></li>
             </ul>
@@ -1148,6 +1158,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           border-bottom: 1px solid var(--border);
           z-index: 99;
           box-shadow: var(--shadow-lg);
+          overflow-x: hidden;
+          overflow-y: auto;
+          max-height: calc(100vh - 72px);
+          max-height: calc(100dvh - 72px);
         }
 
         .main-nav.is-open {
@@ -1187,7 +1201,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           box-shadow: none;
           border: none;
           border-radius: 0;
-          min-width: auto;
+          min-width: auto !important;
+          max-width: 100%;
+          width: 100%;
           padding: 0;
           display: none;
           background: var(--surface-alt);
@@ -1198,7 +1214,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
 
         .nav-dropdown-mega {
-          min-width: auto;
+          min-width: auto !important;
         }
 
         .dropdown-mega-inner {
@@ -1206,29 +1222,72 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
 
         .dropdown-promo {
-          width: auto;
+          width: 100%;
           border-left: none;
           border-top: 1px solid var(--border-light);
           border-radius: 0;
           flex-direction: row;
           flex-wrap: wrap;
+          padding: var(--space-sm) var(--space-lg);
         }
 
         .promo-label {
           width: 100%;
         }
 
-        .dropdown-tools {
-          padding: var(--space-sm) var(--space-md);
+        .dropdown-grid {
+          width: 100%;
+          overflow: hidden;
         }
 
-        .dropdown-item,
+        .dropdown-tools {
+          padding: var(--space-sm) 0;
+          width: 100%;
+        }
+
+        .dropdown-item {
+          padding: 0.625rem var(--space-lg);
+          width: 100%;
+          box-sizing: border-box;
+        }
+
         .dropdown-tool-card {
-          padding-left: var(--space-lg);
+          padding: 0.625rem var(--space-lg);
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        .tool-icon {
+          font-size: 1.25rem;
+          width: 2rem;
+          height: 2rem;
+          min-width: 2rem;
+        }
+
+        .tool-info strong {
+          font-size: 0.8125rem;
+        }
+
+        .tool-info span {
+          font-size: 0.7rem;
+        }
+
+        .dropdown-icon {
+          font-size: 1.125rem;
+          width: 1.75rem;
+          min-width: 1.75rem;
         }
 
         .nav-has-dropdown::after {
           display: none;
+        }
+
+        /* Disable hover-based dropdowns on mobile */
+        .nav-has-dropdown:hover > .nav-dropdown {
+          display: none;
+        }
+        .nav-has-dropdown:hover > .nav-dropdown.is-open {
+          display: block;
         }
 
         .header-phone {
