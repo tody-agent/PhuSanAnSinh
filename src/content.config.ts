@@ -17,6 +17,7 @@ const blog = defineCollection({
             'local-seo',
             'hiem-muon',
             'sieu-am',
+            'cong-cu',
         ]),
         tags: z.array(z.string()).default([]),
         author: z.string().default('BS. An Sinh'),

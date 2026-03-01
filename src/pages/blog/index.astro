@@ -1,72 +1,102 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import '../../styles/global.css';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/global.css";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 const categoryMap: Record<string, string> = {
-  'mang-thai': 'Mang Thai & Sinh Con',
-  'phu-khoa': 'Bệnh Phụ Khoa',
-  'vo-sinh': 'Điều Trị Vô Sinh',
-  'nam-khoa': 'Nam Khoa',
-  'suc-khoe-sinh-san': 'Sức Khỏe Sinh Sản',
-  'local-seo': 'Phòng Khám',
+  "mang-thai": "Mang Thai & Sinh Con",
+  "phu-khoa": "Bệnh Phụ Khoa",
+  "vo-sinh": "Điều Trị Vô Sinh",
+  "nam-khoa": "Nam Khoa",
+  "suc-khoe-sinh-san": "Sức Khỏe Sinh Sản",
+  "local-seo": "Phòng Khám",
+  "cong-cu": "Công Cụ Y Khoa",
 };
 
-const categories = [...new Set(posts.map(p => p.data.category))];
+const categories = [...new Set(posts.map((p) => p.data.category))];
 ---
 
-<BaseLayout title="Kiến Thức Y Khoa | Phòng Khám An Sinh" description="Cập nhật kiến thức sức khỏe sinh sản, mang thai, phụ khoa, nam khoa từ bác sĩ chuyên khoa. Phòng khám An Sinh — Từ Sơn, Bắc Ninh.">
+<BaseLayout
+  title="Kiến Thức Y Khoa | Phòng Khám An Sinh"
+  description="Cập nhật kiến thức sức khỏe sinh sản, mang thai, phụ khoa, nam khoa từ bác sĩ chuyên khoa. Phòng khám An Sinh — Từ Sơn, Bắc Ninh."
+>
+  <section class="section" id="blog-listing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Kiến thức y khoa</span>
+        <h1>Bài viết từ bác sĩ chuyên khoa</h1>
+        <p>
+          Cập nhật kiến thức sức khỏe sinh sản, mang thai, phụ khoa — từ nguồn
+          uy tín.
+        </p>
+      </div>
 
-<section class="section" id="blog-listing">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Kiến thức y khoa</span>
-      <h1>Bài viết từ bác sĩ chuyên khoa</h1>
-      <p>Cập nhật kiến thức sức khỏe sinh sản, mang thai, phụ khoa — từ nguồn uy tín.</p>
+      {
+        categories.length > 1 && (
+          <nav class="blog-categories" aria-label="Danh mục bài viết">
+            <a href="/blog" class="cat-tag active">
+              Tất cả
+            </a>
+            {categories.map((cat) => (
+              <a href={`/blog/danh-muc/${cat}`} class="cat-tag">
+                {categoryMap[cat] || cat}
+              </a>
+            ))}
+          </nav>
+        )
+      }
+
+      {
+        posts.length === 0 ? (
+          <div class="text-center" style="padding: var(--space-4xl) 0;">
+            <p>Bài viết đang được cập nhật. Vui lòng quay lại sau!</p>
+          </div>
+        ) : (
+          <div class="grid-3 blog-grid">
+            {posts.map((post) => (
+              <a
+                href={`/blog/${post.id.replace(/\.mdx?$/, "")}`}
+                class="card blog-card"
+                id={`post-${post.id.replace(/\.mdx?$/, "")}`}
+              >
+                {post.data.heroImage && (
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="blog-card-img"
+                    loading="lazy"
+                  />
+                )}
+                <div class="blog-card-body">
+                  <span class="blog-card-cat">
+                    {categoryMap[post.data.category] || post.data.category}
+                  </span>
+                  <h3>{post.data.title}</h3>
+                  <p>{post.data.description}</p>
+                  <div class="blog-card-meta">
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {new Intl.DateTimeFormat("vi-VN", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      }).format(post.data.pubDate)}
+                    </time>
+                    {post.data.readingTime && (
+                      <span>{post.data.readingTime} phút đọc</span>
+                    )}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )
+      }
     </div>
-
-    {categories.length > 1 && (
-      <nav class="blog-categories" aria-label="Danh mục bài viết">
-        <a href="/blog" class="cat-tag active">Tất cả</a>
-        {categories.map(cat => (
-          <a href={`/blog/danh-muc/${cat}`} class="cat-tag">{categoryMap[cat] || cat}</a>
-        ))}
-      </nav>
-    )}
-
-    {posts.length === 0 ? (
-      <div class="text-center" style="padding: var(--space-4xl) 0;">
-        <p>Bài viết đang được cập nhật. Vui lòng quay lại sau!</p>
-      </div>
-    ) : (
-      <div class="grid-3 blog-grid">
-        {posts.map(post => (
-          <a href={`/blog/${post.id.replace(/\.mdx?$/, '')}`} class="card blog-card" id={`post-${post.id.replace(/\.mdx?$/, '')}`}>
-            {post.data.heroImage && (
-              <img src={post.data.heroImage} alt={post.data.title} class="blog-card-img" loading="lazy" />
-            )}
-            <div class="blog-card-body">
-              <span class="blog-card-cat">{categoryMap[post.data.category] || post.data.category}</span>
-              <h3>{post.data.title}</h3>
-              <p>{post.data.description}</p>
-              <div class="blog-card-meta">
-                <time datetime={post.data.pubDate.toISOString()}>
-                  {new Intl.DateTimeFormat('vi-VN', { year: 'numeric', month: 'short', day: 'numeric' }).format(post.data.pubDate)}
-                </time>
-                {post.data.readingTime && <span>{post.data.readingTime} phút đọc</span>}
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-    )}
-  </div>
-</section>
-
+  </section>
 </BaseLayout>
 
 <style>
@@ -91,7 +121,8 @@ const categories = [...new Set(posts.map(p => p.data.category))];
     min-height: 36px;
   }
 
-  .cat-tag:hover, .cat-tag.active {
+  .cat-tag:hover,
+  .cat-tag.active {
     background: var(--primary);
     color: #fff;
     border-color: var(--primary);

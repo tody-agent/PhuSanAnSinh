@@ -1,0 +1,1521 @@
+---
+import "../../styles/global.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const title = "Dự Đoán Sinh Non — Công Cụ Tính Nguy Cơ QUiPP + FMF | An Sinh";
+const description =
+    "Công cụ dự đoán nguy cơ sinh non dựa trên QUiPP & FMF. Phân tích chiều dài cổ tử cung, fetal fibronectin, tiền sử sản khoa. Tạo prompt AI cho gợi ý lâm sàng.";
+---
+
+<BaseLayout title={title} description={description}>
+    <!-- Schema.org FAQ -->
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+                {
+                    "@type": "Question",
+                    name: "Công cụ dự đoán sinh non hoạt động như thế nào?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Công cụ sử dụng hai mô hình y khoa: QUiPP-style (dựa trên fetal fibronectin định lượng và chiều dài cổ tử cung) và FMF-style (To et al. 2006, logistic regression đa biến) để ước tính nguy cơ sinh non tự phát.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "QUiPP App là gì?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "QUiPP (Quantitative Innovation in Predicting Preterm birth) là công cụ dự đoán sinh non được phát triển tại King's College London, sử dụng survival analysis để ước tính nguy cơ sinh trong 1-4 tuần dựa trên qfFN và/hoặc chiều dài CTC.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Khi nào nên sử dụng công cụ này?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Dùng cho thai phụ 18-36 tuần có triệu chứng dọa đẻ non (cơn co tử cung, CTC ngắn) hoặc nhóm nguy cơ cao không triệu chứng (tiền sử sinh non, PPROM, phẫu thuật cổ tử cung). Kết quả chỉ mang tính hỗ trợ.",
+                    },
+                },
+            ],
+        })}
+    ></script>
+
+    <!-- Hero -->
+    <section class="calc-hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                    ></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                QUiPP + FMF · Miễn phí 100%
+            </div>
+            <h1>
+                Dự Đoán Nguy Cơ <span class="text-accent-color">Sinh Non</span>
+            </h1>
+            <p class="hero-sub">
+                Phân tích nguy cơ sinh non dựa trên chiều dài cổ tử cung, fetal
+                fibronectin, và tiền sử sản khoa. Tạo prompt AI cho gợi ý lâm
+                sàng chi tiết.
+            </p>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-grid">
+                <!-- Input Panel -->
+                <div class="calc-input-panel card">
+                    <h2 class="calc-panel-title">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            ><path
+                                d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                            ></path><polyline points="14 2 14 8 20 8"
+                            ></polyline><line x1="16" y1="13" x2="8" y2="13"
+                            ></line><line x1="16" y1="17" x2="8" y2="17"
+                            ></line><polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Nhập Thông Tin Lâm Sàng
+                    </h2>
+
+                    <form id="preterm-form" novalidate>
+                        <!-- Section A: Basic Info -->
+                        <div class="form-section-label">
+                            A. Thông tin cơ bản
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Loại đánh giá</label>
+                            <div class="toggle-group">
+                                <label class="radio-card">
+                                    <input
+                                        type="radio"
+                                        name="assessmentType"
+                                        value="symptomatic"
+                                        checked
+                                    />
+                                    <span>🔴 Có triệu chứng</span>
+                                </label>
+                                <label class="radio-card">
+                                    <input
+                                        type="radio"
+                                        name="assessmentType"
+                                        value="asymptomatic"
+                                    />
+                                    <span>🟡 Không triệu chứng</span>
+                                </label>
+                            </div>
+                            <small class="form-help"
+                                >Có triệu chứng = dọa đẻ non (cơn co TC). Không
+                                triệu chứng = nhóm nguy cơ cao.</small
+                            >
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ga-weeks" class="form-label"
+                                    >Tuổi thai (tuần)</label
+                                >
+                                <input
+                                    type="number"
+                                    id="ga-weeks"
+                                    class="form-input"
+                                    min="18"
+                                    max="36"
+                                    placeholder="18–36"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="ga-days" class="form-label"
+                                    >Ngày</label
+                                >
+                                <input
+                                    type="number"
+                                    id="ga-days"
+                                    class="form-input"
+                                    min="0"
+                                    max="6"
+                                    value="0"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="maternal-age" class="form-label"
+                                    >Tuổi mẹ</label
+                                >
+                                <input
+                                    type="number"
+                                    id="maternal-age"
+                                    class="form-input"
+                                    min="14"
+                                    max="60"
+                                    placeholder="Năm"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="bmi" class="form-label"
+                                    >BMI (kg/m²)</label
+                                >
+                                <input
+                                    type="number"
+                                    id="bmi"
+                                    class="form-input"
+                                    min="12"
+                                    max="70"
+                                    step="0.1"
+                                    placeholder="VD: 24"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ethnicity" class="form-label"
+                                >Chủng tộc</label
+                            >
+                            <select id="ethnicity" class="form-input">
+                                <option value="caucasian">Caucasian</option>
+                                <option value="african-caribbean"
+                                    >African-Caribbean</option
+                                >
+                                <option value="asian" selected>Asian</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Hút thuốc?</label>
+                                <div class="toggle-group toggle-sm">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="smoker"
+                                            value="no"
+                                            checked
+                                        /><span>Không</span>
+                                    </label>
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="smoker"
+                                            value="yes"
+                                        /><span>Có</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Số thai?</label>
+                                <div class="toggle-group toggle-sm">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="fetusCount"
+                                            value="1"
+                                            checked
+                                        /><span>Đơn thai</span>
+                                    </label>
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="fetusCount"
+                                            value="2"
+                                        /><span>Song thai</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="form-divider" />
+                        <!-- Section B: Obstetric History -->
+                        <div class="form-section-label">
+                            B. Tiền sử sản khoa
+                        </div>
+
+                        <div class="form-group">
+                            <label for="obs-history" class="form-label"
+                                >Tiền sử sản khoa</label
+                            >
+                            <select id="obs-history" class="form-input">
+                                <option value="nullipara"
+                                    >Con so / Chưa sinh</option
+                                >
+                                <option value="all_term"
+                                    >Tất cả lần sinh ≥ 37 tuần</option
+                                >
+                                <option value="delivery_33_36"
+                                    >≥1 lần sinh 33–36+6 tuần</option
+                                >
+                                <option value="delivery_24_32"
+                                    >≥1 lần sinh 24–32+6 tuần</option
+                                >
+                                <option value="delivery_16_23"
+                                    >≥1 lần sinh 16–23+6 tuần</option
+                                >
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="earliest-ptb-group" hidden>
+                            <label for="earliest-ptb" class="form-label"
+                                >Tuổi thai sinh non sớm nhất (tuần)</label
+                            >
+                            <input
+                                type="number"
+                                id="earliest-ptb"
+                                class="form-input"
+                                min="16"
+                                max="36"
+                                placeholder="VD: 28"
+                            />
+                        </div>
+
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label"
+                                ><input
+                                    type="checkbox"
+                                    id="previous-pprom"
+                                /><span>PPROM trước đây</span>
+                            </label>
+                            <label class="checkbox-label"
+                                ><input
+                                    type="checkbox"
+                                    id="late-miscarriage"
+                                /><span>Sẩy thai muộn (16–24 tuần)</span>
+                            </label>
+                            <label class="checkbox-label"
+                                ><input
+                                    type="checkbox"
+                                    id="cervical-surgery"
+                                /><span>Phẫu thuật CTC (LEEP/cone)</span>
+                            </label>
+                            <label class="checkbox-label"
+                                ><input type="checkbox" id="cerclage" /><span
+                                    >Cerclage hiện tại</span
+                                >
+                            </label>
+                            <label class="checkbox-label"
+                                ><input
+                                    type="checkbox"
+                                    id="progesterone"
+                                /><span>Progesterone dự phòng</span>
+                            </label>
+                        </div>
+
+                        <hr class="form-divider" />
+                        <!-- Section C: Test Results -->
+                        <div class="form-section-label">
+                            C. Kết quả xét nghiệm
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cervical-length" class="form-label"
+                                >Chiều dài CTC — CL (mm)</label
+                            >
+                            <input
+                                type="number"
+                                id="cervical-length"
+                                class="form-input"
+                                min="0"
+                                max="80"
+                                step="1"
+                                placeholder="0 – 80 mm"
+                            />
+                            <small class="form-help"
+                                >Siêu âm đầu dò âm đạo. Bình thường 35–48mm
+                                (20–24 tuần).</small
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ffn" class="form-label"
+                                >Fetal Fibronectin — qfFN (ng/mL)</label
+                            >
+                            <input
+                                type="number"
+                                id="ffn"
+                                class="form-input"
+                                min="0"
+                                max="500"
+                                step="1"
+                                placeholder="0 – 500 ng/mL"
+                            />
+                            <small class="form-help"
+                                >Định lượng. ≥50 = dương tính. &lt;10 = NPV
+                                &gt;99%.</small
+                            >
+                        </div>
+
+                        <!-- Validation Error -->
+                        <div
+                            id="validation-error"
+                            class="validation-error"
+                            role="alert"
+                            aria-live="polite"
+                            hidden
+                        >
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-accent btn-lg calc-submit"
+                            id="submit-btn"
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                                ></path><polyline points="22 4 12 14.01 9 11.01"
+                                ></polyline>
+                            </svg>
+                            Phân Tích Nguy Cơ
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="calc-results-panel" id="results-panel" hidden>
+                    <!-- Risk Level Header -->
+                    <div
+                        class="result-card result-primary card"
+                        id="risk-header"
+                    >
+                        <div class="result-icon-wrap">
+                            <span class="result-emoji" id="risk-emoji">⚠️</span>
+                        </div>
+                        <div class="result-content">
+                            <span class="result-label"
+                                >Phân tầng nguy cơ tổng hợp</span
+                            >
+                            <div class="result-risk-level" id="risk-level">
+                                --
+                            </div>
+                            <div class="result-sub" id="risk-reason"></div>
+                        </div>
+                    </div>
+
+                    <!-- QUiPP Results -->
+                    <div class="card result-card">
+                        <h3 class="card-title">
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="var(--primary)"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><polyline
+                                    points="22 12 18 12 15 21 9 3 6 12 2 12"
+                                ></polyline>
+                            </svg>
+                            Ước tính QUiPP-style
+                        </h3>
+                        <div class="risk-bars" id="quipp-bars"></div>
+                        <div class="quipp-action" id="quipp-action"></div>
+                    </div>
+
+                    <!-- FMF Results -->
+                    <div class="card result-card" id="fmf-card" hidden>
+                        <h3 class="card-title">
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="var(--primary)"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><circle cx="12" cy="12" r="10"></circle><path
+                                    d="M12 6v6l4 2"></path>
+                            </svg>
+                            Mô hình FMF-style (To et al. 2006)
+                        </h3>
+                        <div class="fmf-results" id="fmf-results"></div>
+                    </div>
+
+                    <!-- Clinical Thresholds -->
+                    <div class="card result-card">
+                        <h3 class="card-title">
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="var(--primary)"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><rect
+                                    x="3"
+                                    y="3"
+                                    width="18"
+                                    height="18"
+                                    rx="2"
+                                    ry="2"></rect><line
+                                    x1="3"
+                                    y1="9"
+                                    x2="21"
+                                    y2="9"></line><line
+                                    x1="9"
+                                    y1="21"
+                                    x2="9"
+                                    y2="9"></line>
+                            </svg>
+                            Bảng ngưỡng quyết định lâm sàng
+                        </h3>
+                        <div class="threshold-table-wrap">
+                            <table class="threshold-table" id="threshold-table">
+                                <thead
+                                    ><tr
+                                        ><th>Nguy cơ sinh 7 ngày</th><th
+                                            >Phân loại</th
+                                        ><th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        ><td>&lt; 1%</td><td class="risk-vlow"
+                                            >Rất thấp</td
+                                        ><td>An tâm, về nhà, ngoại trú</td>
+                                    </tr>
+                                    <tr
+                                        ><td>1–5%</td><td class="risk-low"
+                                            >Thấp</td
+                                        ><td
+                                            >Theo dõi sát, chưa corticosteroid</td
+                                        >
+                                    </tr>
+                                    <tr
+                                        ><td>5–10%</td><td class="risk-mod"
+                                            >Trung bình</td
+                                        ><td
+                                            >Cân nhắc nhập viện, corticosteroid</td
+                                        >
+                                    </tr>
+                                    <tr
+                                        ><td>10–25%</td><td class="risk-high"
+                                            >Cao</td
+                                        ><td
+                                            >Nhập viện, corticosteroid, MgSO4</td
+                                        >
+                                    </tr>
+                                    <tr
+                                        ><td>&gt; 25%</td><td class="risk-vhigh"
+                                            >Rất cao</td
+                                        ><td>Nhập viện khẩn, NICU</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Prompt Section -->
+                    <div class="card result-card prompt-card">
+                        <h3 class="card-title">
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="var(--accent)"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><path
+                                    d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                                ></path>
+                            </svg>
+                            Prompt cho AI — Gợi ý lâm sàng
+                        </h3>
+                        <p class="prompt-desc">
+                            Copy prompt bên dưới → Paste vào ChatGPT, Claude,
+                            hoặc Gemini để nhận phân tích lâm sàng chi tiết.
+                        </p>
+                        <div class="prompt-output" id="prompt-output"></div>
+                        <button
+                            class="btn btn-accent btn-lg calc-submit"
+                            id="copy-prompt-btn"
+                            type="button"
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><rect
+                                    x="9"
+                                    y="9"
+                                    width="13"
+                                    height="13"
+                                    rx="2"
+                                    ry="2"></rect><path
+                                    d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                                ></path>
+                            </svg>
+                            <span id="copy-btn-text">Copy Prompt</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reference Tables -->
+    <section class="section section-alt" id="bang-tham-chieu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Tham khảo</span>
+                <h2>Bảng Giá Trị Tham Chiếu</h2>
+                <p>
+                    Giá trị tham khảo CL và fFN dựa trên nghiên cứu y khoa quốc
+                    tế.
+                </p>
+            </div>
+            <div class="grid-2">
+                <div class="card ref-card">
+                    <h3 class="card-title">📏 Chiều dài CTC (CL)</h3>
+                    <table class="ref-table">
+                        <thead
+                            ><tr
+                                ><th>CL (mm)</th><th>Ý nghĩa</th><th
+                                    >Nguy cơ sPTB &lt;32w</th
+                                >
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                ><td>≥ 40</td><td>Bình thường</td><td>~0.2%</td>
+                            </tr>
+                            <tr
+                                ><td>30–39</td><td>Ranh giới</td><td>~0.5%</td>
+                            </tr>
+                            <tr
+                                ><td>25–29</td><td>Ngắn nhẹ</td><td>~1–2%</td>
+                            </tr>
+                            <tr
+                                ><td>15–24</td><td>Ngắn rõ</td><td>~4–8%</td>
+                            </tr>
+                            <tr
+                                ><td>10–14</td><td>Rất ngắn</td><td>~15–25%</td>
+                            </tr>
+                            <tr
+                                ><td>&lt; 10</td><td>Cực ngắn</td><td
+                                    >~30–50%+</td
+                                >
+                            </tr>
+                        </tbody>
+                    </table>
+                    <small class="form-help"
+                        >Dựa trên To et al. 2006 (n=39,284)</small
+                    >
+                </div>
+                <div class="card ref-card">
+                    <h3 class="card-title">🧪 Fetal Fibronectin (fFN)</h3>
+                    <table class="ref-table">
+                        <thead
+                            ><tr
+                                ><th>fFN (ng/mL)</th><th>Phân loại</th><th
+                                    >Lâm sàng</th
+                                >
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                ><td>&lt; 10</td><td>Rất thấp</td><td
+                                    >NPV &gt;99% → an tâm cao</td
+                                >
+                            </tr>
+                            <tr
+                                ><td>10–49</td><td>Thấp</td><td>Theo dõi</td>
+                            </tr>
+                            <tr
+                                ><td>50–199</td><td>Trung bình</td><td
+                                    >Đánh giá thêm</td
+                                >
+                            </tr>
+                            <tr
+                                ><td>200–499</td><td>Cao</td><td
+                                    >Cân nhắc can thiệp</td
+                                >
+                            </tr>
+                            <tr
+                                ><td>≥ 500</td><td>Rất cao</td><td
+                                    >Nguy cơ sinh non sắp xảy ra</td
+                                >
+                            </tr>
+                        </tbody>
+                    </table>
+                    <small class="form-help"
+                        >Dựa trên Abbott et al. 2013, Ridout et al. 2016</small
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" id="cta">
+        <div class="container">
+            <div class="cta-inner">
+                <h2>Cần tư vấn chuyên sâu?</h2>
+                <p>
+                    Bác sĩ chuyên khoa sản tại An Sinh sẵn sàng đồng hành và hỗ
+                    trợ quản lý thai kỳ nguy cơ cao.
+                </p>
+                <div class="cta-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg"
+                        id="cta-booking">Đặt Lịch Khám Ngay</a
+                    >
+                    <a
+                        href="tel:0899268299"
+                        class="btn btn-outline btn-lg"
+                        id="cta-call">Gọi: 0899 268 299</a
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer-section">
+        <div class="container">
+            <p class="disclaimer-text">
+                <strong>Lưu ý y khoa:</strong> Công cụ này chỉ mang tính hỗ trợ tham
+                khảo lâm sàng, KHÔNG thay thế đánh giá của bác sĩ chuyên khoa. Dựa
+                trên: FMF Model (To et al. 2006, n=39,284), QUiPP App framework (Carter
+                et al. 2020, Watson et al. 2021), NICE NG25 "Preterm labour and birth",
+                BAPM QUiPP App Toolkit v2. Thuật toán QUiPP gốc sử dụng survival
+                analysis với coefficients chưa công bố đầy đủ — các ước tính ở đây
+                dựa trên published literature.
+            </p>
+        </div>
+    </section>
+
+    <style>
+        /* ── Hero ── */
+        .calc-hero {
+            background: linear-gradient(
+                135deg,
+                var(--primary-light) 0%,
+                var(--bg) 100%
+            );
+            padding: var(--space-4xl) 0 var(--space-3xl);
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-lg);
+            background: var(--surface);
+            border-radius: var(--radius-full);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-lg);
+            border: 1px solid var(--border-light);
+        }
+        .hero-sub {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        /* ── Calculator Layout ── */
+        .calc-section {
+            padding: var(--space-3xl) 0;
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .calc-input-panel {
+            position: static;
+        }
+        .calc-panel-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-lg);
+        }
+        /* ── Form ── */
+        .form-section-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-xs);
+            border-bottom: 2px solid var(--primary-light);
+        }
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            transition: border-color var(--transition-fast);
+            min-height: 44px;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(27, 122, 109, 0.1);
+        }
+        select.form-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234A5568' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        .form-help {
+            display: block;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
+        .form-divider {
+            border: 0;
+            border-top: 1px solid var(--border-light);
+            margin: var(--space-lg) 0;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+        .calc-submit {
+            width: 100%;
+        }
+        /* ── Toggle / Radio Cards ── */
+        .toggle-group {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        .toggle-sm .radio-card {
+            font-size: 0.8125rem;
+            padding: var(--space-sm) var(--space-md);
+        }
+        .radio-card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-weight: 600;
+            font-size: 0.875rem;
+            min-height: 44px;
+            text-align: center;
+        }
+        .radio-card:has(input:checked) {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .radio-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        /* ── Checkboxes ── */
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.9375rem;
+            cursor: pointer;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            transition: background var(--transition-fast);
+        }
+        .checkbox-label:hover {
+            background: var(--surface-alt);
+        }
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+        /* ── Validation Error ── */
+        .validation-error {
+            margin: var(--space-md) 0;
+            padding: var(--space-sm) var(--space-md);
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            border-radius: var(--radius-md);
+            color: var(--error);
+            font-size: 0.875rem;
+        }
+        /* ── Results ── */
+        .calc-results-panel:not([hidden]) {
+            animation: fadeInUp 0.4s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .result-card {
+            margin-bottom: var(--space-md);
+        }
+        .result-primary {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+        .result-primary.risk-green {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: #fff;
+        }
+        .result-primary.risk-yellow {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #fff;
+        }
+        .result-primary.risk-orange {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+            color: #fff;
+        }
+        .result-primary.risk-red {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: #fff;
+        }
+        .result-primary.risk-red-urgent {
+            background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+            color: #fff;
+        }
+        .result-icon-wrap {
+            margin-bottom: var(--space-sm);
+        }
+        .result-emoji {
+            font-size: 2.5rem;
+        }
+        .result-label {
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.85;
+        }
+        .result-risk-level {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: var(--space-xs) 0;
+        }
+        .result-sub {
+            font-size: 0.9375rem;
+            opacity: 0.9;
+        }
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1rem;
+            margin-bottom: var(--space-lg);
+        }
+        /* ── Risk Bars ── */
+        .risk-bars {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        .risk-bar-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .risk-bar-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .risk-bar-value {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .risk-bar-track {
+            height: 8px;
+            background: var(--border-light);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        .risk-bar-fill {
+            height: 100%;
+            border-radius: var(--radius-full);
+            transition: width 0.6s ease-out;
+        }
+        .risk-bar-fill.bar-low {
+            background: #059669;
+        }
+        .risk-bar-fill.bar-med {
+            background: #d97706;
+        }
+        .risk-bar-fill.bar-high {
+            background: #dc2626;
+        }
+        .quipp-action {
+            margin-top: var(--space-lg);
+            padding: var(--space-md);
+            background: var(--surface-alt);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        /* ── FMF Results ── */
+        .fmf-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+        .fmf-stat {
+            text-align: center;
+            padding: var(--space-md);
+            background: var(--surface-alt);
+            border-radius: var(--radius-md);
+        }
+        .fmf-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .fmf-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-top: 4px;
+        }
+        /* ── Threshold Table ── */
+        .threshold-table-wrap {
+            overflow-x: auto;
+        }
+        .threshold-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8125rem;
+        }
+        .threshold-table th,
+        .threshold-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--border-light);
+            text-align: left;
+        }
+        .threshold-table th {
+            background: var(--surface-alt);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .threshold-table tr.active-row {
+            background: #fef3c7;
+            font-weight: 600;
+        }
+        .risk-vlow {
+            color: #059669;
+            font-weight: 600;
+        }
+        .risk-low {
+            color: #d97706;
+            font-weight: 600;
+        }
+        .risk-mod {
+            color: #ea580c;
+            font-weight: 600;
+        }
+        .risk-high {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        .risk-vhigh {
+            color: #991b1b;
+            font-weight: 600;
+        }
+        /* ── Prompt Card ── */
+        .prompt-card {
+            border: 2px solid var(--accent-light);
+        }
+        .prompt-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+        }
+        .prompt-output {
+            background: var(--text-primary);
+            color: #e5e7eb;
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            font-family: "Menlo", "Monaco", "Courier New", monospace;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-bottom: var(--space-lg);
+        }
+        /* ── Reference Tables ── */
+        .ref-card:hover {
+            transform: none;
+        }
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8125rem;
+        }
+        .ref-table th,
+        .ref-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--border-light);
+            text-align: left;
+        }
+        .ref-table th {
+            background: var(--surface-alt);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(
+                135deg,
+                var(--primary) 0%,
+                var(--primary-dark) 100%
+            );
+            color: #fff;
+            text-align: center;
+        }
+        .cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .cta-inner h2 {
+            color: #fff;
+            margin-bottom: var(--space-md);
+        }
+        .cta-inner p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-xl);
+        }
+        .cta-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-section .btn-outline {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .cta-section .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-color: #fff;
+        }
+        /* ── Disclaimer ── */
+        .disclaimer-section {
+            padding: var(--space-xl) 0;
+            background: var(--surface-alt);
+        }
+        .disclaimer-text {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+            .calc-input-panel {
+                position: static;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .fmf-results {
+                grid-template-columns: 1fr;
+            }
+            .cta-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .toggle-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <script>
+        import {
+            calcFmfRisk,
+            stratifyRisk,
+            estimateQuippRisk,
+            buildPrompt,
+            validatePretermInputs,
+        } from "../../utils/preterm-birth-calc.js";
+
+        // ── DOM refs ──
+        const form = document.getElementById("preterm-form");
+        const resultsPanel = document.getElementById("results-panel");
+        const errorEl = document.getElementById("validation-error");
+        const obsHistorySelect = document.getElementById("obs-history");
+        const earliestPtbGroup = document.getElementById("earliest-ptb-group");
+
+        // Show/hide earliest PTB week based on obstetric history
+        obsHistorySelect.addEventListener("change", () => {
+            const val = obsHistorySelect.value;
+            const showPtb = val !== "nullipara" && val !== "all_term";
+            earliestPtbGroup.hidden = !showPtb;
+        });
+
+        // ── Form Submit ──
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            hideError();
+
+            // Collect form data
+            const formData = collectFormData();
+
+            // Validate
+            const validation = validatePretermInputs(formData);
+            if (!validation.valid) return showError(validation.error);
+
+            // Calculate risks
+            const riskResults = calculateRisks(formData);
+
+            // Display results
+            displayResults(formData, riskResults);
+
+            // Generate & display prompt
+            const prompt = buildPrompt(formData, riskResults);
+            document.getElementById("prompt-output").textContent = prompt;
+
+            // Show results panel
+            resultsPanel.hidden = false;
+            resultsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        function collectFormData() {
+            const gaWeeks = parseInt(
+                document.getElementById("ga-weeks").value,
+                10
+            );
+            const gaDays = parseInt(
+                document.getElementById("ga-days").value || "0",
+                10
+            );
+            const maternalAge =
+                parseFloat(document.getElementById("maternal-age").value) ||
+                null;
+            const bmi =
+                parseFloat(document.getElementById("bmi").value) || null;
+            const ethnicity = document.getElementById("ethnicity").value;
+            const smoker =
+                document.querySelector('input[name="smoker"]:checked')
+                    ?.value === "yes";
+            const fetusCount = parseInt(
+                document.querySelector('input[name="fetusCount"]:checked')
+                    ?.value || "1",
+                10
+            );
+            const assessmentType = document.querySelector(
+                'input[name="assessmentType"]:checked'
+            )?.value;
+
+            const obstetricHistory = obsHistorySelect.value;
+            const earliestPtbWeek =
+                parseInt(document.getElementById("earliest-ptb").value, 10) ||
+                null;
+            const previousPtb =
+                obstetricHistory !== "nullipara" &&
+                obstetricHistory !== "all_term";
+            const previousPprom =
+                document.getElementById("previous-pprom").checked;
+            const lateMiscarriage =
+                document.getElementById("late-miscarriage").checked;
+            const cervicalSurgery =
+                document.getElementById("cervical-surgery").checked;
+            const cerclage = document.getElementById("cerclage").checked;
+            const progesterone =
+                document.getElementById("progesterone").checked;
+
+            const clVal = document.getElementById("cervical-length").value;
+            const ffnVal = document.getElementById("ffn").value;
+            const cervicalLength = clVal !== "" ? parseFloat(clVal) : null;
+            const ffn = ffnVal !== "" ? parseFloat(ffnVal) : null;
+
+            let availableTests = "none";
+            if (cervicalLength !== null && ffn !== null)
+                availableTests = "cl_ffn";
+            else if (cervicalLength !== null) availableTests = "cl_only";
+            else if (ffn !== null) availableTests = "ffn_only";
+
+            return {
+                assessmentType,
+                gaWeeks,
+                gaDays,
+                maternalAge,
+                ethnicity,
+                bmi,
+                smoker,
+                fetusCount,
+                obstetricHistory,
+                previousPtb,
+                earliestPtbWeek,
+                previousPprom,
+                lateMiscarriage,
+                cervicalSurgery,
+                cerclage,
+                progesterone,
+                cervicalLength,
+                ffn,
+                availableTests,
+            };
+        }
+
+        function calculateRisks(fd) {
+            // QUiPP-style
+            const hasRiskFactor =
+                fd.previousPtb ||
+                fd.previousPprom ||
+                fd.lateMiscarriage ||
+                fd.cervicalSurgery ||
+                fd.fetusCount > 1;
+            const hasPreviousPtb32 =
+                fd.previousPtb &&
+                fd.earliestPtbWeek != null &&
+                fd.earliestPtbWeek < 33;
+
+            const quipp = estimateQuippRisk({
+                gaWeeks: fd.gaWeeks,
+                gaDays: fd.gaDays,
+                cl: fd.cervicalLength,
+                ffn: fd.ffn,
+                hasRiskFactor,
+                symptomatic: fd.assessmentType === "symptomatic",
+            });
+
+            // Risk stratification
+            const stratification = stratifyRisk({
+                cl: fd.cervicalLength,
+                ffn: fd.ffn,
+                hasRiskFactor,
+                hasPreviousPtb32,
+            });
+
+            // FMF model (needs CL + maternal data)
+            let fmf = null;
+            if (fd.cervicalLength !== null && fd.maternalAge && fd.bmi) {
+                fmf = calcFmfRisk({
+                    maternalAge: fd.maternalAge,
+                    ethnicity: fd.ethnicity,
+                    bmi: fd.bmi,
+                    smoker: fd.smoker,
+                    obstetricHistory: fd.obstetricHistory,
+                    cervicalSurgery: fd.cervicalSurgery,
+                    cervicalLength: fd.cervicalLength,
+                });
+            }
+
+            return { quipp, stratification, fmf };
+        }
+
+        function displayResults(fd, riskResults) {
+            const { quipp, stratification, fmf } = riskResults;
+
+            // Risk header
+            const header = document.getElementById("risk-header");
+            header.className = `result-card result-primary card risk-${stratification.color}`;
+            document.getElementById("risk-emoji").textContent =
+                stratification.level === "VERY_LOW"
+                    ? "✅"
+                    : stratification.level === "LOW"
+                    ? "🟡"
+                    : stratification.level === "MODERATE"
+                    ? "🟠"
+                    : stratification.level === "HIGH"
+                    ? "🔴"
+                    : "🚨";
+            document.getElementById("risk-level").textContent =
+                stratification.label;
+            document.getElementById("risk-reason").textContent =
+                stratification.reason;
+
+            // QUiPP bars
+            const barsHtml = [
+                { label: "Sinh trong 7 ngày", value: quipp.risk7d },
+                { label: "Sinh trong 14 ngày", value: quipp.risk14d },
+                { label: "Sinh trong 28 ngày", value: quipp.risk28d },
+            ]
+                .map((b) => {
+                    const barClass =
+                        b.value < 5
+                            ? "bar-low"
+                            : b.value < 10
+                            ? "bar-med"
+                            : "bar-high";
+                    return `<div class="risk-bar-item">
+                    <div class="risk-bar-header"><span>${
+                        b.label
+                    }</span><span class="risk-bar-value">${
+                        b.value
+                    }%</span></div>
+                    <div class="risk-bar-track"><div class="risk-bar-fill ${barClass}" style="width:${Math.min(
+                        b.value,
+                        100
+                    )}%"></div></div>
+                </div>`;
+                })
+                .join("");
+            document.getElementById("quipp-bars").innerHTML = barsHtml;
+
+            // Action level
+            document.getElementById(
+                "quipp-action"
+            ).textContent = `Mức hành động: ${quipp.actionLevel} (ngưỡng ≥5% sinh trong 7 ngày — EQUIPTT trial)`;
+
+            // Highlight threshold row
+            const rows = document.querySelectorAll("#threshold-table tbody tr");
+            rows.forEach((r) => r.classList.remove("active-row"));
+            let rowIdx =
+                quipp.risk7d < 1
+                    ? 0
+                    : quipp.risk7d < 5
+                    ? 1
+                    : quipp.risk7d < 10
+                    ? 2
+                    : quipp.risk7d < 25
+                    ? 3
+                    : 4;
+            rows[rowIdx]?.classList.add("active-row");
+
+            // FMF card
+            const fmfCard = document.getElementById("fmf-card");
+            if (fmf) {
+                document.getElementById("fmf-results").innerHTML = `
+                    <div class="fmf-stat"><div class="fmf-stat-label">&lt; 32 tuần</div><div class="fmf-stat-value">${(
+                        fmf.riskBelow32 * 100
+                    ).toFixed(1)}%</div></div>
+                    <div class="fmf-stat"><div class="fmf-stat-label">&lt; 34 tuần</div><div class="fmf-stat-value">${(
+                        fmf.riskBelow34 * 100
+                    ).toFixed(1)}%</div></div>
+                    <div class="fmf-stat"><div class="fmf-stat-label">&lt; 37 tuần</div><div class="fmf-stat-value">${(
+                        fmf.riskBelow37 * 100
+                    ).toFixed(1)}%</div></div>
+                `;
+                fmfCard.hidden = false;
+            } else {
+                fmfCard.hidden = true;
+            }
+        }
+
+        // ── Copy Prompt ──
+        document
+            .getElementById("copy-prompt-btn")
+            .addEventListener("click", async () => {
+                const text =
+                    document.getElementById("prompt-output").textContent;
+                try {
+                    await navigator.clipboard.writeText(text);
+                    const btnText = document.getElementById("copy-btn-text");
+                    btnText.textContent = "✅ Đã Copy!";
+                    setTimeout(() => {
+                        btnText.textContent = "Copy Prompt";
+                    }, 2000);
+                } catch {
+                    // Fallback
+                    const ta = document.createElement("textarea");
+                    ta.value = text;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(ta);
+                    const btnText = document.getElementById("copy-btn-text");
+                    btnText.textContent = "✅ Đã Copy!";
+                    setTimeout(() => {
+                        btnText.textContent = "Copy Prompt";
+                    }, 2000);
+                }
+            });
+
+        function showError(msg) {
+            errorEl.textContent = msg;
+            errorEl.hidden = false;
+        }
+        function hideError() {
+            errorEl.hidden = true;
+        }
+    </script>
+</BaseLayout>

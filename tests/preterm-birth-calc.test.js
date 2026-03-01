@@ -151,8 +151,8 @@ describe('stratifyRisk — 5-level risk stratification', () => {
         assert.equal(r.color, 'yellow');
     });
 
-    it('MODERATE: CL 15-24 or fFN 50-199', () => {
-        const r = stratifyRisk({ cl: 20, ffn: 100, hasRiskFactor: true, hasPreviousPtb32: false });
+    it('MODERATE: CL 20-24 with fFN < 50', () => {
+        const r = stratifyRisk({ cl: 22, ffn: 30, hasRiskFactor: true, hasPreviousPtb32: false });
         assert.equal(r.level, 'MODERATE');
         assert.equal(r.color, 'orange');
     });

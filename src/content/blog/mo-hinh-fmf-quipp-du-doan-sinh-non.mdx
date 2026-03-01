@@ -1,0 +1,184 @@
+---
+title: "Mô hình FMF & QUiPP: Cách dự đoán nguy cơ sinh non bằng toán học"
+description: "Giải thích chi tiết mô hình FMF (To et al. 2006) với logistic regression 2 bước, phân tầng QUiPP-style, và hệ thống phân tầng nguy cơ 5 mức. Dựa trên y văn quốc tế."
+pubDate: 2026-03-02
+category: "cong-cu"
+tags: ["FMF", "QUiPP", "sinh non", "CL", "fFN", "logistic regression", "cervical length"]
+author: "BS. An Sinh"
+readingTime: 14
+featured: true
+---
+
+**Sinh non (trước 37 tuần) là nguyên nhân hàng đầu gây tử vong sơ sinh trên toàn thế giới. Nhưng nhờ các mô hình toán học, bác sĩ có thể DỰ ĐOÁN nguy cơ trước khi nó xảy ra. Bài viết này giải thích cách các mô hình đó hoạt động.**
+
+## Tổng quan: Hai mô hình dự đoán sinh non
+
+Công cụ **[Dự Đoán Sinh Non](/cong-cu/du-doan-sinh-non)** của chúng tôi tích hợp 2 mô hình chính:
+
+| Mô hình | Nguồn gốc | Phương pháp | Input chính |
+|---------|-----------|-------------|-------------|
+| **FMF** | To et al. 2006 (Fetal Medicine Foundation) | Logistic regression 2 bước | Tuổi mẹ, BMI, tiền sử sản khoa, CL |
+| **QUiPP** | Kings College London | Tích hợp CL + fFN | CL, fFN, tuổi thai, triệu chứng |
+
+---
+
+## Mô hình FMF — Logistic Regression 2 bước
+
+### Bước 1: Xác suất sinh non dưới 37 tuần (Q)
+
+Mô hình sử dụng **hồi quy logistic** với các biến số lâm sàng:
+
+> **logit(Q) = −1.031 + 0.0096 × Tuổi mẹ + β\_dân\_tộc + β\_BMI + β\_hút\_thuốc + β\_tiền\_sử + β\_CTC + β\_CL**
+
+Trong đó:
+
+| Biến số | Hệ số | Giải thích |
+|---------|-------|------------|
+| Hằng số | −1.031 | Intercept |
+| Tuổi mẹ | +0.0096 × age | Tuổi mẹ càng lớn, nguy cơ nhẹ tăng |
+| Dân tộc (African-Caribbean/Asian/Other) | +0.219 | Nguy cơ cao hơn nhóm Caucasian |
+| BMI | 200.6 × (1/BMI) − 87.5 × (1/BMI) × ln(BMI) | BMI thấp → nguy cơ tăng |
+| Hút thuốc | +0.371 | Tăng đáng kể nguy cơ |
+| Phẫu thuật CTC (LEEP/cone) | +0.332 | Cổ tử cung yếu hơn |
+| CL (Cervical Length) | 5.00 × exp(−0.05 × CL) | **Yếu tố quan trọng nhất** |
+
+**Tiền sử sản khoa:**
+
+| Tiền sử | Hệ số β |
+|---------|---------|
+| Con so (Nullipara) | 0 (tham chiếu) |
+| Tất cả lần sinh ≥ 37 tuần | −0.344 |
+| ≥1 lần sinh 33–36⁺⁶ tuần | +0.919 |
+| ≥1 lần sinh 24–32⁺⁶ tuần | +1.296 |
+| ≥1 lần sinh 16–23⁺⁶ tuần | +0.796 |
+
+Sau khi tính logit, xác suất **Q** được tính bằng công thức logistic:
+
+> **Q = 1 / (1 + e^(−logit))**
+
+### Bước 2: Xác suất có điều kiện P(PTB dưới X tuần khi PTB)
+
+Nếu biết thai phụ CÓ nguy cơ sinh non (Q), bước tiếp theo tính xác suất sinh non **trước một tuần cụ thể** (ví dụ: trước 32 tuần, trước 34 tuần).
+
+Sử dụng **đa thức bậc 2** với hệ số từ To et al. 2006 (Table 3):
+
+> **β(X) = constant + linear × (X − 32) + quadratic × (X − 32)²**
+
+| Hệ số | constant | linear | quadratic |
+|-------|----------|--------|-----------|
+| Intercept | −4.5572 | 0.476371 | 0.059861 |
+| Tuổi mẹ (age/30)^(−2) | 0.5254 | −0.007444 | −0.014886 |
+| CL exp(−0.05×CL) | 5.0147 | −0.281457 | −0.010549 |
+| Sinh 16–23 tuần | 0.5544 | −0.026112 | −0.030793 |
+| Sinh 24–32 tuần | 1.5015 | −0.044014 | −0.039841 |
+| Sinh 33–36 tuần | 0.1770 | 0.133579 | −0.017738 |
+| Tất cả đủ tháng | 0.2490 | 0.02056 | −0.026021 |
+
+### Bước 3: Kết hợp — Nguy cơ tuyệt đối
+
+> **P(sPTB dưới X tuần) = P(X khi PTB) × Q**
+
+Ví dụ: Q = 8% (nguy cơ sinh non dưới 37w) và P(dưới 32w khi PTB) = 30%:
+- Nguy cơ sinh non trước 32 tuần = 30% × 8% = **2.4%**
+
+---
+
+## Mô hình QUiPP-style — Tích hợp CL + fFN
+
+**QUiPP** (Quantitative Instrument for the Prediction of Preterm birth) được phát triển tại Kings College London, tích hợp:
+- **CL** (Cervical Length) — chiều dài cổ tử cung
+- **fFN** (fetal Fibronectin) — xét nghiệm sinh hóa
+- **Tuổi thai** hiện tại
+- **Triệu chứng** (có / không có cơn co)
+
+### Bảng nguy cơ theo CL
+
+| CL (mm) | Nguy cơ cơ bản 7 ngày |
+|---------|----------------------|
+| < 10 | ~35% |
+| 10–14 | ~20% |
+| 15–19 | ~12% |
+| 20–24 | ~6% |
+| 25–29 | ~3% |
+| ≥ 30 | ~0.5% |
+
+### Bảng nguy cơ theo fFN
+
+| fFN (ng/mL) | Nguy cơ cơ bản 7 ngày |
+|-------------|----------------------|
+| ≥ 500 | ~40% |
+| 200–499 | ~25% |
+| 50–199 | ~10% |
+| 10–49 | ~3% |
+| dưới 10 | ~0.3% |
+
+### Công thức kết hợp
+
+Khi có cả CL và fFN:
+
+> **Risk_7d = max(CL_risk, fFN_risk) × 0.7 + min(CL_risk, fFN_risk) × 0.3**
+
+Các hệ số điều chỉnh:
+- **Yếu tố nguy cơ** (tiền sử sinh non, PPROM): × 1.3
+- **Có triệu chứng** (cơn co tử cung): × 1.2
+- **Tuổi thai sớm** (< 28 tuần): × 1.1
+
+Nguy cơ 14 ngày và 28 ngày được ước lượng từ nguy cơ 7 ngày:
+- Risk_14d ≈ Risk_7d × 1.5
+- Risk_28d ≈ Risk_7d × 2.2
+
+---
+
+## Phân tầng nguy cơ 5 mức
+
+Hệ thống phân tầng tích hợp CL, fFN, và tiền sử để phân loại nguy cơ:
+
+| Mức | Nhãn | Tiêu chí chính | Hành động |
+|-----|------|----------------|-----------|
+| 🔴⚠️ **RẤT CAO** | Nhập viện | CL dưới 10mm HOẶC fFN ≥ 500 HOẶC (CL dưới 15 + fFN ≥ 200 + tiền sử dưới 32w) | Corticosteroid, tocolytic, chuyển tuyến |
+| 🔴 **CAO** | Theo dõi sát | CL dưới 15mm HOẶC fFN 200–499 HOẶC (CL dưới 25 + tiền sử dưới 32w) | Progesterone, cerclage cân nhắc, NICU sẵn sàng |
+| 🟠 **TRUNG BÌNH** | Tăng tần suất khám | CL 15–24mm HOẶC fFN 50–199 | Siêu âm CL 2 tuần/lần, progesterone |
+| 🟡 **THẤP** | Khám định kỳ | CL 25–29mm HOẶC fFN 10–49 | Theo dõi thường quy, dặn dò triệu chứng |
+| 🟢 **RẤT THẤP** | Yên tâm | CL ≥ 30mm VÀ fFN dưới 10 (hoặc không xét nghiệm) | Khám thai bình thường |
+
+---
+
+## Chiều dài cổ tử cung (CL) — Yếu tố dự đoán hàng đầu
+
+Chiều dài cổ tử cung (Cervical Length) đo bằng siêu âm đầu dò âm đạo là **yếu tố dự đoán sinh non mạnh nhất** đã được chứng minh.
+
+| CL (mm) | Nguy cơ tương đối | Ý nghĩa |
+|---------|-------------------|---------|
+| dưới 15 | Rất cao (RR ~10) | Cần can thiệp tích cực |
+| 15–25 | Tăng (RR ~4–6) | Cần theo dõi, cân nhắc progesterone |
+| 25–30 | Nhẹ tăng (RR ~2) | Theo dõi |
+| trên 30 | Bình thường | Yên tâm |
+
+---
+
+## Sử dụng công cụ dự đoán sinh non
+
+Tất cả mô hình trên đã được tích hợp vào **[Công cụ Dự Đoán Sinh Non](/cong-cu/du-doan-sinh-non)** của Phòng Khám An Sinh:
+
+- ✅ Mô hình FMF 2 bước (logistic regression đầy đủ)
+- ✅ Tích hợp QUiPP-style (CL + fFN)
+- ✅ Phân tầng nguy cơ 5 mức rõ ràng
+- ✅ Gợi ý lâm sàng theo từng mức nguy cơ
+- ✅ Prompt AI phân tích chi tiết cho bác sĩ
+
+> **💡 Lời khuyên từ bác sĩ:** Đo CL nên được thực hiện thường quy ở tuần 20–24 cho tất cả sản phụ, đặc biệt nếu có tiền sử sinh non. Phát hiện sớm = can thiệp kịp thời.
+
+---
+
+## Tài liệu tham khảo
+
+1. To MS, Skentou CA, Liao AW, et al. Cervical length and funneling at 23 weeks of gestation in the prediction of spontaneous early preterm delivery. *Ultrasound Obstet Gynecol* 2001;18:200–3.
+2. To MS, et al. Prediction of patient-specific risk of early preterm delivery using maternal history and sonographic measurement of cervical length: a population-based prospective study. *Ultrasound Obstet Gynecol* 2006;27:362–7.
+3. Watson HA, et al. The QUiPP app: a safe alternative to treatment for threatened preterm labour. *BJOG* 2017;124:e276–e283.
+4. Romero R, et al. Vaginal progesterone for preventing preterm birth and adverse perinatal outcomes in singleton gestations. *Am J Obstet Gynecol* 2018;218:S867.
+
+---
+
+**Cần tư vấn thêm về nguy cơ sinh non?** [Đặt lịch khám](https://phusanansinh.com/dat-lich-hen-kham.html) | Hotline: **0899 268 299**
+
+*Lưu ý: Công cụ hỗ trợ quyết định lâm sàng, KHÔNG thay thế phán đoán của bác sĩ điều trị.*

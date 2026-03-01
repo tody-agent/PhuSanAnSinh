@@ -564,15 +564,15 @@ import "../styles/global.css";
         /* ── Calculator Layout ── */
         .calc-layout {
             display: grid;
-            grid-template-columns: 400px 1fr;
+            grid-template-columns: 1fr;
             gap: var(--space-2xl);
-            align-items: start;
+            max-width: 680px;
+            margin: 0 auto;
         }
 
         /* ── Form Panel ── */
         .calc-card {
-            position: sticky;
-            top: 88px;
+            position: static;
         }
         .calc-title {
             display: flex;
@@ -1041,11 +1041,6 @@ import "../styles/global.css";
             }
             .tool-hero {
                 padding: var(--space-3xl) 0 var(--space-xl);
-            }
-        }
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .calc-layout {
-                grid-template-columns: 360px 1fr;
             }
         }
     </style>

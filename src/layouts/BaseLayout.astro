@@ -86,6 +86,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         sameAs: ["https://www.facebook.com/phongkhamansinh"],
       })}
     ></script>
+
+    <!-- Schema.org SiteNavigationElement -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        name: [
+          "Trang chủ",
+          "Dịch vụ",
+          "Công cụ thai kỳ",
+          "Kiến thức y khoa",
+          "Về chúng tôi",
+          "Liên hệ",
+        ],
+        url: [
+          "https://phusanansinh.com/",
+          "https://phusanansinh.com/sieu-am-5d",
+          "https://phusanansinh.com/tinh-ngay-rung-trung",
+          "https://phusanansinh.com/blog",
+          "https://phusanansinh.com/phong-kham-tu-son",
+          "https://phusanansinh.com/#lien-he",
+        ],
+      })}
+    ></script>
   </head>
   <body>
     <a href="#main-content" class="sr-only">Bỏ qua đến nội dung chính</a>
@@ -119,14 +144,246 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </div>
         </a>
 
-        <nav class="main-nav" aria-label="Điều hướng chính">
+        <nav class="main-nav" id="main-nav" aria-label="Điều hướng chính">
           <ul class="nav-list" role="list">
             <li><a href="/">Trang chủ</a></li>
-            <li><a href="/#dich-vu">Dịch vụ</a></li>
-            <li><a href="/kham-thai">Khám thai</a></li>
-            <li><a href="/#bac-si">Bác sĩ</a></li>
+
+            <!-- Dịch vụ Dropdown -->
+            <li class="nav-has-dropdown">
+              <button
+                class="nav-dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Dịch vụ
+                <svg
+                  class="dropdown-chevron"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="nav-dropdown" role="menu">
+                <div class="dropdown-grid dropdown-services">
+                  <a href="/sieu-am-5d" class="dropdown-item" role="menuitem">
+                    <span class="dropdown-icon">📷</span>
+                    <div>
+                      <strong>Siêu âm 5D</strong><span class="dropdown-desc"
+                        >Hình ảnh thai nhi sắc nét</span>
+                    </div>
+                  </a>
+                  <a href="/kham-thai" class="dropdown-item" role="menuitem">
+                    <span class="dropdown-icon">🤰</span>
+                    <div>
+                      <strong>Khám thai</strong><span class="dropdown-desc"
+                        >Theo dõi thai kỳ toàn diện</span>
+                    </div>
+                  </a>
+                  <a
+                    href="/kham-phu-khoa"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <span class="dropdown-icon">🩺</span>
+                    <div>
+                      <strong>Phụ khoa</strong><span class="dropdown-desc"
+                        >Khám & điều trị bệnh phụ khoa</span>
+                    </div>
+                  </a>
+                  <a
+                    href="/kham-nam-khoa"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <span class="dropdown-icon">👨‍⚕️</span>
+                    <div>
+                      <strong>Nam khoa</strong><span class="dropdown-desc"
+                        >Sức khỏe nam giới</span>
+                    </div>
+                  </a>
+                  <a
+                    href="/dieu-tri-vo-sinh"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <span class="dropdown-icon">💕</span>
+                    <div>
+                      <strong>Điều trị vô sinh</strong><span
+                        class="dropdown-desc">Hỗ trợ sinh sản hiện đại</span>
+                    </div>
+                  </a>
+                  <a
+                    href="/tranh-thai-an-toan"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <span class="dropdown-icon">🛡️</span>
+                    <div>
+                      <strong>Tránh thai</strong><span class="dropdown-desc"
+                        >Biện pháp an toàn, hiệu quả</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+            <!-- Công cụ Dropdown -->
+            <li class="nav-has-dropdown">
+              <button
+                class="nav-dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Công cụ
+                <svg
+                  class="dropdown-chevron"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="nav-dropdown nav-dropdown-mega" role="menu">
+                <div class="dropdown-mega-inner">
+                  <div class="dropdown-grid dropdown-tools">
+                    <a
+                      href="/tinh-ngay-rung-trung"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">🗓️</span>
+                      <div class="tool-info">
+                        <strong>Tính ngày rụng trứng</strong>
+                        <span>Dự đoán ngày rụng trứng & cửa sổ thụ thai</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/tinh-ngay-du-sinh"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">👶</span>
+                      <div class="tool-info">
+                        <strong>Tính ngày dự sinh</strong>
+                        <span>Tính EDD theo công thức Naegele</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/can-nang-thai-nhi"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">⚖️</span>
+                      <div class="tool-info">
+                        <strong>Cân nặng thai nhi</strong>
+                        <span>Tra bảng chuẩn WHO theo tuần</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/du-doan-sinh-non"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">⚠️</span>
+                      <div class="tool-info">
+                        <strong>Dự đoán sinh non</strong>
+                        <span>Đánh giá nguy cơ QUiPP + FMF</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/sang-loc-tien-san-giat"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">🩺</span>
+                      <div class="tool-info">
+                        <strong>Sàng lọc tiền sản giật</strong>
+                        <span>ACOG/USPSTF 2021 + NICE NG133</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dropdown-promo">
+                    <span class="promo-label">📖 Bài viết liên quan</span>
+                    <a href="/blog" class="promo-link">Mang thai & Sinh con →</a
+                    >
+                    <a href="/blog" class="promo-link">Sức khỏe sinh sản →</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
             <li><a href="/blog">Kiến thức</a></li>
-            <li><a href="/tinh-ngay-rung-trung">Công cụ</a></li>
+
+            <!-- Về chúng tôi Dropdown -->
+            <li class="nav-has-dropdown">
+              <button
+                class="nav-dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Về chúng tôi
+                <svg
+                  class="dropdown-chevron"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="nav-dropdown" role="menu">
+                <div class="dropdown-grid dropdown-about">
+                  <a href="/#bac-si" class="dropdown-item" role="menuitem">
+                    <span class="dropdown-icon">👨‍⚕️</span>
+                    <div>
+                      <strong>Đội ngũ bác sĩ</strong><span class="dropdown-desc"
+                        >20+ năm kinh nghiệm</span>
+                    </div>
+                  </a>
+                  <a
+                    href="/phong-kham-tu-son"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <span class="dropdown-icon">🏥</span>
+                    <div>
+                      <strong>Phòng khám Từ Sơn</strong><span
+                        class="dropdown-desc">416 Minh Khai, Đồng Nguyên</span>
+                    </div>
+                  </a>
+                  <a
+                    href="/tu-van-truc-tuyen"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <span class="dropdown-icon">💬</span>
+                    <div>
+                      <strong>Tư vấn trực tuyến</strong><span
+                        class="dropdown-desc">Hỏi đáp bác sĩ miễn phí</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+
             <li><a href="/#lien-he">Liên hệ</a></li>
           </ul>
         </nav>
@@ -228,17 +485,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </div>
 
           <div class="footer-col">
-            <h4>Kiến thức</h4>
+            <h4>Công cụ</h4>
             <ul role="list">
-              <li><a href="/blog">Mang thai & Sinh con</a></li>
-              <li><a href="/blog">Bệnh phụ khoa</a></li>
-              <li><a href="/blog">Điều trị vô sinh</a></li>
               <li><a href="/tinh-ngay-rung-trung">Tính ngày rụng trứng</a></li>
-              <li><a href="/tu-van-truc-tuyen">Tư vấn trực tuyến</a></li>
-              <li><a href="/can-nang-thai-nhi">Cân nặng thai nhi</a></li>
               <li>
                 <a href="/cong-cu/tinh-ngay-du-sinh">Tính ngày dự sinh</a>
               </li>
+              <li><a href="/can-nang-thai-nhi">Cân nặng thai nhi</a></li>
+              <li><a href="/cong-cu/du-doan-sinh-non">Dự đoán sinh non</a></li>
+              <li>
+                <a href="/cong-cu/sang-loc-tien-san-giat"
+                  >Sàng lọc tiền sản giật</a>
+              </li>
+              <li><a href="/tu-van-truc-tuyen">Tư vấn trực tuyến</a></li>
             </ul>
           </div>
 
@@ -468,21 +727,249 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .nav-list {
         display: flex;
         list-style: none;
-        gap: var(--space-xl);
+        gap: var(--space-xs);
+        align-items: center;
       }
 
-      .nav-list a {
+      .nav-list > li > a {
         font-size: 0.9375rem;
         font-weight: 500;
         color: var(--text-primary);
         transition: color var(--transition-fast);
-        padding: var(--space-sm) 0;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-sm);
       }
 
-      .nav-list a:hover {
+      .nav-list > li > a:hover {
+        color: var(--primary);
+        background: var(--primary-light);
+      }
+
+      /* ── Dropdown Trigger ── */
+      .nav-dropdown-trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-family: var(--font-body);
+        transition: all var(--transition-fast);
+      }
+
+      .nav-dropdown-trigger:hover,
+      .nav-has-dropdown:hover .nav-dropdown-trigger,
+      .nav-dropdown-trigger[aria-expanded="true"] {
+        color: var(--primary);
+        background: var(--primary-light);
+      }
+
+      .dropdown-chevron {
+        transition: transform var(--transition-fast);
+        flex-shrink: 0;
+      }
+
+      .nav-dropdown-trigger[aria-expanded="true"] .dropdown-chevron {
+        transform: rotate(180deg);
+      }
+
+      /* ── Dropdown Panel ── */
+      .nav-has-dropdown {
+        position: relative;
+      }
+
+      .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(8px);
+        background: #fff;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12),
+          0 4px 16px rgba(0, 0, 0, 0.06);
+        border: 1px solid var(--border-light);
+        padding: var(--space-md);
+        min-width: 280px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+        z-index: 200;
+      }
+
+      .nav-has-dropdown:hover > .nav-dropdown,
+      .nav-dropdown-trigger[aria-expanded="true"] + .nav-dropdown {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* invisible bridge to prevent gap hover flicker */
+      .nav-has-dropdown::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 12px;
+      }
+
+      /* ── Dropdown Items ── */
+      .dropdown-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: 0.625rem 0.75rem;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+      }
+
+      .dropdown-item strong {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+
+      .dropdown-desc {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 1px;
+      }
+
+      .dropdown-item:hover .dropdown-desc {
         color: var(--primary);
       }
 
+      .dropdown-icon {
+        font-size: 1.25rem;
+        width: 2rem;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      /* ── Mega Dropdown (Công cụ) ── */
+      .nav-dropdown-mega {
+        min-width: 480px;
+        padding: 0;
+      }
+
+      .dropdown-mega-inner {
+        display: flex;
+      }
+
+      .dropdown-tools {
+        flex: 1;
+        padding: var(--space-md);
+      }
+
+      .dropdown-tool-card {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        padding: 0.75rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+      }
+
+      .dropdown-tool-card:hover {
+        background: var(--primary-light);
+      }
+
+      .tool-icon {
+        font-size: 1.5rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        background: var(--surface-alt);
+        border-radius: var(--radius-sm);
+      }
+
+      .dropdown-tool-card:hover .tool-icon {
+        background: #fff;
+      }
+
+      .tool-info strong {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .tool-info span {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 2px;
+        line-height: 1.3;
+      }
+
+      .dropdown-tool-card:hover .tool-info strong {
+        color: var(--primary-dark);
+      }
+
+      .dropdown-tool-card:hover .tool-info span {
+        color: var(--primary);
+      }
+
+      /* ── Dropdown Promo Sidebar ── */
+      .dropdown-promo {
+        width: 180px;
+        background: var(--surface-alt);
+        border-left: 1px solid var(--border-light);
+        padding: var(--space-md);
+        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .promo-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .promo-link {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--primary);
+        text-decoration: none;
+        padding: 0.375rem 0;
+        transition: color var(--transition-fast);
+      }
+
+      .promo-link:hover {
+        color: var(--accent);
+      }
+
+      /* ── Header Actions ── */
       .header-actions {
         display: flex;
         align-items: center;
@@ -653,16 +1140,109 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       @media (max-width: 768px) {
         .main-nav {
           display: none;
+          position: absolute;
+          top: 72px;
+          left: 0;
+          right: 0;
+          background: #fff;
+          border-bottom: 1px solid var(--border);
+          z-index: 99;
+          box-shadow: var(--shadow-lg);
         }
+
+        .main-nav.is-open {
+          display: block;
+        }
+
+        .nav-list {
+          flex-direction: column;
+          gap: 0;
+          padding: var(--space-sm) 0;
+        }
+
+        .nav-list > li > a {
+          display: block;
+          padding: 0.75rem var(--space-lg);
+          border-radius: 0;
+        }
+
+        .nav-has-dropdown {
+          position: static;
+        }
+
+        .nav-dropdown-trigger {
+          display: flex;
+          width: 100%;
+          padding: 0.75rem var(--space-lg);
+          border-radius: 0;
+          justify-content: space-between;
+        }
+
+        .nav-dropdown {
+          position: static;
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          box-shadow: none;
+          border: none;
+          border-radius: 0;
+          min-width: auto;
+          padding: 0;
+          display: none;
+          background: var(--surface-alt);
+        }
+
+        .nav-dropdown.is-open {
+          display: block;
+        }
+
+        .nav-dropdown-mega {
+          min-width: auto;
+        }
+
+        .dropdown-mega-inner {
+          flex-direction: column;
+        }
+
+        .dropdown-promo {
+          width: auto;
+          border-left: none;
+          border-top: 1px solid var(--border-light);
+          border-radius: 0;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .promo-label {
+          width: 100%;
+        }
+
+        .dropdown-tools {
+          padding: var(--space-sm) var(--space-md);
+        }
+
+        .dropdown-item,
+        .dropdown-tool-card {
+          padding-left: var(--space-lg);
+        }
+
+        .nav-has-dropdown::after {
+          display: none;
+        }
+
         .header-phone {
           display: none;
         }
+
         .mobile-toggle {
           display: flex;
         }
+
         .sticky-cta {
           display: flex;
         }
+
         body {
           padding-bottom: 64px;
         }
@@ -683,35 +1263,87 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         .footer-grid {
           grid-template-columns: repeat(2, 1fr);
         }
+
+        .nav-dropdown-mega {
+          min-width: 400px;
+        }
       }
     </style>
 
     <script>
       // Mobile menu toggle
       const toggle = document.getElementById("mobile-toggle");
-      const nav = document.querySelector(".main-nav");
+      const nav = document.getElementById("main-nav");
       if (toggle && nav) {
         toggle.addEventListener("click", () => {
           const isOpen = toggle.getAttribute("aria-expanded") === "true";
           toggle.setAttribute("aria-expanded", String(!isOpen));
-          nav.style.display = isOpen ? "none" : "flex";
-          if (!isOpen) {
-            (nav as HTMLElement).style.position = "absolute";
-            (nav as HTMLElement).style.top = "72px";
-            (nav as HTMLElement).style.left = "0";
-            (nav as HTMLElement).style.right = "0";
-            (nav as HTMLElement).style.background = "#fff";
-            (nav as HTMLElement).style.padding = "1rem";
-            (nav as HTMLElement).style.borderBottom = "1px solid var(--border)";
-            (nav as HTMLElement).style.zIndex = "99";
-            const ul = nav.querySelector(".nav-list") as HTMLElement;
-            if (ul) {
-              ul.style.flexDirection = "column";
-              ul.style.gap = "0.5rem";
-            }
+          nav.classList.toggle("is-open", !isOpen);
+          // Close all nested dropdowns when closing mobile menu
+          if (isOpen) {
+            nav
+              .querySelectorAll(".nav-dropdown.is-open")
+              .forEach((d) => d.classList.remove("is-open"));
+            nav
+              .querySelectorAll('.nav-dropdown-trigger[aria-expanded="true"]')
+              .forEach((t) => t.setAttribute("aria-expanded", "false"));
           }
         });
       }
+
+      // Dropdown triggers (mobile accordion + desktop keyboard)
+      document.querySelectorAll(".nav-dropdown-trigger").forEach((trigger) => {
+        trigger.addEventListener("click", (e) => {
+          const parent = (trigger as HTMLElement).closest(".nav-has-dropdown");
+          const dropdown = parent?.querySelector(".nav-dropdown");
+          if (!dropdown) return;
+
+          const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+
+          // On mobile, close siblings first
+          if (window.innerWidth <= 768) {
+            document.querySelectorAll(".nav-dropdown-trigger").forEach((t) => {
+              if (t !== trigger) {
+                t.setAttribute("aria-expanded", "false");
+                t.closest(".nav-has-dropdown")
+                  ?.querySelector(".nav-dropdown")
+                  ?.classList.remove("is-open");
+              }
+            });
+          }
+
+          trigger.setAttribute("aria-expanded", String(!isExpanded));
+          dropdown.classList.toggle("is-open", !isExpanded);
+        });
+      });
+
+      // Close dropdowns on outside click
+      document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        if (
+          !target.closest(".nav-has-dropdown") &&
+          !target.closest(".mobile-toggle")
+        ) {
+          document.querySelectorAll(".nav-dropdown-trigger").forEach((t) => {
+            t.setAttribute("aria-expanded", "false");
+          });
+          document.querySelectorAll(".nav-dropdown.is-open").forEach((d) => {
+            d.classList.remove("is-open");
+          });
+        }
+      });
+
+      // Keyboard: Escape closes dropdown
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.querySelectorAll(".nav-dropdown-trigger").forEach((t) => {
+            t.setAttribute("aria-expanded", "false");
+          });
+          document.querySelectorAll(".nav-dropdown.is-open").forEach((d) => {
+            d.classList.remove("is-open");
+          });
+        }
+      });
 
       // Header scroll effect
       const header = document.getElementById("site-header");

@@ -646,13 +646,13 @@ const description =
         }
         .calc-grid {
             display: grid;
-            grid-template-columns: 420px 1fr;
+            grid-template-columns: 1fr;
             gap: var(--space-2xl);
-            align-items: start;
+            max-width: 680px;
+            margin: 0 auto;
         }
         .calc-input-panel {
-            position: sticky;
-            top: 88px;
+            position: static;
         }
         .calc-panel-title {
             display: flex;
