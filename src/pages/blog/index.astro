@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const categoryMap: Record<string, string> = {
+  'mang-thai': 'Mang Thai & Sinh Con',
+  'phu-khoa': 'Bệnh Phụ Khoa',
+  'vo-sinh': 'Điều Trị Vô Sinh',
+  'nam-khoa': 'Nam Khoa',
+  'suc-khoe-sinh-san': 'Sức Khỏe Sinh Sản',
+  'local-seo': 'Phòng Khám',
+};
+
+const categories = [...new Set(posts.map(p => p.data.category))];
+---
+
+<BaseLayout title="Kiến Thức Y Khoa | Phòng Khám An Sinh" description="Cập nhật kiến thức sức khỏe sinh sản, mang thai, phụ khoa, nam khoa từ bác sĩ chuyên khoa. Phòng khám An Sinh — Từ Sơn, Bắc Ninh.">
+
+<section class="section" id="blog-listing">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Kiến thức y khoa</span>
+      <h1>Bài viết từ bác sĩ chuyên khoa</h1>
+      <p>Cập nhật kiến thức sức khỏe sinh sản, mang thai, phụ khoa — từ nguồn uy tín.</p>
+    </div>
+
+    {categories.length > 1 && (
+      <nav class="blog-categories" aria-label="Danh mục bài viết">
+        <a href="/blog" class="cat-tag active">Tất cả</a>
+        {categories.map(cat => (
+          <a href={`/blog/danh-muc/${cat}`} class="cat-tag">{categoryMap[cat] || cat}</a>
+        ))}
+      </nav>
+    )}
+
+    {posts.length === 0 ? (
+      <div class="text-center" style="padding: var(--space-4xl) 0;">
+        <p>Bài viết đang được cập nhật. Vui lòng quay lại sau!</p>
+      </div>
+    ) : (
+      <div class="grid-3 blog-grid">
+        {posts.map(post => (
+          <a href={`/blog/${post.id.replace(/\.mdx?$/, '')}`} class="card blog-card" id={`post-${post.id.replace(/\.mdx?$/, '')}`}>
+            {post.data.heroImage && (
+              <img src={post.data.heroImage} alt={post.data.title} class="blog-card-img" loading="lazy" />
+            )}
+            <div class="blog-card-body">
+              <span class="blog-card-cat">{categoryMap[post.data.category] || post.data.category}</span>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+              <div class="blog-card-meta">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {new Intl.DateTimeFormat('vi-VN', { year: 'numeric', month: 'short', day: 'numeric' }).format(post.data.pubDate)}
+                </time>
+                {post.data.readingTime && <span>{post.data.readingTime} phút đọc</span>}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+</BaseLayout>
+
+<style>
+  .blog-categories {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .cat-tag {
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    min-height: 36px;
+  }
+
+  .cat-tag:hover, .cat-tag.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .blog-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .blog-card-body {
+    padding: var(--space-xl);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-card-cat {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  .blog-card p {
+    font-size: 0.875rem;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-card-meta {
+    display: flex;
+    gap: var(--space-md);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-light);
+  }
+</style>

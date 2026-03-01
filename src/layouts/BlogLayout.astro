@@ -1,0 +1,348 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  category: string;
+  tags: string[];
+  author: string;
+  readingTime?: number;
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  category,
+  tags,
+  author,
+  readingTime,
+} = Astro.props;
+
+const categoryMap: Record<string, string> = {
+  "mang-thai": "Mang Thai & Sinh Con",
+  "phu-khoa": "Bệnh Phụ Khoa",
+  "vo-sinh": "Điều Trị Vô Sinh",
+  "nam-khoa": "Nam Khoa",
+  "suc-khoe-sinh-san": "Sức Khỏe Sinh Sản",
+  "local-seo": "Phòng Khám",
+};
+
+const formattedDate = new Intl.DateTimeFormat("vi-VN", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+}).format(pubDate);
+const formattedUpdate = updatedDate
+  ? new Intl.DateTimeFormat("vi-VN", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(updatedDate)
+  : null;
+---
+
+<BaseLayout title={`${title} | Phòng Khám An Sinh`} description={description}>
+  <article
+    class="article-page"
+    itemscope
+    itemtype="https://schema.org/MedicalWebPage"
+  >
+    <header class="article-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/blog">Kiến thức</a></li>
+            <li aria-current="page">{title}</li>
+          </ol>
+        </nav>
+        <span class="article-category">{categoryMap[category] || category}</span
+        >
+        <h1 itemprop="name">{title}</h1>
+        <div class="article-meta">
+          <span itemprop="author">{author}</span>
+          <time datetime={pubDate.toISOString()} itemprop="datePublished"
+            >{formattedDate}</time
+          >
+          {readingTime && <span>{readingTime} phút đọc</span>}
+        </div>
+        {
+          heroImage && (
+            <img
+              src={heroImage}
+              alt={title}
+              class="article-hero-img"
+              itemprop="image"
+              loading="eager"
+            />
+          )
+        }
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="article-layout">
+        <div class="article-content prose" itemprop="mainContentOfPage">
+          <slot />
+        </div>
+        <aside class="article-sidebar">
+          <div class="sidebar-cta card">
+            <h3>Cần tư vấn?</h3>
+            <p>Bác sĩ chuyên khoa sẵn sàng giải đáp thắc mắc của bạn.</p>
+            <a
+              href="https://phusanansinh.com/dat-lich-hen-kham.html"
+              class="btn btn-accent btn-sm"
+              id="article-sidebar-cta">Hẹn Khám</a
+            >
+            <a
+              href="tel:0899268299"
+              class="btn btn-outline btn-sm mt-1"
+              id="article-sidebar-call">Gọi: 0899 268 299</a
+            >
+          </div>
+          {
+            tags.length > 0 && (
+              <div class="sidebar-tags">
+                <h4>Tags</h4>
+                <div class="tag-list">
+                  {tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            )
+          }
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <!-- Article Schema -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      name: title,
+      description: description,
+      datePublished: pubDate.toISOString(),
+      ...(updatedDate && { dateModified: updatedDate.toISOString() }),
+      author: {
+        "@type": "Person",
+        name: author,
+      },
+      publisher: {
+        "@type": "MedicalClinic",
+        name: "Phòng Khám An Sinh",
+        url: "https://phusanansinh.com",
+      },
+    })}
+  ></script>
+</BaseLayout>
+
+<style>
+  .article-page {
+    padding-bottom: var(--space-4xl);
+  }
+
+  .article-header {
+    background: var(--surface-alt);
+    padding: var(--space-3xl) 0;
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    gap: var(--space-sm);
+    list-style: none;
+    font-size: 0.875rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumb li + li::before {
+    content: "›";
+    margin-right: var(--space-sm);
+    color: var(--text-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb [aria-current] {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .article-category {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .article-header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-md);
+    max-width: 800px;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: var(--space-lg);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+  }
+
+  .article-hero-img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-3xl);
+    padding-top: var(--space-3xl);
+    align-items: start;
+  }
+
+  /* ── Prose ── */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.5rem;
+    margin-top: var(--space-3xl);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--primary-light);
+  }
+
+  .prose :global(h3) {
+    font-size: 1.25rem;
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-lg);
+    color: var(--text-secondary);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-xl);
+  }
+
+  .prose :global(li) {
+    margin-bottom: var(--space-sm);
+  }
+
+  .prose :global(blockquote) {
+    border-left: 4px solid var(--primary);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--primary-light);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: var(--space-xl) 0;
+  }
+
+  .prose :global(blockquote p) {
+    color: var(--primary-dark);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .prose :global(img) {
+    border-radius: var(--radius-md);
+    margin: var(--space-xl) 0;
+  }
+
+  .prose :global(strong) {
+    color: var(--text-primary);
+  }
+
+  .prose :global(a) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar-cta {
+    position: sticky;
+    top: 80px;
+    text-align: center;
+  }
+
+  .sidebar-cta h3 {
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .sidebar-cta p {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .sidebar-cta .btn {
+    width: 100%;
+  }
+
+  .sidebar-tags {
+    margin-top: var(--space-xl);
+  }
+
+  .sidebar-tags h4 {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag {
+    background: var(--surface-alt);
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-light);
+  }
+
+  @media (max-width: 768px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar-cta {
+      position: static;
+    }
+  }
+</style>

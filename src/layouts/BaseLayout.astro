@@ -1,0 +1,724 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "Phòng khám sản phụ khoa uy tín tại Từ Sơn, Bắc Ninh. Siêu âm 5D, khám thai, điều trị phụ khoa, nam khoa, vô sinh. Bác sĩ chuyên khoa 20+ năm kinh nghiệm. Đặt lịch ngay!",
+  ogImage = "/og-image.jpg",
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Preconnect fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <title>{title}</title>
+
+    <!-- Schema.org MedicalClinic -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        name: "Phòng Khám An Sinh",
+        alternateName: "Sản Phụ Khoa An Sinh",
+        url: "https://phusanansinh.com",
+        telephone: "+84899268299",
+        email: "phusanansinh.com@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "416 Minh Khai, Đồng Nguyên",
+          addressLocality: "Từ Sơn",
+          addressRegion: "Bắc Ninh",
+          addressCountry: "VN",
+        },
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+            ],
+            opens: "17:00",
+            closes: "22:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Sunday",
+            opens: "08:00",
+            closes: "22:00",
+          },
+        ],
+        medicalSpecialty: [
+          "Obstetrics",
+          "Gynecology",
+          "Andrology",
+          "ReproductiveEndocrinology",
+        ],
+        sameAs: ["https://www.facebook.com/phongkhamansinh"],
+      })}
+    ></script>
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only">Bỏ qua đến nội dung chính</a>
+
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a href="/" class="logo" aria-label="Phòng Khám An Sinh - Trang chủ">
+          <svg
+            class="logo-icon"
+            viewBox="0 0 40 40"
+            width="40"
+            height="40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="20" cy="20" r="20" fill="var(--primary)"></circle>
+            <path
+              d="M20 8c-1.5 0-2.8.6-3.8 1.6-2.2 2.2-5.2 8.4-5.2 12.4 0 5 4 9 9 9s9-4 9-9c0-4-3-10.2-5.2-12.4A5.3 5.3 0 0020 8z"
+              fill="white"
+              opacity="0.9"></path>
+            <path
+              d="M17 22h6M20 19v6"
+              stroke="var(--primary)"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+          <div class="logo-text">
+            <span class="logo-brand">An Sinh</span>
+            <span class="logo-sub">Sản Phụ Khoa</span>
+          </div>
+        </a>
+
+        <nav class="main-nav" aria-label="Điều hướng chính">
+          <ul class="nav-list" role="list">
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/#dich-vu">Dịch vụ</a></li>
+            <li><a href="/kham-thai">Khám thai</a></li>
+            <li><a href="/#bac-si">Bác sĩ</a></li>
+            <li><a href="/blog">Kiến thức</a></li>
+            <li><a href="/#lien-he">Liên hệ</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a
+            href="tel:0899268299"
+            class="header-phone"
+            aria-label="Gọi hotline 0899 268 299"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+              ></path>
+            </svg>
+            <span>0899 268 299</span>
+          </a>
+          <a
+            href="https://phusanansinh.com/dat-lich-hen-kham.html"
+            class="btn btn-primary btn-sm"
+            id="header-cta"
+          >
+            Hẹn Khám
+          </a>
+        </div>
+
+        <button
+          class="mobile-toggle"
+          aria-label="Mở menu"
+          aria-expanded="false"
+          id="mobile-toggle"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo" aria-label="Phòng Khám An Sinh">
+              <svg
+                class="logo-icon"
+                viewBox="0 0 40 40"
+                width="36"
+                height="36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="20" cy="20" r="20" fill="var(--primary)"></circle>
+                <path
+                  d="M20 8c-1.5 0-2.8.6-3.8 1.6-2.2 2.2-5.2 8.4-5.2 12.4 0 5 4 9 9 9s9-4 9-9c0-4-3-10.2-5.2-12.4A5.3 5.3 0 0020 8z"
+                  fill="white"
+                  opacity="0.9"></path>
+                <path
+                  d="M17 22h6M20 19v6"
+                  stroke="var(--primary)"
+                  stroke-width="2"
+                  stroke-linecap="round"></path>
+              </svg>
+              <div class="logo-text">
+                <span class="logo-brand">An Sinh</span>
+                <span class="logo-sub">Sản Phụ Khoa</span>
+              </div>
+            </a>
+            <p class="footer-desc">
+              Phòng khám sản phụ khoa uy tín tại Từ Sơn, Bắc Ninh. Đồng hành
+              cùng bạn trên hành trình chăm sóc sức khỏe sinh sản.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Dịch vụ</h4>
+            <ul role="list">
+              <li><a href="/sieu-am-5d">Siêu âm 5D</a></li>
+              <li><a href="/kham-thai">Khám thai</a></li>
+              <li><a href="/kham-phu-khoa">Phụ khoa</a></li>
+              <li><a href="/kham-nam-khoa">Nam khoa</a></li>
+              <li><a href="/dieu-tri-vo-sinh">Điều trị vô sinh</a></li>
+              <li><a href="/tranh-thai-an-toan">Tránh thai</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Kiến thức</h4>
+            <ul role="list">
+              <li><a href="/blog">Mang thai & Sinh con</a></li>
+              <li><a href="/blog">Bệnh phụ khoa</a></li>
+              <li><a href="/blog">Điều trị vô sinh</a></li>
+              <li><a href="/tu-van-truc-tuyen">Tư vấn trực tuyến</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Liên hệ</h4>
+            <ul role="list" class="footer-contact">
+              <li>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                  ></path><circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                416 Minh Khai, Đồng Nguyên, Từ Sơn, Bắc Ninh
+              </li>
+              <li>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  ></path>
+                </svg>
+                <a href="tel:0899268299">0899 268 299</a>
+              </li>
+              <li>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><circle cx="12" cy="12" r="10"></circle><polyline
+                    points="12 6 12 12 16 14"></polyline>
+                </svg>
+                T2-T7: 17h-22h · CN: 8h-22h
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2015 - {new Date().getFullYear()} Sản Phụ Khoa An Sinh. All rights
+            reserved.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/phongkhamansinh"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                ><path
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://zalo.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Zalo"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                ><circle cx="12" cy="12" r="10"></circle><text
+                  x="12"
+                  y="16"
+                  text-anchor="middle"
+                  font-size="10"
+                  fill="white"
+                  font-weight="bold">Z</text
+                >
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky CTA Bar (Mobile) -->
+    <div class="sticky-cta" role="complementary" aria-label="Hành động nhanh">
+      <a
+        href="tel:0869935808"
+        class="sticky-cta-item"
+        aria-label="Bác sĩ tư vấn"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle
+            cx="12"
+            cy="7"
+            r="4"></circle>
+        </svg>
+        <span>BS Tư vấn</span>
+      </a>
+      <a
+        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+        class="sticky-cta-item sticky-cta-primary"
+        id="sticky-cta-booking"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line
+            x1="16"
+            y1="2"
+            x2="16"
+            y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line
+            x1="3"
+            y1="10"
+            x2="21"
+            y2="10"></line>
+        </svg>
+        <span>Đặt Lịch</span>
+      </a>
+      <a href="tel:0899268299" class="sticky-cta-item" aria-label="Gọi hotline">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          ><path
+            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+          ></path>
+        </svg>
+        <span>Hotline</span>
+      </a>
+    </div>
+
+    <style>
+      /* ── Header ── */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: var(--space-lg);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .logo-brand {
+        font-size: 1.125rem;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .logo-sub {
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .nav-list {
+        display: flex;
+        list-style: none;
+        gap: var(--space-xl);
+      }
+
+      .nav-list a {
+        font-size: 0.9375rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        transition: color var(--transition-fast);
+        padding: var(--space-sm) 0;
+      }
+
+      .nav-list a:hover {
+        color: var(--primary);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+      }
+
+      .header-phone {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        font-weight: 600;
+        color: var(--primary);
+        font-size: 0.9375rem;
+      }
+
+      .mobile-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        min-height: 44px;
+        min-width: 44px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-toggle span {
+        width: 22px;
+        height: 2px;
+        background: var(--text-primary);
+        border-radius: 2px;
+        transition: var(--transition-fast);
+      }
+
+      /* ── Footer ── */
+      .site-footer {
+        background: var(--text-primary);
+        color: #c9cdd4;
+        padding: var(--space-4xl) 0 var(--space-xl);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr repeat(3, 1fr);
+        gap: var(--space-3xl);
+      }
+
+      .site-footer h4 {
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: var(--space-lg);
+      }
+
+      .footer-desc {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        margin-top: var(--space-md);
+      }
+
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .footer-col a {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        transition: color var(--transition-fast);
+      }
+
+      .footer-col a:hover {
+        color: #fff;
+      }
+
+      .footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        font-size: 0.875rem;
+        color: #9ca3af;
+      }
+
+      .footer-contact svg {
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .footer-contact a {
+        color: #9ca3af;
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: var(--space-3xl);
+        padding-top: var(--space-xl);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.8125rem;
+        color: #6b7280;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: var(--space-md);
+      }
+
+      .footer-social a {
+        color: #6b7280;
+        transition: color var(--transition-fast);
+      }
+
+      .footer-social a:hover {
+        color: var(--primary);
+      }
+
+      /* ── Sticky CTA Bar ── */
+      .sticky-cta {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        background: var(--text-primary);
+        padding: var(--space-sm) var(--space-md);
+        justify-content: space-around;
+      }
+
+      .sticky-cta-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        color: #c9cdd4;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        text-decoration: none;
+        min-height: 44px;
+        min-width: 44px;
+        justify-content: center;
+        padding: var(--space-xs);
+        transition: color var(--transition-fast);
+      }
+
+      .sticky-cta-item:hover {
+        color: #fff;
+      }
+
+      .sticky-cta-primary {
+        color: #fff;
+        background: var(--accent);
+        border-radius: var(--radius-md);
+        padding: var(--space-xs) var(--space-lg);
+      }
+
+      .sticky-cta-primary:hover {
+        background: var(--accent-dark);
+        color: #fff;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 768px) {
+        .main-nav {
+          display: none;
+        }
+        .header-phone {
+          display: none;
+        }
+        .mobile-toggle {
+          display: flex;
+        }
+        .sticky-cta {
+          display: flex;
+        }
+        body {
+          padding-bottom: 64px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: var(--space-xl);
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          gap: var(--space-md);
+          text-align: center;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+
+    <script>
+      // Mobile menu toggle
+      const toggle = document.getElementById("mobile-toggle");
+      const nav = document.querySelector(".main-nav");
+      if (toggle && nav) {
+        toggle.addEventListener("click", () => {
+          const isOpen = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!isOpen));
+          nav.style.display = isOpen ? "none" : "flex";
+          if (!isOpen) {
+            (nav as HTMLElement).style.position = "absolute";
+            (nav as HTMLElement).style.top = "72px";
+            (nav as HTMLElement).style.left = "0";
+            (nav as HTMLElement).style.right = "0";
+            (nav as HTMLElement).style.background = "#fff";
+            (nav as HTMLElement).style.padding = "1rem";
+            (nav as HTMLElement).style.borderBottom = "1px solid var(--border)";
+            (nav as HTMLElement).style.zIndex = "99";
+            const ul = nav.querySelector(".nav-list") as HTMLElement;
+            if (ul) {
+              ul.style.flexDirection = "column";
+              ul.style.gap = "0.5rem";
+            }
+          }
+        });
+      }
+
+      // Header scroll effect
+      const header = document.getElementById("site-header");
+      if (header) {
+        window.addEventListener(
+          "scroll",
+          () => {
+            header.style.boxShadow =
+              window.scrollY > 10 ? "var(--shadow-sm)" : "none";
+          },
+          { passive: true }
+        );
+      }
+    </script>
+  </body>
+</html>

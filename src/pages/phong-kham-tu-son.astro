@@ -1,0 +1,620 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import "../styles/landing.css";
+
+const pageTitle =
+    "Phòng Khám An Sinh — Sản Phụ Khoa Uy Tín #1 Tại Từ Sơn, Bắc Ninh";
+const pageDescription =
+    "Phòng khám sản phụ khoa uy tín nhất Từ Sơn, Bắc Ninh. Đánh giá 5.0★ Google Maps. Siêu âm 5D, khám thai, phụ khoa, nam khoa, vô sinh. 416 Minh Khai, Đồng Nguyên.";
+
+const faqs = [
+    {
+        q: "Phòng khám ở đâu?",
+        a: "Phòng Khám An Sinh tọa lạc tại 416 Minh Khai, Đồng Nguyên, Từ Sơn, Bắc Ninh. Gần các khu công nghiệp, giao thông thuận tiện, có chỗ để xe rộng rãi.",
+    },
+    {
+        q: "Giờ khám của phòng khám?",
+        a: "Thứ 2 - Thứ 7: 17h00 - 22h00. Chủ nhật: 8h00 - 22h00. Phù hợp cho người đi làm, có thể khám buổi tối hoặc cuối tuần.",
+    },
+    {
+        q: "Phòng khám có nhận bảo hiểm y tế không?",
+        a: "Hiện tại phòng khám chưa liên kết bảo hiểm y tế nhà nước, nhưng bảng giá niêm yết công khai, rất hợp lý và minh bạch.",
+    },
+    {
+        q: "Những dịch vụ nào tại phòng khám?",
+        a: "An Sinh cung cấp 6 chuyên khoa: Siêu âm thai 5D, Khám thai định kỳ, Khám phụ khoa, Khám nam khoa, Điều trị vô sinh hiếm muộn, và Tránh thai an toàn.",
+    },
+    {
+        q: "Bác sĩ có chuyên môn gì?",
+        a: "Bác sĩ tại An Sinh có trên 20 năm kinh nghiệm chuyên khoa sản phụ khoa, thạc sĩ y khoa, thường xuyên tham dự hội thảo quốc tế, liên kết với bệnh viện tuyến trên.",
+    },
+    {
+        q: "Có cần đặt lịch trước không?",
+        a: "Nên đặt lịch trước qua hotline 0899 268 299 hoặc online để được phục vụ nhanh nhất, không cần chờ đợi lâu.",
+    },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <nav class="landing-breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <a itemprop="item" href="/"
+                        ><span itemprop="name">Trang chủ</span>
+                    </a><meta itemprop="position" content="1" />
+                </li><li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <span itemprop="name">Phòng khám Từ Sơn</span><meta
+                        itemprop="position"
+                        content="2"
+                    />
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <section class="landing-hero" id="hero">
+        <div class="container landing-hero-inner">
+            <div class="landing-hero-content">
+                <span class="landing-hero-badge"
+                    >⭐ 5.0★ trên Google Maps — Phòng khám tin tưởng nhất Từ Sơn</span
+                >
+                <h1>
+                    Phòng Khám An Sinh — Sản Phụ Khoa <span
+                        class="text-accent-color">Uy Tín #1 Từ Sơn</span>
+                </h1>
+                <p class="landing-hero-sub">
+                    416 Minh Khai, Đồng Nguyên, Từ Sơn, Bắc Ninh. Bác sĩ 20+ năm
+                    kinh nghiệm, siêu âm 5D, 6 chuyên khoa. Hàng nghìn gia đình
+                    tin tưởng suốt 10+ năm.
+                </p>
+                <div class="landing-hero-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg"
+                        id="local-hero-cta">Đặt Lịch Khám Ngay</a
+                    >
+                    <a
+                        href="tel:0899268299"
+                        class="btn btn-outline btn-lg"
+                        id="local-hero-call">Gọi: 0899 268 299</a
+                    >
+                </div>
+            </div>
+            <div class="landing-hero-visual" aria-hidden="true">
+                <div class="hero-feature-grid">
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                            ></path><circle cx="12" cy="10" r="3"></circle>
+                        </svg><span>416 Minh Khai</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                            ></path><circle cx="12" cy="7" r="4"></circle>
+                        </svg><span>BS 20+ năm</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><circle cx="12" cy="12" r="10"></circle><polyline
+                                points="12 6 12 12 16 14"></polyline>
+                        </svg><span>17h-22h / CN 8h-22h</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg><span>6 chuyên khoa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-trust" aria-label="Chỉ số tin cậy">
+        <div class="container">
+            <div class="trust-metrics">
+                <div class="trust-metric">
+                    <span class="trust-metric-number">5.0</span><span
+                        class="trust-metric-label">⭐ Google Maps</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">20+</span><span
+                        class="trust-metric-label">Năm kinh nghiệm</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">10+</span><span
+                        class="trust-metric-label">Năm phục vụ</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">6</span><span
+                        class="trust-metric-label">Chuyên khoa</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dịch vụ -->
+    <section class="section" id="dich-vu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Dịch vụ chuyên khoa</span><h2>
+                    6 chuyên khoa — Chăm sóc toàn diện sức khỏe sinh sản
+                </h2>
+            </div>
+            <div class="grid-3">
+                <a
+                    href="/sieu-am-5d"
+                    class="card service-card"
+                    style="text-decoration:none;color:inherit;"
+                    ><div
+                        class="problem-icon"
+                        aria-hidden="true"
+                        style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--primary-light);border-radius:var(--radius-md);margin-bottom:var(--space-md);"
+                    >
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div><h3>Siêu Âm 5D</h3><p style="margin-bottom:0;">
+                        Máy Samsung thế hệ mới, hình ảnh sắc nét, xem kết quả
+                        online.
+                    </p>
+                </a>
+                <a
+                    href="/kham-thai"
+                    class="card service-card"
+                    style="text-decoration:none;color:inherit;"
+                    ><div
+                        class="problem-icon"
+                        aria-hidden="true"
+                        style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--accent-light);border-radius:var(--radius-md);margin-bottom:var(--space-md);"
+                    >
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><rect
+                                x="3"
+                                y="4"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="16"
+                                y1="2"
+                                x2="16"
+                                y2="6"></line><line x1="8" y1="2" x2="8" y2="6"
+                            ></line><line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div><h3>Khám Thai Định Kỳ</h3><p style="margin-bottom:0;">
+                        Đồng hành trọn vẹn 9 tháng 10 ngày, nhắc lịch đúng mốc.
+                    </p>
+                </a>
+                <a
+                    href="/kham-phu-khoa"
+                    class="card service-card"
+                    style="text-decoration:none;color:inherit;"
+                    ><div
+                        class="problem-icon"
+                        aria-hidden="true"
+                        style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--primary-light);border-radius:var(--radius-md);margin-bottom:var(--space-md);"
+                    >
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                            ></path>
+                        </svg>
+                    </div><h3>Khám Phụ Khoa</h3><p style="margin-bottom:0;">
+                        Riêng tư, nhẹ nhàng, bác sĩ nữ tận tâm.
+                    </p>
+                </a>
+                <a
+                    href="/kham-nam-khoa"
+                    class="card service-card"
+                    style="text-decoration:none;color:inherit;"
+                    ><div
+                        class="problem-icon"
+                        aria-hidden="true"
+                        style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--accent-light);border-radius:var(--radius-md);margin-bottom:var(--space-md);"
+                    >
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                            ></path><circle cx="8.5" cy="7" r="4"></circle><line
+                                x1="20"
+                                y1="8"
+                                x2="20"
+                                y2="14"></line><line
+                                x1="23"
+                                y1="11"
+                                x2="17"
+                                y2="11"></line>
+                        </svg>
+                    </div><h3>Khám Nam Khoa</h3><p style="margin-bottom:0;">
+                        Bảo mật tuyệt đối, xét nghiệm chính xác.
+                    </p>
+                </a>
+                <a
+                    href="/dieu-tri-vo-sinh"
+                    class="card service-card"
+                    style="text-decoration:none;color:inherit;"
+                    ><div
+                        class="problem-icon"
+                        aria-hidden="true"
+                        style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--primary-light);border-radius:var(--radius-md);margin-bottom:var(--space-md);"
+                    >
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                            ></path><circle cx="9" cy="7" r="4"></circle><path
+                                d="M23 21v-2a4 4 0 00-3-3.87"></path><path
+                                d="M16 3.13a4 4 0 010 7.75"></path>
+                        </svg>
+                    </div><h3>Điều Trị Vô Sinh</h3><p style="margin-bottom:0;">
+                        Đồng hành trên hành trình tìm con, nhiều ca thành công.
+                    </p>
+                </a>
+                <a
+                    href="/tranh-thai-an-toan"
+                    class="card service-card"
+                    style="text-decoration:none;color:inherit;"
+                    ><div
+                        class="problem-icon"
+                        aria-hidden="true"
+                        style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--accent-light);border-radius:var(--radius-md);margin-bottom:var(--space-md);"
+                    >
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            ></path>
+                        </svg>
+                    </div><h3>Tránh Thai An Toàn</h3><p
+                        style="margin-bottom:0;"
+                    >
+                        Tư vấn phương pháp phù hợp, đặt vòng, cấy que.
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps -->
+    <section class="section section-alt" id="dia-chi">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Vị trí</span><h2>
+                    416 Minh Khai, Đồng Nguyên, Từ Sơn, Bắc Ninh
+                </h2><p>
+                    Giao thông thuận tiện, gần KCN VSIP, có chỗ để xe rộng rãi.
+                </p>
+            </div>
+            <div
+                style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);"
+            >
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.5!2d105.9569!3d21.1222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31350878152011ed%3A0xe621f64a3d287614!2zUGjDsm5nIGtow6FtIEFuIFNpbmg!5e0!3m2!1svi!2s!4v1709"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Bản đồ phòng khám An Sinh"></iframe>
+            </div>
+            <div
+                style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl);margin-top:var(--space-xl);"
+            >
+                <div style="text-align:center;">
+                    <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="1.5"
+                        style="margin:0 auto var(--space-sm);display:block;"
+                        ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                        ></path><circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <strong style="display:block;font-size:0.9375rem;"
+                        >Địa chỉ</strong
+                    >
+                    <span
+                        style="font-size:0.875rem;color:var(--text-secondary);"
+                        >416 Minh Khai, Đồng Nguyên, Từ Sơn</span
+                    >
+                </div>
+                <div style="text-align:center;">
+                    <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="1.5"
+                        style="margin:0 auto var(--space-sm);display:block;"
+                        ><circle cx="12" cy="12" r="10"></circle><polyline
+                            points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <strong style="display:block;font-size:0.9375rem;"
+                        >Giờ khám</strong
+                    >
+                    <span
+                        style="font-size:0.875rem;color:var(--text-secondary);"
+                        >T2-T7: 17h-22h · CN: 8h-22h</span
+                    >
+                </div>
+                <div style="text-align:center;">
+                    <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="1.5"
+                        style="margin:0 auto var(--space-sm);display:block;"
+                        ><path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                        ></path>
+                    </svg>
+                    <strong style="display:block;font-size:0.9375rem;"
+                        >Hotline</strong
+                    >
+                    <span
+                        style="font-size:0.875rem;color:var(--text-secondary);"
+                        ><a href="tel:0899268299">0899 268 299</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="review">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Đánh giá 5.0★</span><h2>
+                    Hàng nghìn gia đình đã tin tưởng An Sinh
+                </h2>
+            </div>
+            <div class="grid-3">
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Gần nhà, máy móc hiện đại, bác sĩ giỏi. Gia đình mình
+                        khám ở đây nhiều năm rồi."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">M</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Chị M.</strong><span>Từ Sơn, Bắc Ninh</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Bác sĩ tận tâm, phòng khám sạch sẽ, giá niêm yết công
+                        khai. Không cần lên HN nữa."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">T</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Chị T.</strong><span
+                                >Yên Phong, Bắc Ninh</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Khám buổi tối rất tiện, không ảnh hưởng công việc. Bác
+                        sĩ giải thích cặn kẽ, nhân viên thân thiện."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">L</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Anh L.</strong><span
+                                >Tiên Du, Bắc Ninh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="https://www.google.com/search?hl=vi-VN&gl=vn&q=Ph%C3%B2ng+kh%C3%A1m+An+Sinh,+416+Minh+Khai,+%C4%90%E1%BB%93ng+Nguy%C3%AAn,+T%E1%BB%AB+S%C6%A1n,+B%E1%BA%AFc+Ninh&ludocid=16582806101668951572#lrd=0x31350878152011ed:0xe621f64a3d287614,1"
+                    class="btn btn-outline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Xem tất cả đánh giá trên Google Maps →</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu hỏi thường gặp</span><h2>
+                    Thông tin phòng khám
+                </h2>
+            </div>
+            <div class="landing-faq-list">
+                {
+                    faqs.map((faq) => (
+                        <details class="landing-faq-item">
+                            <summary class="landing-faq-question">
+                                {faq.q}
+                            </summary>
+                            <div class="landing-faq-answer">
+                                <p>{faq.a}</p>
+                            </div>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-final-cta">
+        <div class="container">
+            <h2>Phòng Khám An Sinh — Uy Tín #1 Tại Từ Sơn</h2>
+            <p>
+                416 Minh Khai, Đồng Nguyên. Bác sĩ 20+ năm, 6 chuyên khoa, 5.0★
+                Google Maps.
+            </p>
+            <div class="cta-actions">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-white btn-lg"
+                    id="local-final-cta">Đặt Lịch Khám Ngay</a
+                >
+                <a
+                    href="tel:0899268299"
+                    class="btn-outline-white"
+                    id="local-final-call">Gọi: 0899 268 299</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- LocalBusiness + AggregateRating Schema -->
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalClinic",
+            name: "Phòng Khám An Sinh",
+            alternateName: "Sản Phụ Khoa An Sinh",
+            url: "https://phusanansinh.com",
+            telephone: "+84899268299",
+            address: {
+                "@type": "PostalAddress",
+                streetAddress: "416 Minh Khai, Đồng Nguyên",
+                addressLocality: "Từ Sơn",
+                addressRegion: "Bắc Ninh",
+                addressCountry: "VN",
+            },
+            geo: {
+                "@type": "GeoCoordinates",
+                latitude: "21.1222",
+                longitude: "105.9569",
+            },
+            aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "5.0",
+                reviewCount: "100",
+                bestRating: "5",
+            },
+            openingHoursSpecification: [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                    ],
+                    opens: "17:00",
+                    closes: "22:00",
+                },
+                {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: "Sunday",
+                    opens: "08:00",
+                    closes: "22:00",
+                },
+            ],
+        })}
+    ></script>
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+        })}
+    ></script>
+</BaseLayout>

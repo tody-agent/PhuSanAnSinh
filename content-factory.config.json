@@ -1,0 +1,166 @@
+{
+    "brand": {
+        "name": "Phòng Khám An Sinh",
+        "shortName": "An Sinh",
+        "tagline": "Thai kỳ an toàn, bắt đầu từ nơi đáng tin",
+        "website": "https://phusanansinh.com",
+        "address": "416 Minh Khai, Đồng Nguyên, Từ Sơn, Bắc Ninh",
+        "phone": "0899 268 299",
+        "doctorPhone": "0869 935 808",
+        "email": "phusanansinh.com@gmail.com",
+        "hours": "T2-T7: 17h-22h | CN: 8h-22h",
+        "facebook": "https://www.facebook.com/phongkhamansinh",
+        "googleMapsRating": "5.0"
+    },
+    "seo": {
+        "language": "vi",
+        "region": [
+            "Từ Sơn",
+            "Bắc Ninh",
+            "Yên Phong",
+            "Tiên Du",
+            "Thuận Thành"
+        ],
+        "totalArticles": 100,
+        "deployMilestone": 30
+    },
+    "pillars": [
+        {
+            "id": "mang-thai",
+            "name": "Mang Thai & Sinh Con",
+            "count": 25,
+            "types": [
+                "guide",
+                "faq",
+                "checklist"
+            ],
+            "keywords": [
+                "khám thai bắc ninh",
+                "siêu âm 5d",
+                "lịch khám thai",
+                "dấu hiệu mang thai"
+            ]
+        },
+        {
+            "id": "phu-khoa",
+            "name": "Bệnh Phụ Khoa",
+            "count": 20,
+            "types": [
+                "symptom",
+                "treatment",
+                "prevention"
+            ],
+            "keywords": [
+                "viêm âm đạo",
+                "viêm lộ tuyến",
+                "rối loạn kinh nguyệt",
+                "khám phụ khoa"
+            ]
+        },
+        {
+            "id": "vo-sinh",
+            "name": "Điều Trị Vô Sinh",
+            "count": 15,
+            "types": [
+                "journey",
+                "faq",
+                "guide"
+            ],
+            "keywords": [
+                "vô sinh nam",
+                "vô sinh nữ",
+                "IUI là gì",
+                "điều trị hiếm muộn"
+            ]
+        },
+        {
+            "id": "nam-khoa",
+            "name": "Nam Khoa",
+            "count": 10,
+            "types": [
+                "guide",
+                "faq"
+            ],
+            "keywords": [
+                "khám nam khoa",
+                "yếu sinh lý",
+                "tinh trùng yếu",
+                "sức khỏe nam giới"
+            ]
+        },
+        {
+            "id": "suc-khoe-sinh-san",
+            "name": "Sức Khỏe Sinh Sản",
+            "count": 15,
+            "types": [
+                "education",
+                "prevention"
+            ],
+            "keywords": [
+                "tránh thai an toàn",
+                "bệnh lây truyền qua đường tình dục",
+                "sức khỏe sinh sản"
+            ]
+        },
+        {
+            "id": "local-seo",
+            "name": "Local SEO",
+            "count": 15,
+            "types": [
+                "area-based",
+                "comparison"
+            ],
+            "keywords": [
+                "phòng khám phụ khoa từ sơn",
+                "siêu âm thai bắc ninh",
+                "bác sĩ sản khoa yên phong"
+            ]
+        }
+    ],
+    "tone": {
+        "primary": "professional",
+        "secondary": "warm",
+        "tertiary": "trustworthy",
+        "voiceOfCustomer": [
+            "em lo quá",
+            "bác sĩ nào giỏi ở BN",
+            "siêu âm 5d ở đâu tốt",
+            "phòng khám phụ khoa từ sơn"
+        ],
+        "avoid": [
+            "quá học thuật",
+            "đe dọa quá",
+            "marketing lố",
+            "thiếu empathy"
+        ]
+    },
+    "cta": {
+        "primary": {
+            "text": "Hẹn Khám Ngay",
+            "url": "https://phusanansinh.com/dat-lich-hen-kham.html"
+        },
+        "secondary": {
+            "text": "Gọi: 0899 268 299",
+            "url": "tel:0899268299"
+        }
+    },
+    "contentMastery": {
+        "hooks": [
+            "curiosity-gap",
+            "negative-reversal",
+            "specificity",
+            "social-proof"
+        ],
+        "frameworks": [
+            "SB7-narrative",
+            "PAS",
+            "AIDA"
+        ],
+        "persuasion": [
+            "scarcity-local",
+            "authority-credentials",
+            "social-proof-reviews",
+            "reciprocity-free-info"
+        ]
+    }
+}

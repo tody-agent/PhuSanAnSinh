@@ -1,0 +1,677 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import "../styles/landing.css";
+
+const pageTitle =
+    "Khám Thai Định Kỳ Từ Sơn, Bắc Ninh — Đồng Hành Trọn 9 Tháng | An Sinh";
+const pageDescription =
+    "Khám thai định kỳ tại Từ Sơn, Bắc Ninh. Bác sĩ sản khoa 20+ năm, siêu âm 5D, theo dõi thai kỳ sát sao. Đặt lịch khám thai ngay!";
+
+const faqs = [
+    {
+        q: "Lịch khám thai định kỳ gồm những mốc nào?",
+        a: "Lịch khám thai thường gồm: 8-12 tuần (khám lần đầu), 12-13 tuần (đo độ mờ da gáy), 16-18 tuần (Triple test), 20-22 tuần (siêu âm hình thái), 24-28 tuần (tiểu đường thai kỳ), 32-36 tuần (theo dõi tăng trưởng), 36-40 tuần (theo dõi sát tuần). Bác sĩ sẽ tư vấn lịch phù hợp với từng thai kỳ.",
+    },
+    {
+        q: "Khám thai lần đầu cần chuẩn bị gì?",
+        a: "Bạn cần mang theo CMND/CCCD, sổ khám bệnh (nếu có), kết quả xét nghiệm trước đó (nếu có). Không cần nhịn ăn trừ khi bác sĩ yêu cầu xét nghiệm máu. Nên mặc quần áo thoải mái.",
+    },
+    {
+        q: "Chi phí khám thai tại An Sinh là bao nhiêu?",
+        a: "Chi phí khám thai được niêm yết công khai, hợp lý. Tùy theo gói khám và xét nghiệm cần thiết. Vui lòng liên hệ hotline 0899 268 299 để được tư vấn chi tiết.",
+    },
+    {
+        q: "Phòng khám có theo dõi thai kỳ từ đầu đến cuối không?",
+        a: "Có. An Sinh đồng hành xuyên suốt từ lần khám đầu tiên đến khi sinh. Bác sĩ theo dõi sát, nhắc lịch khám, và tư vấn kịp thời mọi vấn đề phát sinh.",
+    },
+    {
+        q: "Giờ khám của phòng khám?",
+        a: "Thứ 2 - Thứ 7: 17h00 - 22h00. Chủ nhật: 8h00 - 22h00. Nên đặt lịch trước để được phục vụ nhanh nhất.",
+    },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <nav class="landing-breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <a itemprop="item" href="/"
+                        ><span itemprop="name">Trang chủ</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <span itemprop="name">Khám thai</span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <section class="landing-hero" id="hero">
+        <div class="container landing-hero-inner">
+            <div class="landing-hero-content">
+                <span class="landing-hero-badge"
+                    >⭐ Đánh giá 5.0 — Hàng nghìn mẹ bầu tin tưởng</span
+                >
+                <h1>
+                    Khám Thai Định Kỳ — Đồng Hành Trọn Vẹn <span
+                        class="text-accent-color">9 Tháng 10 Ngày</span>
+                </h1>
+                <p class="landing-hero-sub">
+                    Thai kỳ an toàn khi bạn được theo dõi sát sao từ tuần đầu
+                    tiên. Bác sĩ sản khoa 20+ năm kinh nghiệm, giải thích cặn
+                    kẽ, nhắc lịch đúng mốc.
+                </p>
+                <div class="landing-hero-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg"
+                        id="kham-thai-hero-cta"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            ><rect
+                                x="3"
+                                y="4"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="16"
+                                y1="2"
+                                x2="16"
+                                y2="6"></line><line x1="8" y1="2" x2="8" y2="6"
+                            ></line><line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Hẹn Khám Thai Ngay
+                    </a>
+                    <a
+                        href="tel:0899268299"
+                        class="btn btn-outline btn-lg"
+                        id="kham-thai-hero-call">Gọi: 0899 268 299</a
+                    >
+                </div>
+            </div>
+            <div class="landing-hero-visual" aria-hidden="true">
+                <div class="hero-feature-grid">
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><rect
+                                x="3"
+                                y="4"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="16"
+                                y1="2"
+                                x2="16"
+                                y2="6"></line><line x1="8" y1="2" x2="8" y2="6"
+                            ></line><line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg><span>Nhắc lịch đúng mốc</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                            ></path><circle cx="12" cy="7" r="4"></circle>
+                        </svg><span>BS 20+ năm</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg><span>Siêu âm 5D</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            ></path>
+                        </svg><span>An toàn tuyệt đối</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-trust" aria-label="Chỉ số tin cậy">
+        <div class="container">
+            <div class="trust-metrics">
+                <div class="trust-metric">
+                    <span class="trust-metric-number">5.0</span><span
+                        class="trust-metric-label">⭐ Google Maps</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">20+</span><span
+                        class="trust-metric-label">Năm kinh nghiệm</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">10+</span><span
+                        class="trust-metric-label">Năm phục vụ</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">100%</span><span
+                        class="trust-metric-label">Theo dõi sát sao</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section landing-problems" id="van-de">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Chúng tôi hiểu</span>
+                <h2>Nỗi lo lắng trong suốt thai kỳ là hoàn toàn bình thường</h2>
+                <p>
+                    Bạn xứng đáng được bác sĩ đồng hành tận tâm, từ ngày đầu
+                    tiên đến khi bé chào đời.
+                </p>
+            </div>
+            <div class="grid-3">
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><path
+                                d="M8 15s1.5 2 4 2 4-2 4-2"></path><line
+                                x1="9"
+                                y1="9"
+                                x2="9.01"
+                                y2="9"></line><line
+                                x1="15"
+                                y1="9"
+                                x2="15.01"
+                                y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Bác sĩ khám nhanh, không giải thích</h3>
+                    <p>
+                        "Bình thường" — rồi hết. Bạn ra về mà vẫn không hiểu kết
+                        quả. Tại An Sinh, bác sĩ giải thích cặn kẽ từng chỉ số.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><polyline
+                                points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Không biết lịch khám chính xác</h3>
+                    <p>
+                        Thai kỳ có nhiều mốc quan trọng. Bỏ sót một mốc có thể
+                        ảnh hưởng đến sức khỏe mẹ và bé.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><path
+                                d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                            ></path><circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3>Đi HN xếp hàng mệt mỏi</h3>
+                    <p>
+                        Mang bụng bầu lên HN, chờ đợi cả ngày. Bạn cần phòng
+                        khám uy tín ngay tại Từ Sơn — tiện lợi, nhanh chóng.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="bac-si">
+        <div class="container">
+            <div class="landing-guide-layout">
+                <div>
+                    <span class="section-label">Người đồng hành</span>
+                    <h2>
+                        Bác sĩ sản khoa <span class="text-primary-color"
+                            >20+ năm</span
+                        > — đồng hành từ đầu đến cuối
+                    </h2>
+                    <p>
+                        Mỗi lần khám, bạn mang theo cả nỗi lo và niềm hy vọng.
+                        Chúng tôi hiểu điều đó — và luôn dành thời gian lắng
+                        nghe, giải thích, tư vấn tận tình.
+                    </p>
+                    <ul class="guide-credentials-list">
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Thạc sĩ chuyên ngành Sản phụ khoa
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Theo dõi thai kỳ xuyên suốt, nhắc lịch đúng
+                            mốc
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Máy siêu âm Samsung 5D thế hệ mới
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Liên kết với bệnh viện tuyến trên
+                        </li>
+                    </ul>
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-primary"
+                        id="kham-thai-guide-cta">Hẹn Khám Thai Ngay</a
+                    >
+                </div>
+                <div class="guide-card-visual" aria-hidden="true">
+                    <svg viewBox="0 0 120 120" width="120" height="120"
+                        ><circle cx="60" cy="60" r="60" fill="var(--primary)"
+                        ></circle><circle
+                            cx="60"
+                            cy="45"
+                            r="20"
+                            fill="white"
+                            opacity="0.3"></circle><path
+                            d="M60 70c-18 0-32 10-32 22v8h64v-8c0-12-14-22-32-22z"
+                            fill="white"
+                            opacity="0.2"></path><circle
+                            cx="60"
+                            cy="45"
+                            r="18"
+                            fill="white"
+                            opacity="0.8"></circle>
+                    </svg>
+                    <div class="guide-card-quote">
+                        <p>
+                            "Mỗi bệnh nhân đều đặc biệt. Tôi luôn dành thời gian
+                            lắng nghe và giải thích cặn kẽ."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quy-trinh">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Đơn giản & Nhanh chóng</span><h2>
+                    3 bước khám thai tại An Sinh
+                </h2>
+            </div>
+            <div class="landing-steps-grid">
+                <div class="landing-step">
+                    <div class="landing-step-number">1</div><h3>
+                        Đặt lịch hẹn
+                    </h3><p>
+                        Online hoặc gọi 0899 268 299. Chọn ngày giờ phù hợp,
+                        không cần chờ đợi lâu.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">2</div><h3>
+                        Khám với bác sĩ chuyên khoa
+                    </h3><p>
+                        Được bác sĩ 20+ năm kinh nghiệm khám, tư vấn, giải thích
+                        kỹ lưỡng mọi chỉ số.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">3</div><h3>
+                        Nhận kết quả online
+                    </h3><p>
+                        Xem video, hình ảnh siêu âm, kết quả xét nghiệm — ngay
+                        trên điện thoại.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-accent btn-lg"
+                    id="kham-thai-steps-cta">Đặt Lịch Khám Thai Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="review">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Mẹ bầu nói gì</span><h2>
+                    Hàng nghìn gia đình đã tin tưởng An Sinh
+                </h2>
+            </div>
+            <div class="grid-3">
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Bác sĩ rất tận tâm, giải thích kỹ lưỡng từng chỉ số.
+                        Thai kỳ của mình suôn sẻ nhờ được theo dõi sát sao từ
+                        ngày đầu."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">T</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Chị T.</strong><span
+                                >Khám thai định kỳ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Gần nhà, máy móc hiện đại, bác sĩ giỏi. Mình khám thai
+                        ở đây từ đầu đến cuối, yên tâm lắm."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">N</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Chị N.</strong><span
+                                >Khám thai — Từ Sơn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Lần đầu mang thai, lo lắng đủ thứ. May mắn có bác sĩ ở
+                        đây giải thích tận tình, mình bớt lo rất nhiều."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">H</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Chị H.</strong><span>Thai kỳ đầu tiên</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="stakes">
+        <div class="container">
+            <div class="landing-stakes">
+                <div class="landing-stakes-fail">
+                    <h3 class="stakes-heading fail">
+                        Không khám định kỳ — rủi ro tiềm ẩn
+                    </h3>
+                    <ul class="landing-stakes-list">
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--error)"
+                                aria-hidden="true"
+                                ><circle cx="12" cy="12" r="10"></circle><line
+                                    x1="15"
+                                    y1="9"
+                                    x2="9"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line><line
+                                    x1="9"
+                                    y1="9"
+                                    x2="15"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line>
+                            </svg>Bỏ lỡ mốc tầm soát dị tật quan trọng
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--error)"
+                                aria-hidden="true"
+                                ><circle cx="12" cy="12" r="10"></circle><line
+                                    x1="15"
+                                    y1="9"
+                                    x2="9"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line><line
+                                    x1="9"
+                                    y1="9"
+                                    x2="15"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line>
+                            </svg>Không phát hiện sớm tiền sản giật, tiểu đường
+                            thai kỳ
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--error)"
+                                aria-hidden="true"
+                                ><circle cx="12" cy="12" r="10"></circle><line
+                                    x1="15"
+                                    y1="9"
+                                    x2="9"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line><line
+                                    x1="9"
+                                    y1="9"
+                                    x2="15"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line>
+                            </svg>Lo lắng suốt thai kỳ vì không biết con có khỏe
+                        </li>
+                    </ul>
+                </div>
+                <div class="landing-stakes-success">
+                    <h3 class="stakes-heading success">
+                        Khám đầy đủ — mẹ tròn con vuông
+                    </h3>
+                    <ul class="landing-stakes-list">
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--success)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Thai kỳ được theo dõi sát sao từ đầu đến cuối
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--success)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Phát hiện sớm mọi bất thường, xử lý kịp thời
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--success)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>An tâm tận hưởng thai kỳ, sẵn sàng đón bé
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu hỏi thường gặp</span><h2>
+                    Giải đáp về khám thai
+                </h2>
+            </div>
+            <div class="landing-faq-list">
+                {
+                    faqs.map((faq) => (
+                        <details class="landing-faq-item">
+                            <summary class="landing-faq-question">
+                                {faq.q}
+                            </summary>
+                            <div class="landing-faq-answer">
+                                <p>{faq.a}</p>
+                            </div>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-final-cta">
+        <div class="container">
+            <h2>Đặt Lịch Khám Thai — Đồng Hành Trọn Vẹn Thai Kỳ</h2>
+            <p>
+                Bác sĩ 20+ năm kinh nghiệm, theo dõi sát sao, giải thích tận
+                tình. Đừng để nỗi lo lắng kéo dài.
+            </p>
+            <div class="cta-actions">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-white btn-lg"
+                    id="kham-thai-final-cta">Hẹn Khám Thai Ngay</a
+                >
+                <a
+                    href="tel:0899268299"
+                    class="btn-outline-white"
+                    id="kham-thai-final-call">Gọi: 0899 268 299</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+        })}
+    ></script>
+</BaseLayout>

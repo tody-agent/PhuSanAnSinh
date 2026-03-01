@@ -1,0 +1,463 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import "../styles/landing.css";
+
+const pageTitle =
+    "Khám Nam Khoa Bắc Ninh — Bảo Mật Tuyệt Đối, Tận Tâm | An Sinh";
+const pageDescription =
+    "Khám nam khoa bảo mật tại Từ Sơn, Bắc Ninh. Xét nghiệm tinh trùng, điều trị yếu sinh lý, sức khỏe nam giới. Bác sĩ 20+ năm. Đặt lịch kín đáo!";
+
+const faqs = [
+    {
+        q: "Khám nam khoa gồm những gì?",
+        a: "Khám nam khoa bao gồm: khám lâm sàng, xét nghiệm tinh dịch đồ, xét nghiệm hormone, siêu âm khi cần. Bác sĩ sẽ tư vấn các xét nghiệm phù hợp với tình trạng cụ thể.",
+    },
+    {
+        q: "Thông tin có được bảo mật không?",
+        a: "Tuyệt đối bảo mật. An Sinh cam kết không tiết lộ thông tin bệnh nhân cho bất kỳ ai. Mọi dữ liệu được bảo vệ theo quy định y tế.",
+    },
+    {
+        q: "Tinh trùng yếu có chữa được không?",
+        a: "Phần lớn trường hợp tinh trùng yếu có thể điều trị hiệu quả. Nguyên nhân có thể do sinh hoạt, nội tiết, hoặc bệnh lý. Bác sĩ sẽ tìm nguyên nhân chính xác và đưa ra phác đồ phù hợp.",
+    },
+    {
+        q: "Khi nào nên đi khám nam khoa?",
+        a: "Nên khám khi: vợ chồng cố gắng trên 1 năm chưa có thai, có triệu chứng yếu sinh lý, đau bất thường, hoặc muốn kiểm tra sức khỏe sinh sản trước khi kết hôn.",
+    },
+    {
+        q: "Chi phí khám nam khoa bao nhiêu?",
+        a: "Chi phí tùy theo các xét nghiệm cần thiết, được niêm yết công khai. Liên hệ 0899 268 299 để tư vấn miễn phí.",
+    },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <nav class="landing-breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <a itemprop="item" href="/"
+                        ><span itemprop="name">Trang chủ</span>
+                    </a><meta itemprop="position" content="1" />
+                </li><li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <span itemprop="name">Khám nam khoa</span><meta
+                        itemprop="position"
+                        content="2"
+                    />
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <section class="landing-hero" id="hero">
+        <div class="container landing-hero-inner">
+            <div class="landing-hero-content">
+                <span class="landing-hero-badge"
+                    >🔒 Bảo mật tuyệt đối — Không ai biết</span
+                >
+                <h1>
+                    Khám Nam Khoa — Bảo Mật Tuyệt Đối, <span
+                        class="text-accent-color">Tận Tâm Từng Ca</span>
+                </h1>
+                <p class="landing-hero-sub">
+                    80% nam giới không biết vấn đề sức khỏe sinh sản có thể điều
+                    trị được. Tại An Sinh — bảo mật 100%, bác sĩ chuyên khoa,
+                    kết quả nhanh chóng.
+                </p>
+                <div class="landing-hero-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg"
+                        id="namkhoa-hero-cta">Đặt Lịch Khám — 100% Bảo Mật</a
+                    >
+                    <a
+                        href="tel:0899268299"
+                        class="btn btn-outline btn-lg"
+                        id="namkhoa-hero-call">Gọi: 0899 268 299</a
+                    >
+                </div>
+            </div>
+            <div class="landing-hero-visual" aria-hidden="true">
+                <div class="hero-feature-grid">
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            ></path>
+                        </svg><span>Bảo mật 100%</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                            ></path><circle cx="12" cy="7" r="4"></circle>
+                        </svg><span>BS 20+ năm</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg><span>Xét nghiệm chính xác</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><circle cx="12" cy="12" r="10"></circle><polyline
+                                points="12 6 12 12 16 14"></polyline>
+                        </svg><span>Kết quả nhanh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-trust" aria-label="Chỉ số tin cậy">
+        <div class="container">
+            <div class="trust-metrics">
+                <div class="trust-metric">
+                    <span class="trust-metric-number">5.0</span><span
+                        class="trust-metric-label">⭐ Google Maps</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">20+</span><span
+                        class="trust-metric-label">Năm kinh nghiệm</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">100%</span><span
+                        class="trust-metric-label">Bảo mật thông tin</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">Nhanh</span><span
+                        class="trust-metric-label">Có kết quả trong ngày</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section landing-problems" id="van-de">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Chúng tôi hiểu</span><h2>
+                    Lo lắng nhưng ngại chia sẻ — bạn không đơn độc
+                </h2><p>
+                    Sức khỏe nam giới là chủ đề nhạy cảm. Nhưng phát hiện sớm =
+                    điều trị hiệu quả.
+                </p>
+            </div>
+            <div class="grid-3">
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><path
+                                d="M8 15s1.5 2 4 2 4-2 4-2"></path><line
+                                x1="9"
+                                y1="9"
+                                x2="9.01"
+                                y2="9"></line><line
+                                x1="15"
+                                y1="9"
+                                x2="15.01"
+                                y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Xấu hổ, ngại đi khám</h3>
+                    <p>
+                        "Vấn đề nam giới mà nói ra xấu hổ lắm" — bạn không đơn
+                        độc. Tại An Sinh, mọi thứ hoàn toàn bảo mật, không ai
+                        biết.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><line
+                                x1="12"
+                                y1="8"
+                                x2="12"
+                                y2="12"></line><line
+                                x1="12"
+                                y1="16"
+                                x2="12.01"
+                                y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>Lo không biết bệnh có nghiêm trọng</h3>
+                    <p>
+                        Triệu chứng kéo dài mà không dám đi khám? Phần lớn vấn
+                        đề nam khoa điều trị được — nếu phát hiện sớm.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                            ></path><circle cx="9" cy="7" r="4"></circle><path
+                                d="M23 21v-2a4 4 0 00-3-3.87"></path><path
+                                d="M16 3.13a4 4 0 010 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Vợ muốn có con mà mình lo lắng</h3>
+                    <p>
+                        30-40% vô sinh liên quan đến yếu tố nam giới. Khám sớm,
+                        biết rõ tình trạng — để cùng vợ lên kế hoạch.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="bac-si">
+        <div class="container">
+            <div class="landing-guide-layout">
+                <div>
+                    <span class="section-label">Bác sĩ nam khoa</span>
+                    <h2>
+                        Bác sĩ chuyên khoa <span class="text-primary-color"
+                            >tận tâm, bảo mật</span>
+                    </h2>
+                    <p>
+                        Chúng tôi hiểu rằng sức khỏe nam giới là chủ đề nhạy
+                        cảm. Bác sĩ tại An Sinh luôn tôn trọng, giữ bí mật, và
+                        tư vấn chuyên nghiệp.
+                    </p>
+                    <ul class="guide-credentials-list">
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Bác sĩ chuyên khoa nam học 20+ năm
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Xét nghiệm tinh dịch đồ, hormone chính xác
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Bảo mật tuyệt đối, không gian riêng tư
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Kết quả nhanh, tư vấn rõ ràng
+                        </li>
+                    </ul>
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-primary"
+                        id="namkhoa-guide-cta">Đặt Lịch Khám — Bảo Mật 100%</a
+                    >
+                </div>
+                <div class="guide-card-visual" aria-hidden="true">
+                    <svg viewBox="0 0 120 120" width="120" height="120"
+                        ><circle cx="60" cy="60" r="60" fill="var(--primary)"
+                        ></circle><circle
+                            cx="60"
+                            cy="45"
+                            r="20"
+                            fill="white"
+                            opacity="0.3"></circle><path
+                            d="M60 70c-18 0-32 10-32 22v8h64v-8c0-12-14-22-32-22z"
+                            fill="white"
+                            opacity="0.2"></path><circle
+                            cx="60"
+                            cy="45"
+                            r="18"
+                            fill="white"
+                            opacity="0.8"></circle>
+                    </svg>
+                    <div class="guide-card-quote">
+                        <p>
+                            "Sức khỏe nam giới là chuyện riêng tư. Tại đây, mọi
+                            thông tin được bảo mật tuyệt đối — bạn chỉ cần đến,
+                            tôi sẽ lo phần còn lại."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quy-trinh">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Đơn giản & Bảo mật</span><h2>
+                    3 bước khám nam khoa tại An Sinh
+                </h2>
+            </div>
+            <div class="landing-steps-grid">
+                <div class="landing-step">
+                    <div class="landing-step-number">1</div><h3>
+                        Đặt lịch kín đáo
+                    </h3><p>
+                        Online hoặc gọi 0899 268 299. Không cần nêu lý do cụ
+                        thể.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">2</div><h3>
+                        Khám & Xét nghiệm
+                    </h3><p>
+                        Bác sĩ chuyên khoa khám, xét nghiệm. Không gian riêng
+                        tư, bảo mật.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">3</div><h3>
+                        Nhận kết quả & Tư vấn
+                    </h3><p>
+                        Kết quả nhanh, bác sĩ giải thích rõ ràng và đưa ra
+                        phương hướng.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-accent btn-lg"
+                    id="namkhoa-steps-cta">Đặt Lịch Khám Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu hỏi thường gặp</span><h2>
+                    Giải đáp về khám nam khoa
+                </h2>
+            </div>
+            <div class="landing-faq-list">
+                {
+                    faqs.map((faq) => (
+                        <details class="landing-faq-item">
+                            <summary class="landing-faq-question">
+                                {faq.q}
+                            </summary>
+                            <div class="landing-faq-answer">
+                                <p>{faq.a}</p>
+                            </div>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-final-cta">
+        <div class="container">
+            <h2>Khám Nam Khoa — Bảo Mật Tuyệt Đối</h2>
+            <p>
+                Phát hiện sớm, điều trị hiệu quả. Không ai biết — trừ bạn và bác
+                sĩ.
+            </p>
+            <div class="cta-actions">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-white btn-lg"
+                    id="namkhoa-final-cta">Đặt Lịch Khám Ngay</a
+                >
+                <a
+                    href="tel:0899268299"
+                    class="btn-outline-white"
+                    id="namkhoa-final-call">Gọi: 0899 268 299</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+        })}
+    ></script>
+</BaseLayout>

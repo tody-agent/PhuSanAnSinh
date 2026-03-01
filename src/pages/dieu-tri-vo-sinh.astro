@@ -1,0 +1,659 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import "../styles/landing.css";
+
+const pageTitle =
+    "Điều Trị Vô Sinh Hiếm Muộn Bắc Ninh — Hành Trình Tìm Con | An Sinh";
+const pageDescription =
+    "Điều trị vô sinh hiếm muộn tại Bắc Ninh. Bác sĩ chuyên khoa 20+ năm, phác đồ cá nhân hóa. Nhiều cặp vợ chồng đã thành công. Tư vấn miễn phí!";
+
+const faqs = [
+    {
+        q: "Khi nào nên đi khám vô sinh?",
+        a: "Nên khám khi: cặp vợ chồng dưới 35 tuổi quan hệ thường xuyên trên 1 năm không có thai, trên 35 tuổi thì sau 6 tháng. Hoặc khi có tiền sử sảy thai liên tiếp, kinh nguyệt bất thường, hoặc các vấn đề sức khỏe sinh sản khác.",
+    },
+    {
+        q: "Điều trị vô sinh mất bao lâu?",
+        a: "Thời gian điều trị phụ thuộc vào nguyên nhân và phương pháp. Có thể từ vài tháng (điều trị nội khoa) đến 1-2 chu kỳ IUI. Bác sĩ sẽ tư vấn lộ trình cụ thể sau khi thăm khám.",
+    },
+    {
+        q: "Chi phí điều trị vô sinh tại An Sinh?",
+        a: "Chi phí tùy thuộc vào phương pháp và phác đồ điều trị cụ thể. An Sinh luôn tư vấn minh bạch chi phí trước khi bắt đầu. Liên hệ 0899 268 299 để được tư vấn chi tiết.",
+    },
+    {
+        q: "IUI là gì? Có khác IVF không?",
+        a: "IUI (Bơm tinh trùng vào buồng tử cung) là phương pháp hỗ trợ sinh sản đơn giản, ít xâm lấn hơn IVF. IUI phù hợp khi tinh trùng yếu nhẹ, vô sinh không rõ nguyên nhân. Bác sĩ sẽ tư vấn phương pháp phù hợp nhất.",
+    },
+    {
+        q: "Cả hai vợ chồng đều cần đi khám?",
+        a: "Rất nên. Vô sinh có thể do nguyên nhân từ nam (30-40%), nữ (30-40%), cả hai (20%), hoặc không rõ nguyên nhân (10%). Khám cả hai sẽ đánh giá toàn diện và tìm hướng điều trị tốt nhất.",
+    },
+    {
+        q: "Phòng khám có hỗ trợ tâm lý không?",
+        a: "An Sinh hiểu rằng hành trình tìm con rất áp lực về mặt tinh thần. Bác sĩ luôn lắng nghe, động viên, và đồng hành với tinh thần thấu hiểu. Bạn không đơn độc trên hành trình này.",
+    },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <nav class="landing-breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <a itemprop="item" href="/"
+                        ><span itemprop="name">Trang chủ</span>
+                    </a><meta itemprop="position" content="1" />
+                </li><li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <span itemprop="name">Điều trị vô sinh</span><meta
+                        itemprop="position"
+                        content="2"
+                    />
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <section class="landing-hero" id="hero">
+        <div class="container landing-hero-inner">
+            <div class="landing-hero-content">
+                <span class="landing-hero-badge"
+                    >💛 Nhiều cặp vợ chồng đã thành công tại đây</span
+                >
+                <h1>
+                    Điều Trị Vô Sinh — Hành Trình Tìm Con <span
+                        class="text-accent-color">Bắt Đầu Từ Đây</span>
+                </h1>
+                <p class="landing-hero-sub">
+                    Sau 5 năm mong đợi, chị H. cuối cùng cũng nắm tay con yêu.
+                    Hành trình tuy gian nan nhưng có bác sĩ tận tâm đồng hành —
+                    mọi thứ đều có thể.
+                </p>
+                <div class="landing-hero-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg"
+                        id="vosinh-hero-cta">Tư Vấn Miễn Phí Với Bác Sĩ</a
+                    >
+                    <a
+                        href="tel:0899268299"
+                        class="btn btn-outline btn-lg"
+                        id="vosinh-hero-call">Gọi: 0899 268 299</a
+                    >
+                </div>
+            </div>
+            <div class="landing-hero-visual" aria-hidden="true">
+                <div class="hero-feature-grid">
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                            ></path><circle cx="9" cy="7" r="4"></circle><path
+                                d="M23 21v-2a4 4 0 00-3-3.87"></path><path
+                                d="M16 3.13a4 4 0 010 7.75"></path>
+                        </svg><span>Phác đồ cá nhân</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                            ></path><circle cx="12" cy="7" r="4"></circle>
+                        </svg><span>BS 20+ năm</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                            ></path>
+                        </svg><span>Đồng hành tận tâm</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            ></path>
+                        </svg><span>Bảo mật 100%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-trust" aria-label="Chỉ số tin cậy">
+        <div class="container">
+            <div class="trust-metrics">
+                <div class="trust-metric">
+                    <span class="trust-metric-number">5.0</span><span
+                        class="trust-metric-label">⭐ Google Maps</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">20+</span><span
+                        class="trust-metric-label">Năm kinh nghiệm</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">Nhiều</span><span
+                        class="trust-metric-label">Ca thành công</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">100%</span><span
+                        class="trust-metric-label">Phác đồ cá nhân</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section landing-problems" id="van-de">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Chúng tôi hiểu</span><h2>
+                    Hành trình tìm con — gian nan nhưng không bao giờ đơn độc
+                </h2><p>
+                    Áp lực từ gia đình, mệt mỏi sau nhiều lần thất bại — bạn
+                    xứng đáng được đồng hành bởi người thật sự hiểu.
+                </p>
+            </div>
+            <div class="grid-3">
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><path
+                                d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line
+                                x1="9"
+                                y1="9"
+                                x2="9.01"
+                                y2="9"></line><line
+                                x1="15"
+                                y1="9"
+                                x2="15.01"
+                                y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Đã thử nhiều nơi, chưa có kết quả</h3>
+                    <p>
+                        "Đã chữa nhiều nơi rồi, tốn tiền mà chưa có gì" — nỗi
+                        mệt mỏi không chỉ về thể xác mà cả tinh thần. Bạn cần
+                        bác sĩ thực sự thấu hiểu.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><polyline
+                                points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Tuổi ngày càng cao, cơ hội giảm dần</h3>
+                    <p>
+                        Sau 35 tuổi, khả năng sinh sản giảm rõ rệt. Mỗi tháng
+                        trì hoãn là cơ hội giảm đi. Bắt đầu điều trị sớm là
+                        quyết định quan trọng nhất.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                            ></path><circle cx="9" cy="7" r="4"></circle><path
+                                d="M23 21v-2a4 4 0 00-3-3.87"></path><path
+                                d="M16 3.13a4 4 0 010 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Áp lực từ gia đình hai bên</h3>
+                    <p>
+                        "Bao giờ có tin vui?" — câu hỏi quen thuộc nhưng đau
+                        lòng. Bạn cần nơi không chỉ điều trị mà còn thấu hiểu và
+                        đồng hành.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="bac-si">
+        <div class="container">
+            <div class="landing-guide-layout">
+                <div>
+                    <span class="section-label">Bác sĩ đồng hành</span>
+                    <h2>
+                        Bác sĩ <span class="text-primary-color"
+                            >chuyên vô sinh</span
+                        > — không chỉ điều trị, mà còn thấu hiểu
+                    </h2>
+                    <p>
+                        Ơn bác và phòng khám rất nhiều vì đã đưa con đến với
+                        chúng tôi. Hành trình tuy gian nan nhưng cuối cùng cũng
+                        có trái ngọt ôm trong tay. — Chị H., điều trị vô sinh
+                        thành công.
+                    </p>
+                    <ul class="guide-credentials-list">
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Chuyên gia điều trị vô sinh 20+ năm
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Phác đồ điều trị cá nhân hóa theo từng cặp vợ
+                            chồng
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Đồng hành dài hạn, hỗ trợ cả tâm lý
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--primary)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Liên kết bệnh viện tuyến trên khi cần
+                        </li>
+                    </ul>
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-primary"
+                        id="vosinh-guide-cta">Tư Vấn Miễn Phí</a
+                    >
+                </div>
+                <div class="guide-card-visual" aria-hidden="true">
+                    <svg viewBox="0 0 120 120" width="120" height="120"
+                        ><circle cx="60" cy="60" r="60" fill="var(--primary)"
+                        ></circle><circle
+                            cx="60"
+                            cy="45"
+                            r="20"
+                            fill="white"
+                            opacity="0.3"></circle><path
+                            d="M60 70c-18 0-32 10-32 22v8h64v-8c0-12-14-22-32-22z"
+                            fill="white"
+                            opacity="0.2"></path><circle
+                            cx="60"
+                            cy="45"
+                            r="18"
+                            fill="white"
+                            opacity="0.8"></circle>
+                    </svg>
+                    <div class="guide-card-quote">
+                        <p>
+                            "Mỗi cặp vợ chồng là một câu chuyện riêng. Tôi luôn
+                            tìm phương pháp phù hợp nhất và đồng hành đến khi có
+                            kết quả."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quy-trinh">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Quy trình điều trị</span><h2>
+                    3 bước bắt đầu hành trình tìm con
+                </h2>
+            </div>
+            <div class="landing-steps-grid">
+                <div class="landing-step">
+                    <div class="landing-step-number">1</div><h3>
+                        Tư vấn & Thăm khám
+                    </h3><p>
+                        Cả hai vợ chồng cùng đến. Bác sĩ đánh giá toàn diện, tìm
+                        nguyên nhân chính xác.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">2</div><h3>
+                        Phác đồ cá nhân hóa
+                    </h3><p>
+                        Lộ trình điều trị riêng cho từng cặp vợ chồng. Từ nội
+                        khoa đến hỗ trợ sinh sản.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">3</div><h3>
+                        Đồng hành đến kết quả
+                    </h3><p>
+                        Theo dõi sát, điều chỉnh kịp thời. Không bỏ cuộc cho đến
+                        khi bạn nắm tay con yêu.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-accent btn-lg"
+                    id="vosinh-steps-cta">Tư Vấn Miễn Phí Với Bác Sĩ</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="review">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu chuyện thành công</span><h2>
+                    Nhiều cặp vợ chồng đã thành công tại An Sinh
+                </h2>
+            </div>
+            <div class="grid-3">
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Ơn bác và phòng khám rất nhiều vì đã đưa con đến với vợ
+                        chồng em. Hành trình tuy gian nan nhưng cuối cùng cũng
+                        có trái ngọt ôm trong tay."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">H</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Chị H.</strong><span
+                                >Điều trị vô sinh — 5 năm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Cảm ơn bác sĩ đã kiên nhẫn với vợ chồng em. Sau 3 năm
+                        cố gắng, giờ em đã mang thai 3 tháng, hạnh phúc vô
+                        cùng."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">D</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Chị D.</strong><span
+                                >Điều trị vô sinh — 3 năm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-testimonial">
+                    <div class="landing-testimonial-stars" aria-label="5 sao">
+                        ★★★★★
+                    </div>
+                    <p class="landing-testimonial-text">
+                        "Bác sĩ không chỉ giỏi chuyên môn mà còn rất thấu hiểu.
+                        Mỗi lần thất bại, bác đều động viên. Giờ bé nhà em đã 6
+                        tháng rồi."
+                    </p>
+                    <div class="landing-testimonial-author">
+                        <div class="landing-testimonial-avatar">V</div><div
+                            class="landing-testimonial-meta"
+                        >
+                            <strong>Anh V. & Chị T.</strong><span
+                                >Điều trị hiếm muộn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="stakes">
+        <div class="container">
+            <div class="landing-stakes">
+                <div class="landing-stakes-fail">
+                    <h3 class="stakes-heading fail">
+                        Tuổi không chờ đợi — hãy bắt đầu ngay
+                    </h3>
+                    <ul class="landing-stakes-list">
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--error)"
+                                aria-hidden="true"
+                                ><circle cx="12" cy="12" r="10"></circle><line
+                                    x1="15"
+                                    y1="9"
+                                    x2="9"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line><line
+                                    x1="9"
+                                    y1="9"
+                                    x2="15"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line>
+                            </svg>Tuổi càng cao, cơ hội thụ thai càng giảm rõ
+                            rệt
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--error)"
+                                aria-hidden="true"
+                                ><circle cx="12" cy="12" r="10"></circle><line
+                                    x1="15"
+                                    y1="9"
+                                    x2="9"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line><line
+                                    x1="9"
+                                    y1="9"
+                                    x2="15"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line>
+                            </svg>Trì hoãn = mất thời gian quý báu
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--error)"
+                                aria-hidden="true"
+                                ><circle cx="12" cy="12" r="10"></circle><line
+                                    x1="15"
+                                    y1="9"
+                                    x2="9"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line><line
+                                    x1="9"
+                                    y1="9"
+                                    x2="15"
+                                    y2="15"
+                                    stroke="white"
+                                    stroke-width="2"></line>
+                            </svg>Áp lực tâm lý ngày càng nặng nề
+                        </li>
+                    </ul>
+                </div>
+                <div class="landing-stakes-success">
+                    <h3 class="stakes-heading success">
+                        Bắt đầu sớm — nhiều hy vọng hơn
+                    </h3>
+                    <ul class="landing-stakes-list">
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--success)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Tìm đúng nguyên nhân, điều trị đúng cách
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--success)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Nhiều cặp vợ chồng đã nắm tay con yêu
+                        </li>
+                        <li>
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="var(--success)"
+                                aria-hidden="true"
+                                ><path
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>Được đồng hành xuyên suốt, không đơn độc
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu hỏi thường gặp</span><h2>
+                    Giải đáp về điều trị vô sinh
+                </h2>
+            </div>
+            <div class="landing-faq-list">
+                {
+                    faqs.map((faq) => (
+                        <details class="landing-faq-item">
+                            <summary class="landing-faq-question">
+                                {faq.q}
+                            </summary>
+                            <div class="landing-faq-answer">
+                                <p>{faq.a}</p>
+                            </div>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-final-cta">
+        <div class="container">
+            <h2>Hành Trình Tìm Con — Bắt Đầu Từ Cuộc Hẹn Đầu Tiên</h2>
+            <p>
+                Đừng để thời gian trôi qua. Bác sĩ 20+ năm kinh nghiệm sẵn sàng
+                đồng hành cùng bạn.
+            </p>
+            <div class="cta-actions">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-white btn-lg"
+                    id="vosinh-final-cta">Tư Vấn Miễn Phí</a
+                >
+                <a
+                    href="tel:0899268299"
+                    class="btn-outline-white"
+                    id="vosinh-final-call">Gọi: 0899 268 299</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+        })}
+    ></script>
+</BaseLayout>

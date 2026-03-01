@@ -1,0 +1,367 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import "../styles/landing.css";
+
+const pageTitle =
+    "Tư Vấn Sản Phụ Khoa Online — Gặp Bác Sĩ Chỉ Từ 5 Phút | An Sinh";
+const pageDescription =
+    "Tư vấn bác sĩ sản phụ khoa trực tuyến. Không cần đi đâu — gặp bác sĩ 20+ năm kinh nghiệm qua video call. Tiện lợi, nhanh chóng. Đặt lịch ngay!";
+
+const faqs = [
+    {
+        q: "Tư vấn online như thế nào?",
+        a: "Sau khi đặt lịch, bác sĩ sẽ gọi video hoặc thoại qua Zalo/Facebook vào đúng giờ hẹn. Bạn có thể chia sẻ kết quả xét nghiệm, hình ảnh qua tin nhắn để bác sĩ tư vấn chính xác hơn.",
+    },
+    {
+        q: "Tư vấn online có hiệu quả không?",
+        a: "Tư vấn online rất phù hợp cho: hỏi ý kiến bác sĩ, đọc kết quả xét nghiệm, tư vấn ban đầu, theo dõi điều trị. Nếu cần khám trực tiếp, bác sĩ sẽ hẹn lịch tại phòng khám.",
+    },
+    {
+        q: "Chi phí tư vấn online bao nhiêu?",
+        a: "Chi phí tư vấn online rất hợp lý, vui lòng liên hệ 0899 268 299 để biết chi tiết. Một số trường hợp tư vấn ban đầu có thể miễn phí.",
+    },
+    {
+        q: "Tôi ở xa, có sử dụng dịch vụ được không?",
+        a: "Hoàn toàn được. Dịch vụ tư vấn online không giới hạn khoảng cách. Bạn ở bất kỳ đâu đều có thể gặp bác sĩ An Sinh.",
+    },
+    {
+        q: "Giờ tư vấn online?",
+        a: "Giờ tư vấn online linh hoạt, theo lịch hẹn. Thường trong khung giờ 17h-22h (T2-T7) và 8h-22h (Chủ nhật). Đặt lịch trước để chọn giờ phù hợp.",
+    },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <nav class="landing-breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <a itemprop="item" href="/"
+                        ><span itemprop="name">Trang chủ</span>
+                    </a><meta itemprop="position" content="1" />
+                </li><li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <span itemprop="name">Tư vấn trực tuyến</span><meta
+                        itemprop="position"
+                        content="2"
+                    />
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <section class="landing-hero" id="hero">
+        <div class="container landing-hero-inner">
+            <div class="landing-hero-content">
+                <span class="landing-hero-badge"
+                    >📱 Gặp bác sĩ ngay tại nhà — không cần đi đâu</span
+                >
+                <h1>
+                    Tư Vấn Sản Phụ Khoa Online — Gặp Bác Sĩ <span
+                        class="text-accent-color">Chỉ Từ 5 Phút</span>
+                </h1>
+                <p class="landing-hero-sub">
+                    Không tiện đến phòng khám? Gặp bác sĩ chuyên khoa 20+ năm
+                    kinh nghiệm qua video call — tiện lợi, nhanh chóng, ở bất kỳ
+                    đâu.
+                </p>
+                <div class="landing-hero-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg"
+                        id="online-hero-cta">Đặt Lịch Tư Vấn Online</a
+                    >
+                    <a
+                        href="tel:0899268299"
+                        class="btn btn-outline btn-lg"
+                        id="online-hero-call">Gọi: 0899 268 299</a
+                    >
+                </div>
+            </div>
+            <div class="landing-hero-visual" aria-hidden="true">
+                <div class="hero-feature-grid">
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><rect
+                                x="2"
+                                y="3"
+                                width="20"
+                                height="14"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="8"
+                                y1="21"
+                                x2="16"
+                                y2="21"></line><line
+                                x1="12"
+                                y1="17"
+                                x2="12"
+                                y2="21"></line>
+                        </svg><span>Video Call</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                            ></path><circle cx="12" cy="7" r="4"></circle>
+                        </svg><span>BS 20+ năm</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><circle cx="12" cy="12" r="10"></circle><polyline
+                                points="12 6 12 12 16 14"></polyline>
+                        </svg><span>Chỉ từ 5 phút</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                            ></path><circle cx="12" cy="10" r="3"></circle>
+                        </svg><span>Ở bất kỳ đâu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-trust" aria-label="Chỉ số tin cậy">
+        <div class="container">
+            <div class="trust-metrics">
+                <div class="trust-metric">
+                    <span class="trust-metric-number">5.0</span><span
+                        class="trust-metric-label">⭐ Google Maps</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">20+</span><span
+                        class="trust-metric-label">Năm kinh nghiệm</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">📱</span><span
+                        class="trust-metric-label">Video / Zalo / FB</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">∞</span><span
+                        class="trust-metric-label"
+                        >Không giới hạn khoảng cách</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section landing-problems" id="van-de">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Chúng tôi hiểu</span><h2>
+                    Cần gặp bác sĩ nhưng không tiện đến phòng khám
+                </h2>
+            </div>
+            <div class="grid-3">
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><path
+                                d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                            ></path><circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3>Ở xa phòng khám</h3>
+                    <p>
+                        Bạn ở HN, tỉnh khác, hoặc đang ở nước ngoài? Tư vấn
+                        online giúp bạn gặp bác sĩ An Sinh mà không cần di
+                        chuyển.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><polyline
+                                points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Bận rộn, không có thời gian</h3>
+                    <p>
+                        Đi làm cả ngày, không thể xin nghỉ. Tư vấn online buổi
+                        tối hoặc cuối tuần — chỉ từ 5 phút, ngay tại nhà.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><line
+                                x1="12"
+                                y1="8"
+                                x2="12"
+                                y2="12"></line><line
+                                x1="12"
+                                y1="16"
+                                x2="12.01"
+                                y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>Có thắc mắc cần hỏi nhanh</h3>
+                    <p>
+                        Muốn hỏi ý kiến bác sĩ về kết quả xét nghiệm, triệu
+                        chứng mới, hoặc cần tư vấn thêm trong quá trình điều
+                        trị.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="quy-trinh">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">3 bước đơn giản</span><h2>
+                    Gặp bác sĩ chuyên khoa — ngay tại nhà
+                </h2>
+            </div>
+            <div class="landing-steps-grid">
+                <div class="landing-step">
+                    <div class="landing-step-number">1</div><h3>
+                        Đặt lịch hẹn online
+                    </h3><p>
+                        Gọi 0899 268 299 hoặc đặt online. Chọn khung giờ phù
+                        hợp.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">2</div><h3>
+                        Gặp bác sĩ qua video
+                    </h3><p>
+                        Bác sĩ gọi video qua Zalo/Facebook đúng giờ hẹn. Chia sẻ
+                        kết quả xét nghiệm nếu có.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">3</div><h3>
+                        Nhận tư vấn & Lộ trình
+                    </h3><p>
+                        Bác sĩ tư vấn, kê đơn (nếu phù hợp), hoặc hẹn khám trực
+                        tiếp nếu cần.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-accent btn-lg"
+                    id="online-steps-cta">Đặt Lịch Tư Vấn Online Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu hỏi thường gặp</span><h2>
+                    Giải đáp về tư vấn online
+                </h2>
+            </div>
+            <div class="landing-faq-list">
+                {
+                    faqs.map((faq) => (
+                        <details class="landing-faq-item">
+                            <summary class="landing-faq-question">
+                                {faq.q}
+                            </summary>
+                            <div class="landing-faq-answer">
+                                <p>{faq.a}</p>
+                            </div>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-final-cta">
+        <div class="container">
+            <h2>Gặp Bác Sĩ Ngay — Không Cần Đi Đâu</h2>
+            <p>
+                Video call với bác sĩ chuyên khoa 20+ năm kinh nghiệm. Tiện lợi,
+                nhanh chóng, ở bất kỳ đâu.
+            </p>
+            <div class="cta-actions">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-white btn-lg"
+                    id="online-final-cta">Đặt Lịch Tư Vấn Online</a
+                >
+                <a
+                    href="tel:0899268299"
+                    class="btn-outline-white"
+                    id="online-final-call">Gọi: 0899 268 299</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+        })}
+    ></script>
+</BaseLayout>

@@ -1,0 +1,363 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import "../styles/landing.css";
+
+const pageTitle =
+    "Tránh Thai An Toàn Từ Sơn, Bắc Ninh — Phương Pháp Phù Hợp Với Bạn | An Sinh";
+const pageDescription =
+    "Tư vấn tránh thai an toàn tại Từ Sơn, Bắc Ninh. Đặt vòng, cấy que, thuốc tránh thai. Bác sĩ tư vấn phương pháp phù hợp. Đặt lịch ngay!";
+
+const faqs = [
+    {
+        q: "Phương pháp tránh thai nào phù hợp nhất?",
+        a: "Mỗi phương pháp phù hợp với điều kiện sức khỏe và nhu cầu khác nhau. Bác sĩ sẽ tư vấn riêng dựa trên: tuổi, sức khỏe, kế hoạch sinh con, và lối sống. Đặt vòng, cấy que, thuốc uống — mỗi phương pháp đều có ưu nhược điểm riêng.",
+    },
+    {
+        q: "Đặt vòng tránh thai có đau không?",
+        a: "Hầu hết cảm thấy hơi khó chịu nhẹ khi đặt, nhưng không đau. Bác sĩ tại An Sinh thực hiện nhẹ nhàng, nhanh chóng (5-10 phút). Sau đặt có thể ra máu nhẹ 1-2 ngày.",
+    },
+    {
+        q: "Cấy que tránh thai hiệu quả bao lâu?",
+        a: "Que cấy tránh thai hiệu quả lên đến 3 năm, với tỷ lệ tránh thai trên 99%. Đây là phương pháp tiện lợi, không cần nhớ uống thuốc hàng ngày.",
+    },
+    {
+        q: "Chi phí dịch vụ tránh thai tại An Sinh?",
+        a: "Chi phí được niêm yết công khai, hợp lý. Tùy theo phương pháp. Liên hệ 0899 268 299 để được tư vấn chi tiết.",
+    },
+    {
+        q: "Sau khi tháo vòng/que có thể có thai ngay không?",
+        a: "Có. Khả năng sinh sản thường phục hồi nhanh sau khi tháo vòng hoặc que cấy. Bác sĩ sẽ tư vấn thời điểm phù hợp nếu bạn muốn có con.",
+    },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <nav class="landing-breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <a itemprop="item" href="/"
+                        ><span itemprop="name">Trang chủ</span>
+                    </a><meta itemprop="position" content="1" />
+                </li><li
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    <span itemprop="name">Tránh thai an toàn</span><meta
+                        itemprop="position"
+                        content="2"
+                    />
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <section class="landing-hero" id="hero">
+        <div class="container landing-hero-inner">
+            <div class="landing-hero-content">
+                <span class="landing-hero-badge"
+                    >👩‍⚕️ Bác sĩ tư vấn phương pháp phù hợp</span
+                >
+                <h1>
+                    Tránh Thai An Toàn — Phương Pháp <span
+                        class="text-accent-color">Phù Hợp Với Bạn</span>
+                </h1>
+                <p class="landing-hero-sub">
+                    Phương pháp nào phù hợp nhất? Đặt vòng, cấy que, hay thuốc
+                    uống? Để bác sĩ chuyên khoa giúp bạn quyết định — an toàn,
+                    hiệu quả, không lo ngại.
+                </p>
+                <div class="landing-hero-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg"
+                        id="tranhthai-hero-cta">Tư Vấn Phương Pháp Phù Hợp</a
+                    >
+                    <a
+                        href="tel:0899268299"
+                        class="btn btn-outline btn-lg"
+                        id="tranhthai-hero-call">Gọi: 0899 268 299</a
+                    >
+                </div>
+            </div>
+            <div class="landing-hero-visual" aria-hidden="true">
+                <div class="hero-feature-grid">
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            ></path>
+                        </svg><span>An toàn 100%</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                            ></path><circle cx="12" cy="7" r="4"></circle>
+                        </svg><span>BS tận tâm</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--primary)"
+                            stroke-width="1.5"
+                            ><circle cx="12" cy="12" r="10"></circle><polyline
+                                points="12 6 12 12 16 14"></polyline>
+                        </svg><span>Nhanh 5-10 phút</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            ><path
+                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                            ></path>
+                        </svg><span>Không đau</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-trust" aria-label="Chỉ số tin cậy">
+        <div class="container">
+            <div class="trust-metrics">
+                <div class="trust-metric">
+                    <span class="trust-metric-number">5.0</span><span
+                        class="trust-metric-label">⭐ Google Maps</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">20+</span><span
+                        class="trust-metric-label">Năm kinh nghiệm</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">99%+</span><span
+                        class="trust-metric-label">Hiệu quả</span>
+                </div>
+                <div class="trust-metric-divider" aria-hidden="true"></div>
+                <div class="trust-metric">
+                    <span class="trust-metric-number">5-10'</span><span
+                        class="trust-metric-label">Thời gian thủ thuật</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section landing-problems" id="van-de">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Chúng tôi hiểu</span><h2>
+                    Tránh thai — quyết định quan trọng cần tư vấn đúng
+                </h2>
+            </div>
+            <div class="grid-3">
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><line
+                                x1="12"
+                                y1="8"
+                                x2="12"
+                                y2="12"></line><line
+                                x1="12"
+                                y1="16"
+                                x2="12.01"
+                                y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>Không biết nên chọn phương pháp nào</h3>
+                    <p>
+                        Quá nhiều thông tin trên mạng, mỗi nơi nói một kiểu. Bạn
+                        cần bác sĩ tư vấn riêng — phù hợp với sức khỏe và kế
+                        hoạch của bạn.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><circle cx="12" cy="12" r="10"></circle><path
+                                d="M8 15s1.5 2 4 2 4-2 4-2"></path><line
+                                x1="9"
+                                y1="9"
+                                x2="9.01"
+                                y2="9"></line><line
+                                x1="15"
+                                y1="9"
+                                x2="15.01"
+                                y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Lo sợ tác dụng phụ</h3>
+                    <p>
+                        Sợ béo, sợ rối loạn kinh nguyệt, sợ ảnh hưởng sinh sản
+                        sau này. Bác sĩ sẽ giải thích rõ ưu nhược điểm từng
+                        phương pháp.
+                    </p>
+                </div>
+                <div class="card problem-card">
+                    <div class="problem-icon" aria-hidden="true">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            ><path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3>Ngại đi khám, tự mua thuốc</h3>
+                    <p>
+                        Tự mua thuốc tránh thai không đúng có thể ảnh hưởng sức
+                        khỏe. Chỉ 5-10 phút tư vấn với bác sĩ — an toàn hơn rất
+                        nhiều.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quy-trinh">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Đơn giản & An toàn</span><h2>
+                    3 bước tránh thai an toàn tại An Sinh
+                </h2>
+            </div>
+            <div class="landing-steps-grid">
+                <div class="landing-step">
+                    <div class="landing-step-number">1</div><h3>
+                        Tư vấn với bác sĩ
+                    </h3><p>
+                        Bác sĩ đánh giá sức khỏe, tư vấn phương pháp phù hợp
+                        nhất.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">2</div><h3>
+                        Thực hiện thủ thuật
+                    </h3><p>
+                        Đặt vòng, cấy que — nhanh chóng (5-10 phút), nhẹ nhàng,
+                        an toàn.
+                    </p>
+                </div>
+                <div class="landing-step">
+                    <div class="landing-step-number">3</div><h3>
+                        Theo dõi & Hỗ trợ
+                    </h3><p>
+                        Hẹn tái khám, hỗ trợ tư vấn qua điện thoại nếu có thắc
+                        mắc.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-accent btn-lg"
+                    id="tranhthai-steps-cta">Tư Vấn Phương Pháp Phù Hợp</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu hỏi thường gặp</span><h2>
+                    Giải đáp về tránh thai
+                </h2>
+            </div>
+            <div class="landing-faq-list">
+                {
+                    faqs.map((faq) => (
+                        <details class="landing-faq-item">
+                            <summary class="landing-faq-question">
+                                {faq.q}
+                            </summary>
+                            <div class="landing-faq-answer">
+                                <p>{faq.a}</p>
+                            </div>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-final-cta">
+        <div class="container">
+            <h2>Tránh Thai An Toàn — Chỉ Cần 5 Phút Tư Vấn</h2>
+            <p>
+                Bác sĩ chuyên khoa tư vấn phương pháp phù hợp nhất với bạn. An
+                toàn, hiệu quả, không lo ngại.
+            </p>
+            <div class="cta-actions">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-white btn-lg"
+                    id="tranhthai-final-cta">Đặt Lịch Tư Vấn Ngay</a
+                >
+                <a
+                    href="tel:0899268299"
+                    class="btn-outline-white"
+                    id="tranhthai-final-call">Gọi: 0899 268 299</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+        })}
+    ></script>
+</BaseLayout>
