@@ -1,0 +1,1351 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Bảng Cân Nặng Thai Nhi Theo Tuần — Chuẩn WHO | An Sinh";
+const description =
+    "Tra cứu cân nặng thai nhi theo tuần (12-40 tuần) chuẩn INTERGROWTH-21st/WHO. So sánh với kết quả siêu âm, nhận gợi ý dinh dưỡng và tư vấn y tế miễn phí.";
+---
+
+<BaseLayout title={title} description={description}>
+    <!-- Hero -->
+    <section class="fwt-hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                    ></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                Chuẩn INTERGROWTH-21st / WHO — Dữ liệu y khoa quốc tế
+            </div>
+            <h1>
+                Bảng Cân Nặng Thai Nhi <span class="text-accent-color"
+                    >Theo Tuần</span
+                >
+            </h1>
+            <p class="fwt-hero-desc">
+                Tra cứu cân nặng, chiều dài chuẩn của thai nhi theo tuần thai —
+                dựa trên chuẩn quốc tế
+                <strong>INTERGROWTH-21st / WHO</strong>. Nhập kết quả siêu âm để
+                so sánh ngay.
+            </p>
+            <div class="trust-row">
+                <span class="trust-item">
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                        ></path><circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    BS 20+ năm kinh nghiệm
+                </span>
+                <span class="trust-item">
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                        ></path><polyline points="22 4 12 14.01 9 11.01"
+                        ></polyline>
+                    </svg>
+                    10,000+ ca khám
+                </span>
+                <span class="trust-item">
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"
+                        ></rect><line x1="16" y1="2" x2="16" y2="6"></line><line
+                            x1="8"
+                            y1="2"
+                            x2="8"
+                            y2="6"></line><line x1="3" y1="10" x2="21" y2="10"
+                        ></line>
+                    </svg>
+                    Miễn phí 100%
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Input Section -->
+    <section class="section" id="tra-cuu">
+        <div class="container">
+            <div class="fwt-tool-card">
+                <div class="fwt-tool-header">
+                    <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                        ><path
+                            d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2z"
+                        ></path><path d="M12 6v6l4 2"></path>
+                    </svg>
+                    <h2>Tra cứu cân nặng thai nhi</h2>
+                </div>
+
+                <div class="fwt-input-group">
+                    <label for="week-select" class="fwt-label"
+                        >Tuần thai hiện tại <span
+                            class="fwt-required"
+                            aria-hidden="true">*</span
+                        >
+                    </label>
+                    <select
+                        id="week-select"
+                        class="fwt-select"
+                        aria-required="true"
+                    >
+                        <option value="">— Chọn tuần thai —</option>
+                    </select>
+                </div>
+
+                <!-- Progressive disclosure: ultrasound inputs -->
+                <details class="fwt-ultrasound-details" id="ultrasound-section">
+                    <summary class="fwt-ultrasound-toggle">
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            ><path d="M12 5v14M5 12h14"></path>
+                        </svg>
+                        So sánh với kết quả siêu âm <span
+                            class="fwt-optional-badge">Tùy chọn</span
+                        >
+                    </summary>
+                    <div class="fwt-ultrasound-body">
+                        <p class="fwt-ultrasound-desc">
+                            Nhập chỉ số siêu âm để tính cân nặng ước tính (EFW)
+                            và so sánh với chuẩn.
+                        </p>
+                        <div class="fwt-us-grid">
+                            <div class="fwt-input-group">
+                                <label for="us-hc" class="fwt-label"
+                                    >HC — Chu vi đầu (cm)</label
+                                >
+                                <input
+                                    type="number"
+                                    id="us-hc"
+                                    class="fwt-input"
+                                    placeholder="vd: 28.5"
+                                    step="0.1"
+                                    min="5"
+                                    max="50"
+                                    inputmode="decimal"
+                                />
+                            </div>
+                            <div class="fwt-input-group">
+                                <label for="us-ac" class="fwt-label"
+                                    >AC — Chu vi bụng (cm)</label
+                                >
+                                <input
+                                    type="number"
+                                    id="us-ac"
+                                    class="fwt-input"
+                                    placeholder="vd: 25.0"
+                                    step="0.1"
+                                    min="5"
+                                    max="50"
+                                    inputmode="decimal"
+                                />
+                            </div>
+                            <div class="fwt-input-group">
+                                <label for="us-fl" class="fwt-label"
+                                    >FL — Chiều dài xương đùi (cm)</label
+                                >
+                                <input
+                                    type="number"
+                                    id="us-fl"
+                                    class="fwt-input"
+                                    placeholder="vd: 5.5"
+                                    step="0.1"
+                                    min="0.5"
+                                    max="15"
+                                    inputmode="decimal"
+                                />
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            id="calc-efw-btn"
+                            class="btn btn-primary"
+                            disabled
+                        >
+                            Tính cân nặng ước tính (EFW)
+                        </button>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Result Display -->
+            <div id="result-container" class="fwt-result-container" hidden>
+                <!-- Standard data card -->
+                <div class="fwt-result-card" id="standard-result">
+                    <div class="fwt-result-header">
+                        <span
+                            class="fwt-fruit-emoji"
+                            id="result-fruit-emoji"
+                            aria-hidden="true"></span>
+                        <div>
+                            <h3 id="result-week-title"></h3>
+                            <p id="result-fruit" class="fwt-fruit-label"></p>
+                        </div>
+                    </div>
+                    <p id="result-description" class="fwt-result-desc"></p>
+
+                    <div class="fwt-stats-grid">
+                        <div class="fwt-stat">
+                            <span class="fwt-stat-label"
+                                >Cân nặng chuẩn (P50)</span
+                            >
+                            <span class="fwt-stat-value" id="result-weight"
+                            ></span>
+                        </div>
+                        <div class="fwt-stat">
+                            <span class="fwt-stat-label">Chiều dài</span>
+                            <span class="fwt-stat-value" id="result-length"
+                            ></span>
+                        </div>
+                    </div>
+
+                    <!-- Percentile bar -->
+                    <div class="fwt-percentile-section">
+                        <h4>Phạm vi cân nặng chuẩn</h4>
+                        <div class="fwt-bar-labels">
+                            <span>P10</span>
+                            <span>P50</span>
+                            <span>P90</span>
+                        </div>
+                        <div
+                            class="fwt-bar-container"
+                            role="img"
+                            aria-label="Biểu đồ phạm vi cân nặng"
+                        >
+                            <div class="fwt-bar-track">
+                                <div class="fwt-bar-range" id="bar-range"></div>
+                                <div
+                                    class="fwt-bar-marker fwt-bar-p50"
+                                    id="bar-p50"
+                                >
+                                </div>
+                                <div
+                                    class="fwt-bar-marker fwt-bar-actual"
+                                    id="bar-actual"
+                                    hidden
+                                >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fwt-bar-values">
+                            <span id="bar-p10-val"></span>
+                            <span id="bar-p50-val"></span>
+                            <span id="bar-p90-val"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EFW Result (shown when ultrasound data entered) -->
+                <div class="fwt-efw-result" id="efw-result" hidden>
+                    <div class="fwt-efw-header">
+                        <h3>Kết quả so sánh siêu âm</h3>
+                    </div>
+                    <div class="fwt-efw-body">
+                        <div class="fwt-stat">
+                            <span class="fwt-stat-label"
+                                >Cân nặng ước tính (EFW)</span
+                            >
+                            <span
+                                class="fwt-stat-value fwt-efw-value"
+                                id="efw-weight"></span>
+                        </div>
+                        <div class="fwt-classification" id="efw-classification">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nutrition Advice -->
+                <div class="fwt-advice-card" id="nutrition-card" hidden>
+                    <div class="fwt-advice-header">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--success)"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            ><path
+                                d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"
+                            ></path><line x1="6" y1="1" x2="6" y2="4"
+                            ></line><line x1="10" y1="1" x2="10" y2="4"
+                            ></line><line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                        <h3 id="nutrition-title">Gợi ý dinh dưỡng</h3>
+                    </div>
+                    <p class="fwt-calories" id="nutrition-calories"></p>
+                    <ul class="fwt-advice-list" id="nutrition-list"></ul>
+                </div>
+
+                <!-- Doctor Alert -->
+                <div class="fwt-alert-card" id="doctor-alert" hidden>
+                    <div
+                        class="fwt-alert-icon"
+                        id="alert-icon"
+                        aria-hidden="true"
+                    >
+                    </div>
+                    <div>
+                        <h4 id="alert-title"></h4>
+                        <p id="alert-message"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Table -->
+    <section class="section section-alt" id="bang-can-nang">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Dữ liệu chuẩn WHO</span>
+                <h2>
+                    Bảng cân nặng thai nhi đầy đủ <span
+                        class="text-accent-color">tuần 12 – 40</span
+                    >
+                </h2>
+                <p>
+                    Dữ liệu theo chuẩn quốc tế INTERGROWTH-21st (P10 – P50 –
+                    P90)
+                </p>
+            </div>
+
+            <div class="fwt-table-wrapper">
+                <table class="fwt-table" id="full-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tuần</th>
+                            <th scope="col">Chiều dài (cm)</th>
+                            <th scope="col">P10 (g)</th>
+                            <th scope="col">P50 (g)</th>
+                            <th scope="col">P90 (g)</th>
+                            <th scope="col" class="fwt-hide-mobile">So sánh</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section fwt-cta-section">
+        <div class="container text-center">
+            <h2>Bạn cần tư vấn thêm?</h2>
+            <p>
+                Bác sĩ chuyên khoa sản tại An Sinh sẵn sàng giải đáp mọi thắc
+                mắc của bạn về sự phát triển của thai nhi.
+            </p>
+            <div class="fwt-cta-buttons">
+                <a
+                    href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                    class="btn btn-accent btn-lg"
+                    id="fwt-cta-book"
+                >
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                        ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"
+                        ></rect><line x1="16" y1="2" x2="16" y2="6"></line><line
+                            x1="8"
+                            y1="2"
+                            x2="8"
+                            y2="6"></line><line x1="3" y1="10" x2="21" y2="10"
+                        ></line>
+                    </svg>
+                    Đặt Lịch Khám Thai
+                </a>
+                <a href="tel:0899268299" class="btn btn-outline btn-lg">
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                        ><path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                        ></path>
+                    </svg>
+                    Gọi Tư Vấn Miễn Phí
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu hỏi thường gặp</span>
+                <h2>Thắc Mắc Về Cân Nặng Thai Nhi</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Cân nặng thai nhi bao nhiêu là chuẩn?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Cân nặng thai nhi chuẩn được đánh giá theo <strong
+                                >bách phân vị (percentile)</strong
+                            >. Thai nhi nằm trong khoảng P10-P90 là bình thường.
+                            Ví dụ: tuần 20 chuẩn khoảng 300g, tuần 30 khoảng
+                            1.3-1.5 kg, tuần 40 khoảng 3.2-3.4 kg.
+                        </p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        >Thai nhi nhỏ hơn tuổi thai có nguy hiểm không?</summary
+                    >
+                    <div class="faq-answer">
+                        <p>
+                            Thai nhi nhỏ hơn tuổi thai (<strong
+                                >SGA, dưới P10</strong
+                            >) cần được theo dõi sát. Nguyên nhân có thể do dinh
+                            dưỡng mẹ, tuần hoàn rau thai, hoặc yếu tố di truyền.
+                            Bác sĩ sẽ đánh giá bằng siêu âm Doppler và
+                            Non-stress test để đảm bảo bé phát triển tốt.
+                        </p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        >EFW là gì? Cách tính cân nặng thai nhi từ siêu âm?</summary
+                    >
+                    <div class="faq-answer">
+                        <p>
+                            <strong>EFW (Estimated Fetal Weight)</strong> là cân
+                            nặng ước tính của thai nhi, được tính từ các chỉ số siêu
+                            âm: HC (chu vi đầu), AC (chu vi bụng), và FL (chiều dài
+                            xương đùi) bằng công thức Hadlock. Sai số thường ±10-15%.
+                        </p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary
+                        >Khi nào cần đi khám nếu thai nhi không đạt cân nặng
+                        chuẩn?</summary
+                    >
+                    <div class="faq-answer">
+                        <p>
+                            Nên khám bác sĩ ngay nếu: cân nặng thai nhi <strong
+                                >dưới P10 hoặc trên P90</strong
+                            > liên tục, bé không tăng cân qua 2 lần siêu âm, hoặc
+                            có kèm theo bất thường nước ối. Đặc biệt quan trọng ở
+                            giai đoạn sau tuần 34.
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Schema JSON-LD -->
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+                {
+                    "@type": "Question",
+                    name: "Cân nặng thai nhi bao nhiêu là chuẩn?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Cân nặng thai nhi chuẩn được đánh giá theo bách phân vị (percentile). Thai nhi nằm trong khoảng P10-P90 là bình thường. Ví dụ: tuần 20 chuẩn khoảng 300g, tuần 30 khoảng 1.3-1.5 kg, tuần 40 khoảng 3.2-3.4 kg.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Thai nhi nhỏ hơn tuổi thai có nguy hiểm không?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Thai nhi nhỏ hơn tuổi thai (SGA, dưới P10) cần được theo dõi sát. Nguyên nhân có thể do dinh dưỡng mẹ, tuần hoàn rau thai, hoặc yếu tố di truyền. Bác sĩ sẽ đánh giá bằng siêu âm Doppler và Non-stress test để đảm bảo bé phát triển tốt.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "EFW là gì? Cách tính cân nặng thai nhi từ siêu âm?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "EFW (Estimated Fetal Weight) là cân nặng ước tính của thai nhi, được tính từ các chỉ số siêu âm: HC (chu vi đầu), AC (chu vi bụng), và FL (chiều dài xương đùi) bằng công thức Hadlock. Sai số thường ±10-15%.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Khi nào cần đi khám nếu thai nhi không đạt cân nặng chuẩn?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Nên khám bác sĩ ngay nếu: cân nặng thai nhi dưới P10 hoặc trên P90 liên tục, bé không tăng cân qua 2 lần siêu âm, hoặc có kèm theo bất thường nước ối. Đặc biệt quan trọng ở giai đoạn sau tuần 34.",
+                    },
+                },
+            ],
+        })}
+    ></script>
+
+    <style>
+        /* ── Hero ── */
+        .fwt-hero {
+            background: linear-gradient(
+                135deg,
+                var(--primary) 0%,
+                #0d5c52 100%
+            );
+            color: #fff;
+            padding: var(--space-4xl) 0 var(--space-3xl);
+            text-align: center;
+        }
+        .fwt-hero h1 {
+            margin-bottom: var(--space-md);
+            color: #fff;
+        }
+        .fwt-hero-desc {
+            max-width: 640px;
+            margin: 0 auto var(--space-xl);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.0625rem;
+            line-height: 1.8;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: var(--space-lg);
+        }
+        .trust-row {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        /* ── Tool Card ── */
+        .fwt-tool-card {
+            background: var(--surface);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+            padding: var(--space-2xl);
+            max-width: 680px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-md);
+        }
+        .fwt-tool-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        .fwt-tool-header h2 {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        /* ── Inputs ── */
+        .fwt-label {
+            display: block;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+        .fwt-required {
+            color: var(--error);
+        }
+        .fwt-select,
+        .fwt-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            transition: border-color var(--transition-fast),
+                box-shadow var(--transition-fast);
+            min-height: 44px;
+        }
+        .fwt-select:focus,
+        .fwt-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(27, 122, 109, 0.12);
+        }
+        .fwt-input-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        /* ── Ultrasound toggle ── */
+        .fwt-ultrasound-details {
+            margin-top: var(--space-lg);
+            border-top: 1px solid var(--border-light);
+            padding-top: var(--space-lg);
+        }
+        .fwt-ultrasound-toggle {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            list-style: none;
+            padding: var(--space-sm) 0;
+            min-height: 44px;
+        }
+        .fwt-ultrasound-toggle::-webkit-details-marker {
+            display: none;
+        }
+        .fwt-ultrasound-toggle::marker {
+            content: "";
+        }
+        .fwt-ultrasound-toggle svg {
+            transition: transform var(--transition-fast);
+        }
+        .fwt-ultrasound-details[open] .fwt-ultrasound-toggle svg {
+            transform: rotate(45deg);
+        }
+        .fwt-optional-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: var(--surface-alt);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            margin-left: var(--space-sm);
+        }
+        .fwt-ultrasound-body {
+            padding-top: var(--space-md);
+        }
+        .fwt-ultrasound-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-lg);
+        }
+        .fwt-us-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+
+        /* ── Result Container ── */
+        .fwt-result-container {
+            max-width: 680px;
+            margin: var(--space-2xl) auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        /* ── Result Card ── */
+        .fwt-result-card {
+            background: var(--surface);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-md);
+            animation: fwtFadeIn 0.3s ease;
+        }
+        @keyframes fwtFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fwt-result-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        .fwt-fruit-emoji {
+            font-size: 3rem;
+            line-height: 1;
+        }
+        .fwt-result-header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 2px;
+        }
+        .fwt-fruit-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .fwt-result-desc {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-xl);
+        }
+
+        /* ── Stats ── */
+        .fwt-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        .fwt-stat {
+            background: var(--surface-alt);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            text-align: center;
+        }
+        .fwt-stat-label {
+            display: block;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+        }
+        .fwt-stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ── Percentile Bar ── */
+        .fwt-percentile-section h4 {
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-sm);
+        }
+        .fwt-bar-labels,
+        .fwt-bar-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .fwt-bar-labels {
+            margin-bottom: 4px;
+        }
+        .fwt-bar-values {
+            margin-top: 4px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .fwt-bar-container {
+            padding: var(--space-sm) 0;
+        }
+        .fwt-bar-track {
+            position: relative;
+            height: 20px;
+            background: var(--surface-alt);
+            border-radius: var(--radius-full);
+            overflow: visible;
+        }
+        .fwt-bar-range {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-light), #b2dfdb);
+            border-radius: var(--radius-full);
+            transition: left var(--transition-base),
+                width var(--transition-base);
+        }
+        .fwt-bar-marker {
+            position: absolute;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #fff;
+            box-shadow: var(--shadow-sm);
+            transition: left var(--transition-base);
+        }
+        .fwt-bar-p50 {
+            background: var(--primary);
+        }
+        .fwt-bar-actual {
+            background: var(--accent);
+            z-index: 2;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ── EFW Result ── */
+        .fwt-efw-result {
+            background: var(--surface);
+            border-radius: var(--radius-xl);
+            border: 2px solid var(--accent);
+            overflow: hidden;
+            animation: fwtFadeIn 0.3s ease;
+        }
+        .fwt-efw-header {
+            background: var(--accent-light);
+            padding: var(--space-md) var(--space-xl);
+        }
+        .fwt-efw-header h3 {
+            font-size: 1rem;
+            color: var(--accent-dark);
+            margin: 0;
+        }
+        .fwt-efw-body {
+            padding: var(--space-xl);
+        }
+        .fwt-efw-value {
+            color: var(--accent);
+        }
+        .fwt-classification {
+            margin-top: var(--space-md);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        .fwt-classification.cls-NORMAL {
+            background: #ecfdf5;
+            border-left: 4px solid var(--success);
+            color: #065f46;
+        }
+        .fwt-classification.cls-SGA {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+            color: #92400e;
+        }
+        .fwt-classification.cls-LGA {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+            color: #92400e;
+        }
+
+        /* ── Advice Card ── */
+        .fwt-advice-card {
+            background: var(--surface);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+            padding: var(--space-xl);
+            animation: fwtFadeIn 0.3s ease;
+        }
+        .fwt-advice-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        .fwt-advice-header h3 {
+            font-size: 1.0625rem;
+            margin: 0;
+        }
+        .fwt-calories {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+        .fwt-advice-list {
+            list-style: none;
+            padding: 0;
+        }
+        .fwt-advice-list li {
+            padding: var(--space-sm) 0;
+            padding-left: var(--space-xl);
+            position: relative;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .fwt-advice-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* ── Alert Card ── */
+        .fwt-alert-card {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            animation: fwtFadeIn 0.3s ease;
+        }
+        .fwt-alert-card h4 {
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-xs);
+        }
+        .fwt-alert-card p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .fwt-alert-card.alert-info {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+        }
+        .fwt-alert-card.alert-info h4 {
+            color: #1e40af;
+        }
+        .fwt-alert-card.alert-warning {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+        }
+        .fwt-alert-card.alert-warning h4 {
+            color: #92400e;
+        }
+        .fwt-alert-card.alert-urgent {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+        }
+        .fwt-alert-card.alert-urgent h4 {
+            color: #991b1b;
+        }
+        .fwt-alert-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* ── Full Table ── */
+        .fwt-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+        }
+        .fwt-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9375rem;
+        }
+        .fwt-table thead {
+            background: var(--primary);
+            color: #fff;
+        }
+        .fwt-table th {
+            padding: 0.875rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+        .fwt-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-light);
+            white-space: nowrap;
+        }
+        .fwt-table tbody tr:hover {
+            background: var(--primary-light);
+        }
+        .fwt-table tbody tr.fwt-row-highlight {
+            background: var(--accent-light);
+            font-weight: 600;
+        }
+        .fwt-table .fwt-week-cell {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ── CTA Section ── */
+        .fwt-cta-section {
+            background: linear-gradient(
+                135deg,
+                var(--primary) 0%,
+                var(--primary-dark) 100%
+            );
+            color: #fff;
+        }
+        .fwt-cta-section h2 {
+            color: #fff;
+            margin-bottom: var(--space-md);
+        }
+        .fwt-cta-section p {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 560px;
+            margin: 0 auto var(--space-xl);
+        }
+        .fwt-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+        .fwt-cta-section .btn-outline {
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #fff;
+        }
+        .fwt-cta-section .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+        }
+
+        /* ── FAQ Section ── */
+        .faq-section {
+            padding: var(--space-4xl) 0;
+            background: var(--surface-alt);
+        }
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            overflow: hidden;
+            background: #fff;
+        }
+        .faq-item summary {
+            padding: var(--space-lg) var(--space-xl);
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 44px;
+            font-size: 0.9375rem;
+            transition: background var(--transition-fast);
+        }
+        .faq-item summary:hover {
+            background: var(--surface-alt);
+        }
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            transition: transform var(--transition-fast);
+        }
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-answer {
+            padding: 0 var(--space-xl) var(--space-lg);
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+        .faq-answer p {
+            margin: 0;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .trust-row {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-sm);
+            }
+            .fwt-us-grid {
+                grid-template-columns: 1fr;
+            }
+            .fwt-tool-card {
+                padding: var(--space-xl);
+            }
+            .fwt-result-card {
+                padding: var(--space-xl);
+            }
+            .fwt-stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .fwt-hide-mobile {
+                display: none;
+            }
+            .fwt-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .fwt-cta-buttons .btn {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+    </style>
+
+    <script>
+        import {
+            FETAL_GROWTH_DATA,
+            MIN_WEEK,
+            MAX_WEEK,
+            getFetalDataByWeek,
+            classifyWeight,
+            calculateEFW,
+            getNutritionAdvice,
+            getDoctorAlert,
+            validateMeasurements,
+        } from "../utils/fetal-weight-tracker.js";
+
+        // ── Populate week selector ──
+        const weekSelect = document.getElementById("week-select");
+        for (let w = MIN_WEEK; w <= MAX_WEEK; w++) {
+            const d = FETAL_GROWTH_DATA[w];
+            const opt = document.createElement("option");
+            opt.value = w;
+            opt.textContent = `Tuần ${w} — ${d.fruit} ${d.fruitEmoji}`;
+            weekSelect.appendChild(opt);
+        }
+
+        // ── Populate full table ──
+        const tableBody = document.getElementById("table-body");
+        for (let w = MIN_WEEK; w <= MAX_WEEK; w++) {
+            const d = FETAL_GROWTH_DATA[w];
+            const tr = document.createElement("tr");
+            tr.dataset.week = w;
+            tr.innerHTML = `
+        <td class="fwt-week-cell">${w}</td>
+        <td>${d.length}</td>
+        <td>${d.weight.p10.toLocaleString()}</td>
+        <td><strong>${d.weight.p50.toLocaleString()}</strong></td>
+        <td>${d.weight.p90.toLocaleString()}</td>
+        <td class="fwt-hide-mobile">${d.fruitEmoji} ${d.fruit}</td>
+      `;
+            tableBody.appendChild(tr);
+        }
+
+        // ── Elements ──
+        const resultContainer = document.getElementById("result-container");
+        const efwResult = document.getElementById("efw-result");
+        const nutritionCard = document.getElementById("nutrition-card");
+        const doctorAlert = document.getElementById("doctor-alert");
+        const calcEfwBtn = document.getElementById("calc-efw-btn");
+        const inputHC = document.getElementById("us-hc");
+        const inputAC = document.getElementById("us-ac");
+        const inputFL = document.getElementById("us-fl");
+
+        // ── Week select handler ──
+        weekSelect.addEventListener("change", () => {
+            const week = parseInt(weekSelect.value);
+            if (!week) {
+                resultContainer.hidden = true;
+                return;
+            }
+            showStandardResult(week);
+            showNutritionAdvice("NORMAL", week);
+            showDoctorAlert("NORMAL", week);
+            efwResult.hidden = true;
+            resultContainer.hidden = false;
+
+            // Highlight table row
+            document
+                .querySelectorAll(".fwt-row-highlight")
+                .forEach((r) => r.classList.remove("fwt-row-highlight"));
+            const row = tableBody.querySelector(`tr[data-week="${week}"]`);
+            if (row) {
+                row.classList.add("fwt-row-highlight");
+                row.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+        });
+
+        // ── EFW button enable/disable ──
+        function checkEfwInputs() {
+            const hc = parseFloat(inputHC.value);
+            const ac = parseFloat(inputAC.value);
+            const fl = parseFloat(inputFL.value);
+            calcEfwBtn.disabled = !(hc > 0 && ac > 0 && fl > 0);
+        }
+        inputHC.addEventListener("input", checkEfwInputs);
+        inputAC.addEventListener("input", checkEfwInputs);
+        inputFL.addEventListener("input", checkEfwInputs);
+
+        // ── Calculate EFW ──
+        calcEfwBtn.addEventListener("click", () => {
+            const week = parseInt(weekSelect.value);
+            if (!week) {
+                alert("Vui lòng chọn tuần thai trước.");
+                return;
+            }
+
+            const hc = parseFloat(inputHC.value);
+            const ac = parseFloat(inputAC.value);
+            const fl = parseFloat(inputFL.value);
+
+            const validation = validateMeasurements(hc, ac, fl);
+            if (!validation.valid) {
+                alert(validation.error);
+                return;
+            }
+
+            try {
+                const efw = calculateEFW(hc, ac, fl);
+                const classification = classifyWeight(week, efw);
+
+                // Show EFW result
+                document.getElementById(
+                    "efw-weight"
+                ).textContent = `${efw.toLocaleString()} g`;
+
+                const clsEl = document.getElementById("efw-classification");
+                clsEl.className = `fwt-classification cls-${classification.classification}`;
+                clsEl.innerHTML = `<strong>${classification.label}</strong> (${classification.percentileRange})<br>${classification.description}`;
+
+                efwResult.hidden = false;
+
+                // Update percentile bar with actual marker
+                const data = getFetalDataByWeek(week);
+                const barActual = document.getElementById("bar-actual");
+                const range = data.weight.p90 - data.weight.p10;
+                const pos = Math.max(
+                    0,
+                    Math.min(100, ((efw - data.weight.p10) / range) * 100)
+                );
+                barActual.style.left = `${pos}%`;
+                barActual.hidden = false;
+
+                // Update nutrition & alert with actual classification
+                showNutritionAdvice(classification.classification, week);
+                showDoctorAlert(classification.classification, week);
+            } catch (e) {
+                alert("Lỗi tính toán: " + e.message);
+            }
+        });
+
+        // ── Display functions ──
+
+        function showStandardResult(week) {
+            const data = getFetalDataByWeek(week);
+            if (!data) return;
+
+            document.getElementById("result-fruit-emoji").textContent =
+                data.fruitEmoji;
+            document.getElementById(
+                "result-week-title"
+            ).textContent = `Tuần ${week}`;
+            document.getElementById(
+                "result-fruit"
+            ).textContent = `Kích thước như ${data.fruit}`;
+            document.getElementById("result-description").textContent =
+                data.description;
+            document.getElementById(
+                "result-weight"
+            ).textContent = `${data.weight.p50.toLocaleString()} g`;
+            document.getElementById(
+                "result-length"
+            ).textContent = `${data.length} cm`;
+
+            // Percentile bar
+            document.getElementById(
+                "bar-p10-val"
+            ).textContent = `${data.weight.p10.toLocaleString()} g`;
+            document.getElementById(
+                "bar-p50-val"
+            ).textContent = `${data.weight.p50.toLocaleString()} g`;
+            document.getElementById(
+                "bar-p90-val"
+            ).textContent = `${data.weight.p90.toLocaleString()} g`;
+
+            const range = document.getElementById("bar-range");
+            range.style.left = "0%";
+            range.style.width = "100%";
+
+            const p50Marker = document.getElementById("bar-p50");
+            const p50Pos =
+                ((data.weight.p50 - data.weight.p10) /
+                    (data.weight.p90 - data.weight.p10)) *
+                100;
+            p50Marker.style.left = `${p50Pos}%`;
+
+            document.getElementById("bar-actual").hidden = true;
+        }
+
+        function showNutritionAdvice(classification, week) {
+            const advice = getNutritionAdvice(classification, week);
+            document.getElementById("nutrition-title").textContent =
+                advice.title;
+            document.getElementById(
+                "nutrition-calories"
+            ).textContent = `Nhu cầu năng lượng: ${advice.calories}`;
+            const list = document.getElementById("nutrition-list");
+            list.innerHTML = advice.items
+                .map((item) => `<li>${item}</li>`)
+                .join("");
+            nutritionCard.hidden = false;
+        }
+
+        function showDoctorAlert(classification, week) {
+            const alert = getDoctorAlert(classification, week);
+            const card = document.getElementById("doctor-alert");
+            card.className = `fwt-alert-card alert-${alert.level}`;
+
+            const iconMap = { info: "ℹ️", warning: "⚠️", urgent: "🚨" };
+            document.getElementById("alert-icon").textContent =
+                iconMap[alert.level];
+            document.getElementById("alert-title").textContent = alert.title;
+            document.getElementById("alert-message").textContent =
+                alert.message;
+            card.hidden = false;
+        }
+    </script>
+</BaseLayout>

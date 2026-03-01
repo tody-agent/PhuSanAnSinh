@@ -1,0 +1,1331 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+---
+
+<BaseLayout
+    title="Tính Ngày Rụng Trứng & Cửa Sổ Thụ Thai — Phòng Khám An Sinh"
+    description="Công cụ tính ngày rụng trứng chính xác. Nhập ngày kinh cuối, biết ngay ngày dễ thụ thai, cửa sổ thụ thai, ngày kinh tiếp theo. Miễn phí, dựa trên khoa học y khoa."
+>
+    <!-- Schema.org FAQPage -->
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+                {
+                    "@type": "Question",
+                    name: "Ngày rụng trứng là ngày nào trong chu kỳ kinh nguyệt?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Ngày rụng trứng thường rơi vào khoảng 14 ngày trước kỳ kinh tiếp theo. Với chu kỳ 28 ngày, rụng trứng vào khoảng ngày thứ 14. Với chu kỳ 30 ngày, rụng trứng vào khoảng ngày thứ 16.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Cửa sổ thụ thai kéo dài bao lâu?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Cửa sổ thụ thai kéo dài khoảng 6 ngày: 5 ngày trước ngày rụng trứng và 1 ngày sau rụng trứng. Tinh trùng có thể sống trong đường sinh dục nữ đến 5 ngày, trong khi trứng chỉ sống 12-24 giờ sau khi rụng.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Công cụ tính ngày rụng trứng có chính xác không?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Công cụ tính ngày rụng trứng dựa trên phương pháp lịch (Calendar Method) với pha hoàng thể trung bình 14 ngày. Đây là ước tính dựa trên chu kỳ đều. Kết quả chính xác nhất khi chu kỳ kinh nguyệt đều đặn. Nên kết hợp với khám bác sĩ để có kế hoạch sinh sản chính xác nhất.",
+                    },
+                },
+            ],
+        })}
+    ></script>
+
+    <!-- ══════════════════════════════════════
+     SECTION 1: HERO
+     ══════════════════════════════════════ -->
+    <section class="hero tool-hero" id="hero">
+        <div class="container">
+            <div class="tool-hero-content">
+                <span class="section-label">Công cụ miễn phí</span>
+                <h1>
+                    Tính Ngày Rụng Trứng &<br />
+                    <span class="text-accent-color">Cửa Sổ Thụ Thai</span>
+                </h1>
+                <p class="hero-sub">
+                    Biết chính xác ngày rụng trứng — tăng cơ hội thụ thai hoặc
+                    chủ động tránh thai tự nhiên. Dựa trên phương pháp khoa học,
+                    được hàng nghìn phụ nữ tin dùng.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     SECTION 2: CALCULATOR
+     ══════════════════════════════════════ -->
+    <section class="section" id="calculator">
+        <div class="container">
+            <div class="calc-layout">
+                <!-- Form Panel -->
+                <div class="calc-form-panel">
+                    <div class="card calc-card">
+                        <h2 class="calc-title">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="var(--primary)"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                                ><rect
+                                    x="3"
+                                    y="4"
+                                    width="18"
+                                    height="18"
+                                    rx="2"
+                                    ry="2"></rect><line
+                                    x1="16"
+                                    y1="2"
+                                    x2="16"
+                                    y2="6"></line><line
+                                    x1="8"
+                                    y1="2"
+                                    x2="8"
+                                    y2="6"></line><line
+                                    x1="3"
+                                    y1="10"
+                                    x2="21"
+                                    y2="10"></line>
+                            </svg>
+                            Nhập thông tin chu kỳ
+                        </h2>
+
+                        <form id="ovulation-form" novalidate>
+                            <div class="form-group">
+                                <label for="lmp-date" class="form-label"
+                                    >Ngày đầu tiên của kỳ kinh cuối</label
+                                >
+                                <input
+                                    type="date"
+                                    id="lmp-date"
+                                    class="form-input"
+                                    required
+                                    aria-describedby="lmp-help"
+                                />
+                                <small id="lmp-help" class="form-help"
+                                    >Ngày đầu tiên bạn thấy kinh nguyệt</small
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cycle-length" class="form-label">
+                                    Độ dài chu kỳ: <strong id="cycle-value"
+                                        >28</strong
+                                    > ngày
+                                </label>
+                                <input
+                                    type="range"
+                                    id="cycle-length"
+                                    min="21"
+                                    max="35"
+                                    value="28"
+                                    class="form-range"
+                                    aria-describedby="cycle-help"
+                                />
+                                <div class="range-labels">
+                                    <span>21 ngày</span>
+                                    <span>28</span>
+                                    <span>35 ngày</span>
+                                </div>
+                                <small id="cycle-help" class="form-help"
+                                    >Trung bình là 28 ngày (bình thường: 21-35
+                                    ngày)</small
+                                >
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="btn btn-accent btn-lg calc-submit"
+                                id="calc-submit"
+                            >
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                    ><polyline
+                                        points="22 12 18 12 15 21 9 3 6 12 2 12"
+                                    ></polyline>
+                                </svg>
+                                Tính Ngay
+                            </button>
+
+                            <div
+                                id="form-error"
+                                class="form-error"
+                                role="alert"
+                                aria-live="polite"
+                                hidden
+                            >
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Educational Note -->
+                    <div class="edu-note">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--info)"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            ><circle cx="12" cy="12" r="10"></circle><line
+                                x1="12"
+                                y1="16"
+                                x2="12"
+                                y2="12"></line><line
+                                x1="12"
+                                y1="8"
+                                x2="12.01"
+                                y2="8"></line>
+                        </svg>
+                        <p>
+                            Công cụ tính dựa trên pha hoàng thể trung bình 14
+                            ngày (nguồn: Hopkins Medicine, WHO). Kết quả là <strong
+                                >ước tính</strong
+                            >, không thay thế tư vấn y khoa.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="calc-results-panel" id="results-panel" hidden>
+                    <!-- Key Dates -->
+                    <div class="results-cards">
+                        <div class="result-card result-ovulation">
+                            <div class="result-icon" aria-hidden="true">
+                                <svg
+                                    width="28"
+                                    height="28"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    ><circle cx="12" cy="12" r="10"
+                                    ></circle><circle cx="12" cy="12" r="3"
+                                    ></circle>
+                                </svg>
+                            </div>
+                            <div class="result-info">
+                                <span class="result-label">Ngày rụng trứng</span
+                                >
+                                <strong
+                                    class="result-date"
+                                    id="result-ovulation">—</strong
+                                >
+                            </div>
+                        </div>
+
+                        <div class="result-card result-fertile">
+                            <div class="result-icon" aria-hidden="true">
+                                <svg
+                                    width="28"
+                                    height="28"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    ><path
+                                        d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div class="result-info">
+                                <span class="result-label">Cửa sổ thụ thai</span
+                                >
+                                <strong class="result-date" id="result-fertile"
+                                    >—</strong
+                                >
+                            </div>
+                        </div>
+
+                        <div class="result-card result-period">
+                            <div class="result-icon" aria-hidden="true">
+                                <svg
+                                    width="28"
+                                    height="28"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    ><rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"></rect><line
+                                        x1="16"
+                                        y1="2"
+                                        x2="16"
+                                        y2="6"></line><line
+                                        x1="8"
+                                        y1="2"
+                                        x2="8"
+                                        y2="6"></line><line
+                                        x1="3"
+                                        y1="10"
+                                        x2="21"
+                                        y2="10"></line>
+                                </svg>
+                            </div>
+                            <div class="result-info">
+                                <span class="result-label"
+                                    >Kỳ kinh tiếp theo</span
+                                >
+                                <strong
+                                    class="result-date"
+                                    id="result-next-period">—</strong
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cycle Phases -->
+                    <div class="card phases-card">
+                        <h3 class="phases-title">Các giai đoạn chu kỳ</h3>
+                        <div
+                            class="phases-bar"
+                            id="phases-bar"
+                            aria-label="Biểu đồ các giai đoạn chu kỳ"
+                        >
+                        </div>
+                        <div class="phases-legend" id="phases-legend"></div>
+                    </div>
+
+                    <!-- Visual Calendar -->
+                    <div class="card calendar-card">
+                        <h3 class="calendar-title">Lịch chu kỳ</h3>
+                        <div
+                            id="calendar-container"
+                            aria-label="Lịch hiển thị chu kỳ kinh nguyệt"
+                        >
+                        </div>
+                    </div>
+
+                    <!-- Multi-cycle Forecast -->
+                    <div class="card forecast-card">
+                        <h3 class="forecast-title">Dự đoán 6 tháng tới</h3>
+                        <div class="forecast-table-wrap">
+                            <table class="forecast-table" id="forecast-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tháng</th>
+                                        <th>Ngày kinh</th>
+                                        <th>Rụng trứng</th>
+                                        <th>Cửa sổ thụ thai</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="forecast-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     SECTION 3: FAQ
+     ══════════════════════════════════════ -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Câu hỏi thường gặp</span>
+                <h2>Hiểu rõ hơn về chu kỳ kinh nguyệt</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question"
+                        >Ngày rụng trứng là gì?</summary
+                    >
+                    <div class="faq-answer">
+                        <p>
+                            Rụng trứng là quá trình phóng thích trứng từ buồng
+                            trứng vào ống dẫn trứng. Đây là thời điểm bạn có khả
+                            năng thụ thai cao nhất. Trứng sau khi rụng chỉ sống
+                            được 12-24 giờ, nhưng tinh trùng có thể tồn tại
+                            trong đường sinh dục nữ đến 5 ngày — tạo ra "cửa sổ
+                            thụ thai" khoảng 6 ngày.
+                        </p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question"
+                        >Cách tính ngày rụng trứng như thế nào?</summary
+                    >
+                    <div class="faq-answer">
+                        <p>
+                            Công cụ sử dụng <strong
+                                >phương pháp lịch (Calendar Method)</strong
+                            > dựa trên thực tế y khoa: pha hoàng thể (từ rụng trứng
+                            đến kỳ kinh tiếp) luôn ổn định khoảng 14 ngày ở hầu hết
+                            phụ nữ.
+                        </p>
+                        <p>
+                            <strong>Công thức:</strong> Ngày rụng trứng = Ngày đầu
+                            kỳ kinh + (Độ dài chu kỳ − 14) ngày. Ví dụ: chu kỳ 28
+                            ngày → rụng trứng ngày thứ 14; chu kỳ 30 ngày → rụng
+                            trứng ngày thứ 16.
+                        </p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question"
+                        >Cửa sổ thụ thai là gì? Kéo dài bao lâu?</summary
+                    >
+                    <div class="faq-answer">
+                        <p>
+                            Cửa sổ thụ thai (fertility window) là khoảng thời
+                            gian bạn có khả năng mang thai khi quan hệ. Kéo dài
+                            khoảng <strong>6 ngày</strong>: 5 ngày trước rụng
+                            trứng + ngày rụng trứng. Trong đó, 2 ngày ngay trước
+                            rụng trứng là thời điểm có tỷ lệ thụ thai cao nhất.
+                        </p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question"
+                        >Kết quả có chính xác 100% không?</summary
+                    >
+                    <div class="faq-answer">
+                        <p>
+                            Phương pháp lịch cho kết quả <strong
+                                >ước tính</strong
+                            > dựa trên chu kỳ đều đặn. Ngày rụng trứng thực tế có
+                            thể dao động do stress, bệnh lý, thay đổi lối sống. Để
+                            chính xác hơn, bạn có thể kết hợp theo dõi thân nhiệt
+                            cơ sở (BBT), dịch cổ tử cung, hoặc đến khám tại phòng
+                            khám để siêu âm theo dõi nang trứng.
+                        </p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question"
+                        >Chu kỳ không đều thì sao?</summary
+                    >
+                    <div class="faq-answer">
+                        <p>
+                            Nếu chu kỳ dao động nhiều (dưới 21 hoặc trên 35
+                            ngày), phương pháp lịch sẽ kém chính xác. Chu kỳ
+                            không đều có thể do nhiều nguyên nhân: stress, hội
+                            chứng buồng trứng đa nang (PCOS), rối loạn nội
+                            tiết... Bạn nên đến gặp bác sĩ chuyên khoa để được
+                            tư vấn và theo dõi.
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     SECTION 4: CTA
+     ══════════════════════════════════════ -->
+    <section class="section cta-section" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Cần tư vấn chuyên sâu về sinh sản?</h2>
+                <p>
+                    Bác sĩ chuyên khoa sản tại An Sinh sẵn sàng đồng hành cùng
+                    bạn. Siêu âm theo dõi nang trứng, tư vấn kế hoạch mang thai
+                    — tất cả tại Từ Sơn, Bắc Ninh.
+                </p>
+                <div class="cta-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg"
+                        id="cta-booking"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            ><rect
+                                x="3"
+                                y="4"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="16"
+                                y1="2"
+                                x2="16"
+                                y2="6"></line><line x1="8" y1="2" x2="8" y2="6"
+                            ></line><line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Đặt Lịch Khám Ngay
+                    </a>
+                    <a
+                        href="tel:0899268299"
+                        class="btn btn-outline btn-lg"
+                        id="cta-call"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            ><path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                            ></path>
+                        </svg>
+                        Gọi: 0899 268 299
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     SECTION 5: DISCLAIMER
+     ══════════════════════════════════════ -->
+    <section class="disclaimer-section">
+        <div class="container">
+            <p class="disclaimer-text">
+                <strong>Lưu ý y khoa:</strong> Công cụ này cung cấp kết quả <em
+                    >ước tính</em
+                > dựa trên phương pháp lịch (Calendar Method) với pha hoàng thể trung
+                bình 14 ngày. Kết quả không thay thế tư vấn y khoa chuyên nghiệp.
+                Ngày rụng trứng thực tế có thể thay đổi do nhiều yếu tố. Vui lòng
+                liên hệ bác sĩ chuyên khoa để được tư vấn chính xác cho tình trạng
+                của bạn.
+            </p>
+        </div>
+    </section>
+
+    <style>
+        /* ── Tool Hero ── */
+        .tool-hero {
+            background: linear-gradient(
+                135deg,
+                var(--primary-light) 0%,
+                var(--bg) 100%
+            );
+            padding: var(--space-4xl) 0 var(--space-3xl);
+            text-align: center;
+        }
+        .tool-hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .tool-hero h1 {
+            margin-bottom: var(--space-lg);
+        }
+        .hero-sub {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── Calculator Layout ── */
+        .calc-layout {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: var(--space-2xl);
+            align-items: start;
+        }
+
+        /* ── Form Panel ── */
+        .calc-card {
+            position: sticky;
+            top: 88px;
+        }
+        .calc-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-xl);
+        }
+        .form-group {
+            margin-bottom: var(--space-xl);
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            transition: border-color var(--transition-fast);
+            min-height: 44px;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(27, 122, 109, 0.1);
+        }
+        .form-range {
+            width: 100%;
+            height: 8px;
+            appearance: none;
+            -webkit-appearance: none;
+            background: var(--border);
+            border-radius: var(--radius-full);
+            outline: none;
+            margin: var(--space-sm) 0;
+        }
+        .form-range::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 3px solid #fff;
+            box-shadow: var(--shadow-md);
+        }
+        .form-range::-moz-range-thumb {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 3px solid #fff;
+            box-shadow: var(--shadow-md);
+        }
+        .form-range:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+        }
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .form-help {
+            display: block;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
+        .calc-submit {
+            width: 100%;
+        }
+        .form-error {
+            margin-top: var(--space-md);
+            padding: var(--space-sm) var(--space-md);
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            border-radius: var(--radius-md);
+            color: var(--error);
+            font-size: 0.875rem;
+        }
+
+        /* ── Educational Note ── */
+        .edu-note {
+            display: flex;
+            gap: var(--space-sm);
+            padding: var(--space-md);
+            background: #eff6ff;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--info);
+            margin-top: var(--space-lg);
+        }
+        .edu-note svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .edu-note p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ── Results Panel ── */
+        .results-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        .result-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            background: var(--surface);
+            transition: all var(--transition-base);
+        }
+        .result-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+        .result-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-md);
+            flex-shrink: 0;
+        }
+        .result-ovulation .result-icon {
+            background: #fff7ed;
+            color: var(--accent);
+        }
+        .result-fertile .result-icon {
+            background: #fff1f2;
+            color: #e11d48;
+        }
+        .result-period .result-icon {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .result-label {
+            display: block;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 500;
+        }
+        .result-date {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-top: 2px;
+        }
+
+        /* ── Phases Card ── */
+        .phases-title,
+        .calendar-title,
+        .forecast-title {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-lg);
+        }
+        .phases-bar {
+            display: flex;
+            height: 32px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: var(--space-md);
+        }
+        .phase-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 var(--space-xs);
+            transition: flex var(--transition-base);
+        }
+        .phase-menstruation {
+            background: #dc2626;
+        }
+        .phase-follicular {
+            background: var(--primary);
+        }
+        .phase-ovulation {
+            background: var(--accent);
+        }
+        .phase-luteal {
+            background: #6b7280;
+        }
+
+        .phases-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md) var(--space-xl);
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: var(--radius-full);
+            flex-shrink: 0;
+        }
+
+        /* ── Calendar ── */
+        .cal-month {
+            margin-bottom: var(--space-xl);
+        }
+        .cal-month:last-child {
+            margin-bottom: 0;
+        }
+        .cal-month-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+        }
+        .cal-header {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: var(--space-xs);
+            text-transform: uppercase;
+        }
+        .cal-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8125rem;
+            border-radius: var(--radius-sm);
+            position: relative;
+            min-height: 36px;
+        }
+        .cal-day.empty {
+            background: transparent;
+        }
+        .cal-day.day-menstruation {
+            background: #fecaca;
+            color: #991b1b;
+            font-weight: 600;
+        }
+        .cal-day.day-follicular {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        .cal-day.day-ovulation {
+            background: #fed7aa;
+            color: #9a3412;
+            font-weight: 700;
+        }
+        .cal-day.day-ovulation-peak {
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(240, 125, 0, 0.25);
+        }
+        .cal-day.day-luteal {
+            background: #f3f4f6;
+            color: #4b5563;
+        }
+        .cal-day.day-normal {
+            background: transparent;
+            color: var(--text-secondary);
+        }
+        .cal-day.today {
+            outline: 2px solid var(--primary);
+            outline-offset: -2px;
+        }
+
+        /* ── Forecast Table ── */
+        .forecast-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .forecast-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+        .forecast-table th {
+            text-align: left;
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 2px solid var(--border);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+        .forecast-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--border-light);
+            white-space: nowrap;
+        }
+        .forecast-table tbody tr:hover {
+            background: var(--surface-alt);
+        }
+        .td-ovulation {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .td-fertile {
+            color: #e11d48;
+            font-weight: 500;
+        }
+
+        /* ── FAQ ── */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+        }
+        .faq-question {
+            padding: var(--space-lg) 0;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.0625rem;
+            color: var(--text-primary);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 44px;
+        }
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 400;
+            flex-shrink: 0;
+            margin-left: var(--space-md);
+            transition: transform var(--transition-fast);
+        }
+        details[open] .faq-question::after {
+            content: "−";
+        }
+        .faq-answer {
+            padding: 0 0 var(--space-lg);
+        }
+        .faq-answer p {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+        }
+
+        /* ── CTA Section ── */
+        .cta-section {
+            background: linear-gradient(
+                135deg,
+                var(--primary) 0%,
+                var(--primary-dark) 100%
+            );
+            color: #fff;
+            text-align: center;
+        }
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .cta-content h2 {
+            color: #fff;
+            margin-bottom: var(--space-md);
+        }
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-xl);
+        }
+        .cta-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-section .btn-outline {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .cta-section .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* ── Disclaimer ── */
+        .disclaimer-section {
+            padding: var(--space-xl) 0;
+            background: var(--surface-alt);
+        }
+        .disclaimer-text {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .calc-results-panel:not([hidden]) {
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .calc-layout {
+                grid-template-columns: 1fr;
+            }
+            .calc-card {
+                position: static;
+            }
+            .results-cards {
+                grid-template-columns: 1fr;
+            }
+            .cta-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .tool-hero {
+                padding: var(--space-3xl) 0 var(--space-xl);
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .calc-layout {
+                grid-template-columns: 360px 1fr;
+            }
+        }
+    </style>
+
+    <script type="module">
+        import {
+            calculateOvulationDay,
+            calculateFertileWindow,
+            calculateNextPeriod,
+            calculateFullCycle,
+            generateCyclePhases,
+            validateCycleInput,
+            predictMultipleCycles,
+        } from "../utils/ovulation-calc.js";
+        import { formatDateVN, toLocalDate } from "../utils/due-date-calc.js";
+
+        // DOM refs
+        const form = document.getElementById("ovulation-form");
+        const lmpInput = document.getElementById("lmp-date");
+        const cycleSlider = document.getElementById("cycle-length");
+        const cycleValue = document.getElementById("cycle-value");
+        const resultsPanel = document.getElementById("results-panel");
+        const formError = document.getElementById("form-error");
+
+        // Set max date to today
+        const today = new Date();
+        lmpInput.max = today.toISOString().split("T")[0];
+        // Set default to ~14 days ago
+        const defaultLmp = new Date(today);
+        defaultLmp.setDate(defaultLmp.getDate() - 14);
+        lmpInput.value = defaultLmp.toISOString().split("T")[0];
+
+        // Cycle slider live update
+        cycleSlider.addEventListener("input", () => {
+            cycleValue.textContent = cycleSlider.value;
+        });
+
+        // Form submit
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            formError.hidden = true;
+
+            const lmpDate = lmpInput.value;
+            const cycleLength = parseInt(cycleSlider.value, 10);
+            const validation = validateCycleInput(lmpDate, cycleLength);
+
+            if (!validation.valid) {
+                formError.textContent = validation.error;
+                formError.hidden = false;
+                resultsPanel.hidden = true;
+                return;
+            }
+
+            showResults(lmpDate, cycleLength);
+        });
+
+        function showResults(lmpDate, cycleLength) {
+            const cycle = calculateFullCycle(lmpDate, cycleLength);
+            const phases = generateCyclePhases(lmpDate, cycleLength);
+            const forecasts = predictMultipleCycles(lmpDate, cycleLength, 6);
+
+            // Key dates
+            document.getElementById("result-ovulation").textContent =
+                formatDateVN(cycle.ovulationDay);
+            document.getElementById("result-fertile").textContent =
+                formatDateVN(cycle.fertileWindow.start) +
+                " → " +
+                formatDateVN(cycle.fertileWindow.end);
+            document.getElementById("result-next-period").textContent =
+                formatDateVN(cycle.nextPeriod);
+
+            // Phases bar
+            renderPhasesBar(phases, cycleLength);
+
+            // Calendar
+            renderCalendar(cycle, phases);
+
+            // Forecast table
+            renderForecast(forecasts);
+
+            resultsPanel.hidden = false;
+            resultsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        function renderPhasesBar(phases, cycleLength) {
+            const bar = document.getElementById("phases-bar");
+            const legend = document.getElementById("phases-legend");
+
+            const colors = {
+                menstruation: {
+                    bg: "phase-menstruation",
+                    label: "Hành kinh",
+                    color: "#DC2626",
+                },
+                follicular: {
+                    bg: "phase-follicular",
+                    label: "Nang trứng",
+                    color: "#1B7A6D",
+                },
+                ovulation: {
+                    bg: "phase-ovulation",
+                    label: "Rụng trứng",
+                    color: "#F07D00",
+                },
+                luteal: {
+                    bg: "phase-luteal",
+                    label: "Hoàng thể",
+                    color: "#6B7280",
+                },
+            };
+
+            bar.innerHTML = phases
+                .map((p) => {
+                    const days =
+                        Math.round((p.end - p.start) / (1000 * 60 * 60 * 24)) +
+                        1;
+                    const pct = (days / cycleLength) * 100;
+                    return `<div class="phase-segment ${
+                        colors[p.name].bg
+                    }" style="flex:${pct}" title="${
+                        p.label
+                    }: ${days} ngày">${days}d</div>`;
+                })
+                .join("");
+
+            legend.innerHTML = phases
+                .map((p) => {
+                    const days =
+                        Math.round((p.end - p.start) / (1000 * 60 * 60 * 24)) +
+                        1;
+                    return `<div class="legend-item">
+          <span class="legend-dot" style="background:${
+              colors[p.name].color
+          }"></span>
+          ${colors[p.name].label} (${days} ngày)
+        </div>`;
+                })
+                .join("");
+        }
+
+        function renderCalendar(cycle, phases) {
+            const container = document.getElementById("calendar-container");
+            const today = toLocalDate(new Date());
+
+            // Determine months to show (current cycle month + next month)
+            const startMonth = new Date(
+                cycle.lmpDate.getFullYear(),
+                cycle.lmpDate.getMonth(),
+                1
+            );
+            const endDate = cycle.nextPeriod;
+            const months = [];
+            let m = new Date(startMonth);
+            while (m <= endDate || months.length < 2) {
+                months.push(new Date(m));
+                m.setMonth(m.getMonth() + 1);
+                if (months.length > 3) break;
+            }
+
+            const dayNames = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
+            const monthNames = [
+                "Tháng 1",
+                "Tháng 2",
+                "Tháng 3",
+                "Tháng 4",
+                "Tháng 5",
+                "Tháng 6",
+                "Tháng 7",
+                "Tháng 8",
+                "Tháng 9",
+                "Tháng 10",
+                "Tháng 11",
+                "Tháng 12",
+            ];
+
+            container.innerHTML = months
+                .map((month) => {
+                    const year = month.getFullYear();
+                    const mon = month.getMonth();
+                    const firstDay = new Date(year, mon, 1).getDay();
+                    const daysInMonth = new Date(year, mon + 1, 0).getDate();
+
+                    let cells = dayNames
+                        .map((d) => `<div class="cal-header">${d}</div>`)
+                        .join("");
+
+                    // Empty cells before first day
+                    for (let i = 0; i < firstDay; i++) {
+                        cells += '<div class="cal-day empty"></div>';
+                    }
+
+                    for (let d = 1; d <= daysInMonth; d++) {
+                        const date = new Date(year, mon, d);
+                        const cls = getDayClass(date, cycle, phases, today);
+                        cells += `<div class="cal-day ${cls}" title="${getDayTitle(
+                            cls
+                        )}">${d}</div>`;
+                    }
+
+                    return `<div class="cal-month">
+          <div class="cal-month-title">${monthNames[mon]} ${year}</div>
+          <div class="cal-grid">${cells}</div>
+        </div>`;
+                })
+                .join("");
+        }
+
+        function getDayClass(date, cycle, phases, today) {
+            const t = date.getTime();
+            let cls = "day-normal";
+
+            // Check if date is ovulation peak
+            if (sameDay(date, cycle.ovulationDay)) {
+                cls = "day-ovulation-peak";
+            }
+            // Check phases
+            else {
+                for (const p of phases) {
+                    if (t >= p.start.getTime() && t <= p.end.getTime()) {
+                        cls = "day-" + p.name;
+                        break;
+                    }
+                }
+            }
+
+            if (sameDay(date, today)) cls += " today";
+            return cls;
+        }
+
+        function getDayTitle(cls) {
+            if (cls.includes("ovulation-peak")) return "Ngày rụng trứng";
+            if (cls.includes("ovulation"))
+                return "Giai đoạn rụng trứng (dễ thụ thai)";
+            if (cls.includes("menstruation")) return "Kỳ hành kinh";
+            if (cls.includes("follicular")) return "Giai đoạn nang trứng";
+            if (cls.includes("luteal")) return "Giai đoạn hoàng thể";
+            return "";
+        }
+
+        function sameDay(a, b) {
+            return (
+                a.getFullYear() === b.getFullYear() &&
+                a.getMonth() === b.getMonth() &&
+                a.getDate() === b.getDate()
+            );
+        }
+
+        function renderForecast(forecasts) {
+            const tbody = document.getElementById("forecast-tbody");
+            const monthNames = [
+                "Th.1",
+                "Th.2",
+                "Th.3",
+                "Th.4",
+                "Th.5",
+                "Th.6",
+                "Th.7",
+                "Th.8",
+                "Th.9",
+                "Th.10",
+                "Th.11",
+                "Th.12",
+            ];
+
+            tbody.innerHTML = forecasts
+                .map((c, i) => {
+                    const monthLabel =
+                        monthNames[c.lmpDate.getMonth()] +
+                        "/" +
+                        c.lmpDate.getFullYear();
+                    return `<tr>
+          <td>${monthLabel}</td>
+          <td>${formatDateVN(c.lmpDate)}</td>
+          <td class="td-ovulation">${formatDateVN(c.ovulationDay)}</td>
+          <td class="td-fertile">${formatDateVN(
+              c.fertileWindow.start
+          )} → ${formatDateVN(c.fertileWindow.end)}</td>
+        </tr>`;
+                })
+                .join("");
+        }
+    </script>
+</BaseLayout>
