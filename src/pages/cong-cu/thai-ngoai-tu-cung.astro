@@ -1,0 +1,2501 @@
+---
+import "../../styles/global.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const title = "Thai Ngoài Tử Cung — Công Cụ Chẩn Đoán & Quản Lý TNTC | An Sinh";
+const description =
+    "Bộ công cụ hỗ trợ chẩn đoán thai ngoài tử cung: Đánh giá nguy cơ, Fernandez Score, β-hCG Doubling Time. Tạo prompt AI cho gợi ý lâm sàng.";
+---
+
+<BaseLayout title={title} description={description}>
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+                {
+                    "@type": "Question",
+                    name: "Công cụ chẩn đoán thai ngoài tử cung hoạt động thế nào?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Bộ 3 công cụ: A) Đánh giá nguy cơ TNTC dựa trên yếu tố nguy cơ, β-hCG, siêu âm; B) Fernandez Score chấm điểm 6 tiêu chí chọn MTX vs phẫu thuật; C) β-hCG Doubling Time phân biệt IUP/sẩy thai/TNTC.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Fernandez Score là gì?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Hệ thống chấm điểm 6 tiêu chí (6-18 điểm) đánh giá mức độ nặng TNTC. Điểm < 12: > 80% thành công với nội khoa (MTX). Điểm ≥ 13: ưu tiên phẫu thuật.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Discriminatory Zone là gì?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Ngưỡng β-hCG mà trên đó nên thấy túi thai trong tử cung trên siêu âm. TVUS: 1,500-3,500 mIU/mL. TAS: 6,000-6,500 mIU/mL.",
+                    },
+                },
+            ],
+        })}
+    ></script>
+
+    <!-- Hero -->
+    <section class="calc-hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                    ></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                Fernandez + β-hCG · Miễn phí 100%
+            </div>
+            <h1>
+                Chẩn Đoán & Quản Lý <span class="text-accent-color"
+                    >Thai Ngoài Tử Cung</span>
+            </h1>
+            <p class="hero-sub">
+                Bộ công cụ hỗ trợ: Đánh giá nguy cơ TNTC, Fernandez Score (MTX
+                vs Phẫu thuật), β-hCG Doubling Time. Tạo prompt AI cho gợi ý lâm
+                sàng chi tiết.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <section class="calc-section">
+        <div class="container">
+            <div class="tab-nav" id="tab-nav">
+                <button class="tab-btn active" data-tab="A"
+                    >🅰️ Đánh Giá Nguy Cơ</button
+                >
+                <button class="tab-btn" data-tab="B">🅱️ Fernandez Score</button>
+                <button class="tab-btn" data-tab="C"
+                    >©️ β-hCG Doubling Time</button
+                >
+            </div>
+
+            <div class="calc-grid">
+                <!-- ══════ TAB A: Risk Estimation ══════ -->
+                <div class="tab-content active" id="tab-A">
+                    <div class="calc-input-panel card">
+                        <h2 class="calc-panel-title">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="var(--primary)"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><path
+                                    d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                                ></path><polyline points="14 2 14 8 20 8"
+                                ></polyline>
+                            </svg>
+                            A. Đánh Giá Nguy Cơ Thai Ngoài Tử Cung
+                        </h2>
+                        <form id="form-A" novalidate>
+                            <div class="form-section-label">
+                                Thông tin bệnh nhân
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="a-age" class="form-label"
+                                        >Tuổi</label
+                                    ><input
+                                        type="number"
+                                        id="a-age"
+                                        class="form-input"
+                                        min="12"
+                                        max="60"
+                                        placeholder="Năm"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-para" class="form-label"
+                                        >PARA</label
+                                    ><input
+                                        type="text"
+                                        id="a-para"
+                                        class="form-input"
+                                        placeholder="G_P_"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="a-ga-weeks" class="form-label"
+                                        >Tuổi thai (tuần)</label
+                                    ><input
+                                        type="number"
+                                        id="a-ga-weeks"
+                                        class="form-input"
+                                        min="3"
+                                        max="20"
+                                        placeholder="3–20"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-ga-days" class="form-label"
+                                        >Ngày</label
+                                    ><input
+                                        type="number"
+                                        id="a-ga-days"
+                                        class="form-input"
+                                        min="0"
+                                        max="6"
+                                        value="0"
+                                    />
+                                </div>
+                            </div>
+
+                            <hr class="form-divider" />
+                            <div class="form-section-label">Yếu tố nguy cơ</div>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-previousEctopic"
+                                    /><span
+                                        >🔴 Tiền sử TNTC trước đó (OR ≈ 8–10)</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-tubalSurgery"
+                                    /><span
+                                        >🔴 Phẫu thuật vòi trứng (OR ≈ 4–21)</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-pid"
+                                    /><span
+                                        >🟠 Viêm vùng chậu / Chlamydia / Lậu (OR
+                                        ≈ 2–4)</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-iud"
+                                    /><span
+                                        >🟠 Mang IUD khi thụ thai (OR ≈ 15–50%)</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-ivf"
+                                    /><span>🟠 IVF/ART (OR ≈ 2–5)</span>
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-smoking"
+                                    /><span>🟡 Hút thuốc lá (OR ≈ 1.5–3.5)</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-endometriosis"
+                                    /><span
+                                        >🟡 Lạc nội mạc tử cung (OR ≈ 1.5–2.5)</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-infertilityHistory"
+                                    /><span>🟡 Tiền sử vô sinh (OR ≈ 2–3)</span>
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-abdominalSurgery"
+                                    /><span
+                                        >Phẫu thuật ổ bụng/chậu (OR ≈ 1.5)</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-ageOver35"
+                                    /><span>Tuổi > 35 (OR ≈ 1.4–2.7)</span>
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-rf-multiplePartners"
+                                    /><span
+                                        >Nhiều bạn tình / STI (OR ≈ 1.5)</span
+                                    >
+                                </label>
+                            </div>
+
+                            <hr class="form-divider" />
+                            <div class="form-section-label">
+                                Triệu chứng lâm sàng
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Đau bụng</label>
+                                <div class="toggle-group">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-pain"
+                                            value="none"
+                                            checked
+                                        /><span>Không</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-pain"
+                                            value="induced"
+                                        /><span>Khi khám</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-pain"
+                                            value="spontaneous"
+                                        /><span>Tự phát</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="a-pain-loc" class="form-label"
+                                    >Vị trí đau</label
+                                >
+                                <select id="a-pain-loc" class="form-input"
+                                    ><option value="none">Không đau</option
+                                    ><option value="hypogastric">Hạ vị</option
+                                    ><option value="right-iliac"
+                                        >Hố chậu phải</option
+                                    ><option value="left-iliac"
+                                        >Hố chậu trái</option
+                                    ><option value="diffuse">Lan tỏa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ra huyết âm đạo</label
+                                >
+                                <div class="toggle-group">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-bleeding"
+                                            value="none"
+                                            checked
+                                        /><span>Không</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-bleeding"
+                                            value="spotting"
+                                        /><span>Ra ít</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-bleeding"
+                                            value="heavy"
+                                        /><span>Ra nhiều</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="a-bp" class="form-label"
+                                        >Huyết áp (mmHg)</label
+                                    ><input
+                                        type="text"
+                                        id="a-bp"
+                                        class="form-input"
+                                        placeholder="120/80"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-pulse" class="form-label"
+                                        >Mạch (l/ph)</label
+                                    ><input
+                                        type="number"
+                                        id="a-pulse"
+                                        class="form-input"
+                                        placeholder="80"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Huyết động</label>
+                                <div class="toggle-group">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-hemo"
+                                            value="stable"
+                                            checked
+                                        /><span>✅ Ổn định</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-hemo"
+                                            value="unstable"
+                                        /><span>🚨 Không ổn định</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-cervical-motion"
+                                    /><span
+                                        >Đau khi lay CTC (cervical motion
+                                        tenderness)</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input type="checkbox" id="a-kehr" /><span
+                                        >Đau vai (dấu hiệu Kehr)</span
+                                    >
+                                </label>
+                            </div>
+
+                            <hr class="form-divider" />
+                            <div class="form-section-label">Cận lâm sàng</div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="a-hcg" class="form-label"
+                                        >β-hCG (mIU/mL)</label
+                                    ><input
+                                        type="number"
+                                        id="a-hcg"
+                                        class="form-input"
+                                        min="0"
+                                        step="1"
+                                        placeholder="VD: 2500"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-progest" class="form-label"
+                                        >Progesterone (ng/mL)</label
+                                    ><input
+                                        type="number"
+                                        id="a-progest"
+                                        class="form-input"
+                                        min="0"
+                                        step="0.1"
+                                        placeholder="VD: 8"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="a-hb" class="form-label"
+                                        >Hemoglobin (g/dL)</label
+                                    ><input
+                                        type="number"
+                                        id="a-hb"
+                                        class="form-input"
+                                        step="0.1"
+                                        placeholder="VD: 12"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-blood-type" class="form-label"
+                                        >Nhóm máu</label
+                                    ><input
+                                        type="text"
+                                        id="a-blood-type"
+                                        class="form-input"
+                                        placeholder="VD: O Rh+"
+                                    />
+                                </div>
+                            </div>
+
+                            <hr class="form-divider" />
+                            <div class="form-section-label">
+                                Siêu âm đầu dò âm đạo (TVUS)
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label"
+                                    >Túi thai trong tử cung</label
+                                >
+                                <div class="toggle-group">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-iup"
+                                            value="yes"
+                                        /><span>Có (IUP)</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-iup"
+                                            value="no"
+                                            checked
+                                        /><span>Không thấy</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label"
+                                    >Khối cạnh tử cung</label
+                                >
+                                <div class="toggle-group">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-adnexal"
+                                            value="no"
+                                            checked
+                                        /><span>Không</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-adnexal"
+                                            value="yes"
+                                        /><span>Có</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-row" id="a-adnexal-detail" hidden>
+                                <div class="form-group">
+                                    <label for="a-mass-size" class="form-label"
+                                        >Kích thước (cm)</label
+                                    ><input
+                                        type="number"
+                                        id="a-mass-size"
+                                        class="form-input"
+                                        step="0.1"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-mass-side" class="form-label"
+                                        >Bên</label
+                                    ><select id="a-mass-side" class="form-input"
+                                        ><option value="right">Phải</option
+                                        ><option value="left">Trái</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="a-mass-type" class="form-label"
+                                    >Đặc điểm khối</label
+                                >
+                                <select id="a-mass-type" class="form-input"
+                                    ><option value="">-- Chọn --</option><option
+                                        value="tubal-ring">Tubal ring</option
+                                    ><option value="mixed">Khối hỗn hợp</option
+                                    ><option value="yolk-sac"
+                                        >Túi thai ngoài TC có yolk sac</option
+                                    ><option value="heartbeat"
+                                        >Phôi ngoài TC có tim thai</option
+                                    >
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Dịch ổ bụng</label>
+                                <div class="toggle-group">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-fluid"
+                                            value="none"
+                                            checked
+                                        /><span>Không</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-fluid"
+                                            value="little"
+                                        /><span>Ít</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-fluid"
+                                            value="moderate"
+                                        /><span>TB</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="a-fluid"
+                                            value="much"
+                                        /><span>Nhiều</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-ectopic-confirmed"
+                                    /><span
+                                        >Phôi/túi thai ngoài TC xác nhận trên
+                                        TVUS</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="a-fetal-hb-outside"
+                                    /><span>Tim thai ngoài tử cung (+)</span>
+                                </label>
+                            </div>
+
+                            <div
+                                id="validation-error-A"
+                                class="validation-error"
+                                role="alert"
+                                aria-live="polite"
+                                hidden
+                            >
+                            </div>
+                            <button
+                                type="submit"
+                                class="btn btn-accent btn-lg calc-submit"
+                                id="submit-A"
+                            >
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                                    ></path><polyline
+                                        points="22 4 12 14.01 9 11.01"
+                                    ></polyline>
+                                </svg>
+                                Phân Tích Nguy Cơ TNTC
+                            </button>
+                        </form>
+                    </div>
+                    <div class="calc-results-panel" id="results-A" hidden>
+                        <div
+                            class="result-card result-primary card"
+                            id="risk-header-A"
+                        >
+                            <div class="result-icon-wrap">
+                                <span class="result-emoji" id="risk-emoji-A"
+                                    >⚠️</span>
+                            </div><div class="result-content">
+                                <span class="result-label"
+                                    >Phân tầng nguy cơ TNTC</span
+                                ><div
+                                    class="result-risk-level"
+                                    id="risk-level-A"
+                                >
+                                    --
+                                </div><div
+                                    class="result-sub"
+                                    id="risk-reason-A"
+                                >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card result-card">
+                            <h3 class="card-title">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--primary)"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><path d="M12 2L2 7l10 5 10-5-10-5z"
+                                    ></path><path d="M2 17l10 5 10-5"
+                                    ></path><path d="M2 12l10 5 10-5"></path>
+                                </svg> Cây quyết định lâm sàng
+                            </h3><div
+                                id="decision-tree-A"
+                                class="decision-tree-output"
+                            >
+                            </div>
+                        </div>
+                        <div class="card result-card">
+                            <h3 class="card-title">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--primary)"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><rect
+                                        x="3"
+                                        y="3"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"></rect><line
+                                        x1="3"
+                                        y1="9"
+                                        x2="21"
+                                        y2="9"></line><line
+                                        x1="9"
+                                        y1="21"
+                                        x2="9"
+                                        y2="9"></line>
+                                </svg> Bảng tổng hợp nguy cơ
+                            </h3><div id="risk-summary-A"></div>
+                        </div>
+                        <div class="card result-card prompt-card">
+                            <h3 class="card-title">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--accent)"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><path
+                                        d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                                    ></path>
+                                </svg> Prompt cho AI
+                            </h3><p class="prompt-desc">
+                                Copy prompt → Paste vào ChatGPT, Claude, hoặc
+                                Gemini.
+                            </p><div class="prompt-output" id="prompt-output-A">
+                            </div><button
+                                class="btn btn-accent btn-lg calc-submit copy-prompt-btn"
+                                data-target="prompt-output-A"
+                                type="button"
+                                ><svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><rect
+                                        x="9"
+                                        y="9"
+                                        width="13"
+                                        height="13"
+                                        rx="2"
+                                        ry="2"></rect><path
+                                        d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                                    ></path>
+                                </svg><span>Copy Prompt</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════ TAB B: Fernandez Score ══════ -->
+                <div class="tab-content" id="tab-B" hidden>
+                    <div class="calc-input-panel card">
+                        <h2 class="calc-panel-title">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="var(--primary)"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><polyline
+                                    points="22 12 18 12 15 21 9 3 6 12 2 12"
+                                ></polyline>
+                            </svg>
+                            B. Fernandez Score — MTX vs Phẫu thuật
+                        </h2>
+                        <form id="form-B" novalidate>
+                            <div class="form-section-label">
+                                6 tiêu chí Fernandez (1991)
+                            </div>
+                            <div class="form-group">
+                                <label for="b-ga-days" class="form-label"
+                                    >1. Tuổi thai (ngày amenorrhea)</label
+                                ><input
+                                    type="number"
+                                    id="b-ga-days"
+                                    class="form-input"
+                                    min="1"
+                                    max="100"
+                                    placeholder="VD: 45"
+                                    required
+                                /><small class="form-help"
+                                    >&lt;42 ngày = 1đ | 42–49 = 2đ | &gt;49 = 3đ</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="b-hcg" class="form-label"
+                                    >2. β-hCG (mIU/mL)</label
+                                ><input
+                                    type="number"
+                                    id="b-hcg"
+                                    class="form-input"
+                                    min="0"
+                                    step="1"
+                                    placeholder="VD: 3000"
+                                    required
+                                /><small class="form-help"
+                                    >&lt;1,000 = 1đ | 1,000–5,000 = 2đ |
+                                    &gt;5,000 = 3đ</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="b-progest" class="form-label"
+                                    >3. Progesterone (ng/mL)</label
+                                ><input
+                                    type="number"
+                                    id="b-progest"
+                                    class="form-input"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="VD: 7"
+                                    required
+                                /><small class="form-help"
+                                    >&lt;5 = 1đ | 5–10 = 2đ | &gt;10 = 3đ</small>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">4. Đau bụng</label>
+                                <div class="toggle-group">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="b-pain"
+                                            value="none"
+                                            checked
+                                        /><span>Không đau (1đ)</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="b-pain"
+                                            value="induced"
+                                        /><span>Khi khám (2đ)</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="b-pain"
+                                            value="spontaneous"
+                                        /><span>Tự phát (3đ)</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="b-hematosalpinx" class="form-label"
+                                    >5. Hematosalpinx (cm)</label
+                                ><input
+                                    type="number"
+                                    id="b-hematosalpinx"
+                                    class="form-input"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="VD: 2"
+                                    required
+                                /><small class="form-help"
+                                    >&lt;1 cm = 1đ | 1–3 cm = 2đ | &gt;3 cm = 3đ</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="b-hemoperitoneum" class="form-label"
+                                    >6. Hemoperitoneum (mL)</label
+                                ><input
+                                    type="number"
+                                    id="b-hemoperitoneum"
+                                    class="form-input"
+                                    min="0"
+                                    step="1"
+                                    placeholder="VD: 50"
+                                    required
+                                /><small class="form-help"
+                                    >0 = 1đ | 1–100 mL = 2đ | &gt;100 mL = 3đ</small>
+                            </div>
+
+                            <hr class="form-divider" />
+                            <div class="form-section-label">
+                                Chống chỉ định MTX
+                            </div>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="b-hemo-unstable"
+                                    /><span>Huyết động không ổn định</span>
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="b-fetal-hb"
+                                    /><span>Tim thai ngoài TC (+)</span>
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input type="checkbox" id="b-liver" /><span
+                                        >Suy gan</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input type="checkbox" id="b-renal" /><span
+                                        >Suy thận</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="b-leukopenia"
+                                    /><span>Giảm bạch cầu</span>
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="b-thrombo"
+                                    /><span>Giảm tiểu cầu</span>
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input type="checkbox" id="b-lung" /><span
+                                        >Bệnh phổi hoạt động</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input type="checkbox" id="b-ulcer" /><span
+                                        >Loét dạ dày hoạt động</span
+                                    >
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="b-breastfeed"
+                                    /><span>Đang cho con bú</span>
+                                </label>
+                                <label class="checkbox-label"
+                                    ><input
+                                        type="checkbox"
+                                        id="b-allergy"
+                                    /><span>Dị ứng MTX</span>
+                                </label>
+                            </div>
+
+                            <div
+                                id="validation-error-B"
+                                class="validation-error"
+                                role="alert"
+                                hidden
+                            >
+                            </div>
+                            <button
+                                type="submit"
+                                class="btn btn-accent btn-lg calc-submit"
+                                >Tính Điểm Fernandez</button
+                            >
+                        </form>
+                    </div>
+                    <div class="calc-results-panel" id="results-B" hidden>
+                        <div
+                            class="result-card result-primary card"
+                            id="risk-header-B"
+                        >
+                            <div class="result-icon-wrap">
+                                <span class="result-emoji" id="risk-emoji-B"
+                                    >📊</span>
+                            </div><div class="result-content">
+                                <span class="result-label">Điểm Fernandez</span
+                                ><div
+                                    class="result-risk-level"
+                                    id="risk-level-B"
+                                >
+                                    --
+                                </div><div
+                                    class="result-sub"
+                                    id="risk-reason-B"
+                                >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card result-card">
+                            <h3 class="card-title">
+                                📋 Chi tiết 6 tiêu chí
+                            </h3><div id="fernandez-detail"></div>
+                        </div>
+                        <div class="card result-card" id="mtx-card">
+                            <h3 class="card-title">💊 Đánh giá MTX</h3><div
+                                id="mtx-result"
+                            >
+                            </div>
+                        </div>
+                        <div class="card result-card">
+                            <h3 class="card-title">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--primary)"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><rect
+                                        x="3"
+                                        y="3"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"></rect><line
+                                        x1="3"
+                                        y1="9"
+                                        x2="21"
+                                        y2="9"></line><line
+                                        x1="9"
+                                        y1="21"
+                                        x2="9"
+                                        y2="9"></line>
+                                </svg> Bảng diễn giải Fernandez
+                            </h3>
+                            <div class="threshold-table-wrap">
+                                <table
+                                    class="threshold-table"
+                                    id="fernandez-table"
+                                >
+                                    <thead
+                                        ><tr
+                                            ><th>Tổng điểm</th><th>Phân loại</th
+                                            ><th>Hướng xử trí</th>
+                                        </tr>
+                                    </thead><tbody
+                                        ><tr
+                                            ><td>6–8</td><td class="risk-vlow"
+                                                >Nhẹ</td
+                                            ><td>Theo dõi hoặc MTX liều đơn</td>
+                                        </tr><tr
+                                            ><td>9–12</td><td class="risk-low"
+                                                >Trung bình</td
+                                            ><td>MTX liều đơn/đa liều</td>
+                                        </tr><tr
+                                            ><td>13–15</td><td class="risk-high"
+                                                >Nặng</td
+                                            ><td>Phẫu thuật nội soi</td>
+                                        </tr><tr
+                                            ><td>16–18</td><td
+                                                class="risk-vhigh">Rất nặng</td
+                                            ><td>Phẫu thuật cấp cứu</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card result-card prompt-card">
+                            <h3 class="card-title">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--accent)"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><path
+                                        d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                                    ></path>
+                                </svg> Prompt cho AI
+                            </h3><p class="prompt-desc">
+                                Copy prompt → Paste vào ChatGPT, Claude, hoặc
+                                Gemini.
+                            </p><div class="prompt-output" id="prompt-output-B">
+                            </div><button
+                                class="btn btn-accent btn-lg calc-submit copy-prompt-btn"
+                                data-target="prompt-output-B"
+                                type="button"
+                                ><svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><rect
+                                        x="9"
+                                        y="9"
+                                        width="13"
+                                        height="13"
+                                        rx="2"
+                                        ry="2"></rect><path
+                                        d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                                    ></path>
+                                </svg><span>Copy Prompt</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════ TAB C: β-hCG Doubling Time ══════ -->
+                <div class="tab-content" id="tab-C" hidden>
+                    <div class="calc-input-panel card">
+                        <h2 class="calc-panel-title">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="var(--primary)"
+                                stroke-width="2"
+                                aria-hidden="true"
+                                ><circle cx="12" cy="12" r="10"></circle><path
+                                    d="M12 6v6l4 2"></path>
+                            </svg>
+                            C. β-hCG Doubling Time & Discriminatory Zone
+                        </h2>
+                        <form id="form-C" novalidate>
+                            <div class="form-section-label">
+                                Giá trị β-hCG serial
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c-hcg1" class="form-label"
+                                        >β-hCG lần 1 (mIU/mL)</label
+                                    ><input
+                                        type="number"
+                                        id="c-hcg1"
+                                        class="form-input"
+                                        min="1"
+                                        step="1"
+                                        placeholder="VD: 500"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-hcg1-date" class="form-label"
+                                        >Ngày giờ lần 1</label
+                                    ><input
+                                        type="datetime-local"
+                                        id="c-hcg1-date"
+                                        class="form-input"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c-hcg2" class="form-label"
+                                        >β-hCG lần 2 (mIU/mL)</label
+                                    ><input
+                                        type="number"
+                                        id="c-hcg2"
+                                        class="form-input"
+                                        min="1"
+                                        step="1"
+                                        placeholder="VD: 1100"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-hcg2-date" class="form-label"
+                                        >Ngày giờ lần 2</label
+                                    ><input
+                                        type="datetime-local"
+                                        id="c-hcg2-date"
+                                        class="form-input"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row" id="c-hcg3-row">
+                                <div class="form-group">
+                                    <label for="c-hcg3" class="form-label"
+                                        >β-hCG lần 3 (nếu có)</label
+                                    ><input
+                                        type="number"
+                                        id="c-hcg3"
+                                        class="form-input"
+                                        min="1"
+                                        step="1"
+                                        placeholder="Tùy chọn"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-hcg3-date" class="form-label"
+                                        >Ngày giờ lần 3</label
+                                    ><input
+                                        type="datetime-local"
+                                        id="c-hcg3-date"
+                                        class="form-input"
+                                    />
+                                </div>
+                            </div>
+
+                            <hr class="form-divider" />
+                            <div class="form-section-label">
+                                Siêu âm & Bối cảnh
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label"
+                                    >Phương pháp siêu âm</label
+                                >
+                                <div class="toggle-group">
+                                    <label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="c-us-method"
+                                            value="tvus"
+                                            checked
+                                        /><span>Đầu dò âm đạo (TVUS)</span>
+                                    </label><label class="radio-card"
+                                        ><input
+                                            type="radio"
+                                            name="c-us-method"
+                                            value="tas"
+                                        /><span>Qua thành bụng (TAS)</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-us-result" class="form-label"
+                                    >Kết quả siêu âm</label
+                                >
+                                <select id="c-us-result" class="form-input"
+                                    ><option value="pul"
+                                        >Tử cung trống (PUL)</option
+                                    ><option value="iup">IUP xác nhận</option
+                                    ><option value="adnexal"
+                                        >Khối ngoài TC</option
+                                    ><option value="pseudo">Giả túi thai</option
+                                    >
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"
+                                        >Thai mong muốn?</label
+                                    ><div class="toggle-group toggle-sm">
+                                        <label class="radio-card"
+                                            ><input
+                                                type="radio"
+                                                name="c-desired"
+                                                value="yes"
+                                                checked
+                                            /><span>Có</span>
+                                        </label><label class="radio-card"
+                                            ><input
+                                                type="radio"
+                                                name="c-desired"
+                                                value="no"
+                                            /><span>Không</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"
+                                        >IVF/Đa thai?</label
+                                    ><div class="toggle-group toggle-sm">
+                                        <label class="radio-card"
+                                            ><input
+                                                type="radio"
+                                                name="c-ivf"
+                                                value="no"
+                                                checked
+                                            /><span>Không</span>
+                                        </label><label class="radio-card"
+                                            ><input
+                                                type="radio"
+                                                name="c-ivf"
+                                                value="yes"
+                                            /><span>Có</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                id="validation-error-C"
+                                class="validation-error"
+                                role="alert"
+                                hidden
+                            >
+                            </div>
+                            <button
+                                type="submit"
+                                class="btn btn-accent btn-lg calc-submit"
+                                >Tính Doubling Time</button
+                            >
+                        </form>
+                    </div>
+                    <div class="calc-results-panel" id="results-C" hidden>
+                        <div
+                            class="result-card result-primary card"
+                            id="risk-header-C"
+                        >
+                            <div class="result-icon-wrap">
+                                <span class="result-emoji" id="risk-emoji-C"
+                                    >📈</span>
+                            </div><div class="result-content">
+                                <span class="result-label"
+                                    >Phân loại xu hướng β-hCG</span
+                                ><div
+                                    class="result-risk-level"
+                                    id="risk-level-C"
+                                >
+                                    --
+                                </div><div
+                                    class="result-sub"
+                                    id="risk-reason-C"
+                                >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card result-card">
+                            <h3 class="card-title">📊 Kết quả tính toán</h3><div
+                                id="hcg-calc-result"
+                            >
+                            </div>
+                        </div>
+                        <div class="card result-card">
+                            <h3 class="card-title">
+                                🎯 Ngưỡng phân biệt (Discriminatory Zone)
+                            </h3><div id="dz-result"></div>
+                        </div>
+                        <div class="card result-card">
+                            <h3 class="card-title">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--primary)"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><rect
+                                        x="3"
+                                        y="3"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"></rect><line
+                                        x1="3"
+                                        y1="9"
+                                        x2="21"
+                                        y2="9"></line><line
+                                        x1="9"
+                                        y1="21"
+                                        x2="9"
+                                        y2="9"></line>
+                                </svg> Bảng diễn giải Doubling Time
+                            </h3>
+                            <div class="threshold-table-wrap">
+                                <table class="threshold-table">
+                                    <thead
+                                        ><tr
+                                            ><th>Doubling Time</th><th
+                                                >% tăng/48h</th
+                                            ><th>Diễn giải</th>
+                                        </tr>
+                                    </thead><tbody
+                                        ><tr
+                                            ><td>31–72 giờ</td><td
+                                                class="risk-vlow">≥ 49–100%</td
+                                            ><td>IUP bình thường</td>
+                                        </tr><tr
+                                            ><td>72–96 giờ</td><td
+                                                class="risk-low">35–49%</td
+                                            ><td>Ranh giới</td>
+                                        </tr><tr
+                                            ><td>&gt; 96 giờ</td><td
+                                                class="risk-high">&lt; 35%</td
+                                            ><td>Nghi ngờ TNTC</td>
+                                        </tr><tr
+                                            ><td>Giảm ≥ 36%</td><td
+                                                class="risk-mod">—</td
+                                            ><td>Phù hợp sẩy thai</td>
+                                        </tr><tr
+                                            ><td>Giảm &lt; 21%</td><td
+                                                class="risk-vhigh">—</td
+                                            ><td>Nghi TNTC (giảm chậm)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card result-card prompt-card">
+                            <h3 class="card-title">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--accent)"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><path
+                                        d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                                    ></path>
+                                </svg> Prompt cho AI
+                            </h3><p class="prompt-desc">
+                                Copy prompt → Paste vào ChatGPT, Claude, hoặc
+                                Gemini.
+                            </p><div class="prompt-output" id="prompt-output-C">
+                            </div><button
+                                class="btn btn-accent btn-lg calc-submit copy-prompt-btn"
+                                data-target="prompt-output-C"
+                                type="button"
+                                ><svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                    ><rect
+                                        x="9"
+                                        y="9"
+                                        width="13"
+                                        height="13"
+                                        rx="2"
+                                        ry="2"></rect><path
+                                        d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                                    ></path>
+                                </svg><span>Copy Prompt</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reference Tables -->
+    <section class="section section-alt" id="bang-tham-chieu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Tham khảo</span><h2>
+                    Bảng Giá Trị Tham Chiếu
+                </h2>
+            </div>
+            <div class="grid-2">
+                <div class="card ref-card">
+                    <h3 class="card-title">📊 Fernandez Score (1991)</h3><table
+                        class="ref-table"
+                    >
+                        <thead
+                            ><tr
+                                ><th>Tiêu chí</th><th>1 điểm</th><th>2 điểm</th
+                                ><th>3 điểm</th>
+                            </tr>
+                        </thead><tbody
+                            ><tr
+                                ><td>Tuổi thai</td><td>&lt;42 ngày</td><td
+                                    >42–49 ngày</td
+                                ><td>&gt;49 ngày</td>
+                            </tr><tr
+                                ><td>β-hCG</td><td>&lt;1,000</td><td
+                                    >1,000–5,000</td
+                                ><td>&gt;5,000</td>
+                            </tr><tr
+                                ><td>Progesterone</td><td>&lt;5 ng/mL</td><td
+                                    >5–10</td
+                                ><td>&gt;10</td>
+                            </tr><tr
+                                ><td>Đau bụng</td><td>Không</td><td>Khi khám</td
+                                ><td>Tự phát</td>
+                            </tr><tr
+                                ><td>Hematosalpinx</td><td>&lt;1 cm</td><td
+                                    >1–3 cm</td
+                                ><td>&gt;3 cm</td>
+                            </tr><tr
+                                ><td>Hemoperitoneum</td><td>0 mL</td><td
+                                    >1–100 mL</td
+                                ><td>&gt;100 mL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card ref-card">
+                    <h3 class="card-title">
+                        🔬 Ngưỡng β-hCG (Barnhart 2016)
+                    </h3><table class="ref-table">
+                        <thead
+                            ><tr
+                                ><th>β-hCG ban đầu</th><th
+                                    >Tăng tối thiểu /48h</th
+                                >
+                            </tr>
+                        </thead><tbody
+                            ><tr><td>&lt; 1,500</td><td>≥ 49%</td></tr><tr
+                                ><td>1,500–3,000</td><td>≥ 40%</td>
+                            </tr><tr><td>&gt; 3,000</td><td>≥ 33%</td></tr>
+                        </tbody>
+                    </table><h3
+                        class="card-title"
+                        style="margin-top:var(--space-lg)"
+                    >
+                        🎯 Discriminatory Zone
+                    </h3><table class="ref-table">
+                        <thead
+                            ><tr><th>Phương pháp</th><th>Ngưỡng β-hCG</th></tr>
+                        </thead><tbody
+                            ><tr
+                                ><td>TVUS</td><td>1,500–3,500 mIU/mL</td>
+                            </tr><tr
+                                ><td>TAS</td><td>6,000–6,500 mIU/mL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" id="cta">
+        <div class="container">
+            <div class="cta-inner">
+                <h2>Cần tư vấn chuyên sâu?</h2><p>
+                    Bác sĩ chuyên khoa sản tại An Sinh sẵn sàng hỗ trợ chẩn đoán
+                    và xử trí thai ngoài tử cung.
+                </p><div class="cta-actions">
+                    <a
+                        href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                        class="btn btn-accent btn-lg">Đặt Lịch Khám Ngay</a
+                    ><a href="tel:0899268299" class="btn btn-outline btn-lg"
+                        >Gọi: 0899 268 299</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer-section">
+        <div class="container">
+            <p class="disclaimer-text">
+                <strong>Lưu ý y khoa:</strong> Bộ công cụ này chỉ mang tính hỗ trợ
+                lâm sàng, KHÔNG thay thế đánh giá của bác sĩ. Dựa trên: Fernandez
+                et al. 1991, Barnhart 2016, Morse 2012, ACOG Practice Bulletin No.
+                193, Hendriks 2020. Trong mọi trường hợp nghi vỡ TNTC hoặc huyết
+                động không ổn định → can thiệp phẫu thuật cấp cứu NGAY.
+            </p>
+        </div>
+    </section>
+
+    <style>
+        .calc-hero {
+            background: linear-gradient(
+                135deg,
+                var(--primary-light) 0%,
+                var(--bg) 100%
+            );
+            padding: var(--space-4xl) 0 var(--space-3xl);
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-lg);
+            background: var(--surface);
+            border-radius: var(--radius-full);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-lg);
+            border: 1px solid var(--border-light);
+        }
+        .hero-sub {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .calc-section {
+            padding: var(--space-3xl) 0;
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .calc-input-panel {
+            position: static;
+        }
+        .calc-panel-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-lg);
+        }
+        .form-section-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-xs);
+            border-bottom: 2px solid var(--primary-light);
+        }
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            transition: border-color var(--transition-fast);
+            min-height: 44px;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(27, 122, 109, 0.1);
+        }
+        select.form-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234A5568' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        .form-help {
+            display: block;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
+        .form-divider {
+            border: 0;
+            border-top: 1px solid var(--border-light);
+            margin: var(--space-lg) 0;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+        .calc-submit {
+            width: 100%;
+        }
+        .toggle-group {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        .toggle-sm .radio-card {
+            font-size: 0.8125rem;
+            padding: var(--space-sm) var(--space-md);
+        }
+        .radio-card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-weight: 600;
+            font-size: 0.875rem;
+            min-height: 44px;
+            text-align: center;
+        }
+        .radio-card:has(input:checked) {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .radio-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.9375rem;
+            cursor: pointer;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            transition: background var(--transition-fast);
+        }
+        .checkbox-label:hover {
+            background: var(--surface-alt);
+        }
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+        .validation-error {
+            margin: var(--space-md) 0;
+            padding: var(--space-sm) var(--space-md);
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            border-radius: var(--radius-md);
+            color: var(--error);
+            font-size: 0.875rem;
+        }
+        .calc-results-panel:not([hidden]) {
+            animation: fadeInUp 0.4s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .result-card {
+            margin-bottom: var(--space-md);
+        }
+        .result-primary {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+        .result-primary.risk-green {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: #fff;
+        }
+        .result-primary.risk-yellow {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            color: #fff;
+        }
+        .result-primary.risk-orange {
+            background: linear-gradient(135deg, #ea580c, #c2410c);
+            color: #fff;
+        }
+        .result-primary.risk-red {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: #fff;
+        }
+        .result-primary.risk-red-urgent {
+            background: linear-gradient(135deg, #991b1b, #7f1d1d);
+            color: #fff;
+        }
+        .result-icon-wrap {
+            margin-bottom: var(--space-sm);
+        }
+        .result-emoji {
+            font-size: 2.5rem;
+        }
+        .result-label {
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.85;
+        }
+        .result-risk-level {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: var(--space-xs) 0;
+        }
+        .result-sub {
+            font-size: 0.9375rem;
+            opacity: 0.9;
+        }
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1rem;
+            margin-bottom: var(--space-lg);
+        }
+        .threshold-table-wrap {
+            overflow-x: auto;
+        }
+        .threshold-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8125rem;
+        }
+        .threshold-table th,
+        .threshold-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--border-light);
+            text-align: left;
+        }
+        .threshold-table th {
+            background: var(--surface-alt);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .threshold-table tr.active-row {
+            background: #fef3c7;
+            font-weight: 600;
+        }
+        .risk-vlow {
+            color: #059669;
+            font-weight: 600;
+        }
+        .risk-low {
+            color: #d97706;
+            font-weight: 600;
+        }
+        .risk-mod {
+            color: #ea580c;
+            font-weight: 600;
+        }
+        .risk-high {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        .risk-vhigh {
+            color: #991b1b;
+            font-weight: 600;
+        }
+        .prompt-card {
+            border: 2px solid var(--accent-light);
+        }
+        .prompt-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+        }
+        .prompt-output {
+            background: var(--text-primary);
+            color: #e5e7eb;
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            font-family: "Menlo", "Monaco", "Courier New", monospace;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-bottom: var(--space-lg);
+        }
+        .ref-card:hover {
+            transform: none;
+        }
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8125rem;
+        }
+        .ref-table th,
+        .ref-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--border-light);
+            text-align: left;
+        }
+        .ref-table th {
+            background: var(--surface-alt);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .cta-section {
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--primary-dark)
+            );
+            color: #fff;
+            text-align: center;
+        }
+        .cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .cta-inner h2 {
+            color: #fff;
+            margin-bottom: var(--space-md);
+        }
+        .cta-inner p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-xl);
+        }
+        .cta-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-section .btn-outline {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .cta-section .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-color: #fff;
+        }
+        .disclaimer-section {
+            padding: var(--space-xl) 0;
+            background: var(--surface-alt);
+        }
+        .disclaimer-text {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .tab-nav {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            overflow-x: auto;
+            padding-bottom: var(--space-sm);
+        }
+        .tab-btn {
+            padding: var(--space-md) var(--space-lg);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--bg-white);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            flex: 1;
+            text-align: center;
+        }
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .tab-btn.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: #fff;
+        }
+        .tab-content[hidden] {
+            display: none;
+        }
+        .decision-tree-output {
+            padding: var(--space-md);
+            background: var(--surface-alt);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+        .fern-score-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-sm);
+        }
+        .fern-score-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--surface-alt);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+        }
+        .fern-score-item .score-val {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .hcg-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+        .hcg-stat {
+            text-align: center;
+            padding: var(--space-md);
+            background: var(--surface-alt);
+            border-radius: var(--radius-md);
+        }
+        .hcg-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .hcg-stat-value {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-top: 4px;
+        }
+        .mtx-eligible {
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-align: center;
+        }
+        .mtx-yes {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .mtx-no {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+        .mtx-list {
+            margin-top: var(--space-sm);
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .cta-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .toggle-group {
+                flex-direction: column;
+            }
+            .hcg-stat-grid {
+                grid-template-columns: 1fr;
+            }
+            .tab-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <script>
+        import {
+            validateEctopicInputs,
+            assessRiskFactors,
+            evaluateDecisionTree,
+            classifyRiskLevel,
+            calcFernandezScore,
+            interpretFernandez,
+            checkMtxContraindications,
+            calcDoublingTime,
+            calcHalfLife,
+            calcPercentChange48h,
+            classifyHcgTrend,
+            compareDiscriminatoryZone,
+            getMinimumRise,
+            buildPromptA,
+            buildPromptB,
+            buildPromptC,
+        } from "../../utils/ectopic-calc.js";
+
+        // ── Tab Navigation ──
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                document
+                    .querySelectorAll(".tab-btn")
+                    .forEach((b) => b.classList.remove("active"));
+                document.querySelectorAll(".tab-content").forEach((c) => {
+                    c.hidden = true;
+                    c.classList.remove("active");
+                });
+                btn.classList.add("active");
+                const tab = document.getElementById("tab-" + btn.dataset.tab);
+                if (tab) {
+                    tab.hidden = false;
+                    tab.classList.add("active");
+                }
+            });
+        });
+
+        // ── Show/Hide adnexal detail ──
+        document.querySelectorAll('input[name="a-adnexal"]').forEach((r) => {
+            r.addEventListener("change", () => {
+                document.getElementById("a-adnexal-detail").hidden =
+                    r.value !== "yes" || !r.checked;
+            });
+        });
+
+        // ── Copy Prompt ──
+        document.querySelectorAll(".copy-prompt-btn").forEach((btn) => {
+            btn.addEventListener("click", async () => {
+                const text = document.getElementById(
+                    btn.dataset.target
+                ).textContent;
+                try {
+                    await navigator.clipboard.writeText(text);
+                } catch {
+                    const ta = document.createElement("textarea");
+                    ta.value = text;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(ta);
+                }
+                const span = btn.querySelector("span");
+                span.textContent = "✅ Đã Copy!";
+                setTimeout(() => {
+                    span.textContent = "Copy Prompt";
+                }, 2000);
+            });
+        });
+
+        function showError(id, msg) {
+            const el = document.getElementById(id);
+            el.textContent = msg;
+            el.hidden = false;
+        }
+        function hideError(id) {
+            document.getElementById(id).hidden = true;
+        }
+
+        // ═══ TOOL A: Risk Estimation ═══
+        document.getElementById("form-A").addEventListener("submit", (e) => {
+            e.preventDefault();
+            hideError("validation-error-A");
+            const fd = {
+                age: parseInt(document.getElementById("a-age").value, 10),
+                para: document.getElementById("a-para").value,
+                gaWeeks: parseInt(
+                    document.getElementById("a-ga-weeks").value,
+                    10
+                ),
+                gaDays: parseInt(
+                    document.getElementById("a-ga-days").value || "0",
+                    10
+                ),
+                previousEctopic: document.getElementById("a-rf-previousEctopic")
+                    .checked,
+                tubalSurgery:
+                    document.getElementById("a-rf-tubalSurgery").checked,
+                pid: document.getElementById("a-rf-pid").checked,
+                iud: document.getElementById("a-rf-iud").checked,
+                ivf: document.getElementById("a-rf-ivf").checked,
+                smoking: document.getElementById("a-rf-smoking").checked,
+                endometriosis:
+                    document.getElementById("a-rf-endometriosis").checked,
+                infertilityHistory: document.getElementById(
+                    "a-rf-infertilityHistory"
+                ).checked,
+                abdominalSurgery: document.getElementById(
+                    "a-rf-abdominalSurgery"
+                ).checked,
+                ageOver35: document.getElementById("a-rf-ageOver35").checked,
+                multiplePartners: document.getElementById(
+                    "a-rf-multiplePartners"
+                ).checked,
+                painType: document.querySelector('input[name="a-pain"]:checked')
+                    ?.value,
+                painLocation: document.getElementById("a-pain-loc").value,
+                vaginalBleeding: document.querySelector(
+                    'input[name="a-bleeding"]:checked'
+                )?.value,
+                bp: document.getElementById("a-bp").value,
+                pulse: document.getElementById("a-pulse").value,
+                hemodynamicStable:
+                    document.querySelector('input[name="a-hemo"]:checked')
+                        ?.value === "stable",
+                cervicalMotionTenderness: document.getElementById(
+                    "a-cervical-motion"
+                ).checked
+                    ? "Có"
+                    : "Không",
+                shock: document.getElementById("a-kehr").checked
+                    ? "Có"
+                    : "Không",
+                hcg: parseFloat(document.getElementById("a-hcg").value) || null,
+                progesterone:
+                    parseFloat(document.getElementById("a-progest").value) ||
+                    null,
+                hemoglobin:
+                    parseFloat(document.getElementById("a-hb").value) || null,
+                iupSeen:
+                    document.querySelector('input[name="a-iup"]:checked')
+                        ?.value === "yes"
+                        ? "Có"
+                        : "Không thấy",
+                adnexalMass:
+                    document.querySelector('input[name="a-adnexal"]:checked')
+                        ?.value === "yes"
+                        ? `Có — ${
+                              document.getElementById("a-mass-size").value ||
+                              "?"
+                          } cm`
+                        : "Không",
+                freeFluid: document.querySelector(
+                    'input[name="a-fluid"]:checked'
+                )?.value,
+            };
+
+            const v = validateEctopicInputs(fd, "A");
+            if (!v.valid) return showError("validation-error-A", v.error);
+
+            const rf = assessRiskFactors(fd);
+            const iupConfirmed =
+                document.querySelector('input[name="a-iup"]:checked')?.value ===
+                "yes";
+            const hasAdnexalMass =
+                document.querySelector('input[name="a-adnexal"]:checked')
+                    ?.value === "yes";
+            const ectopicConfirmed = document.getElementById(
+                "a-ectopic-confirmed"
+            ).checked;
+            const fetalHbOutside =
+                document.getElementById("a-fetal-hb-outside").checked;
+            const isPUL = !iupConfirmed && !ectopicConfirmed && !hasAdnexalMass;
+            const dtResult = evaluateDecisionTree({
+                hemodynamicStable: fd.hemodynamicStable,
+                iupConfirmed,
+                ectopicConfirmed,
+                fetalHeartbeatOutside: fetalHbOutside,
+                hasAdnexalMass,
+                isPUL,
+                hcg: fd.hcg,
+                ultrasoundMethod: "tvus",
+            });
+            const hcgAboveDZ = fd.hcg ? fd.hcg > 3500 : false;
+            const riskLevel = classifyRiskLevel({
+                riskFactors: rf,
+                hcgAboveDiscriminatoryZone: hcgAboveDZ,
+                hasAdnexalMass,
+                emptyUterus: isPUL,
+                iupConfirmed,
+                isPUL,
+                slowHcgRise: false,
+            });
+
+            // Display
+            const header = document.getElementById("risk-header-A");
+            header.className = `result-card result-primary card risk-${riskLevel.color}`;
+            document.getElementById("risk-emoji-A").textContent =
+                riskLevel.level === "LOW"
+                    ? "✅"
+                    : riskLevel.level === "MEDIUM"
+                    ? "🟠"
+                    : riskLevel.level === "HIGH"
+                    ? "🔴"
+                    : "🚨";
+            document.getElementById("risk-level-A").textContent =
+                riskLevel.label;
+            document.getElementById(
+                "risk-reason-A"
+            ).textContent = `${rf.totalFactors} yếu tố nguy cơ | Max OR ≈ ${rf.maxOr}`;
+            document.getElementById(
+                "decision-tree-A"
+            ).textContent = `Pathway: ${dtResult.pathway}\n\n${
+                dtResult.description
+            }${dtResult.requiresSurgery ? "\n\n⚠️ CẦN PHẪU THUẬT" : ""}`;
+            document.getElementById(
+                "risk-summary-A"
+            ).innerHTML = `<div class="fern-score-grid">${
+                rf.factors
+                    .map(
+                        (f) =>
+                            `<div class="fern-score-item"><span>${f.id}. ${f.label}</span><span class="score-val">OR ≈ ${f.or}</span></div>`
+                    )
+                    .join("") ||
+                '<div class="fern-score-item"><span>Không có yếu tố nguy cơ</span><span></span></div>'
+            }</div>`;
+
+            fd.riskFactors = rf.factors;
+            document.getElementById("prompt-output-A").textContent =
+                buildPromptA(fd, {
+                    riskLevel: riskLevel.label,
+                    pathway: dtResult.pathway,
+                });
+            document.getElementById("results-A").hidden = false;
+            document
+                .getElementById("results-A")
+                .scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        // ═══ TOOL B: Fernandez Score ═══
+        document.getElementById("form-B").addEventListener("submit", (e) => {
+            e.preventDefault();
+            hideError("validation-error-B");
+            const fd = {
+                gestationalDays: parseInt(
+                    document.getElementById("b-ga-days").value,
+                    10
+                ),
+                hcg: parseFloat(document.getElementById("b-hcg").value),
+                progesterone: parseFloat(
+                    document.getElementById("b-progest").value
+                ),
+                pain: document.querySelector('input[name="b-pain"]:checked')
+                    ?.value,
+                hematosalpinxCm: parseFloat(
+                    document.getElementById("b-hematosalpinx").value
+                ),
+                hemoperitoneumMl: parseFloat(
+                    document.getElementById("b-hemoperitoneum").value
+                ),
+            };
+            const v = validateEctopicInputs(fd, "B");
+            if (!v.valid) return showError("validation-error-B", v.error);
+
+            const fern = calcFernandezScore(fd);
+            const interp = interpretFernandez(fern.total);
+            const mtxData = {
+                hemodynamicStable:
+                    !document.getElementById("b-hemo-unstable").checked,
+                fetalHeartbeatOutside:
+                    document.getElementById("b-fetal-hb").checked,
+                liverFailure: document.getElementById("b-liver").checked,
+                renalFailure: document.getElementById("b-renal").checked,
+                leukopenia: document.getElementById("b-leukopenia").checked,
+                thrombocytopenia: document.getElementById("b-thrombo").checked,
+                activePulmonary: document.getElementById("b-lung").checked,
+                activeUlcer: document.getElementById("b-ulcer").checked,
+                breastfeeding: document.getElementById("b-breastfeed").checked,
+                mtxAllergy: document.getElementById("b-allergy").checked,
+            };
+            const mtx = checkMtxContraindications(mtxData);
+            const colorMap = {
+                MILD: "green",
+                MODERATE: "orange",
+                SEVERE: "red",
+                VERY_SEVERE: "red-urgent",
+            };
+            const emojiMap = {
+                MILD: "✅",
+                MODERATE: "🟠",
+                SEVERE: "🔴",
+                VERY_SEVERE: "🚨",
+            };
+
+            document.getElementById(
+                "risk-header-B"
+            ).className = `result-card result-primary card risk-${
+                colorMap[interp.severity]
+            }`;
+            document.getElementById("risk-emoji-B").textContent =
+                emojiMap[interp.severity];
+            document.getElementById(
+                "risk-level-B"
+            ).textContent = `${fern.total} / 18 — ${interp.label}`;
+            document.getElementById("risk-reason-B").textContent =
+                interp.management;
+
+            const labels = [
+                "Tuổi thai",
+                "β-hCG",
+                "Progesterone",
+                "Đau bụng",
+                "Hematosalpinx",
+                "Hemoperitoneum",
+            ];
+            document.getElementById(
+                "fernandez-detail"
+            ).innerHTML = `<div class="fern-score-grid">${fern.scores
+                .map(
+                    (s, i) =>
+                        `<div class="fern-score-item"><span>${i + 1}. ${
+                            labels[i]
+                        }</span><span class="score-val">${s} / 3</span></div>`
+                )
+                .join("")}</div>`;
+
+            document.getElementById("mtx-result").innerHTML = mtx.eligible
+                ? `<div class="mtx-eligible mtx-yes">✅ Đủ điều kiện MTX (không có chống chỉ định tuyệt đối)</div>`
+                : `<div class="mtx-eligible mtx-no">❌ KHÔNG đủ điều kiện MTX<div class="mtx-list">${mtx.contraindications
+                      .map((c) => `• ${c}`)
+                      .join("<br>")}</div></div>`;
+
+            const rows = document.querySelectorAll("#fernandez-table tbody tr");
+            rows.forEach((r) => r.classList.remove("active-row"));
+            const idx =
+                fern.total <= 8
+                    ? 0
+                    : fern.total <= 12
+                    ? 1
+                    : fern.total <= 15
+                    ? 2
+                    : 3;
+            rows[idx]?.classList.add("active-row");
+
+            document.getElementById("prompt-output-B").textContent =
+                buildPromptB(fd, {
+                    fernandez: fern,
+                    severity: interp.label,
+                    management: interp.management,
+                    mtxContraindications: mtx.contraindications,
+                });
+            document.getElementById("results-B").hidden = false;
+            document
+                .getElementById("results-B")
+                .scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        // ═══ TOOL C: β-hCG Doubling Time ═══
+        document.getElementById("form-C").addEventListener("submit", (e) => {
+            e.preventDefault();
+            hideError("validation-error-C");
+            const hcg1 = parseFloat(document.getElementById("c-hcg1").value);
+            const hcg2 = parseFloat(document.getElementById("c-hcg2").value);
+            const d1 = document.getElementById("c-hcg1-date").value;
+            const d2 = document.getElementById("c-hcg2-date").value;
+            const usMethod = document.querySelector(
+                'input[name="c-us-method"]:checked'
+            )?.value;
+            const desired =
+                document.querySelector('input[name="c-desired"]:checked')
+                    ?.value === "yes";
+            const ivf =
+                document.querySelector('input[name="c-ivf"]:checked')?.value ===
+                "yes";
+
+            const fd = {
+                hcg1,
+                hcg1Date: d1,
+                hcg2,
+                hcg2Date: d2,
+                ultrasoundMethod: usMethod,
+            };
+            const v = validateEctopicInputs(fd, "C");
+            if (!v.valid) return showError("validation-error-C", v.error);
+
+            const deltaMs = new Date(d2) - new Date(d1);
+            const deltaHours = deltaMs / (1000 * 60 * 60);
+            if (deltaHours <= 0)
+                return showError(
+                    "validation-error-C",
+                    "Ngày lần 2 phải sau lần 1."
+                );
+
+            const isDecreasing = hcg2 < hcg1;
+            const dt = isDecreasing
+                ? null
+                : calcDoublingTime(hcg1, hcg2, deltaHours);
+            const hl = isDecreasing
+                ? calcHalfLife(hcg1, hcg2, deltaHours)
+                : null;
+            const pct = calcPercentChange48h(hcg1, hcg2, deltaHours);
+            const trend = classifyHcgTrend({
+                doublingTimeHours: dt,
+                percentChange48h: pct,
+                isDecreasing,
+            });
+            const dz = compareDiscriminatoryZone(hcg2, usMethod, desired, ivf);
+            const minRise = getMinimumRise(hcg1);
+            const meetsMinRise = !isDecreasing && pct >= minRise;
+
+            const colorMap2 = {
+                NORMAL_IUP: "green",
+                BORDERLINE: "yellow",
+                SUSPECT_ECTOPIC: "red",
+                SUSPECT_MISCARRIAGE: "orange",
+                SUSPECT_ECTOPIC_DECLINE: "red-urgent",
+                INDETERMINATE_DECLINE: "orange",
+                PLATEAU_SUSPECT_ECTOPIC: "red",
+            };
+            const emojiMap2 = {
+                NORMAL_IUP: "✅",
+                BORDERLINE: "🟡",
+                SUSPECT_ECTOPIC: "🔴",
+                SUSPECT_MISCARRIAGE: "🟠",
+                SUSPECT_ECTOPIC_DECLINE: "🚨",
+                INDETERMINATE_DECLINE: "🟠",
+                PLATEAU_SUSPECT_ECTOPIC: "🔴",
+            };
+
+            document.getElementById(
+                "risk-header-C"
+            ).className = `result-card result-primary card risk-${
+                colorMap2[trend.classification] || "orange"
+            }`;
+            document.getElementById("risk-emoji-C").textContent =
+                emojiMap2[trend.classification] || "⚠️";
+            document.getElementById("risk-level-C").textContent = trend.label;
+            document.getElementById("risk-reason-C").textContent =
+                trend.description;
+
+            document.getElementById(
+                "hcg-calc-result"
+            ).innerHTML = `<div class="hcg-stat-grid">
+                <div class="hcg-stat"><div class="hcg-stat-label">Khoảng cách</div><div class="hcg-stat-value">${deltaHours.toFixed(
+                    1
+                )} giờ</div></div>
+                <div class="hcg-stat"><div class="hcg-stat-label">% thay đổi / 48h</div><div class="hcg-stat-value">${
+                    pct >= 0 ? "+" : ""
+                }${pct.toFixed(1)}%</div></div>
+                <div class="hcg-stat"><div class="hcg-stat-label">${
+                    isDecreasing ? "Half-life" : "Doubling Time"
+                }</div><div class="hcg-stat-value">${
+                isDecreasing
+                    ? hl && isFinite(hl)
+                        ? hl.toFixed(1) + " giờ"
+                        : "∞"
+                    : dt && isFinite(dt)
+                    ? dt.toFixed(1) + " giờ"
+                    : "∞"
+            }</div></div>
+                <div class="hcg-stat"><div class="hcg-stat-label">Ngưỡng tối thiểu</div><div class="hcg-stat-value">${
+                    meetsMinRise ? "✅" : "❌"
+                } ≥${minRise}%</div></div>
+            </div>`;
+
+            document.getElementById(
+                "dz-result"
+            ).innerHTML = `<div class="hcg-stat-grid">
+                <div class="hcg-stat"><div class="hcg-stat-label">β-hCG hiện tại</div><div class="hcg-stat-value">${hcg2.toLocaleString()}</div></div>
+                <div class="hcg-stat"><div class="hcg-stat-label">Ngưỡng (${usMethod.toUpperCase()})</div><div class="hcg-stat-value">${dz.threshold.toLocaleString()}</div></div>
+            </div><p style="text-align:center;margin-top:var(--space-md);font-weight:600;color:${
+                dz.relation === "ABOVE" ? "#dc2626" : "#059669"
+            }">${
+                dz.relation === "ABOVE"
+                    ? "⚠️ TRÊN ngưỡng — nên thấy IUP trên siêu âm"
+                    : "📊 DƯỚI ngưỡng — chưa cần thấy IUP"
+            }</p>`;
+
+            const hcg3 = parseFloat(document.getElementById("c-hcg3").value);
+            const d3 = document.getElementById("c-hcg3-date").value;
+            document.getElementById("prompt-output-C").textContent =
+                buildPromptC(
+                    {
+                        ...fd,
+                        deltaHours,
+                        hcg3: hcg3 || null,
+                        hcg3Date: d3 || null,
+                        ultrasoundResult:
+                            document.getElementById("c-us-result").value,
+                        desiredPregnancy: desired,
+                        ivf,
+                    },
+                    {
+                        doublingTime: dt,
+                        percentChange48h: pct,
+                        classification: trend.label,
+                        isDecreasing,
+                        dzRelation: dz.relation,
+                        deltaHours,
+                    }
+                );
+            document.getElementById("results-C").hidden = false;
+            document
+                .getElementById("results-C")
+                .scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+    </script>
+</BaseLayout>

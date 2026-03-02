@@ -144,9 +144,143 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </div>
         </a>
 
+        <!-- Mobile inline nav (visible only on mobile) -->
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+          <button
+            class="mobile-nav-item"
+            id="mobile-tools-trigger"
+            aria-label="Công cụ"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><path
+                d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+              ></path>
+            </svg>
+            <span>Công cụ</span>
+          </button>
+          <a href="/blog" class="mobile-nav-item" aria-label="Kiến thức">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path
+                d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>Kiến thức</span>
+          </a>
+          <button
+            class="mobile-nav-item"
+            id="mobile-search-trigger"
+            aria-label="Tìm kiếm"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><circle cx="11" cy="11" r="8"></circle><line
+                x1="21"
+                y1="21"
+                x2="16.65"
+                y2="16.65"></line>
+            </svg>
+            <span>Tìm</span>
+          </button>
+        </nav>
+
+        <!-- Backdrop overlay for mobile drawer -->
+        <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
         <nav class="main-nav" id="main-nav" aria-label="Điều hướng chính">
+          <!-- Mobile drawer header -->
+          <div class="drawer-header">
+            <a href="/" class="logo" aria-label="Trang chủ">
+              <svg
+                class="logo-icon"
+                viewBox="0 0 40 40"
+                width="32"
+                height="32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="20" cy="20" r="20" fill="var(--primary)"></circle>
+                <path
+                  d="M20 8c-1.5 0-2.8.6-3.8 1.6-2.2 2.2-5.2 8.4-5.2 12.4 0 5 4 9 9 9s9-4 9-9c0-4-3-10.2-5.2-12.4A5.3 5.3 0 0020 8z"
+                  fill="white"
+                  opacity="0.9"></path>
+                <path
+                  d="M17 22h6M20 19v6"
+                  stroke="var(--primary)"
+                  stroke-width="2"
+                  stroke-linecap="round"></path>
+              </svg>
+              <span class="logo-brand">An Sinh</span>
+            </a>
+            <button
+              class="drawer-close"
+              id="drawer-close"
+              aria-label="Đóng menu"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                ><line x1="18" y1="6" x2="6" y2="18"></line><line
+                  x1="6"
+                  y1="6"
+                  x2="18"
+                  y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
           <ul class="nav-list" role="list">
-            <li><a href="/">Trang chủ</a></li>
+            <li>
+              <a href="/">
+                <svg
+                  class="nav-item-icon"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Trang chủ
+              </a>
+            </li>
 
             <!-- Dịch vụ Dropdown -->
             <li class="nav-has-dropdown">
@@ -155,7 +289,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 aria-expanded="false"
                 aria-haspopup="true"
               >
-                Dịch vụ
+                <span class="nav-trigger-content">
+                  <svg
+                    class="nav-item-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    ><rect x="3" y="3" width="7" height="7"></rect><rect
+                      x="14"
+                      y="3"
+                      width="7"
+                      height="7"></rect><rect x="14" y="14" width="7" height="7"
+                    ></rect><rect x="3" y="14" width="7" height="7"></rect>
+                  </svg>
+                  Dịch vụ
+                </span>
                 <svg
                   class="dropdown-chevron"
                   width="12"
@@ -173,7 +327,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <div class="nav-dropdown" role="menu">
                 <div class="dropdown-grid dropdown-services">
                   <a href="/sieu-am-5d" class="dropdown-item" role="menuitem">
-                    <span class="dropdown-icon">📷</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Siêu âm 5D</strong><span class="dropdown-desc"
                         >Hình ảnh thai nhi sắc nét</span
@@ -181,7 +347,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     </div>
                   </a>
                   <a href="/kham-thai" class="dropdown-item" role="menuitem">
-                    <span class="dropdown-icon">🤰</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                        ></path><path d="M9 12l2 2 4-4"></path>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Khám thai</strong><span class="dropdown-desc"
                         >Theo dõi thai kỳ toàn diện</span
@@ -193,7 +372,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     class="dropdown-item"
                     role="menuitem"
                   >
-                    <span class="dropdown-icon">🩺</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path
+                          d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                        ></path>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Phụ khoa</strong><span class="dropdown-desc"
                         >Khám & điều trị bệnh phụ khoa</span
@@ -205,7 +398,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     class="dropdown-item"
                     role="menuitem"
                   >
-                    <span class="dropdown-icon">👨‍⚕️</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                        ></path><circle cx="8.5" cy="7" r="4"></circle><line
+                          x1="20"
+                          y1="8"
+                          x2="20"
+                          y2="14"></line><line x1="23" y1="11" x2="17" y2="11"
+                        ></line>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Nam khoa</strong><span class="dropdown-desc"
                         >Sức khỏe nam giới</span
@@ -217,7 +428,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     class="dropdown-item"
                     role="menuitem"
                   >
-                    <span class="dropdown-icon">💕</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                        ></path><circle cx="9" cy="7" r="4"></circle><path
+                          d="M23 21v-2a4 4 0 00-3-3.87"></path><path
+                          d="M16 3.13a4 4 0 010 7.75"></path>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Điều trị vô sinh</strong><span
                         class="dropdown-desc">Hỗ trợ sinh sản hiện đại</span
@@ -229,7 +455,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     class="dropdown-item"
                     role="menuitem"
                   >
-                    <span class="dropdown-icon">🛡️</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                        ></path>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Tránh thai</strong><span class="dropdown-desc"
                         >Biện pháp an toàn, hiệu quả</span
@@ -240,98 +479,55 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </div>
             </li>
 
-            <!-- Công cụ Dropdown -->
-            <li class="nav-has-dropdown">
+            <!-- Công cụ — triggers popup -->
+            <li>
               <button
-                class="nav-dropdown-trigger"
-                aria-expanded="false"
-                aria-haspopup="true"
+                class="nav-link-btn"
+                id="tools-trigger"
+                aria-haspopup="dialog"
               >
-                Công cụ
                 <svg
-                  class="dropdown-chevron"
-                  width="12"
-                  height="12"
+                  class="nav-item-icon"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2.5"
+                  stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   aria-hidden="true"
-                  ><polyline points="6 9 12 15 18 9"></polyline>
+                  ><rect x="3" y="3" width="7" height="7"></rect><rect
+                    x="14"
+                    y="3"
+                    width="7"
+                    height="7"></rect><rect x="14" y="14" width="7" height="7"
+                  ></rect><rect x="3" y="14" width="7" height="7"></rect>
                 </svg>
+                Công cụ
               </button>
-              <div class="nav-dropdown nav-dropdown-mega" role="menu">
-                <div class="dropdown-mega-inner">
-                  <div class="dropdown-grid dropdown-tools">
-                    <a
-                      href="/tinh-ngay-rung-trung"
-                      class="dropdown-tool-card"
-                      role="menuitem"
-                    >
-                      <span class="tool-icon">🗓️</span>
-                      <div class="tool-info">
-                        <strong>Tính ngày rụng trứng</strong>
-                        <span>Dự đoán ngày rụng trứng & cửa sổ thụ thai</span>
-                      </div>
-                    </a>
-                    <a
-                      href="/cong-cu/tinh-ngay-du-sinh"
-                      class="dropdown-tool-card"
-                      role="menuitem"
-                    >
-                      <span class="tool-icon">👶</span>
-                      <div class="tool-info">
-                        <strong>Tính ngày dự sinh</strong>
-                        <span>Tính EDD theo công thức Naegele</span>
-                      </div>
-                    </a>
-                    <a
-                      href="/can-nang-thai-nhi"
-                      class="dropdown-tool-card"
-                      role="menuitem"
-                    >
-                      <span class="tool-icon">⚖️</span>
-                      <div class="tool-info">
-                        <strong>Cân nặng thai nhi</strong>
-                        <span>Tra bảng chuẩn WHO theo tuần</span>
-                      </div>
-                    </a>
-                    <a
-                      href="/cong-cu/du-doan-sinh-non"
-                      class="dropdown-tool-card"
-                      role="menuitem"
-                    >
-                      <span class="tool-icon">⚠️</span>
-                      <div class="tool-info">
-                        <strong>Dự đoán sinh non</strong>
-                        <span>Đánh giá nguy cơ QUiPP + FMF</span>
-                      </div>
-                    </a>
-                    <a
-                      href="/cong-cu/sang-loc-tien-san-giat"
-                      class="dropdown-tool-card"
-                      role="menuitem"
-                    >
-                      <span class="tool-icon">🩺</span>
-                      <div class="tool-info">
-                        <strong>Sàng lọc tiền sản giật</strong>
-                        <span>ACOG/USPSTF 2021 + NICE NG133</span>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="dropdown-promo">
-                    <span class="promo-label">📖 Bài viết liên quan</span>
-                    <a href="/blog" class="promo-link">Mang thai & Sinh con →</a
-                    >
-                    <a href="/blog" class="promo-link">Sức khỏe sinh sản →</a>
-                  </div>
-                </div>
-              </div>
             </li>
 
-            <li><a href="/blog">Kiến thức</a></li>
+            <li>
+              <a href="/blog">
+                <svg
+                  class="nav-item-icon"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"
+                  ></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
+                  ></path>
+                </svg>
+                Kiến thức
+              </a>
+            </li>
 
             <!-- Về chúng tôi Dropdown -->
             <li class="nav-has-dropdown">
@@ -340,7 +536,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 aria-expanded="false"
                 aria-haspopup="true"
               >
-                Về chúng tôi
+                <span class="nav-trigger-content">
+                  <svg
+                    class="nav-item-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    ><circle cx="12" cy="12" r="10"></circle><line
+                      x1="12"
+                      y1="16"
+                      x2="12"
+                      y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"
+                    ></line>
+                  </svg>
+                  Về chúng tôi
+                </span>
                 <svg
                   class="dropdown-chevron"
                   width="12"
@@ -358,7 +574,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <div class="nav-dropdown" role="menu">
                 <div class="dropdown-grid dropdown-about">
                   <a href="/#bac-si" class="dropdown-item" role="menuitem">
-                    <span class="dropdown-icon">👨‍⚕️</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                        ></path><circle cx="9" cy="7" r="4"></circle><path
+                          d="M23 21v-2a4 4 0 00-3-3.87"></path><path
+                          d="M16 3.13a4 4 0 010 7.75"></path>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Đội ngũ bác sĩ</strong><span class="dropdown-desc"
                         >20+ năm kinh nghiệm</span
@@ -370,7 +601,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     class="dropdown-item"
                     role="menuitem"
                   >
-                    <span class="dropdown-icon">🏥</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                        ></path><circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Phòng khám Từ Sơn</strong><span
                         class="dropdown-desc">416 Minh Khai, Đồng Nguyên</span
@@ -382,7 +626,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     class="dropdown-item"
                     role="menuitem"
                   >
-                    <span class="dropdown-icon">💬</span>
+                    <span class="dropdown-icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path
+                          d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                        ></path>
+                      </svg>
+                    </span>
                     <div>
                       <strong>Tư vấn trực tuyến</strong><span
                         class="dropdown-desc">Hỏi đáp bác sĩ miễn phí</span
@@ -393,17 +651,153 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </div>
             </li>
 
-            <li><a href="/#lien-he">Liên hệ</a></li>
+            <li>
+              <a href="/#lien-he">
+                <svg
+                  class="nav-item-icon"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+                Liên hệ
+              </a>
+            </li>
+
+            <!-- Mobile drawer CTA -->
+            <div class="drawer-cta">
+              <a
+                href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                class="btn btn-accent drawer-cta-btn"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"
+                  ></rect><line x1="16" y1="2" x2="16" y2="6"></line><line
+                    x1="8"
+                    y1="2"
+                    x2="8"
+                    y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Hẹn Khám Ngay
+              </a>
+              <a href="tel:0899268299" class="drawer-phone">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  ></path>
+                </svg>
+                0899 268 299
+              </a>
+            </div>
+
+            <div class="header-actions">
+              <button
+                class="search-trigger"
+                id="search-trigger"
+                aria-label="Tìm kiếm (Ctrl+K)"
+                title="Tìm kiếm (Ctrl+K)"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><circle cx="11" cy="11" r="8"></circle><line
+                    x1="21"
+                    y1="21"
+                    x2="16.65"
+                    y2="16.65"></line>
+                </svg>
+              </button>
+              <a
+                href="tel:0899268299"
+                class="header-phone"
+                aria-label="Gọi hotline 0899 268 299"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  ></path>
+                </svg>
+                <span>0899 268 299</span>
+              </a>
+              <a
+                href="https://phusanansinh.com/dat-lich-hen-kham.html"
+                class="btn btn-primary btn-sm"
+                id="header-cta"
+              >
+                Hẹn Khám
+              </a>
+            </div>
+
+            <button
+              class="mobile-toggle"
+              aria-label="Mở menu"
+              aria-expanded="false"
+              id="mobile-toggle"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </ul>
         </nav>
+      </div>
+    </header>
 
-        <div class="header-actions">
-          <a
-            href="tel:0899268299"
-            class="header-phone"
-            aria-label="Gọi hotline 0899 268 299"
-          >
+    <!-- Universal Search Modal -->
+    <div
+      class="search-overlay"
+      id="search-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Tìm kiếm"
+      hidden
+    >
+      <div class="search-backdrop" id="search-backdrop"></div>
+      <div class="search-container">
+        <div class="search-header">
+          <div class="search-input-wrap">
             <svg
+              class="search-input-icon"
               width="20"
               height="20"
               viewBox="0 0 24 24"
@@ -413,33 +807,88 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               stroke-linecap="round"
               stroke-linejoin="round"
               aria-hidden="true"
-              ><path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-              ></path>
+              ><circle cx="11" cy="11" r="8"></circle><line
+                x1="21"
+                y1="21"
+                x2="16.65"
+                y2="16.65"></line>
             </svg>
-            <span>0899 268 299</span>
-          </a>
-          <a
-            href="https://phusanansinh.com/dat-lich-hen-kham.html"
-            class="btn btn-primary btn-sm"
-            id="header-cta"
-          >
-            Hẹn Khám
-          </a>
+            <input
+              type="search"
+              class="search-input"
+              id="search-input"
+              placeholder="Tìm bài viết, công cụ, dịch vụ..."
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+            />
+            <kbd class="search-kbd">ESC</kbd>
+          </div>
         </div>
-
-        <button
-          class="mobile-toggle"
-          aria-label="Mở menu"
-          aria-expanded="false"
-          id="mobile-toggle"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="search-body" id="search-body">
+          <div class="search-empty" id="search-empty">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--text-muted)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><circle cx="11" cy="11" r="8"></circle><line
+                x1="21"
+                y1="21"
+                x2="16.65"
+                y2="16.65"></line>
+            </svg>
+            <p>Gõ từ khóa để tìm kiếm</p>
+            <span class="search-hint"
+              >Ví dụ: "mang thai", "siêu âm", "sinh non"</span
+            >
+          </div>
+          <ul
+            class="search-results"
+            id="search-results"
+            role="listbox"
+            aria-label="Kết quả tìm kiếm"
+          >
+          </ul>
+          <div class="search-no-results" id="search-no-results" hidden>
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--text-muted)"
+              stroke-width="1.5"
+              aria-hidden="true"
+              ><circle cx="11" cy="11" r="8"></circle><line
+                x1="21"
+                y1="21"
+                x2="16.65"
+                y2="16.65"></line><line
+                x1="8"
+                y1="8"
+                x2="14"
+                y2="14"
+                stroke="var(--error)"></line>
+            </svg>
+            <p>Không tìm thấy kết quả</p>
+            <span class="search-hint">Thử từ khóa khác hoặc viết không dấu</span
+            >
+          </div>
+        </div>
+        <div class="search-footer">
+          <div class="search-footer-hints">
+            <span><kbd>↑</kbd><kbd>↓</kbd> Chọn</span>
+            <span><kbd>↵</kbd> Mở</span>
+            <span><kbd>ESC</kbd> Đóng</span>
+          </div>
+        </div>
       </div>
-    </header>
+    </div>
 
     <main id="main-content">
       <slot />
@@ -494,20 +943,43 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </div>
 
           <div class="footer-col">
-            <h4>Công cụ</h4>
+            <h4>Công cụ thai kỳ</h4>
             <ul role="list">
               <li><a href="/tinh-ngay-rung-trung">Tính ngày rụng trứng</a></li>
               <li>
                 <a href="/cong-cu/tinh-ngay-du-sinh">Tính ngày dự sinh</a>
               </li>
               <li><a href="/can-nang-thai-nhi">Cân nặng thai nhi</a></li>
+            </ul>
+            <h4 class="footer-subheading">Sàng lọc nguy cơ</h4>
+            <ul role="list">
               <li><a href="/cong-cu/du-doan-sinh-non">Dự đoán sinh non</a></li>
               <li>
-                <a href="/cong-cu/sang-loc-tien-san-giat"
-                  >Sàng lọc tiền sản giật</a
+                <a href="/cong-cu/sang-loc-tien-san-giat">Tiền sản giật</a>
+              </li>
+              <li>
+                <a href="/cong-cu/du-doan-dai-thao-duong-thai-ky">ĐTĐ thai kỳ</a
                 >
               </li>
+              <li>
+                <a href="/cong-cu/danh-gia-khoi-u-buong-trung">U buồng trứng</a>
+              </li>
+            </ul>
+            <h4 class="footer-subheading">Đánh giá lâm sàng</h4>
+            <ul role="list">
+              <li><a href="/cong-cu/bishop-score">Bishop Score</a></li>
+              <li><a href="/cong-cu/doppler-thai-nhi">Doppler thai nhi</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Khám phá</h4>
+            <ul role="list">
+              <li><a href="/phong-kham-tu-son">Phòng khám Từ Sơn</a></li>
+              <li><a href="/#bac-si">Đội ngũ bác sĩ</a></li>
+              <li><a href="/cam-nhan-khach-hang">Cảm nhận khách hàng</a></li>
               <li><a href="/tu-van-truc-tuyen">Tư vấn trực tuyến</a></li>
+              <li><a href="/blog">Kiến thức y khoa</a></li>
             </ul>
           </div>
 
@@ -619,11 +1091,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Sticky CTA Bar (Mobile) -->
     <div class="sticky-cta" role="complementary" aria-label="Hành động nhanh">
-      <a
-        href="tel:0869935808"
-        class="sticky-cta-item"
-        aria-label="Bác sĩ tư vấn"
-      >
+      <a href="tel:0899268299" class="sticky-cta-item" aria-label="Gọi hotline">
         <svg
           width="18"
           height="18"
@@ -634,12 +1102,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           stroke-linecap="round"
           stroke-linejoin="round"
           aria-hidden="true"
-          ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle
-            cx="12"
-            cy="7"
-            r="4"></circle>
+          ><path
+            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+          ></path>
         </svg>
-        <span>BS Tư vấn</span>
+        <span>Hotline</span>
       </a>
       <a
         href="https://phusanansinh.com/dat-lich-hen-kham.html"
@@ -668,7 +1135,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </svg>
         <span>Đặt Lịch</span>
       </a>
-      <a href="tel:0899268299" class="sticky-cta-item" aria-label="Gọi hotline">
+      <button
+        class="sticky-cta-item"
+        id="sticky-services-trigger"
+        aria-label="Dịch vụ"
+      >
         <svg
           width="18"
           height="18"
@@ -679,12 +1150,178 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           stroke-linecap="round"
           stroke-linejoin="round"
           aria-hidden="true"
-          ><path
-            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-          ></path>
+          ><rect x="3" y="3" width="7" height="7"></rect><rect
+            x="14"
+            y="3"
+            width="7"
+            height="7"></rect><rect x="14" y="14" width="7" height="7"
+          ></rect><rect x="3" y="14" width="7" height="7"></rect>
         </svg>
-        <span>Hotline</span>
-      </a>
+        <span>Dịch vụ</span>
+      </button>
+    </div>
+
+    <!-- Services Popup (Mobile) -->
+    <div class="services-popup-backdrop" id="services-popup-backdrop"></div>
+    <div
+      class="services-popup"
+      id="services-popup"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Dịch vụ"
+    >
+      <div class="tools-popup-handle"><span></span></div>
+      <div class="tools-popup-header">
+        <h3>Dịch vụ</h3>
+        <button
+          class="tools-popup-close"
+          id="services-popup-close"
+          aria-label="Đóng"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><line x1="18" y1="6" x2="6" y2="18"></line><line
+              x1="6"
+              y1="6"
+              x2="18"
+              y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="tools-popup-body">
+        <div class="tools-popup-grid">
+          <a href="/sieu-am-5d" class="tools-popup-card">
+            <span class="tool-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Siêu âm 5D</strong><span>Hình ảnh thai nhi sắc nét</span>
+            </div>
+          </a>
+          <a href="/kham-thai" class="tools-popup-card">
+            <span class="tool-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                ></path><path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Khám thai</strong><span>Theo dõi thai kỳ toàn diện</span>
+            </div>
+          </a>
+          <a href="/kham-phu-khoa" class="tools-popup-card">
+            <span class="tool-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                ></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Phụ khoa</strong><span>Khám & điều trị bệnh phụ khoa</span
+              >
+            </div>
+          </a>
+          <a href="/kham-nam-khoa" class="tools-popup-card">
+            <span class="tool-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                ></path><circle cx="8.5" cy="7" r="4"></circle><line
+                  x1="20"
+                  y1="8"
+                  x2="20"
+                  y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Nam khoa</strong><span>Sức khỏe nam giới</span>
+            </div>
+          </a>
+          <a href="/dieu-tri-vo-sinh" class="tools-popup-card">
+            <span class="tool-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                ></path><circle cx="9" cy="7" r="4"></circle><path
+                  d="M23 21v-2a4 4 0 00-3-3.87"></path><path
+                  d="M16 3.13a4 4 0 010 7.75"></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Điều trị vô sinh</strong><span
+                >Hỗ trợ sinh sản hiện đại</span
+              >
+            </div>
+          </a>
+          <a href="/tranh-thai-an-toan" class="tools-popup-card">
+            <span class="tool-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Tránh thai</strong><span>Biện pháp an toàn, hiệu quả</span
+              >
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
 
     <style>
@@ -695,6 +1332,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         z-index: 100;
         background: rgba(255, 255, 255, 0.97);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--border-light);
       }
 
@@ -782,6 +1420,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .dropdown-chevron {
         transition: transform var(--transition-fast);
         flex-shrink: 0;
+      }
+
+      .nav-trigger-content {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .nav-item-icon {
+        display: none;
       }
 
       .nav-dropdown-trigger[aria-expanded="true"] .dropdown-chevron {
@@ -879,7 +1527,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       /* ── Mega Dropdown (Công cụ) ── */
       .nav-dropdown-mega {
-        min-width: 480px;
+        min-width: 680px;
         padding: 0;
       }
 
@@ -887,9 +1535,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         display: flex;
       }
 
-      .dropdown-tools {
+      .dropdown-categories {
         flex: 1;
-        padding: var(--space-md);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      .dropdown-category {
+        padding: var(--space-xs) 0;
+      }
+
+      .dropdown-category:not(:last-child) {
+        border-right: 1px solid var(--border-light);
+        padding-right: var(--space-sm);
+        margin-right: var(--space-sm);
+      }
+
+      .category-label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 0.375rem 0.75rem;
+        margin-bottom: 2px;
+      }
+
+      .category-label svg {
+        opacity: 0.6;
       }
 
       .dropdown-tool-card {
@@ -1059,6 +1737,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         color: #fff;
       }
 
+      .footer-subheading {
+        font-size: 0.8125rem;
+        margin-top: var(--space-md);
+        margin-bottom: var(--space-xs);
+        color: #d1d5db;
+        font-weight: 600;
+      }
+
       .footer-contact li {
         display: flex;
         align-items: flex-start;
@@ -1110,24 +1796,32 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         right: 0;
         z-index: 99;
         background: var(--text-primary);
-        padding: var(--space-sm) var(--space-md);
+        padding: var(--space-sm) var(--space-md)
+          calc(var(--space-sm) + env(safe-area-inset-bottom));
         justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .sticky-cta-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2px;
+        gap: 3px;
         color: #c9cdd4;
-        font-size: 0.6875rem;
+        font-size: 0.75rem;
         font-weight: 500;
         text-decoration: none;
         min-height: 44px;
-        min-width: 44px;
+        min-width: 60px;
         justify-content: center;
         padding: var(--space-xs);
         transition: color var(--transition-fast);
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        line-height: 1.2;
+        cursor: pointer;
       }
 
       .sticky-cta-item:hover {
@@ -1146,40 +1840,258 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         color: #fff;
       }
 
+      /* ── Backdrop Overlay ── */
+      .nav-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 199;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+      }
+
+      .nav-backdrop.is-visible {
+        display: block;
+        opacity: 1;
+      }
+
+      /* ── Drawer Header (mobile only, hidden desktop) ── */
+      .drawer-header {
+        display: none;
+      }
+
+      .drawer-cta {
+        display: none;
+      }
+
+      /* ── Mobile Nav Bar (hidden on desktop) ── */
+      .mobile-nav {
+        display: none;
+        align-items: center;
+        gap: 2px;
+        margin-left: auto;
+      }
+
+      .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        padding: 4px 12px;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        border-radius: var(--radius-sm);
+        transition: all var(--transition-fast);
+        min-height: 44px;
+        justify-content: center;
+        font-family: inherit;
+      }
+
+      .mobile-nav-item:hover,
+      .mobile-nav-item:active {
+        color: var(--primary);
+        background: var(--primary-light);
+      }
+
+      .mobile-nav-item svg {
+        flex-shrink: 0;
+      }
+
+      /* ── Services Popup (Mobile) ── */
+      .services-popup-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+
+      .services-popup-backdrop.is-visible {
+        display: block;
+      }
+
+      .services-popup {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: #fff;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.15);
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        max-height: 80vh;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .services-popup.is-open {
+        transform: translateY(0);
+      }
+
       /* ── Responsive ── */
       @media (max-width: 768px) {
+        /* FIX FIXED CONTAINING BLOCK BUG ON IOS:
+           backdrop-filter creates a containing block which traps the fixed drawer.
+           Disable it on mobile so the drawer attaches to the true viewport. */
+        .site-header {
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+          background: #ffffff;
+        }
+
+        /* ── NEW: Show mobile nav, hide old drawer ── */
+        .mobile-nav {
+          display: flex;
+        }
+
+        .mobile-toggle {
+          display: none !important;
+        }
+
         .main-nav {
-          display: none;
-          position: absolute;
-          top: 72px;
-          left: 0;
-          right: 0;
+          display: none !important;
+        }
+
+        .nav-backdrop {
+          display: none !important;
+        }
+
+        .header-actions {
+          display: none !important;
+        }
+
+        .header-inner {
+          padding: 0 var(--space-sm);
+        }
+
+        .logo-icon {
+          width: 32px;
+          height: 32px;
+        }
+
+        .logo-sub {
+          font-size: 0.5rem;
+        }
+
+        .logo-brand {
+          font-size: 1rem;
+        }
+        /* ── Mobile Drawer ── */
+        .main-nav {
+          position: fixed;
+          top: 0;
+          bottom: 0; /* Add bottom: 0 to guarantee full height */
+          right: -100%;
+          width: 85%;
+          max-width: 360px;
+          height: 100dvh;
           background: #fff;
-          border-bottom: 1px solid var(--border);
-          z-index: 99;
-          box-shadow: var(--shadow-lg);
+          z-index: 200;
           overflow-x: hidden;
           overflow-y: auto;
-          max-height: calc(100vh - 72px);
-          max-height: calc(100dvh - 72px);
+          overscroll-behavior: none; /* Prevent scroll chaining */
+          -webkit-overflow-scrolling: touch;
+          box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+          transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          display: flex;
+          flex-direction: column;
         }
 
         .main-nav.is-open {
-          display: block;
+          right: 0;
         }
 
+        /* ── Drawer Header ── */
+        .drawer-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: var(--space-md) var(--space-lg);
+          border-bottom: 1px solid var(--border-light);
+          flex-shrink: 0;
+        }
+
+        .drawer-header .logo {
+          display: flex;
+          align-items: center;
+          gap: var(--space-sm);
+          text-decoration: none;
+        }
+
+        .drawer-header .logo-brand {
+          font-size: 1rem;
+          font-weight: 800;
+          color: var(--primary);
+        }
+
+        .drawer-close {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border: none;
+          background: var(--surface-alt);
+          border-radius: var(--radius-full);
+          color: var(--text-secondary);
+          cursor: pointer;
+          transition: all var(--transition-fast);
+        }
+
+        .drawer-close:hover {
+          background: var(--primary-light);
+          color: var(--primary);
+        }
+
+        /* ── Nav List ── */
         .nav-list {
           flex-direction: column;
+          align-items: stretch; /* FIX: Prevent centering inherited from desktop */
           gap: 0;
-          padding: var(--space-sm) 0;
+          padding: var(--space-md) 0;
+          flex: 1;
+          overflow-y: auto;
+        }
+
+        .nav-item-icon {
+          display: block; /* Show icons in mobile drawer */
+          color: var(--primary);
+          margin-right: var(--space-sm);
         }
 
         .nav-list > li > a {
-          display: block;
-          padding: 0.75rem var(--space-lg);
+          display: flex;
+          align-items: center;
+          padding: 1rem var(--space-xl);
           border-radius: 0;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--text-primary);
+          min-height: 56px;
+          border-left: 4px solid transparent;
+          transition: all var(--transition-fast);
         }
 
+        .nav-list > li > a:hover,
+        .nav-list > li > a:active {
+          background: var(--primary-light);
+          color: var(--primary-dark);
+          border-left-color: var(--primary);
+        }
+
+        /* ── Dropdown Trigger ── */
         .nav-has-dropdown {
           position: static;
         }
@@ -1187,11 +2099,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         .nav-dropdown-trigger {
           display: flex;
           width: 100%;
-          padding: 0.75rem var(--space-lg);
+          padding: 1rem var(--space-xl);
           border-radius: 0;
           justify-content: space-between;
+          min-height: 56px;
+          font-size: 1rem;
+          font-weight: 600;
+          border-left: 4px solid transparent;
+          transition: all var(--transition-fast);
         }
 
+        .nav-dropdown-trigger:hover,
+        .nav-dropdown-trigger:active {
+          background: var(--primary-light);
+          color: var(--primary-dark);
+          border-left-color: var(--primary);
+        }
+
+        .nav-dropdown-trigger[aria-expanded="true"] {
+          color: var(--primary-dark);
+          background: var(--primary-light);
+          border-left-color: var(--primary);
+        }
+
+        /* ── Dropdown Panel (Accordion) ── */
         .nav-dropdown {
           position: static !important;
           left: auto !important;
@@ -1207,16 +2138,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           max-width: 100% !important;
           width: 100% !important;
           padding: 0 !important;
-          display: none;
+          max-height: 0;
+          overflow: hidden;
           background: var(--surface-alt);
-          transition: none !important;
+          transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .nav-dropdown.is-open {
-          display: block !important;
+          max-height: 600px;
+          overflow: visible;
         }
 
-        /* Override hover/expanded selectors that re-apply transform */
+        /* Override hover selectors */
         .nav-has-dropdown:hover > .nav-dropdown,
         .nav-dropdown-trigger[aria-expanded="true"] + .nav-dropdown {
           transform: none !important;
@@ -1225,9 +2158,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
 
         .nav-has-dropdown:hover > .nav-dropdown:not(.is-open) {
-          display: none !important;
+          max-height: 0;
+          overflow: hidden;
         }
 
+        /* ── Dropdown Items ── */
         .nav-dropdown-mega {
           min-width: 0 !important;
         }
@@ -1255,26 +2190,62 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           overflow: hidden;
         }
 
-        .dropdown-tools {
-          padding: var(--space-sm) 0;
+        .dropdown-categories {
+          display: flex !important;
+          flex-direction: column;
+          grid-template-columns: none !important;
+          padding: var(--space-xs) 0 !important;
           width: 100%;
-          flex: none;
+        }
+
+        .dropdown-category {
+          padding: 0;
+        }
+
+        .dropdown-category:not(:last-child) {
+          border-right: none !important;
+          padding-right: 0 !important;
+          margin-right: 0 !important;
+          border-bottom: 1px solid var(--border-light);
+          padding-bottom: var(--space-xs);
+          margin-bottom: var(--space-xs);
+        }
+
+        .category-label {
+          padding: 0.5rem var(--space-lg);
+          padding-left: calc(var(--space-lg) + 3px);
+          font-size: 0.625rem;
+          color: var(--primary);
+          opacity: 0.8;
         }
 
         .dropdown-item {
-          padding: 0.625rem var(--space-lg);
+          padding: 0.75rem var(--space-lg);
+          padding-left: calc(var(--space-lg) + 3px);
           width: 100%;
           box-sizing: border-box;
+          min-height: 48px;
+          transition: background var(--transition-fast);
+        }
+
+        .dropdown-item:active {
+          background: var(--primary-light);
         }
 
         .dropdown-tool-card {
-          padding: 0.625rem var(--space-lg);
+          padding: 0.75rem var(--space-lg);
+          padding-left: calc(var(--space-lg) + 3px);
           width: 100%;
           box-sizing: border-box;
+          min-height: 48px;
+          transition: background var(--transition-fast);
+        }
+
+        .dropdown-tool-card:active {
+          background: var(--primary-light);
         }
 
         .tool-icon {
-          font-size: 1.25rem;
           width: 2rem;
           height: 2rem;
           min-width: 2rem;
@@ -1289,15 +2260,60 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
 
         .dropdown-icon {
-          font-size: 1.125rem;
           width: 1.75rem;
           min-width: 1.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .nav-has-dropdown::after {
           display: none;
         }
 
+        /* ── Drawer CTA ── */
+        .drawer-cta {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-sm);
+          padding: var(--space-lg);
+          border-top: 1px solid var(--border-light);
+          flex-shrink: 0;
+          background: var(--surface-alt);
+        }
+
+        .drawer-cta-btn {
+          width: 100%;
+          justify-content: center;
+          min-height: 48px;
+          font-size: 1rem;
+          font-weight: 700;
+          border-radius: var(--radius-md);
+          box-shadow: 0 4px 12px rgba(240, 125, 0, 0.3);
+        }
+
+        .drawer-phone {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-sm);
+          padding: 0.75rem;
+          color: var(--primary);
+          font-weight: 600;
+          font-size: 0.9375rem;
+          border: 1px solid var(--border);
+          border-radius: var(--radius-md);
+          text-decoration: none;
+          min-height: 44px;
+          transition: all var(--transition-fast);
+        }
+
+        .drawer-phone:hover {
+          background: var(--primary-light);
+          border-color: var(--primary);
+        }
+
+        /* ── Header Optimizations ── */
         .header-phone {
           display: none;
         }
@@ -1306,14 +2322,46 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           display: flex;
         }
 
+        /* ── Hamburger → X Animation ── */
+        .mobile-toggle span {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transform-origin: center;
+        }
+
+        .mobile-toggle[aria-expanded="true"] span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle[aria-expanded="true"] span:nth-child(2) {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+
+        .mobile-toggle[aria-expanded="true"] span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ── Sticky CTA Bar ── */
         .sticky-cta {
           display: flex;
         }
 
-        body {
-          padding-bottom: 64px;
+        .sticky-cta-item {
+          font-size: 0.75rem;
+          gap: 3px;
         }
 
+        .sticky-cta-primary {
+          padding: var(--space-xs) var(--space-lg);
+          font-weight: 700;
+          box-shadow: 0 -2px 8px rgba(240, 125, 0, 0.25);
+        }
+
+        body {
+          padding-bottom: 84px; /* Increase for sticky bottom area */
+        }
+
+        /* ── Footer ── */
         .footer-grid {
           grid-template-columns: 1fr;
           gap: var(--space-xl);
@@ -1326,6 +2374,45 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
       }
 
+      /* ── Small Phone (320px–374px) ── */
+      @media (max-width: 374px) {
+        .header-inner {
+          height: 60px;
+          gap: var(--space-sm);
+        }
+
+        .logo-icon {
+          width: 32px !important;
+          height: 32px !important;
+        }
+
+        .logo-brand {
+          font-size: 0.9375rem;
+        }
+
+        .logo-sub {
+          font-size: 0.5625rem;
+        }
+
+        #header-cta {
+          padding: 0.375rem 0.75rem;
+          font-size: 0.75rem;
+        }
+
+        .main-nav {
+          width: 90%;
+        }
+
+        .sticky-cta-item {
+          font-size: 0.6875rem;
+          padding: 2px;
+        }
+
+        .sticky-cta-primary {
+          padding: var(--space-xs) var(--space-md);
+        }
+      }
+
       @media (min-width: 769px) and (max-width: 1024px) {
         .footer-grid {
           grid-template-columns: repeat(2, 1fr);
@@ -1335,32 +2422,720 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           min-width: 400px;
         }
       }
+
+      /* ── Reduced Motion ── */
+      @media (prefers-reduced-motion: reduce) {
+        .main-nav,
+        .nav-backdrop,
+        .nav-dropdown,
+        .mobile-toggle span {
+          transition: none !important;
+        }
+      }
+      /* ═══════════════════════════════════════
+         Universal Search Styles
+         ═══════════════════════════════════════ */
+
+      /* Search trigger button in header */
+      .search-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .search-trigger:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* Search overlay */
+      .search-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 12vh;
+      }
+
+      .search-overlay[hidden] {
+        display: none;
+      }
+
+      .search-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        animation: searchFadeIn 150ms ease;
+      }
+
+      .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 560px;
+        background: var(--surface);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-xl), 0 0 0 1px var(--border-light);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        max-height: 70vh;
+        animation: searchSlideIn 200ms ease;
+      }
+
+      @keyframes searchFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes searchSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-12px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* Search header / input */
+      .search-header {
+        padding: var(--space-md) var(--space-lg);
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .search-input-wrap {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+
+      .search-input-icon {
+        flex-shrink: 0;
+        color: var(--text-muted);
+      }
+
+      .search-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 1.0625rem;
+        color: var(--text-primary);
+        padding: var(--space-sm) 0;
+        line-height: 1.5;
+      }
+
+      .search-input::placeholder {
+        color: var(--text-muted);
+      }
+
+      .search-input::-webkit-search-cancel-button {
+        display: none;
+      }
+
+      .search-kbd {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px 6px;
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        background: var(--surface-alt);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        line-height: 1.4;
+        white-space: nowrap;
+      }
+
+      /* Search body */
+      .search-body {
+        flex: 1;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding: var(--space-sm) 0;
+        min-height: 120px;
+      }
+
+      .search-empty[hidden],
+      .search-no-results[hidden] {
+        display: none !important;
+      }
+
+      .search-empty,
+      .search-no-results {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        padding: var(--space-3xl) var(--space-xl);
+        text-align: center;
+        color: var(--text-muted);
+      }
+
+      .search-empty p,
+      .search-no-results p {
+        font-size: 0.9375rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin: 0;
+      }
+
+      .search-hint {
+        font-size: 0.8125rem;
+        color: var(--text-muted);
+      }
+
+      .search-suggestions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        justify-content: center;
+        margin-top: var(--space-md);
+      }
+
+      .search-suggestions a {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--radius-full);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all var(--transition-fast);
+      }
+
+      .search-suggestions a:hover {
+        background: var(--primary-light);
+        border-color: var(--primary);
+        color: var(--primary-dark);
+      }
+
+      /* Search results */
+      .search-results {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .search-results :global(.search-result-item) {
+        margin: 0;
+      }
+
+      .search-results :global(.search-result-link) {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-md);
+        padding: var(--space-md) var(--space-lg);
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: background var(--transition-fast);
+        cursor: pointer;
+        border-left: 3px solid transparent;
+      }
+
+      .search-results :global(.search-result-link:hover),
+      .search-results :global(.search-result-link[aria-selected="true"]) {
+        background: var(--primary-light);
+        border-left-color: var(--primary);
+      }
+
+      .search-results :global(.search-result-icon) {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-sm);
+        background: var(--surface-alt);
+        margin-top: 2px;
+      }
+
+      .search-results
+        :global(.search-result-link[aria-selected="true"] .search-result-icon) {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .search-results :global(.search-result-text) {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .search-results :global(.search-result-title) {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .search-results :global(.search-result-title mark),
+      .search-results :global(.search-result-desc mark) {
+        background: rgba(240, 125, 0, 0.2);
+        color: #d97000;
+        padding: 0 2px;
+        border-radius: 2px;
+        font-weight: bold;
+      }
+
+      .search-results :global(.search-result-desc) {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        line-height: 1.4;
+        margin-top: 2px;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .search-results :global(.search-result-meta) {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-top: 4px;
+      }
+
+      .search-results :global(.search-result-badge) {
+        display: inline-flex;
+        align-items: center;
+        padding: 1px 8px;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        border-radius: var(--radius-full);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .search-results :global(.search-result-badge[data-type="blog"]) {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+      }
+
+      .search-results :global(.search-result-badge[data-type="tool"]) {
+        background: var(--accent-light);
+        color: var(--accent-dark);
+      }
+
+      .search-results :global(.search-result-badge[data-type="page"]) {
+        background: var(--surface-alt);
+        color: var(--text-secondary);
+      }
+
+      .search-results :global(.search-result-cat) {
+        font-size: 0.6875rem;
+        color: var(--text-muted);
+      }
+
+      /* Search footer */
+      .search-footer {
+        padding: var(--space-sm) var(--space-lg);
+        border-top: 1px solid var(--border-light);
+        background: var(--surface-alt);
+      }
+
+      .search-footer-hints {
+        display: flex;
+        align-items: center;
+        gap: var(--space-lg);
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .search-footer-hints kbd {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 20px;
+        padding: 1px 5px;
+        font-family: var(--font-body);
+        font-size: 0.625rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        margin-right: 3px;
+        line-height: 1.5;
+      }
+
+      /* Mobile search */
+      @media (max-width: 768px) {
+        .search-overlay {
+          padding-top: 0;
+          align-items: flex-end;
+        }
+
+        .search-container {
+          max-width: 100%;
+          max-height: 85vh;
+          border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+          animation: searchSlideUp 250ms ease;
+        }
+
+        @keyframes searchSlideUp {
+          from {
+            opacity: 0;
+            transform: translateY(100%);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .search-footer-hints {
+          display: none;
+        }
+
+        .search-kbd {
+          display: none;
+        }
+      }
+      /* ── Nav Link Button (Công cụ trigger) ── */
+      .nav-link-btn {
+        background: none;
+        border: none;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-sm);
+        transition: all var(--transition-fast);
+        font-size: 0.9375rem;
+        font-weight: 500;
+      }
+      .nav-link-btn:hover {
+        color: var(--primary);
+        background: var(--primary-light);
+      }
+
+      /* ── Tools Popup / Bottom Sheet ── */
+      .tools-popup-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+      .tools-popup-backdrop.is-visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .tools-popup {
+        position: fixed;
+        z-index: 9999;
+        background: #fff;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.15);
+        max-height: 85vh;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        /* Mobile: bottom sheet */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+        transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+      }
+      .tools-popup.is-open {
+        transform: translateY(0);
+      }
+
+      .tools-popup-handle {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0 4px;
+      }
+      .tools-popup-handle span {
+        width: 36px;
+        height: 4px;
+        background: #d1d5db;
+        border-radius: 2px;
+      }
+
+      .tools-popup-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1.25rem;
+        border-bottom: 1px solid var(--border-light);
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 1;
+      }
+      .tools-popup-header h3 {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+      }
+      .tools-popup-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        border-radius: var(--radius-sm);
+        color: var(--text-muted);
+        transition: all var(--transition-fast);
+      }
+      .tools-popup-close:hover {
+        background: var(--surface-alt);
+        color: var(--text-primary);
+      }
+
+      .tools-popup-body {
+        padding: 1rem 1.25rem 2rem;
+      }
+
+      .tools-popup-section-label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 0.625rem 0 0.375rem;
+        margin-top: 0.5rem;
+      }
+      .tools-popup-section-label:first-child {
+        margin-top: 0;
+      }
+      .tools-popup-section-label svg {
+        opacity: 0.5;
+      }
+
+      .tools-popup-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .tools-popup-card {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        padding: 0.875rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+      }
+      .tools-popup-card:hover,
+      .tools-popup-card:active {
+        background: var(--primary-light);
+      }
+      .tools-popup-card .tool-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        min-width: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--surface-alt);
+        border-radius: var(--radius-md);
+        flex-shrink: 0;
+      }
+      .tools-popup-card:hover .tool-icon {
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      }
+      .tools-popup-card .tool-info strong {
+        display: block;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .tools-popup-card .tool-info span {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 1px;
+      }
+      .tools-popup-card:hover .tool-info strong {
+        color: var(--primary-dark);
+      }
+
+      /* Desktop: centered modal */
+      @media (min-width: 769px) {
+        .tools-popup {
+          bottom: auto;
+          left: 50%;
+          top: 50%;
+          right: auto;
+          width: 560px;
+          max-height: 80vh;
+          border-radius: var(--radius-xl);
+          transform: translate(-50%, -50%) scale(0.95);
+          opacity: 0;
+          transition: transform 0.25s cubic-bezier(0.32, 0.72, 0, 1),
+            opacity 0.25s ease;
+        }
+        .tools-popup.is-open {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+        .tools-popup-handle {
+          display: none;
+        }
+        .tools-popup-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 4px;
+        }
+        .tools-popup-card .tool-info strong {
+          font-size: 0.875rem;
+        }
+      }
     </style>
 
     <script>
-      // Mobile menu toggle
+      // ── Mobile Drawer Navigation ──
       const toggle = document.getElementById("mobile-toggle");
       const nav = document.getElementById("main-nav");
-      if (toggle && nav) {
+      const backdrop = document.getElementById("nav-backdrop");
+      const drawerClose = document.getElementById("drawer-close");
+      const headerInner = document.querySelector(".header-inner");
+      const headerActions = document.querySelector(".header-actions");
+
+      function openDrawer() {
+        if (!toggle || !nav || !backdrop) return;
+
+        // FOOLPROOF FIX: Move drawer out of sticky header to avoid iOS/Chrome fixed-in-sticky bugs.
+        // It becomes a direct child of body, relative strictly to the true viewport.
+        document.body.appendChild(backdrop);
+        document.body.appendChild(nav);
+
+        // Force a reflow before animating (fixes transition occasionally dropping)
+        nav.getBoundingClientRect();
+
+        toggle.setAttribute("aria-expanded", "true");
+        nav.classList.add("is-open");
+        backdrop.classList.add("is-visible");
+
+        // Simple scroll lock
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeDrawer() {
+        if (!toggle || !nav || !backdrop) return;
+        toggle.setAttribute("aria-expanded", "false");
+        nav.classList.remove("is-open");
+        backdrop.classList.remove("is-visible");
+
+        // Restore scroll
+        document.body.style.overflow = "";
+
+        // Wait for close animation (300ms) to finish before restoring element to header
+        setTimeout(() => {
+          if (
+            !nav.classList.contains("is-open") &&
+            headerInner &&
+            headerActions
+          ) {
+            headerInner.insertBefore(backdrop, headerActions);
+            headerInner.insertBefore(nav, headerActions);
+          }
+        }, 300);
+
+        // Close all nested dropdowns
+        nav
+          .querySelectorAll(".nav-dropdown.is-open")
+          .forEach((d) => d.classList.remove("is-open"));
+        nav
+          .querySelectorAll('.nav-dropdown-trigger[aria-expanded="true"]')
+          .forEach((t) => t.setAttribute("aria-expanded", "false"));
+      }
+
+      // Close drawer if resizing matches desktop breakpoint
+      window.addEventListener("resize", () => {
+        if (
+          window.innerWidth > 768 &&
+          nav &&
+          nav.classList.contains("is-open")
+        ) {
+          closeDrawer();
+        }
+      });
+
+      // Prevent backdrop scrolling on iOS
+      if (backdrop) {
+        backdrop.addEventListener(
+          "touchmove",
+          function (e) {
+            e.preventDefault();
+          },
+          { passive: false }
+        );
+      }
+
+      // Toggle button
+      if (toggle) {
         toggle.addEventListener("click", () => {
           const isOpen = toggle.getAttribute("aria-expanded") === "true";
-          toggle.setAttribute("aria-expanded", String(!isOpen));
-          nav.classList.toggle("is-open", !isOpen);
-          // Close all nested dropdowns when closing mobile menu
-          if (isOpen) {
-            nav
-              .querySelectorAll(".nav-dropdown.is-open")
-              .forEach((d) => d.classList.remove("is-open"));
-            nav
-              .querySelectorAll('.nav-dropdown-trigger[aria-expanded="true"]')
-              .forEach((t) => t.setAttribute("aria-expanded", "false"));
-          }
+          isOpen ? closeDrawer() : openDrawer();
         });
       }
 
-      // Dropdown triggers (mobile accordion + desktop keyboard)
+      // Close button inside drawer
+      if (drawerClose) {
+        drawerClose.addEventListener("click", closeDrawer);
+      }
+
+      // Backdrop click
+      if (backdrop) {
+        backdrop.addEventListener("click", closeDrawer);
+      }
+
+      // Close drawer links (navigate away)
+      nav?.querySelectorAll("a[href]").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            // Small delay so navigation starts
+            setTimeout(closeDrawer, 100);
+          }
+        });
+      });
+
+      // Dropdown accordion (mobile) + hover (desktop)
       document.querySelectorAll(".nav-dropdown-trigger").forEach((trigger) => {
-        trigger.addEventListener("click", (e) => {
+        trigger.addEventListener("click", () => {
           const parent = (trigger as HTMLElement).closest(".nav-has-dropdown");
           const dropdown = parent?.querySelector(".nav-dropdown");
           if (!dropdown) return;
@@ -1384,12 +3159,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
       });
 
-      // Close dropdowns on outside click
+      // Close dropdowns on outside click (desktop)
       document.addEventListener("click", (e) => {
         const target = e.target as HTMLElement;
         if (
           !target.closest(".nav-has-dropdown") &&
-          !target.closest(".mobile-toggle")
+          !target.closest(".mobile-toggle") &&
+          !target.closest(".main-nav")
         ) {
           document.querySelectorAll(".nav-dropdown-trigger").forEach((t) => {
             t.setAttribute("aria-expanded", "false");
@@ -1400,9 +3176,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
       });
 
-      // Keyboard: Escape closes dropdown
+      // Escape key closes everything
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
+          // Close search first if open
+          if (searchOverlay && !searchOverlay.hidden) {
+            closeSearch();
+            return;
+          }
+          closeDrawer();
           document.querySelectorAll(".nav-dropdown-trigger").forEach((t) => {
             t.setAttribute("aria-expanded", "false");
           });
@@ -1412,7 +3194,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
       });
 
-      // Header scroll effect
+      // Header scroll shadow
       const header = document.getElementById("site-header");
       if (header) {
         window.addEventListener(
@@ -1424,6 +3206,750 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           { passive: true }
         );
       }
+
+      // ═══════════════════════════════════════
+      // Universal Search
+      // ═══════════════════════════════════════
+
+      const searchTrigger = document.getElementById("search-trigger");
+      const searchOverlay = document.getElementById("search-overlay");
+      const searchBackdrop = document.getElementById("search-backdrop");
+      const searchInput = document.getElementById(
+        "search-input"
+      ) as HTMLInputElement;
+      const searchResults = document.getElementById("search-results");
+      const searchEmpty = document.getElementById("search-empty");
+      const searchNoResults = document.getElementById("search-no-results");
+
+      let searchIndex: any[] | null = null;
+      let activeIndex = -1;
+      let debounceTimer: ReturnType<typeof setTimeout>;
+
+      // Vietnamese normalize function (inline for performance)
+      function normalize(text: string): string {
+        if (!text) return "";
+        return text
+          .toLowerCase()
+          .replace(/đ/g, "d")
+          .replace(/Đ/g, "d")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      // Search scoring
+      function searchScore(
+        entry: any,
+        tokens: string[],
+        fullQuery: string
+      ): number {
+        if (!tokens.length) return 0;
+        const title = normalize(entry.t);
+        const desc = normalize(entry.d);
+        const tags = (entry.k || []).map((t: string) => normalize(t));
+        const cat = normalize(entry.c);
+
+        const allMatch = tokens.every(
+          (tk: string) =>
+            title.includes(tk) ||
+            desc.includes(tk) ||
+            tags.some((tag: string) => tag.includes(tk)) ||
+            cat.includes(tk)
+        );
+        if (!allMatch) return 0;
+
+        let score = 1;
+        if (title.includes(fullQuery)) score += 15;
+        if (title.startsWith(fullQuery)) score += 8;
+        tokens.forEach((tk: string) => {
+          if (title.includes(tk)) score += 6;
+          if (tags.some((tag: string) => tag.includes(tk))) score += 3;
+          if (cat.includes(tk)) score += 2;
+          if (desc.includes(tk)) score += 1;
+        });
+        if (entry.y === "tool") score += 2;
+        if (entry.y === "page") score += 1;
+        return score;
+      }
+
+      function doSearch(query: string): any[] {
+        if (!searchIndex) return [];
+        const nq = normalize(query);
+        if (!nq) return [];
+        const tokens = nq.split(" ").filter(Boolean);
+        if (!tokens.length) return [];
+
+        const scored: any[] = [];
+        for (const entry of searchIndex) {
+          const s = searchScore(entry, tokens, nq);
+          if (s > 0) scored.push({ ...entry, _score: s });
+        }
+        scored.sort((a: any, b: any) => b._score - a._score);
+        return scored.slice(0, 8);
+      }
+
+      // Fetch index lazily
+      async function loadIndex() {
+        if (searchIndex) return;
+        try {
+          const res = await fetch("/search-index.json");
+          searchIndex = await res.json();
+        } catch (e) {
+          console.error("Failed to load search index", e);
+        }
+      }
+
+      // Type icons
+      function typeIcon(type: string): string {
+        if (type === "tool")
+          return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>';
+        if (type === "page")
+          return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>';
+        return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>';
+      }
+
+      function typeName(type: string): string {
+        if (type === "tool") return "Công cụ";
+        if (type === "page") return "Trang";
+        return "Bài viết";
+      }
+
+      // Highlight matched text
+      function highlightText(text: string, query: string): string {
+        if (!text || !query) return text || "";
+        const nq = normalize(query);
+        const tokens = nq.split(" ").filter(Boolean);
+        if (!tokens.length) return text;
+
+        const normText = normalize(text);
+        const ranges: Array<[number, number]> = [];
+
+        for (const token of tokens) {
+          let pos = 0;
+          while (true) {
+            const idx = normText.indexOf(token, pos);
+            if (idx === -1) break;
+            ranges.push([idx, idx + token.length]);
+            pos = idx + 1;
+          }
+        }
+
+        if (!ranges.length) return text;
+
+        // Merge overlapping ranges
+        ranges.sort((a, b) => a[0] - b[0]);
+        const merged: Array<[number, number]> = [ranges[0]];
+        for (let i = 1; i < ranges.length; i++) {
+          const last = merged[merged.length - 1];
+          if (ranges[i][0] <= last[1]) {
+            last[1] = Math.max(last[1], ranges[i][1]);
+          } else {
+            merged.push(ranges[i]);
+          }
+        }
+
+        let result = "";
+        let prev = 0;
+        for (const [start, end] of merged) {
+          result += escapeHtml(text.slice(prev, start));
+          result += "<mark>" + escapeHtml(text.slice(start, end)) + "</mark>";
+          prev = end;
+        }
+        result += escapeHtml(text.slice(prev));
+        return result;
+      }
+
+      function escapeHtml(str: string): string {
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      // Render results
+      function renderResults(results: any[], query: string) {
+        if (!searchResults || !searchEmpty || !searchNoResults) return;
+
+        if (!query.trim()) {
+          searchResults.innerHTML = "";
+          searchEmpty.hidden = false;
+          searchNoResults.hidden = true;
+          return;
+        }
+
+        if (results.length === 0) {
+          searchResults.innerHTML = "";
+          searchEmpty.hidden = true;
+          searchNoResults.hidden = false;
+          searchNoResults.innerHTML = `
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="8" y1="8" x2="14" y2="14" stroke="var(--error)"></line>
+            </svg>
+            <p>Không tìm thấy kết quả cho "<strong>${escapeHtml(
+              query
+            )}</strong>"</p>
+            <span class="search-hint" style="margin-top: 0.5rem;">Gợi ý tìm kiếm phổ biến:</span>
+            <div class="search-suggestions">
+               <a href="/cong-cu/du-doan-sinh-non">Dự đoán sinh non</a>
+               <a href="/cong-cu/tinh-ngay-du-sinh">Tính ngày dự sinh</a>
+               <a href="/dich-vu/sieu-am-5d">Siêu âm 5D</a>
+               <a href="/blog/kham-thai">Khám thai</a>
+            </div>
+          `;
+          return;
+        }
+
+        searchEmpty.hidden = true;
+        searchNoResults.hidden = true;
+        activeIndex = -1;
+
+        searchResults.innerHTML = results
+          .map(
+            (r: any, i: number) => `
+          <li class="search-result-item" role="option" id="search-item-${i}">
+            <a class="search-result-link" href="${r.u}" data-index="${i}">
+              <span class="search-result-icon">${typeIcon(r.y)}</span>
+              <div class="search-result-text">
+                <div class="search-result-title">${highlightText(
+                  r.t,
+                  query
+                )}</div>
+                <div class="search-result-desc">${escapeHtml(r.d)}</div>
+                <div class="search-result-meta">
+                  <span class="search-result-badge" data-type="${
+                    r.y
+                  }">${typeName(r.y)}</span>
+                  <span class="search-result-cat">${escapeHtml(r.c)}</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        `
+          )
+          .join("");
+      }
+
+      // Keyboard navigation
+      function setActiveResult(index: number) {
+        if (!searchResults) return;
+        const items = searchResults.querySelectorAll(".search-result-link");
+        items.forEach((item, i) => {
+          item.setAttribute("aria-selected", i === index ? "true" : "false");
+        });
+        if (index >= 0 && index < items.length) {
+          (items[index] as HTMLElement).scrollIntoView({ block: "nearest" });
+        }
+      }
+
+      // Open / Close search
+      function openSearch() {
+        if (!searchOverlay || !searchInput) return;
+        searchOverlay.hidden = false;
+        document.body.style.overflow = "hidden";
+        loadIndex();
+        // Small delay for animation
+        requestAnimationFrame(() => {
+          searchInput.focus();
+        });
+      }
+
+      function closeSearch() {
+        if (!searchOverlay || !searchInput) return;
+        searchOverlay.hidden = true;
+        document.body.style.overflow = "";
+        searchInput.value = "";
+        if (searchResults) searchResults.innerHTML = "";
+        if (searchEmpty) searchEmpty.hidden = false;
+        if (searchNoResults) searchNoResults.hidden = true;
+        activeIndex = -1;
+      }
+
+      // Event listeners
+      searchTrigger?.addEventListener("click", openSearch);
+      searchBackdrop?.addEventListener("click", closeSearch);
+
+      // Ctrl+K / Cmd+K shortcut
+      document.addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+          e.preventDefault();
+          if (searchOverlay?.hidden) {
+            openSearch();
+          } else {
+            closeSearch();
+          }
+        }
+      });
+
+      // Search input handler
+      searchInput?.addEventListener("input", () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          const query = searchInput.value;
+          const results = doSearch(query);
+          renderResults(results, query);
+        }, 100);
+      });
+
+      // Keyboard navigation in search
+      searchInput?.addEventListener("keydown", (e) => {
+        if (!searchResults) return;
+        const items = searchResults.querySelectorAll(".search-result-link");
+        const count = items.length;
+        if (!count) return;
+
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          activeIndex = (activeIndex + 1) % count;
+          setActiveResult(activeIndex);
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          activeIndex = activeIndex <= 0 ? count - 1 : activeIndex - 1;
+          setActiveResult(activeIndex);
+        } else if (
+          e.key === "Enter" &&
+          activeIndex >= 0 &&
+          activeIndex < count
+        ) {
+          e.preventDefault();
+          (items[activeIndex] as HTMLAnchorElement).click();
+        }
+      });
+      // ── Tools Popup ──
+      const toolsTrigger = document.getElementById("tools-trigger");
+      const toolsPopup = document.getElementById("tools-popup");
+      const toolsBackdrop = document.getElementById("tools-popup-backdrop");
+      const toolsClose = document.getElementById("tools-popup-close");
+
+      function openToolsPopup() {
+        // Close mobile drawer if open
+        const drawer = document.querySelector(".nav-list");
+        if (drawer && drawer.classList.contains("is-open")) {
+          drawer.classList.remove("is-open");
+          document.body.style.overflow = "";
+        }
+        toolsBackdrop?.classList.add("is-visible");
+        toolsPopup?.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeToolsPopup() {
+        toolsBackdrop?.classList.remove("is-visible");
+        toolsPopup?.classList.remove("is-open");
+        document.body.style.overflow = "";
+      }
+
+      if (toolsTrigger) {
+        toolsTrigger.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openToolsPopup();
+        });
+      }
+
+      // Also bind the mobile drawer's "Công cụ" button if it exists
+      document.querySelectorAll(".nav-link-btn").forEach((btn) => {
+        if (
+          btn.textContent.trim().includes("Công cụ") &&
+          btn !== toolsTrigger
+        ) {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openToolsPopup();
+          });
+        }
+      });
+
+      if (toolsClose) toolsClose.addEventListener("click", closeToolsPopup);
+      if (toolsBackdrop)
+        toolsBackdrop.addEventListener("click", closeToolsPopup);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && toolsPopup?.classList.contains("is-open")) {
+          closeToolsPopup();
+        }
+      });
+
+      // ── Mobile Nav Buttons ──
+      const mobileToolsTrigger = document.getElementById(
+        "mobile-tools-trigger"
+      );
+      const mobileSearchTrigger = document.getElementById(
+        "mobile-search-trigger"
+      );
+
+      // Mobile "Công cụ" button → open tools popup
+      mobileToolsTrigger?.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openToolsPopup();
+      });
+
+      // Mobile search icon → open search modal
+      mobileSearchTrigger?.addEventListener("click", () => {
+        openSearch();
+      });
+
+      // ── Services Popup (Bottom Bar "Dịch vụ") ──
+      const servicesTrigger = document.getElementById(
+        "sticky-services-trigger"
+      );
+      const servicesPopup = document.getElementById("services-popup");
+      const servicesBackdrop = document.getElementById(
+        "services-popup-backdrop"
+      );
+      const servicesClose = document.getElementById("services-popup-close");
+
+      function openServicesPopup() {
+        servicesBackdrop?.classList.add("is-visible");
+        servicesPopup?.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeServicesPopup() {
+        servicesBackdrop?.classList.remove("is-visible");
+        servicesPopup?.classList.remove("is-open");
+        document.body.style.overflow = "";
+      }
+
+      servicesTrigger?.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openServicesPopup();
+      });
+
+      servicesClose?.addEventListener("click", closeServicesPopup);
+      servicesBackdrop?.addEventListener("click", closeServicesPopup);
+
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.key === "Escape" &&
+          servicesPopup?.classList.contains("is-open")
+        ) {
+          closeServicesPopup();
+        }
+      });
     </script>
+    <!-- Tools Popup / Bottom Sheet -->
+    <div
+      class="tools-popup-backdrop"
+      id="tools-popup-backdrop"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="tools-popup"
+      id="tools-popup"
+      role="dialog"
+      aria-label="Công cụ y khoa"
+      aria-modal="true"
+    >
+      <div class="tools-popup-handle"><span></span></div>
+      <div class="tools-popup-header">
+        <h3>Công cụ y khoa</h3>
+        <button
+          class="tools-popup-close"
+          id="tools-popup-close"
+          aria-label="Đóng"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><line x1="18" y1="6" x2="6" y2="18"></line><line
+              x1="6"
+              y1="6"
+              x2="18"
+              y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="tools-popup-body">
+        <!-- PHỔ BIẾN: Công cụ thai kỳ cơ bản -->
+        <div class="tools-popup-section-label">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line
+              x1="16"
+              y1="2"
+              x2="16"
+              y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line
+              x1="3"
+              y1="10"
+              x2="21"
+              y2="10"></line>
+          </svg>
+          Thai kỳ
+        </div>
+        <div class="tools-popup-grid">
+          <a href="/tinh-ngay-rung-trung" class="tools-popup-card">
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"
+                ></rect><line x1="16" y1="2" x2="16" y2="6"></line><line
+                  x1="8"
+                  y1="2"
+                  x2="8"
+                  y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Tính ngày rụng trứng</strong><span
+                >Dự đoán cửa sổ thụ thai</span
+              >
+            </div>
+          </a>
+          <a href="/cong-cu/tinh-ngay-du-sinh" class="tools-popup-card">
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><circle cx="12" cy="12" r="10"></circle><path
+                  d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
+                  x1="9"
+                  y1="9"
+                  x2="9.01"
+                  y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Tính ngày dự sinh</strong><span>EDD theo Naegele</span>
+            </div>
+          </a>
+          <a href="/can-nang-thai-nhi" class="tools-popup-card">
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M12 3v17.25M18 9l-6 3.5L6 9"></path><path
+                  d="M18 9c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-6c0-1.1.9-2 2-2"
+                ></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Cân nặng thai nhi</strong><span>Chuẩn WHO theo tuần</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- SÀNG LỌC NGUY CƠ -->
+        <div class="tools-popup-section-label">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+            ></path><line x1="12" y1="9" x2="12" y2="13"></line><line
+              x1="12"
+              y1="17"
+              x2="12.01"
+              y2="17"></line>
+          </svg>
+          Sàng lọc nguy cơ
+        </div>
+        <div class="tools-popup-grid">
+          <a href="/cong-cu/sang-loc-tien-san-giat" class="tools-popup-card">
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                  d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"
+                ></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"
+                ></rect><path d="M9 14l2 2 4-4"></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Sàng lọc tiền sản giật</strong><span
+                >ACOG/USPSTF 2021 + NICE NG133</span
+              >
+            </div>
+          </a>
+          <a href="/cong-cu/du-doan-sinh-non" class="tools-popup-card">
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--warning)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                  d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+                ></path><line x1="12" y1="9" x2="12" y2="13"></line><line
+                  x1="12"
+                  y1="17"
+                  x2="12.01"
+                  y2="17"></line>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Dự đoán sinh non</strong><span>QUiPP + FMF</span>
+            </div>
+          </a>
+          <a
+            href="/cong-cu/du-doan-dai-thao-duong-thai-ky"
+            class="tools-popup-card"
+          >
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                  d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                ></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Dự đoán ĐTĐ thai kỳ</strong><span
+                >FMF + PersonalGDM + Iowa</span
+              >
+            </div>
+          </a>
+          <a
+            href="/cong-cu/danh-gia-khoi-u-buong-trung"
+            class="tools-popup-card"
+          >
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><circle cx="11" cy="11" r="8"></circle><line
+                  x1="21"
+                  y1="21"
+                  x2="16.65"
+                  y2="16.65"></line>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Đánh giá u buồng trứng</strong><span
+                >RMI 1–4 + ROMA score</span
+              >
+            </div>
+          </a>
+        </div>
+
+        <!-- ĐÁNH GIÁ LÂM SÀNG -->
+        <div class="tools-popup-section-label">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"
+            ></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+          </svg>
+          Đánh giá lâm sàng
+        </div>
+        <div class="tools-popup-grid">
+          <a href="/cong-cu/bishop-score" class="tools-popup-card">
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline
+                  points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Bishop Score</strong><span>CTC & khởi phát chuyển dạ</span
+              >
+            </div>
+          </a>
+          <a href="/cong-cu/doppler-thai-nhi" class="tools-popup-card">
+            <span class="tool-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </span>
+            <div class="tool-info">
+              <strong>Doppler thai nhi</strong><span
+                >UA-PI, MCA-PSV, CPR, UtA-PI</span
+              >
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

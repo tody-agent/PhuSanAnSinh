@@ -1,0 +1,133 @@
+---
+title: "Dự đoán đái tháo đường thai kỳ: 3 mô hình FMF, PersonalGDM và Iowa"
+description: "Giải thích 3 mô hình dự đoán nguy cơ GDM: FMF Syngelaki 2014, PersonalGDM Outcomes Monash 2022, Iowa Nulliparous Donovan 2019. Công thức, phân tầng nguy cơ, và lưu ý cho phụ nữ Việt Nam."
+pubDate: 2026-03-03
+category: "cong-cu"
+tags: ["GDM", "đái tháo đường thai kỳ", "FMF", "PersonalGDM", "Iowa", "sàng lọc", "OGTT"]
+author: "BS. An Sinh"
+readingTime: 12
+featured: true
+---
+
+**Đái tháo đường thai kỳ (GDM) ảnh hưởng 2–10% thai kỳ — nhưng phụ nữ Đông Á có nguy cơ gấp gần 3 lần. Bài viết giải thích 3 mô hình dự đoán nguy cơ trước khi xét nghiệm đường huyết.**
+
+## Tổng quan 3 mô hình
+
+| Mô hình | Nguồn gốc | Đối tượng | Phương pháp |
+|---------|-----------|-----------|-------------|
+| **FMF** | Syngelaki 2014 | Tất cả thai phụ | Logistic regression |
+| **PersonalGDM** | Monash 2022 | Thai phụ ĐÃ chẩn đoán GDM | Logistic regression + kết cục |
+| **Iowa** | Donovan 2019 | Con so (Nulliparous) | Natural cubic spline |
+
+---
+
+## A. FMF GDM Risk (Syngelaki 2014)
+
+Dự đoán nguy cơ GDM cho **tất cả thai phụ** tam cá nguyệt I, sử dụng thông tin khám thai lần đầu.
+
+### Công thức
+
+> **logit(p) = -4.005 + 0.081 x (Tuoi - 35) + 0.038 x (CN - 69) - 0.059 x (CC - 164) + beta_parity + beta_familyDM + beta_ethnicity**
+
+| Biến | Hệ số | Ý nghĩa |
+|------|-------|---------|
+| Tuổi mẹ | +0.081/năm | Mỗi năm tăng ~8% odds |
+| Cân nặng | +0.038/kg | Mỗi kg tăng ~4% odds |
+| ĐTĐ gia đình bậc 1 | +0.933 | OR ≈ 2.5 |
+| **Đông Á** | **+1.073** | **OR ≈ 2.9** |
+| Nam Á | +0.840 | OR ≈ 2.3 |
+| Con rạ (không GDM trước) | -0.789 | Bảo vệ |
+
+**Phụ nữ CÓ tiền sử GDM:** logit(p) = -4.005 + 0.021 x (CN - 69) -> Nguy cơ tái phát **30–50%**.
+
+### Phân tầng
+
+| Nguy cơ | Phân loại | Hành động |
+|---------|-----------|-----------|
+| ≥30% | 🔴⚠️ Rất cao | OGTT sớm + metformin dự phòng |
+| 15–30% | 🔴 Cao | OGTT sớm (16–18 tuần) |
+| 5–15% | 🟠 Trung bình | Cân nhắc sàng lọc sớm |
+| Dưới 5% | 🟢 Thấp | Sàng lọc 24–28 tuần |
+
+---
+
+## B. PersonalGDM Outcomes (Monash 2022)
+
+Dành cho thai phụ **ĐÃ CHẨN ĐOÁN GDM** — dự đoán nguy cơ biến cố bất lợi: rối loạn THA thai kỳ, thai to LGA, hạ đường huyết sơ sinh, kẹt vai, tử vong chu sinh.
+
+### Các biến quan trọng
+
+| Biến | Hệ số | Ghi chú |
+|------|-------|---------|
+| Glucose đói (mmol/L) | **+0.32** | Ảnh hưởng mạnh nhất |
+| Tiền sử tiền sản giật | +0.93 | OR ≈ 2.5 |
+| Tăng cân/tuần (kg) | +0.54 | Yếu tố modifiable |
+| Tiền sử LGA | +0.53 | OR ≈ 1.7 |
+| BMI | +0.04 | Tăng nhẹ |
+
+### Phân tầng
+
+| Nguy cơ | Xử trí |
+|---------|--------|
+| ≥50% | Insulin sớm, siêu âm mỗi 2–4 tuần, NST hàng tuần |
+| 30–50% | Siêu âm tăng trưởng + khám đa chuyên khoa |
+| 15–30% | Theo dõi tiêu chuẩn GDM |
+| Dưới 15% | Quản lý thường quy |
+
+---
+
+## C. Iowa Nulliparous (Donovan 2019)
+
+Thiết kế riêng cho **con so** — dùng spline bậc 3 cho tuổi và BMI (quan hệ phi tuyến).
+
+### Hệ số chủng tộc
+
+| Chủng tộc | Hệ số | OR |
+|-----------|-------|-----|
+| White (ref) | 0 | 1.0 |
+| **Asian** | **+1.064** | **2.9** |
+| Hispanic | +0.391 | 1.48 |
+| Hawaiian/PI | +0.644 | 1.90 |
+
+**Ngưỡng:** ≥6% → cần sàng lọc sớm.
+
+> **⚠️ Hạn chế:** AUC cho Asian chỉ 0.665 (thấp nhất). Cần thận trọng khi áp dụng cho dân số Việt Nam.
+
+---
+
+## Lưu ý cho phụ nữ Việt Nam
+
+| Yếu tố | Giá trị |
+|---------|---------|
+| OR chủng tộc | ~2.9 so với White |
+| Ngưỡng BMI béo phì | ≥25 (không phải ≥30) |
+| Chế độ ăn đặc trưng | Nhiều tinh bột → GI cao |
+| Tỷ lệ GDM | 10–15% |
+
+---
+
+## Sử dụng công cụ
+
+3 mô hình đã được tích hợp vào **[Công cụ Dự Đoán ĐTĐ Thai Kỳ](/cong-cu/du-doan-dai-thao-duong-thai-ky)**:
+
+- ✅ FMF cho tất cả thai phụ (tam cá nguyệt I)
+- ✅ PersonalGDM cho thai phụ đã chẩn đoán GDM
+- ✅ Iowa cho con so
+- ✅ Phân tầng nguy cơ + tạo prompt AI
+
+> **💡 Lời khuyên:** Nguy cơ GDM cao ≠ sẽ bị GDM. Đó là tín hiệu để sàng lọc sớm (16–18 tuần) và can thiệp lối sống: kiểm soát cân nặng, ăn GI thấp, vận động 150 phút/tuần.
+
+---
+
+## Tài liệu tham khảo
+
+1. Syngelaki A, et al. First-trimester screening for GDM. *Fetal Diagn Ther* 2015;37(1):51–57.
+2. PeRSonal GDM Consortium. *Diabetologia* 2022 (PMC9596305).
+3. Donovan BM, et al. Risk of GDM among nulliparous women. *Am J Obstet Gynecol* 2019;221(4):345.e1–14.
+4. ACOG Practice Bulletin No. 190 — GDM. 2018.
+
+---
+
+**Cần tư vấn?** [Đặt lịch khám](https://phusanansinh.com/dat-lich-hen-kham.html) | Hotline: **0899 268 299**
+
+*Lưu ý: Công cụ dự đoán nguy cơ KHÔNG thay thế xét nghiệm OGTT để chẩn đoán GDM.*

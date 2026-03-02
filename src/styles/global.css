@@ -373,6 +373,30 @@ p {
   border: 0;
 }
 
+/* ── Small Phone ── */
+@media (max-width: 374px) {
+  :root {
+    --container-padding: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
 /* ── Prefers reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
 

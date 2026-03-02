@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
+import reviewsData from "../data/reviews.json";
+
+const homeReviews = [
+  reviewsData.reviews.find((r) => r.topics.includes("vo-sinh")),
+  reviewsData.reviews.find((r) => r.topics.includes("kham-thai")),
+  reviewsData.reviews.find((r) => r.topics.includes("sieu-am")),
+].filter(Boolean);
 ---
 
 <BaseLayout
@@ -598,61 +605,38 @@ import "../styles/global.css";
       <div class="section-header">
         <span class="section-label">Khách hàng nói gì</span>
         <h2>Hàng nghìn gia đình đã tin tưởng An Sinh</h2>
+        <p>
+          Đánh giá <strong>4.9/5 ⭐</strong> trên Google Maps với hơn 50 lượt đánh
+          giá
+        </p>
       </div>
       <div class="grid-3 testimonial-grid">
-        <div class="card testimonial-card">
-          <div class="testimonial-stars" aria-label="5 sao">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            "Ơn bác và phòng khám rất nhiều vì đã đưa con đến với vợ chồng em.
-            Hành trình tuy gian nan nhưng cuối cùng cũng có trái ngọt ôm trong
-            tay."
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">H</div>
-            <div>
-              <strong>Chị H.</strong>
-              <span class="text-muted">Điều trị vô sinh</span>
+        {
+          homeReviews.map((review) => (
+            <div class="card testimonial-card">
+              <div
+                class="testimonial-stars"
+                aria-label={`${review!.stars} sao`}
+              >
+                ⭐⭐⭐⭐⭐
+              </div>
+              <p class="testimonial-text">"{review!.text}"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" aria-hidden="true">
+                  {review!.name.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                  <strong>{review!.name}</strong>
+                  <span class="text-muted">{review!.time} — Google Maps</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="card testimonial-card">
-          <div class="testimonial-stars" aria-label="5 sao">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            "Bác sĩ rất tận tâm, giải thích kỹ lưỡng từng chỉ số. Thai kỳ của
-            mình suôn sẻ nhờ được theo dõi sát sao từ ngày đầu."
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">T</div>
-            <div>
-              <strong>Chị T.</strong>
-              <span class="text-muted">Khám thai định kỳ</span>
-            </div>
-          </div>
-        </div>
-        <div class="card testimonial-card">
-          <div class="testimonial-stars" aria-label="5 sao">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            "Gần nhà, máy móc hiện đại, bác sĩ giỏi. Siêu âm 5D ở đây rõ nét
-            lắm, lần nào đi cũng được bác giải thích rất kỹ."
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">M</div>
-            <div>
-              <strong>Chị M.</strong>
-              <span class="text-muted">Siêu âm 5D</span>
-            </div>
-          </div>
-        </div>
+          ))
+        }
       </div>
       <div class="text-center mt-2">
-        <a
-          href="https://www.google.com/search?hl=vi-VN&gl=vn&q=Ph%C3%B2ng+kh%C3%A1m+An+Sinh,+416+Minh+Khai,+%C4%90%E1%BB%93ng+Nguy%C3%AAn,+T%E1%BB%AB+S%C6%A1n,+B%E1%BA%AFc+Ninh&ludocid=16582806101668951572#lrd=0x31350878152011ed:0xe621f64a3d287614,1"
-          class="btn btn-outline"
-          target="_blank"
-          rel="noopener noreferrer"
-          id="reviews-cta"
-        >
-          Xem tất cả đánh giá trên Google Maps →
+        <a href="/cam-nhan-khach-hang" class="btn btn-outline" id="reviews-cta">
+          Xem tất cả cảm nhận khách hàng →
         </a>
       </div>
     </div>

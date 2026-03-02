@@ -2,6 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 import "../styles/landing.css";
+import reviewsData from "../data/reviews.json";
+
+const pageReviews = reviewsData.reviews
+    .filter((r) =>
+        r.topics.some((t: string) => ["vo-sinh", "bac-si-nguyet"].includes(t))
+    )
+    .slice(0, 3);
 
 const pageTitle =
     "Điều Trị Vô Sinh Hiếm Muộn Bắc Ninh — Hành Trình Tìm Con | An Sinh";
@@ -70,7 +77,8 @@ const faqs = [
                 >
                 <h1>
                     Điều Trị Vô Sinh — Hành Trình Tìm Con <span
-                        class="text-accent-color">Bắt Đầu Từ Đây</span>
+                        class="text-accent-color">Bắt Đầu Từ Đây</span
+                    >
                 </h1>
                 <p class="landing-hero-sub">
                     Sau 5 năm mong đợi, chị H. cuối cùng cũng nắm tay con yêu.
@@ -154,22 +162,26 @@ const faqs = [
             <div class="trust-metrics">
                 <div class="trust-metric">
                     <span class="trust-metric-number">5.0</span><span
-                        class="trust-metric-label">⭐ Google Maps</span>
+                        class="trust-metric-label">⭐ Google Maps</span
+                    >
                 </div>
                 <div class="trust-metric-divider" aria-hidden="true"></div>
                 <div class="trust-metric">
                     <span class="trust-metric-number">20+</span><span
-                        class="trust-metric-label">Năm kinh nghiệm</span>
+                        class="trust-metric-label">Năm kinh nghiệm</span
+                    >
                 </div>
                 <div class="trust-metric-divider" aria-hidden="true"></div>
                 <div class="trust-metric">
                     <span class="trust-metric-number">Nhiều</span><span
-                        class="trust-metric-label">Ca thành công</span>
+                        class="trust-metric-label">Ca thành công</span
+                    >
                 </div>
                 <div class="trust-metric-divider" aria-hidden="true"></div>
                 <div class="trust-metric">
                     <span class="trust-metric-number">100%</span><span
-                        class="trust-metric-label">Phác đồ cá nhân</span>
+                        class="trust-metric-label">Phác đồ cá nhân</span
+                    >
                 </div>
             </div>
         </div>
@@ -403,7 +415,8 @@ const faqs = [
                 <a
                     href="https://phusanansinh.com/dat-lich-hen-kham.html"
                     class="btn btn-accent btn-lg"
-                    id="vosinh-steps-cta">Tư Vấn Miễn Phí Với Bác Sĩ</a>
+                    id="vosinh-steps-cta">Tư Vấn Miễn Phí Với Bác Sĩ</a
+                >
             </div>
         </div>
     </section>
@@ -416,60 +429,39 @@ const faqs = [
                 </h2>
             </div>
             <div class="grid-3">
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Ơn bác và phòng khám rất nhiều vì đã đưa con đến với vợ
-                        chồng em. Hành trình tuy gian nan nhưng cuối cùng cũng
-                        có trái ngọt ôm trong tay."
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">H</div><div
-                            class="landing-testimonial-meta"
-                        >
-                            <strong>Chị H.</strong><span
-                                >Điều trị vô sinh — 5 năm</span>
+                {
+                    pageReviews.map((review) => (
+                        <div class="landing-testimonial">
+                            <div
+                                class="landing-testimonial-stars"
+                                aria-label={`${review.stars} sao`}
+                            >
+                                {"★".repeat(review.stars)}
+                            </div>
+                            <p class="landing-testimonial-text">
+                                "{review.text}"
+                            </p>
+                            <div class="landing-testimonial-author">
+                                <div class="landing-testimonial-avatar">
+                                    {review.name.charAt(0).toUpperCase()}
+                                </div>
+                                <div class="landing-testimonial-meta">
+                                    <strong>{review.name}</strong>
+                                    <span>{review.time} — Google Maps ⭐</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Cảm ơn bác sĩ đã kiên nhẫn với vợ chồng em. Sau 3 năm
-                        cố gắng, giờ em đã mang thai 3 tháng, hạnh phúc vô
-                        cùng."
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">D</div><div
-                            class="landing-testimonial-meta"
-                        >
-                            <strong>Chị D.</strong><span
-                                >Điều trị vô sinh — 3 năm</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Bác sĩ không chỉ giỏi chuyên môn mà còn rất thấu hiểu.
-                        Mỗi lần thất bại, bác đều động viên. Giờ bé nhà em đã 6
-                        tháng rồi."
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">V</div><div
-                            class="landing-testimonial-meta"
-                        >
-                            <strong>Anh V. & Chị T.</strong><span
-                                >Điều trị hiếm muộn</span>
-                        </div>
-                    </div>
-                </div>
+                    ))
+                }
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="/cam-nhan-khach-hang"
+                    class="btn btn-outline"
+                    id="vosinh-reviews-more"
+                >
+                    Xem tất cả cảm nhận khách hàng →
+                </a>
             </div>
         </div>
     </section>

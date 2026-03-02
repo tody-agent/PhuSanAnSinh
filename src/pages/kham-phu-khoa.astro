@@ -2,6 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 import "../styles/landing.css";
+import reviewsData from "../data/reviews.json";
+
+const pageReviews = reviewsData.reviews
+    .filter((r) =>
+        r.topics.some((t: string) =>
+            ["phu-khoa", "thai-do", "co-so-vat-chat"].includes(t)
+        )
+    )
+    .slice(0, 3);
 
 const pageTitle =
     "Khám Phụ Khoa Từ Sơn, Bắc Ninh — Riêng Tư, Nhẹ Nhàng, Tận Tâm | An Sinh";
@@ -70,7 +79,8 @@ const faqs = [
                 >
                 <h1>
                     Khám Phụ Khoa — Riêng Tư, Nhẹ Nhàng, <span
-                        class="text-accent-color">Không Còn Ngại Ngùng</span>
+                        class="text-accent-color">Không Còn Ngại Ngùng</span
+                    >
                 </h1>
                 <p class="landing-hero-sub">
                     Triệu chứng kéo dài mà ngại đi khám? Đừng để nó nặng hơn.
@@ -151,22 +161,26 @@ const faqs = [
             <div class="trust-metrics">
                 <div class="trust-metric">
                     <span class="trust-metric-number">5.0</span><span
-                        class="trust-metric-label">⭐ Google Maps</span>
+                        class="trust-metric-label">⭐ Google Maps</span
+                    >
                 </div>
                 <div class="trust-metric-divider" aria-hidden="true"></div>
                 <div class="trust-metric">
                     <span class="trust-metric-number">20+</span><span
-                        class="trust-metric-label">Năm kinh nghiệm</span>
+                        class="trust-metric-label">Năm kinh nghiệm</span
+                    >
                 </div>
                 <div class="trust-metric-divider" aria-hidden="true"></div>
                 <div class="trust-metric">
                     <span class="trust-metric-number">100%</span><span
-                        class="trust-metric-label">Bảo mật thông tin</span>
+                        class="trust-metric-label">Bảo mật thông tin</span
+                    >
                 </div>
                 <div class="trust-metric-divider" aria-hidden="true"></div>
                 <div class="trust-metric">
                     <span class="trust-metric-number">♀</span><span
-                        class="trust-metric-label">Bác sĩ nữ</span>
+                        class="trust-metric-label">Bác sĩ nữ</span
+                    >
                 </div>
             </div>
         </div>
@@ -273,7 +287,8 @@ const faqs = [
                     <span class="section-label">Bác sĩ phụ khoa</span>
                     <h2>
                         Bác sĩ nữ <span class="text-primary-color"
-                            >tận tâm, nhẹ nhàng</span>
+                            >tận tâm, nhẹ nhàng</span
+                        >
                     </h2>
                     <p>
                         Chúng tôi hiểu rằng khám phụ khoa là trải nghiệm nhạy
@@ -404,7 +419,8 @@ const faqs = [
                 <a
                     href="https://phusanansinh.com/dat-lich-hen-kham.html"
                     class="btn btn-accent btn-lg"
-                    id="phu-khoa-steps-cta">Đặt Lịch Khám — Riêng Tư 100%</a>
+                    id="phu-khoa-steps-cta">Đặt Lịch Khám — Riêng Tư 100%</a
+                >
             </div>
         </div>
     </section>
@@ -417,58 +433,39 @@ const faqs = [
                 </h2>
             </div>
             <div class="grid-3">
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Lần đầu khám phụ khoa, hồi hộp lắm. Nhưng bác sĩ nữ ở
-                        đây rất nhẹ nhàng, giải thích kỹ. Giờ không còn ngại
-                        nữa."
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">P</div><div
-                            class="landing-testimonial-meta"
-                        >
-                            <strong>Chị P.</strong><span
-                                >Khám phụ khoa lần đầu</span>
+                {
+                    pageReviews.map((review) => (
+                        <div class="landing-testimonial">
+                            <div
+                                class="landing-testimonial-stars"
+                                aria-label={`${review.stars} sao`}
+                            >
+                                {"★".repeat(review.stars)}
+                            </div>
+                            <p class="landing-testimonial-text">
+                                "{review.text}"
+                            </p>
+                            <div class="landing-testimonial-author">
+                                <div class="landing-testimonial-avatar">
+                                    {review.name.charAt(0).toUpperCase()}
+                                </div>
+                                <div class="landing-testimonial-meta">
+                                    <strong>{review.name}</strong>
+                                    <span>{review.time} — Google Maps ⭐</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Mình bị viêm âm đạo kéo dài, ngại mãi mới đi khám. May
-                        mắn gặp bác sĩ tận tâm, điều trị 2 tuần là khỏi."
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">Q</div><div
-                            class="landing-testimonial-meta"
-                        >
-                            <strong>Chị Q.</strong><span
-                                >Điều trị viêm âm đạo</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Phòng khám rất sạch sẽ, riêng tư. Bác sĩ giải thích cặn
-                        kẽ, không hề có cảm giác bị vội vàng. Rất hài lòng."
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">A</div><div
-                            class="landing-testimonial-meta"
-                        >
-                            <strong>Chị A.</strong><span
-                                >Khám phụ khoa định kỳ</span>
-                        </div>
-                    </div>
-                </div>
+                    ))
+                }
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="/cam-nhan-khach-hang"
+                    class="btn btn-outline"
+                    id="phukhoa-reviews-more"
+                >
+                    Xem tất cả cảm nhận khách hàng →
+                </a>
             </div>
         </div>
     </section>

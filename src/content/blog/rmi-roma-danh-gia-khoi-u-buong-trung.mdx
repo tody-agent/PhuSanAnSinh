@@ -1,0 +1,164 @@
+---
+title: "RMI và ROMA: Đánh giá nguy cơ ác tính khối u buồng trứng"
+description: "Giải thích hệ thống RMI (Risk of Malignancy Index) phiên bản 1–4 và ROMA (Risk of Ovarian Malignancy Algorithm). Công thức tính, cutoff theo tình trạng kinh nguyệt, hạn chế và ứng dụng lâm sàng."
+pubDate: 2026-03-03
+category: "cong-cu"
+tags: ["RMI", "ROMA", "khối u buồng trứng", "CA-125", "HE4", "ung thư buồng trứng", "sàng lọc"]
+author: "BS. An Sinh"
+readingTime: 12
+featured: true
+---
+
+**Phát hiện khối u buồng trứng trên siêu âm — lành tính hay ác tính? RMI và ROMA là hai hệ thống được sử dụng rộng rãi nhất thế giới để trả lời câu hỏi này.**
+
+## Tổng quan
+
+| Phương pháp | Nguồn gốc | Thành phần | Đặc điểm |
+|-------------|-----------|------------|----------|
+| **RMI 1** | Jacobs 1990 | Siêu âm + Kinh nguyệt + CA-125 | Phiên bản gốc |
+| **RMI 2** | Tingulstad 1996 | Giống RMI 1, hệ số U và M khác | U/M mạnh hơn |
+| **RMI 3** | Tingulstad 1999 | Giống RMI 1, U=3 khi ≥2 | Cân bằng hơn |
+| **RMI 4** | Yamamoto 2009 | Thêm kích thước u (S) | Chính xác hơn |
+| **ROMA** | Moore 2009 | HE4 + CA-125 (logistic) | FDA-approved |
+
+---
+
+## RMI — Risk of Malignancy Index
+
+### Công thức
+
+> **RMI = U × M × CA-125**
+
+Trong đó:
+- **U** = điểm siêu âm (Ultrasound score)
+- **M** = điểm mãn kinh (Menopausal status)
+- **CA-125** = nồng độ CA-125 huyết thanh (U/mL)
+
+RMI 4 thêm: **RMI₄ = U × M × S × CA-125** (S = kích thước u)
+
+### 5 đặc điểm siêu âm
+
+| # | Đặc điểm | Mô tả |
+|---|----------|-------|
+| 1 | Nang đa thùy | Multilocular cyst |
+| 2 | Thành phần đặc | Solid areas |
+| 3 | Di căn ổ bụng | Metastases |
+| 4 | Dịch ổ bụng | Ascites |
+| 5 | Tổn thương hai bên | Bilateral lesions |
+
+### Hệ thống tính điểm U
+
+| Số đặc điểm | RMI 1 | RMI 2 | RMI 3 | RMI 4 |
+|-------------|-------|-------|-------|-------|
+| **0** | **0** | 1 | 1 | 1 |
+| **1** | 1 | 1 | 1 | 1 |
+| **≥ 2** | 3 | **4** | 3 | **4** |
+
+> **⚠️ Lưu ý RMI 1:** Khi US score = 0, U = 0 → RMI 1 luôn = 0 dù CA-125 cao. Đây là hạn chế — các phiên bản sau đã sửa (U tối thiểu = 1).
+
+### Hệ thống tính điểm M
+
+| Tình trạng | RMI 1 & 3 | RMI 2 & 4 |
+|-----------|-----------|-----------|
+| Tiền mãn kinh | 1 | 1 |
+| Hậu mãn kinh | **3** | **4** |
+
+### Điểm S (chỉ RMI 4)
+
+| Kích thước u | S |
+|-------------|---|
+| Dưới 7 cm | 1 |
+| **≥ 7 cm** | **2** |
+
+### Phân tầng nguy cơ RMI
+
+| RMI (v1–3) | RMI 4 | Phân loại | Xử trí |
+|-----------|-------|-----------|--------|
+| Dưới 25 | Dưới 25 | 🟢 Thấp | Theo dõi siêu âm 3–6 tháng |
+| 25–199 | 25–449 | 🟡 Trung bình | MRI + chuyên khoa phụ khoa |
+| **≥ 200** | **≥ 450** | 🔴 Cao | **Chuyển tuyến ung thư phụ khoa** |
+
+---
+
+## ROMA — Risk of Ovarian Malignancy Algorithm
+
+### Đặc điểm
+
+ROMA kết hợp **2 marker sinh hóa**: CA-125 và **HE4** (Human Epididymis protein 4). HE4 ít bị ảnh hưởng bởi lạc nội mạc tử cung, viêm vùng chậu, thai kỳ — giúp giảm dương tính giả.
+
+### Công thức
+
+**Tiền mãn kinh:**
+> PI = −12.0 + 2.38 × ln(HE4) + 0.0626 × ln(CA-125)
+
+**Hậu mãn kinh:**
+> PI = −8.09 + 1.04 × ln(HE4) + 0.732 × ln(CA-125)
+
+> **ROMA (%) = exp(PI) / (1 + exp(PI)) × 100**
+
+### Cutoff theo hệ thống xét nghiệm
+
+| Hệ thống | Tiền mãn kinh | Hậu mãn kinh |
+|----------|---------------|---------------|
+| **Roche Elecsys** | 11.4% | 29.9% |
+| **Abbott Architect** | 7.4% | 25.3% |
+
+| ROMA | Đánh giá |
+|------|---------|
+| Dưới cutoff | 🟢 Nguy cơ thấp |
+| **≥ cutoff** | 🔴 Nguy cơ cao → chuyển tuyến |
+
+---
+
+## Bất đồng RMI vs ROMA
+
+Khi RMI và ROMA cho kết quả trái ngược (một cao, một thấp):
+
+> **Ưu tiên chỉ số CAO hơn** → Bổ sung MRI vùng chậu + ý kiến chuyên gia. Cân nhắc IOTA ADNEX model.
+
+---
+
+## Hạn chế cần biết
+
+### Dương tính giả CA-125
+
+CA-125 có thể tăng do: lạc nội mạc tử cung, u xơ tử cung, viêm vùng chậu, xơ gan, suy tim, lao phúc mạc, thai kỳ, kinh nguyệt.
+
+### Âm tính giả
+
+RMI/ROMA có thể **bỏ sót** u nhầy (mucinous), u tế bào sáng giai đoạn sớm, u tế bào mầm, u mô đệm.
+
+### ROMA không áp dụng cho
+
+Phụ nữ dưới 18 tuổi, đang điều trị ung thư, đã chẩn đoán ung thư trước đó.
+
+---
+
+## Sử dụng công cụ
+
+Tất cả công thức trên đã được tích hợp vào **[Công cụ Đánh Giá U Buồng Trứng](/cong-cu/danh-gia-khoi-u-buong-trung)**:
+
+- ✅ RMI 1–4 tự động từ siêu âm + CA-125
+- ✅ ROMA nếu có HE4 (Roche hoặc Abbott)
+- ✅ Phát hiện bất đồng RMI/ROMA
+- ✅ Cảnh báo RMI 1 = 0 khi US score = 0
+- ✅ Kế hoạch hành động theo mức nguy cơ
+- ✅ Tạo prompt AI cho phân tích lâm sàng
+
+> **💡 Lời khuyên:** RMI/ROMA là công cụ sàng lọc, không phải chẩn đoán. Kết quả cao → cần đánh giá chuyên sâu (MRI, phẫu thuật thăm dò). Kết quả thấp → vẫn cần theo dõi định kỳ.
+
+---
+
+## Tài liệu tham khảo
+
+1. Jacobs I, et al. A risk of malignancy index. *Br J Obstet Gynaecol* 1990;97:922–9.
+2. Tingulstad S, et al. Evaluation of a risk of malignancy index. *Gynecol Oncol* 1996;63:28–36.
+3. Tingulstad S, et al. The risk-of-malignancy index. *Acta Obstet Gynecol Scand* 1999;78:783–90.
+4. Yamamoto Y, et al. Comparison of RMI-I, RMI-II, RMI-III, RMI-IV. *J Gynecol Oncol* 2009;20:18–22.
+5. Moore RG, et al. A novel multiple marker bioassay (ROMA). *Gynecol Oncol* 2009;112:40–6.
+
+---
+
+**Cần tư vấn?** [Đặt lịch khám](https://phusanansinh.com/dat-lich-hen-kham.html) | Hotline: **0899 268 299**
+
+*Lưu ý: Bài viết mang tính tham khảo. Mọi quyết định lâm sàng cần dựa trên đánh giá toàn diện của bác sĩ chuyên khoa.*

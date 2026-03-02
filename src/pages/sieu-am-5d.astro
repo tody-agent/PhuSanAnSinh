@@ -2,6 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 import "../styles/landing.css";
+import reviewsData from "../data/reviews.json";
+
+const pageReviews = reviewsData.reviews
+    .filter((r) =>
+        r.topics.some((t: string) =>
+            ["sieu-am", "kham-thai", "co-so-vat-chat"].includes(t)
+        )
+    )
+    .slice(0, 3);
 
 const pageTitle =
     "Siêu Âm Thai 5D Bắc Ninh — Nhìn Thấy Con Yêu Rõ Nét Nhất | An Sinh";
@@ -327,7 +336,8 @@ const faqs = [
                     <span class="section-label">Bác sĩ siêu âm</span>
                     <h2>
                         Bác sĩ chuyên khoa với <span class="text-primary-color"
-                            >20+ năm kinh nghiệm</span>
+                            >20+ năm kinh nghiệm</span
+                        >
                     </h2>
                     <p>
                         Chúng tôi hiểu rằng mỗi lần siêu âm, bạn mang theo cả
@@ -480,7 +490,7 @@ const faqs = [
         </div>
     </section>
 
-    <!-- SOCIAL PROOF — Testimonials -->
+    <!-- SOCIAL PROOF — Testimonials (Real Google Reviews) -->
     <section class="section section-alt" id="review">
         <div class="container">
             <div class="section-header">
@@ -488,57 +498,39 @@ const faqs = [
                 <h2>Hàng nghìn mẹ bầu tin tưởng siêu âm tại An Sinh</h2>
             </div>
             <div class="grid-3">
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Siêu âm 5D ở đây rõ nét lắm, lần nào đi cũng được bác
-                        giải thích rất kỹ. Thấy mặt con rõ ràng, cả nhà vui
-                        lắm!"
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">M</div>
-                        <div class="landing-testimonial-meta">
-                            <strong>Chị M.</strong>
-                            <span>Siêu âm 5D — 24 tuần</span>
+                {
+                    pageReviews.map((review) => (
+                        <div class="landing-testimonial">
+                            <div
+                                class="landing-testimonial-stars"
+                                aria-label={`${review.stars} sao`}
+                            >
+                                {"★".repeat(review.stars)}
+                            </div>
+                            <p class="landing-testimonial-text">
+                                "{review.text}"
+                            </p>
+                            <div class="landing-testimonial-author">
+                                <div class="landing-testimonial-avatar">
+                                    {review.name.charAt(0).toUpperCase()}
+                                </div>
+                                <div class="landing-testimonial-meta">
+                                    <strong>{review.name}</strong>
+                                    <span>{review.time} — Google Maps ⭐</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Bác sĩ rất tận tâm, giải thích kỹ lưỡng từng chỉ số.
-                        Thai kỳ của mình suôn sẻ nhờ được theo dõi sát sao từ
-                        ngày đầu."
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">T</div>
-                        <div class="landing-testimonial-meta">
-                            <strong>Chị T.</strong>
-                            <span>Khám thai định kỳ</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="landing-testimonial">
-                    <div class="landing-testimonial-stars" aria-label="5 sao">
-                        ★★★★★
-                    </div>
-                    <p class="landing-testimonial-text">
-                        "Gần nhà, máy móc hiện đại, không phải lên HN xa xôi.
-                        Kết quả xem online luôn, tiện lắm. Recommend cho các mẹ
-                        bầu!"
-                    </p>
-                    <div class="landing-testimonial-author">
-                        <div class="landing-testimonial-avatar">L</div>
-                        <div class="landing-testimonial-meta">
-                            <strong>Chị L.</strong>
-                            <span>Siêu âm 5D — 28 tuần</span>
-                        </div>
-                    </div>
-                </div>
+                    ))
+                }
+            </div>
+            <div class="text-center mt-2">
+                <a
+                    href="/cam-nhan-khach-hang"
+                    class="btn btn-outline"
+                    id="sieu-am-reviews-more"
+                >
+                    Xem tất cả cảm nhận khách hàng →
+                </a>
             </div>
         </div>
     </section>

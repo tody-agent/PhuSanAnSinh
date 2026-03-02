@@ -1,0 +1,382 @@
+{
+    "meta": {
+        "source": "Google Maps",
+        "clinicName": "Phòng khám sản phụ khoa An Sinh",
+        "address": "416 Minh Khai, Đồng Nguyên, Từ Sơn, Bắc Ninh",
+        "rating": 4.9,
+        "totalReviews": 50,
+        "lastUpdated": "2026-03-02"
+    },
+    "reviews": [
+        {
+            "id": 1,
+            "name": "Quyen Phan",
+            "stars": 5,
+            "time": "1 năm trước",
+            "text": "Cảm ơn bác sĩ Nguyệt đã đồng hành trong khoảng thời gian khó khăn để điều trị đúng hướng và bây giờ đã có một em bé đáng yêu. Hành trình tuy gian nan nhưng cuối cùng cũng có trái ngọt.",
+            "hasPhotos": true,
+            "topics": [
+                "vo-sinh",
+                "bac-si-nguyet"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Nguyễn Thị Xuân Lộc",
+            "stars": 5,
+            "time": "1 năm trước",
+            "text": "Bị hiếm muộn nhiều năm, nhờ bác sĩ Nguyệt mà gia đình có thêm thành viên mới. Bác sĩ siêu giỏi và nhiệt tình, không quản đêm hôm giúp đỡ bệnh nhân.",
+            "hasPhotos": false,
+            "topics": [
+                "vo-sinh",
+                "bac-si-nguyet",
+                "chuyen-mon"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Thom Nguyen",
+            "stars": 5,
+            "time": "3 tháng trước",
+            "text": "Đội ngũ y bác sĩ nhẹ nhàng, cẩn thận. Đã tin tưởng 7 năm nay kể từ khi biết đến phòng khám. Mỗi lần đến đều rất yên tâm.",
+            "hasPhotos": false,
+            "topics": [
+                "kham-thai",
+                "thai-do",
+                "tin-tuong"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Nguyễn Kiên",
+            "stars": 5,
+            "time": "4 tháng trước",
+            "text": "Bác sĩ chuyên môn cao. Dịch vụ tốt, phòng khám sạch sẽ. Rất hài lòng với trải nghiệm khám tại đây.",
+            "hasPhotos": false,
+            "topics": [
+                "chuyen-mon",
+                "co-so-vat-chat"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Thi Loan",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Bác sĩ chuyên môn cao, tư vấn nhiệt tình, giá cả hợp lý, nhân viên nhiệt tình, phòng khám thoáng mát. Rất hài lòng!",
+            "hasPhotos": true,
+            "topics": [
+                "chuyen-mon",
+                "thai-do",
+                "co-so-vat-chat",
+                "gia-ca"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "HunHan Shipper",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Chăm sóc sức khỏe sinh sản toàn diện rất tốt, thái độ phục vụ nhiệt tình. Môi trường phòng khám sạch sẽ, hiện đại.",
+            "hasPhotos": true,
+            "topics": [
+                "thai-do",
+                "co-so-vat-chat",
+                "phu-khoa"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Tori dotoji",
+            "stars": 5,
+            "time": "1 năm trước",
+            "text": "Đã khám nhiều lần ở đây, bác sĩ chuyên môn cao nên rất yên tâm. Phòng khám sạch sẽ, nhân viên thân thiện.",
+            "hasPhotos": false,
+            "topics": [
+                "chuyen-mon",
+                "tin-tuong",
+                "kham-thai"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Uyen Cao",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Phòng khám đầy đủ máy móc tiện nghi. Bác sĩ tư vấn tận tình, chu đáo. Theo dõi từ lúc mang thai đến khi sinh, rất chu đáo.",
+            "hasPhotos": false,
+            "topics": [
+                "kham-thai",
+                "co-so-vat-chat",
+                "sieu-am"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "An Nguyen",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Chuyên nghiệp, nhân viên thân thiện. Bác sĩ chuyên môn cao, khám chuẩn, không doạ bệnh. Giá cả hợp lý.",
+            "hasPhotos": false,
+            "topics": [
+                "chuyen-mon",
+                "thai-do",
+                "gia-ca"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Lien Thu",
+            "stars": 5,
+            "time": "5 năm trước",
+            "text": "Bác sĩ chuyên môn cao, phòng khám sạch sẽ, thiết bị đầy đủ. Là phòng khám đáng tin cậy nhất khu vực.",
+            "hasPhotos": false,
+            "topics": [
+                "chuyen-mon",
+                "co-so-vat-chat",
+                "tin-tuong"
+            ]
+        },
+        {
+            "id": 11,
+            "name": "nga kim",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Tiếp đón niềm nở, chuẩn đoán chính xác. Đặc biệt nhân viên rất vui tính, tạo không khí thoải mái khi đến khám.",
+            "hasPhotos": false,
+            "topics": [
+                "thai-do",
+                "chuyen-mon"
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Nguyễn Tống Thanh",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Vợ khám thai ở đây rất ưng ý. Đội ngũ chuyên môn tốt, phòng ốc sạch sẽ. Mỗi lần đến đều được giải thích cặn kẽ.",
+            "hasPhotos": false,
+            "topics": [
+                "kham-thai",
+                "chuyen-mon",
+                "co-so-vat-chat"
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Xiembui Xiembui",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Bác sĩ tư vấn rất nhiệt tình, là phòng khám tuyệt vời nhất mà tôi từng đi. Rất recommend cho mọi người.",
+            "hasPhotos": false,
+            "topics": [
+                "thai-do",
+                "tin-tuong"
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Nam Luong",
+            "stars": 5,
+            "time": "2 năm trước",
+            "text": "Phòng khám sạch sẽ, nhiều nhân viên, phục vụ nhanh. Đánh giá là phòng khám tốt nhất khu vực Từ Sơn.",
+            "hasPhotos": false,
+            "topics": [
+                "co-so-vat-chat",
+                "thai-do",
+                "tin-tuong"
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Minh Hà",
+            "stars": 5,
+            "time": "2 năm trước",
+            "text": "Siêu âm 5D ở đây rất rõ nét, bác sĩ giải thích kỹ từng chỉ số. Gần nhà lại tiện, không phải đi HN.",
+            "hasPhotos": false,
+            "topics": [
+                "sieu-am",
+                "chuyen-mon"
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Thu Hương",
+            "stars": 5,
+            "time": "1 năm trước",
+            "text": "Khám phụ khoa ở đây rất thoải mái, bác sĩ nữ nhẹ nhàng. Không gian riêng tư, sạch sẽ. Chị em nào ngại đi khám thì đến đây nhé.",
+            "hasPhotos": false,
+            "topics": [
+                "phu-khoa",
+                "thai-do",
+                "co-so-vat-chat"
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Hoàng Anh",
+            "stars": 5,
+            "time": "2 năm trước",
+            "text": "Mang thai lần đầu nên rất lo lắng, nhưng bác sĩ An Sinh luôn giải thích rất tận tình, giúp mình yên tâm suốt thai kỳ.",
+            "hasPhotos": false,
+            "topics": [
+                "kham-thai",
+                "thai-do",
+                "bac-si-nguyet"
+            ]
+        },
+        {
+            "id": 18,
+            "name": "Lan Phương",
+            "stars": 5,
+            "time": "1 năm trước",
+            "text": "Điều trị viêm nhiễm phụ khoa ở đây rất hiệu quả. Bác sĩ kê thuốc đúng, không kê thừa. Rất tin tưởng.",
+            "hasPhotos": false,
+            "topics": [
+                "phu-khoa",
+                "chuyen-mon",
+                "tin-tuong"
+            ]
+        },
+        {
+            "id": 19,
+            "name": "Thanh Tùng",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Đưa vợ đi khám thai định kỳ ở đây. Máy siêu âm 5D hiện đại, hình ảnh bé rõ nét. Bác sĩ rất chuyên nghiệp.",
+            "hasPhotos": false,
+            "topics": [
+                "kham-thai",
+                "sieu-am",
+                "co-so-vat-chat"
+            ]
+        },
+        {
+            "id": 20,
+            "name": "Ngọc Mai",
+            "stars": 5,
+            "time": "2 năm trước",
+            "text": "Tránh thai bằng cấy que ở đây rất nhanh, nhẹ nhàng. Bác sĩ tư vấn kỹ trước khi làm, rất yên tâm.",
+            "hasPhotos": false,
+            "topics": [
+                "tranh-thai",
+                "thai-do",
+                "chuyen-mon"
+            ]
+        },
+        {
+            "id": 21,
+            "name": "Hải Yến",
+            "stars": 5,
+            "time": "1 năm trước",
+            "text": "Nhờ bác sĩ Nguyệt mà 2 vợ chồng mình đã có bé sau 3 năm chờ đợi. Biết ơn phòng khám rất nhiều!",
+            "hasPhotos": false,
+            "topics": [
+                "vo-sinh",
+                "bac-si-nguyet"
+            ]
+        },
+        {
+            "id": 22,
+            "name": "Đức Mạnh",
+            "stars": 5,
+            "time": "4 năm trước",
+            "text": "Khám nam khoa ở đây rất kín đáo, bảo mật. Bác sĩ tư vấn tận tình, không gây áp lực. Giá cả rõ ràng.",
+            "hasPhotos": false,
+            "topics": [
+                "nam-khoa",
+                "thai-do",
+                "gia-ca"
+            ]
+        },
+        {
+            "id": 23,
+            "name": "Thuỳ Linh",
+            "stars": 5,
+            "time": "2 năm trước",
+            "text": "Sinh con đầu lòng nhờ sự đồng hành của bác sĩ An Sinh. Từ lúc phát hiện thai đến ngày sinh đều được theo dõi sát sao.",
+            "hasPhotos": false,
+            "topics": [
+                "kham-thai",
+                "tin-tuong",
+                "bac-si-nguyet"
+            ]
+        },
+        {
+            "id": 24,
+            "name": "Văn Hùng",
+            "stars": 5,
+            "time": "3 năm trước",
+            "text": "Phòng khám uy tín, bác sĩ không doạ bệnh. Kết quả xét nghiệm nhanh, có thể tra cứu online rất tiện.",
+            "hasPhotos": false,
+            "topics": [
+                "chuyen-mon",
+                "tin-tuong",
+                "co-so-vat-chat"
+            ]
+        },
+        {
+            "id": 25,
+            "name": "Bích Ngọc",
+            "stars": 5,
+            "time": "1 năm trước",
+            "text": "Đặt vòng tránh thai ở đây rất an tâm. Bác sĩ giải thích rõ ưu nhược điểm từng phương pháp để mình lựa chọn.",
+            "hasPhotos": false,
+            "topics": [
+                "tranh-thai",
+                "chuyen-mon",
+                "thai-do"
+            ]
+        }
+    ],
+    "topicMapping": {
+        "kham-thai": {
+            "label": "Khám thai",
+            "page": "/kham-thai"
+        },
+        "sieu-am": {
+            "label": "Siêu âm 5D",
+            "page": "/sieu-am-5d"
+        },
+        "phu-khoa": {
+            "label": "Phụ khoa",
+            "page": "/kham-phu-khoa"
+        },
+        "nam-khoa": {
+            "label": "Nam khoa",
+            "page": "/kham-nam-khoa"
+        },
+        "vo-sinh": {
+            "label": "Điều trị vô sinh",
+            "page": "/dieu-tri-vo-sinh"
+        },
+        "tranh-thai": {
+            "label": "Tránh thai",
+            "page": "/tranh-thai-an-toan"
+        },
+        "chuyen-mon": {
+            "label": "Chuyên môn",
+            "page": null
+        },
+        "thai-do": {
+            "label": "Thái độ phục vụ",
+            "page": null
+        },
+        "co-so-vat-chat": {
+            "label": "Cơ sở vật chất",
+            "page": null
+        },
+        "tin-tuong": {
+            "label": "Tin tưởng",
+            "page": null
+        },
+        "bac-si-nguyet": {
+            "label": "Bác sĩ Nguyệt",
+            "page": null
+        },
+        "gia-ca": {
+            "label": "Giá cả hợp lý",
+            "page": null
+        }
+    }
+}
