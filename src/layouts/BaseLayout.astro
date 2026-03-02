@@ -1193,28 +1193,43 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
 
         .nav-dropdown {
-          position: static;
-          transform: none;
-          opacity: 1;
-          visibility: visible;
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+          transform: none !important;
+          opacity: 1 !important;
+          visibility: visible !important;
           pointer-events: auto;
-          box-shadow: none;
-          border: none;
-          border-radius: 0;
-          min-width: auto !important;
-          max-width: 100%;
-          width: 100%;
-          padding: 0;
+          box-shadow: none !important;
+          border: none !important;
+          border-radius: 0 !important;
+          min-width: 0 !important;
+          max-width: 100% !important;
+          width: 100% !important;
+          padding: 0 !important;
           display: none;
           background: var(--surface-alt);
+          transition: none !important;
         }
 
         .nav-dropdown.is-open {
-          display: block;
+          display: block !important;
+        }
+
+        /* Override hover/expanded selectors that re-apply transform */
+        .nav-has-dropdown:hover > .nav-dropdown,
+        .nav-dropdown-trigger[aria-expanded="true"] + .nav-dropdown {
+          transform: none !important;
+          left: auto !important;
+          position: static !important;
+        }
+
+        .nav-has-dropdown:hover > .nav-dropdown:not(.is-open) {
+          display: none !important;
         }
 
         .nav-dropdown-mega {
-          min-width: auto !important;
+          min-width: 0 !important;
         }
 
         .dropdown-mega-inner {
@@ -1243,6 +1258,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         .dropdown-tools {
           padding: var(--space-sm) 0;
           width: 100%;
+          flex: none;
         }
 
         .dropdown-item {
@@ -1280,14 +1296,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
         .nav-has-dropdown::after {
           display: none;
-        }
-
-        /* Disable hover-based dropdowns on mobile */
-        .nav-has-dropdown:hover > .nav-dropdown {
-          display: none;
-        }
-        .nav-has-dropdown:hover > .nav-dropdown.is-open {
-          display: block;
         }
 
         .header-phone {
