@@ -1,14 +1,18 @@
 ---
+import BookingBottomSheet from "../components/BookingBottomSheet.astro";
+
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  ogType?: "website" | "article";
 }
 
 const {
   title,
   description = "Phòng khám sản phụ khoa uy tín tại Từ Sơn, Bắc Ninh. Siêu âm 5D, khám thai, điều trị phụ khoa, nam khoa, vô sinh. Bác sĩ chuyên khoa 20+ năm kinh nghiệm. Đặt lịch ngay!",
   ogImage = "/og-image.jpg",
+  ogType = "website",
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -18,7 +22,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- DataLayer Init (before GTM) -->
+    <script is:inline>window.dataLayer = window.dataLayer || [];</script>
+
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5WVXVR36');</script>
+    <!-- End Google Tag Manager -->
+
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="format-detection" content="telephone=no, address=no" />
     <link rel="canonical" href={canonicalURL.href} />
 
     <!-- Open Graph -->
@@ -26,8 +45,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonicalURL.href} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Phòng Khám An Sinh" />
     <meta property="og:locale" content="vi_VN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -56,6 +82,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           addressRegion: "Bắc Ninh",
           addressCountry: "VN",
         },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 21.1185888,
+          longitude: 105.9591462
+        },
+        priceRange: "$$",
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -82,6 +114,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           "Gynecology",
           "Andrology",
           "ReproductiveEndocrinology",
+        ],
+        department: [
+          {
+            "@type": "MedicalClinic",
+            name: "Khoa Sản",
+            medicalSpecialty: "Obstetrics"
+          },
+          {
+            "@type": "MedicalClinic",
+            name: "Khoa Phụ",
+            medicalSpecialty: "Gynecology"
+          }
         ],
         sameAs: ["https://www.facebook.com/phongkhamansinh"],
       })}
@@ -111,8 +155,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         ],
       })}
     ></script>
+
+    <slot name="head" />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WVXVR36"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <a href="#main-content" class="sr-only">Bỏ qua đến nội dung chính</a>
 
     <header class="site-header" id="site-header">
@@ -947,28 +998,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <ul role="list">
               <li><a href="/tinh-ngay-rung-trung">Tính ngày rụng trứng</a></li>
               <li>
-                <a href="/cong-cu/tinh-ngay-du-sinh">Tính ngày dự sinh</a>
+                <a href="#" class="coming-soon-link">Tính ngày dự sinh <span class="coming-soon-badge">Sắp ra mắt</span></a>
               </li>
               <li><a href="/can-nang-thai-nhi">Cân nặng thai nhi</a></li>
             </ul>
             <h4 class="footer-subheading">Sàng lọc nguy cơ</h4>
             <ul role="list">
-              <li><a href="/cong-cu/du-doan-sinh-non">Dự đoán sinh non</a></li>
+              <li><a href="#" class="coming-soon-link">Dự đoán sinh non <span class="coming-soon-badge">Sắp ra mắt</span></a></li>
               <li>
-                <a href="/cong-cu/sang-loc-tien-san-giat">Tiền sản giật</a>
+                <a href="#" class="coming-soon-link">Tiền sản giật <span class="coming-soon-badge">Sắp ra mắt</span></a>
               </li>
               <li>
-                <a href="/cong-cu/du-doan-dai-thao-duong-thai-ky">ĐTĐ thai kỳ</a
-                >
+                <a href="#" class="coming-soon-link">ĐTĐ thai kỳ <span class="coming-soon-badge">Sắp ra mắt</span></a>
               </li>
               <li>
-                <a href="/cong-cu/danh-gia-khoi-u-buong-trung">U buồng trứng</a>
+                <a href="#" class="coming-soon-link">U buồng trứng <span class="coming-soon-badge">Sắp ra mắt</span></a>
               </li>
             </ul>
             <h4 class="footer-subheading">Đánh giá lâm sàng</h4>
             <ul role="list">
-              <li><a href="/cong-cu/bishop-score">Bishop Score</a></li>
-              <li><a href="/cong-cu/doppler-thai-nhi">Doppler thai nhi</a></li>
+              <li><a href="#" class="coming-soon-link">Bishop Score <span class="coming-soon-badge">Sắp ra mắt</span></a></li>
+              <li><a href="#" class="coming-soon-link">Doppler thai nhi <span class="coming-soon-badge">Sắp ra mắt</span></a></li>
             </ul>
           </div>
 
@@ -977,7 +1027,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <ul role="list">
               <li><a href="/phong-kham-tu-son">Phòng khám Từ Sơn</a></li>
               <li><a href="/#bac-si">Đội ngũ bác sĩ</a></li>
-              <li><a href="/cam-nhan-khach-hang">Cảm nhận khách hàng</a></li>
+              <li><a href="/#review">Cảm nhận khách hàng</a></li>
               <li><a href="/tu-van-truc-tuyen">Tư vấn trực tuyến</a></li>
               <li><a href="/blog">Kiến thức y khoa</a></li>
             </ul>
@@ -1697,9 +1747,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       /* ── Footer ── */
       .site-footer {
-        background: var(--text-primary);
-        color: #c9cdd4;
+        background: #f8f9fb;
+        color: var(--text-secondary);
         padding: var(--space-4xl) 0 var(--space-xl);
+        border-top: 1px solid var(--border-light);
       }
 
       .footer-grid {
@@ -1709,13 +1760,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .site-footer h4 {
-        color: #fff;
+        color: var(--text-primary);
         font-size: 1rem;
         margin-bottom: var(--space-lg);
       }
 
       .footer-desc {
-        color: #9ca3af;
+        color: var(--text-muted);
         font-size: 0.875rem;
         margin-top: var(--space-md);
       }
@@ -1728,20 +1779,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .footer-col a {
-        color: #9ca3af;
+        color: var(--text-muted);
         font-size: 0.875rem;
         transition: color var(--transition-fast);
       }
 
       .footer-col a:hover {
-        color: #fff;
+        color: var(--primary);
       }
 
       .footer-subheading {
         font-size: 0.8125rem;
         margin-top: var(--space-md);
         margin-bottom: var(--space-xs);
-        color: #d1d5db;
+        color: var(--text-secondary);
         font-weight: 600;
       }
 
@@ -1750,7 +1801,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         align-items: flex-start;
         gap: var(--space-sm);
         font-size: 0.875rem;
-        color: #9ca3af;
+        color: var(--text-muted);
       }
 
       .footer-contact svg {
@@ -1759,7 +1810,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .footer-contact a {
-        color: #9ca3af;
+        color: var(--text-muted);
+      }
+
+      .footer-contact a:hover {
+        color: var(--primary);
       }
 
       .footer-bottom {
@@ -1768,9 +1823,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         align-items: center;
         margin-top: var(--space-3xl);
         padding-top: var(--space-xl);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid var(--border-light);
         font-size: 0.8125rem;
-        color: #6b7280;
+        color: var(--text-muted);
       }
 
       .footer-social {
@@ -1779,7 +1834,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .footer-social a {
-        color: #6b7280;
+        color: var(--text-muted);
         transition: color var(--transition-fast);
       }
 
@@ -1795,12 +1850,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         left: 0;
         right: 0;
         z-index: 99;
-        background: var(--text-primary);
+        background: var(--surface);
         padding: var(--space-sm) var(--space-md)
           calc(var(--space-sm) + env(safe-area-inset-bottom));
         justify-content: space-around;
         align-items: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
       }
 
       .sticky-cta-item {
@@ -1808,7 +1864,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         flex-direction: column;
         align-items: center;
         gap: 3px;
-        color: #c9cdd4;
+        color: var(--text-secondary);
         font-size: 0.75rem;
         font-weight: 500;
         text-decoration: none;
@@ -1825,7 +1881,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .sticky-cta-item:hover {
-        color: #fff;
+        color: var(--primary);
       }
 
       .sticky-cta-primary {
@@ -1871,7 +1927,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .mobile-nav {
         display: none;
         align-items: center;
-        gap: 2px;
+        gap: 0;
         margin-left: auto;
       }
 
@@ -1879,9 +1935,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2px;
-        padding: 4px 12px;
-        font-size: 0.6875rem;
+        gap: 0;
+        padding: 6px 8px;
+        font-size: 0;
         font-weight: 500;
         color: var(--text-secondary);
         text-decoration: none;
@@ -1891,8 +1947,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         border-radius: var(--radius-sm);
         transition: all var(--transition-fast);
         min-height: 44px;
+        min-width: 44px;
         justify-content: center;
         font-family: inherit;
+      }
+
+      .mobile-nav-item span {
+        display: none;
       }
 
       .mobile-nav-item:hover,
@@ -2362,6 +2423,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
 
         /* ── Footer ── */
+        .site-footer {
+          padding: var(--space-2xl) 0 var(--space-lg);
+        }
+
         .footer-grid {
           grid-template-columns: 1fr;
           gap: var(--space-xl);
@@ -2993,6 +3058,37 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         color: var(--primary-dark);
       }
 
+      /* ── Coming Soon Tools ── */
+      .coming-soon-tool {
+        opacity: 0.55;
+        cursor: default;
+      }
+      .coming-soon-tool .tool-icon {
+        filter: grayscale(0.6);
+      }
+
+      /* Footer coming-soon */
+      .coming-soon-link {
+        cursor: default;
+        opacity: 0.6;
+      }
+      .coming-soon-badge {
+        display: inline-block;
+        font-size: 0.625rem;
+        font-weight: 600;
+        color: var(--accent);
+        background: var(--accent-light);
+        padding: 1px 6px;
+        border-radius: var(--radius-full);
+        margin-left: 4px;
+        vertical-align: middle;
+        letter-spacing: 0.02em;
+      }
+      .site-footer .coming-soon-badge {
+        color: var(--accent);
+        background: var(--accent-light);
+      }
+
       /* Desktop: centered modal */
       @media (min-width: 769px) {
         .tools-popup {
@@ -3327,11 +3423,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
         for (const token of tokens) {
           let pos = 0;
-          while (true) {
+          let safety = 0;
+          while (safety++ < 1000) {
             const idx = normText.indexOf(token, pos);
             if (idx === -1) break;
             ranges.push([idx, idx + token.length]);
-            pos = idx + 1;
+            pos = idx + token.length;
           }
         }
 
@@ -3393,10 +3490,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             )}</strong>"</p>
             <span class="search-hint" style="margin-top: 0.5rem;">Gợi ý tìm kiếm phổ biến:</span>
             <div class="search-suggestions">
-               <a href="/cong-cu/du-doan-sinh-non">Dự đoán sinh non</a>
-               <a href="/cong-cu/tinh-ngay-du-sinh">Tính ngày dự sinh</a>
-               <a href="/dich-vu/sieu-am-5d">Siêu âm 5D</a>
-               <a href="/blog/kham-thai">Khám thai</a>
+               <a href="/tinh-ngay-rung-trung">Tính ngày rụng trứng</a>
+               <a href="/can-nang-thai-nhi">Cân nặng thai nhi</a>
+               <a href="/sieu-am-5d">Siêu âm 5D</a>
+               <a href="/kham-thai">Khám thai</a>
             </div>
           `;
           return;
@@ -3742,7 +3839,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </svg>
             </span>
             <div class="tool-info">
-              <strong>Tính ngày dự sinh</strong><span>EDD theo Naegele</span>
+              <strong>Tính ngày dự sinh</strong>
             </div>
           </a>
           <a href="/can-nang-thai-nhi" class="tools-popup-card">
@@ -3807,9 +3904,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </svg>
             </span>
             <div class="tool-info">
-              <strong>Sàng lọc tiền sản giật</strong><span
-                >ACOG/USPSTF 2021 + NICE NG133</span
-              >
+              <strong>Sàng lọc tiền sản giật</strong>
             </div>
           </a>
           <a href="/cong-cu/du-doan-sinh-non" class="tools-popup-card">
@@ -3833,13 +3928,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </svg>
             </span>
             <div class="tool-info">
-              <strong>Dự đoán sinh non</strong><span>QUiPP + FMF</span>
+              <strong>Dự đoán sinh non</strong>
             </div>
           </a>
-          <a
-            href="/cong-cu/du-doan-dai-thao-duong-thai-ky"
-            class="tools-popup-card"
-          >
+          <a href="/cong-cu/du-doan-dai-thao-duong-thai-ky" class="tools-popup-card">
             <span class="tool-icon"
               ><svg
                 width="18"
@@ -3856,15 +3948,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </svg>
             </span>
             <div class="tool-info">
-              <strong>Dự đoán ĐTĐ thai kỳ</strong><span
-                >FMF + PersonalGDM + Iowa</span
-              >
+              <strong>Dự đoán ĐTĐ thai kỳ</strong>
             </div>
           </a>
-          <a
-            href="/cong-cu/danh-gia-khoi-u-buong-trung"
-            class="tools-popup-card"
-          >
+          <a href="/cong-cu/danh-gia-khoi-u-buong-trung" class="tools-popup-card">
             <span class="tool-icon"
               ><svg
                 width="18"
@@ -3883,9 +3970,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </svg>
             </span>
             <div class="tool-info">
-              <strong>Đánh giá u buồng trứng</strong><span
-                >RMI 1–4 + ROMA score</span
-              >
+              <strong>Đánh giá u buồng trứng</strong>
             </div>
           </a>
         </div>
@@ -3924,8 +4009,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </svg>
             </span>
             <div class="tool-info">
-              <strong>Bishop Score</strong><span>CTC & khởi phát chuyển dạ</span
-              >
+              <strong>Bishop Score</strong>
             </div>
           </a>
           <a href="/cong-cu/doppler-thai-nhi" class="tools-popup-card">
@@ -3943,13 +4027,948 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </svg>
             </span>
             <div class="tool-info">
-              <strong>Doppler thai nhi</strong><span
-                >UA-PI, MCA-PSV, CPR, UtA-PI</span
-              >
+              <strong>Doppler thai nhi</strong>
             </div>
           </a>
         </div>
       </div>
     </div>
+
+    <!-- Booking Bottom Sheet -->
+    <BookingBottomSheet />
+
+    <script>
+      // ── Booking Form System ──
+      (function() {
+        // Form type config
+        const FORM_CONFIG = {
+          'kham-thai': {
+            title: 'Đặt Lịch Khám Thai',
+            icon: '🤰',
+            hint: 'BS sản khoa 20+ năm đồng hành trọn thai kỳ',
+            defaultService: 'Khám thai định kỳ'
+          },
+          'sieu-am': {
+            title: 'Đặt Lịch Siêu Âm 5D',
+            icon: '📷',
+            hint: 'Hình ảnh thai nhi sắc nét với Samsung 5D',
+            defaultService: 'Siêu âm 5D'
+          },
+          'phu-khoa': {
+            title: 'Đặt Lịch Khám Phụ Khoa',
+            icon: '💗',
+            hint: 'Khám kín đáo, bác sĩ nữ chuyên khoa',
+            defaultService: 'Khám phụ khoa'
+          },
+          'nam-khoa': {
+            title: 'Đặt Lịch Khám Nam Khoa',
+            icon: '💪',
+            hint: 'Bảo mật tuyệt đối, bác sĩ chuyên khoa',
+            defaultService: 'Khám nam khoa'
+          },
+          'vo-sinh': {
+            title: 'Đặt Lịch Tư Vấn Vô Sinh',
+            icon: '👶',
+            hint: 'Hỗ trợ sinh sản hiện đại, tận tâm',
+            defaultService: 'Điều trị vô sinh'
+          },
+          'tranh-thai': {
+            title: 'Đặt Lịch Tư Vấn Tránh Thai',
+            icon: '🛡️',
+            hint: 'Tư vấn biện pháp an toàn, hiệu quả',
+            defaultService: 'Tư vấn tránh thai'
+          },
+          'tu-van': {
+            title: 'Đặt Lịch Tư Vấn',
+            icon: '📋',
+            hint: 'Bác sĩ sẽ liên hệ bạn trong 30 phút',
+            defaultService: ''
+          }
+        };
+
+        // Blog category → form type mapping
+        const CATEGORY_MAP = {
+          'mang-thai': 'kham-thai',
+          'phu-khoa': 'phu-khoa',
+          'nam-khoa': 'nam-khoa',
+          'vo-sinh': 'vo-sinh',
+          'suc-khoe-sinh-san': 'tu-van',
+          'local-seo': 'tu-van',
+          'cong-cu': 'tu-van'
+        };
+
+        // Page path → form type mapping
+        const PATH_MAP = {
+          '/kham-thai': 'kham-thai',
+          '/sieu-am-5d': 'sieu-am',
+          '/kham-phu-khoa': 'phu-khoa',
+          '/kham-nam-khoa': 'nam-khoa',
+          '/dieu-tri-vo-sinh': 'vo-sinh',
+          '/tranh-thai-an-toan': 'tranh-thai',
+          '/tu-van-truc-tuyen': 'tu-van'
+        };
+
+        // Apps Script URL (placeholder — replace when deployed)
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhGZhDL-amRDrsyuPmgEYoLC_vlE_vZRdaaQgtFb3MXL2xW4xlFOWI736sYfPdoc8/exec';
+
+        // DOM refs
+        const sheet = document.getElementById('booking-sheet');
+        const sheetBackdrop = document.getElementById('booking-backdrop');
+        const sheetClose = document.getElementById('booking-close');
+        const sheetForm = document.getElementById('booking-form');
+        const sheetTitle = document.getElementById('booking-title');
+        const sheetHint = document.getElementById('booking-hint');
+        const sheetIcon = document.getElementById('booking-icon');
+        const sheetPhone = document.getElementById('booking-phone');
+        const sheetService = document.getElementById('booking-service');
+        const sheetSubmit = document.getElementById('booking-submit');
+        const timeChips = document.getElementById('booking-time-chips');
+        const timeInput = document.getElementById('booking-time');
+        const timeField = document.getElementById('booking-time-field');
+        const dateChips = document.getElementById('booking-date-chips');
+        const dateInput = document.getElementById('booking-date');
+        const dateCustomWrap = document.getElementById('booking-date-custom');
+        const dateCustomInput = document.getElementById('booking-date-input');
+        const toast = document.getElementById('form-toast');
+        const toastMsg = document.getElementById('form-toast-msg');
+        const toastIcon = document.getElementById('form-toast-icon');
+        const toastClose = document.getElementById('form-toast-close');
+
+        // ── Detect form type from current page ──
+        function detectFormType() {
+          const path = window.location.pathname;
+          // Check path mapping
+          for (const [p, type] of Object.entries(PATH_MAP)) {
+            if (path.startsWith(p)) return type;
+          }
+          // Check blog data-blog-category attribute
+          const blogArticle = document.querySelector('[data-blog-category]');
+          if (blogArticle) {
+            const blogCat = blogArticle.getAttribute('data-blog-category');
+            if (blogCat && CATEGORY_MAP[blogCat]) return CATEGORY_MAP[blogCat];
+          }
+          // Fallback: check blog category text
+          const categoryEl = document.querySelector('.article-category');
+          if (categoryEl) {
+            const categoryText = categoryEl.textContent.trim().toLowerCase();
+            for (const [cat, type] of Object.entries(CATEGORY_MAP)) {
+              const categoryLabel = {
+                'mang-thai': 'mang thai',
+                'phu-khoa': 'bệnh phụ khoa',
+                'nam-khoa': 'nam khoa',
+                'vo-sinh': 'điều trị vô sinh',
+                'suc-khoe-sinh-san': 'sức khỏe sinh sản',
+                'local-seo': 'phòng khám',
+                'cong-cu': 'công cụ y khoa'
+              }[cat] || cat;
+              if (categoryText.includes(categoryLabel)) return type;
+            }
+          }
+          // Check data attribute on page
+          const pageFormType = document.querySelector('[data-page-form-type]');
+          if (pageFormType) return pageFormType.dataset.pageFormType;
+          return 'tu-van';
+        }
+
+        // ── localStorage Cache ──
+        const CACHE_KEY = 'ansinh_booking';
+        function saveCache(data) {
+          try {
+            const cache = loadCache();
+            // Save everything except timeSlot
+            if (data.phone) cache.phone = data.phone;
+            if (data.name) cache.name = data.name;
+            if (data.service) cache.service = data.service;
+            if (data.note) cache.note = data.note;
+            localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+          } catch(e) {}
+        }
+        function loadCache() {
+          try {
+            return JSON.parse(localStorage.getItem(CACHE_KEY) || '{}');
+          } catch(e) { return {}; }
+        }
+
+        // ── Vietnamese day names ──
+        const DAY_NAMES = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+
+        function addDays(date, n) {
+          const d = new Date(date);
+          d.setDate(d.getDate() + n);
+          return d;
+        }
+
+        function formatDateLabel(d) {
+          return `${d.getDate()}/${d.getMonth() + 1}`;
+        }
+
+        function getNextDayOfWeek(dayOfWeek) {
+          const now = new Date();
+          const today = now.getDay();
+          let diff = dayOfWeek - today;
+          if (diff <= 0) diff += 7;
+          return addDays(now, diff);
+        }
+
+        function formatISODate(d) {
+          const y = d.getFullYear();
+          const m = String(d.getMonth() + 1).padStart(2, '0');
+          const dd = String(d.getDate()).padStart(2, '0');
+          return `${y}-${m}-${dd}`;
+        }
+
+        // ── Date Chips generation ──
+        function renderDateChips() {
+          if (!dateChips) return;
+          const now = new Date();
+          const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+          const tomorrow = addDays(today, 1);
+          const dayAfter = addDays(today, 2);
+          const nextSat = getNextDayOfWeek(6);
+          const nextSun = getNextDayOfWeek(0);
+
+          const chips = [
+            { label: 'Hôm nay', sub: `${DAY_NAMES[today.getDay()]}, ${formatDateLabel(today)}`, value: formatISODate(today), recommended: true },
+            { label: 'Ngày mai', sub: `${DAY_NAMES[tomorrow.getDay()]}, ${formatDateLabel(tomorrow)}`, value: formatISODate(tomorrow) },
+            { label: 'Ngày kia', sub: `${DAY_NAMES[dayAfter.getDay()]}, ${formatDateLabel(dayAfter)}`, value: formatISODate(dayAfter) },
+            { label: 'T7 tới', sub: `${formatDateLabel(nextSat)}`, value: formatISODate(nextSat) },
+            { label: 'CN tới', sub: `${formatDateLabel(nextSun)}`, value: formatISODate(nextSun) },
+            { label: 'Chọn ngày', sub: '', value: '__custom__', isCustom: true }
+          ];
+
+          // Deduplicate: if nextSat/nextSun is same as today/tomorrow/dayAfter, skip
+          const usedDates = new Set();
+          const finalChips = [];
+          for (const c of chips) {
+            if (c.value === '__custom__') {
+              finalChips.push(c);
+              continue;
+            }
+            if (!usedDates.has(c.value)) {
+              usedDates.add(c.value);
+              finalChips.push(c);
+            }
+          }
+
+          /* UX: Serial Position Effect — "Hôm nay" gets is-recommended highlight */
+          const calendarSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>';
+          dateChips.innerHTML = finalChips.map(c => {
+            const classes = ['date-chip'];
+            if (c.recommended) classes.push('is-recommended');
+            if (c.isCustom) classes.push('date-chip--custom');
+            return `<button type="button" class="${classes.join(' ')}" data-value="${c.value}">${c.isCustom ? calendarSvg : ''}<span class="date-chip-label">${c.label}</span>${c.sub ? `<span class="date-chip-sub">${c.sub}</span>` : ''}</button>`;
+          }).join('');
+
+          // Reset selections
+          if (dateInput) dateInput.value = '';
+          if (timeInput) timeInput.value = '';
+          if (timeField) timeField.hidden = true;
+          if (dateCustomWrap) dateCustomWrap.hidden = true;
+        }
+
+        // ── Dynamic Time Chips based on selected date ──
+        // Mon-Sat (Thu 2 - Thu 7): 17h-19h, Sunday (Chu Nhat): 8h-11h, 15h-19h
+        function renderTimeChipsForDate(dateStr) {
+          if (!timeChips || !timeField) return;
+          const d = new Date(dateStr + 'T00:00:00');
+          const day = d.getDay(); // 0=Sun
+          let chips = [];
+          if (day === 0) {
+            chips = [
+              { label: '☀️ Sáng (8h-11h)', value: `Sáng CN ${formatDateLabel(d)} (8h-11h)` },
+              { label: '🌤️ Chiều-Tối (15h-19h)', value: `Chiều-Tối CN ${formatDateLabel(d)} (15h-19h)` }
+            ];
+          } else {
+            chips = [
+              { label: '🌙 Tối (17h-19h)', value: `Tối ${DAY_NAMES[day]} ${formatDateLabel(d)} (17h-19h)` }
+            ];
+          }
+          timeChips.innerHTML = chips.map(c =>
+            `<button type="button" class="time-chip" data-value="${c.value}">${c.label}</button>`
+          ).join('');
+          if (timeInput) timeInput.value = '';
+          timeField.hidden = false;
+
+          // Auto-select if only one option
+          if (chips.length === 1) {
+            const singleChip = timeChips.querySelector('.time-chip');
+            if (singleChip) {
+              singleChip.classList.add('is-active');
+              if (timeInput) timeInput.value = singleChip.dataset.value;
+            }
+          }
+        }
+
+        // ── Date Chip click handler ──
+        function setupDateChipHandlers() {
+          if (!dateChips) return;
+          dateChips.addEventListener('click', (e) => {
+            const chip = e.target.closest('.date-chip');
+            if (!chip) return;
+            dateChips.querySelectorAll('.date-chip').forEach(c => c.classList.remove('is-active'));
+            chip.classList.add('is-active');
+            const val = chip.dataset.value;
+            if (val === '__custom__') {
+              if (dateCustomWrap) dateCustomWrap.hidden = false;
+              if (dateCustomInput) {
+                // Set min to today
+                dateCustomInput.min = formatISODate(new Date());
+                dateCustomInput.value = '';
+                dateCustomInput.focus();
+              }
+              if (dateInput) dateInput.value = '';
+              if (timeField) timeField.hidden = true;
+            } else {
+              if (dateCustomWrap) dateCustomWrap.hidden = true;
+              if (dateInput) dateInput.value = val;
+              renderTimeChipsForDate(val);
+            }
+          });
+
+          // Custom date input change
+          if (dateCustomInput) {
+            dateCustomInput.addEventListener('change', () => {
+              const val = dateCustomInput.value;
+              if (val) {
+                if (dateInput) dateInput.value = val;
+                renderTimeChipsForDate(val);
+              }
+            });
+          }
+        }
+        setupDateChipHandlers();
+
+        // ── Service Hints for special services ──
+        const serviceHintEl = document.getElementById('booking-service-hint');
+        const serviceHintText = document.getElementById('booking-service-hint-text');
+
+        function updateServiceHint(formType) {
+          if (!serviceHintEl || !serviceHintText) return;
+          if (formType === 'vo-sinh' || formType === 'tranh-thai') {
+            serviceHintText.textContent = 'Dịch vụ ' + (formType === 'vo-sinh' ? 'khám vô sinh' : 'cấy que tránh thai') + ' quý khách nên liên hệ đặt lịch hẹn trước với BS Nguyệt qua Zalo: 0899 268 299';
+            serviceHintEl.hidden = false;
+          } else {
+            serviceHintEl.hidden = true;
+          }
+        }
+
+        // ── Pre-fill from cache on page load ──
+        function prefillFromCache() {
+          const cache = loadCache();
+          // Pre-fill inline phone capture inputs
+          if (cache.phone) {
+            document.querySelectorAll('.phone-capture-input').forEach(input => {
+              if (!input.value) input.value = cache.phone;
+            });
+          }
+        }
+        prefillFromCache();
+
+        // ── Open Bottom Sheet ──
+        window.openBookingSheet = function(formType, phone) {
+          if (!sheet || !sheetBackdrop) return;
+          const type = formType || detectFormType();
+          const config = FORM_CONFIG[type] || FORM_CONFIG['tu-van'];
+          const cache = loadCache();
+
+          // Update contextual header
+          if (sheetTitle) sheetTitle.textContent = config.title;
+          if (sheetHint) sheetHint.textContent = config.hint;
+          if (sheetIcon) sheetIcon.textContent = config.icon;
+
+          // Pre-fill phone: param > cache
+          if (sheetPhone) {
+            sheetPhone.value = phone || cache.phone || '';
+          }
+
+          // Pre-fill name from cache
+          const nameInput = document.getElementById('booking-name');
+          if (nameInput && !nameInput.value && cache.name) {
+            nameInput.value = cache.name;
+          }
+
+          // Pre-fill note from cache
+          const noteInput = document.getElementById('booking-note');
+          if (noteInput && !noteInput.value && cache.note) {
+            noteInput.value = cache.note;
+          }
+
+          // Auto-select service
+          if (sheetService && config.defaultService) {
+            for (const opt of sheetService.options) {
+              if (opt.value === config.defaultService) {
+                opt.selected = true;
+                break;
+              }
+            }
+          } else if (sheetService && cache.service) {
+            for (const opt of sheetService.options) {
+              if (opt.value === cache.service) {
+                opt.selected = true;
+                break;
+              }
+            }
+          }
+
+          // Set hidden fields
+          const urlInput = sheetForm?.querySelector('input[name="url"]');
+          const typeInput = sheetForm?.querySelector('input[name="formType"]');
+          if (urlInput) urlInput.value = window.location.href;
+          if (typeInput) typeInput.value = type;
+
+          // Render date chips (resets time selection)
+          renderDateChips();
+
+          // Show service hint for special services
+          updateServiceHint(type);
+
+          // Show
+          sheetBackdrop.classList.add('is-visible');
+          sheet.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+
+          // Focus: if no phone, focus phone; otherwise focus name
+          setTimeout(() => {
+            if (sheetPhone && !sheetPhone.value) {
+              sheetPhone.focus();
+            } else if (nameInput && !nameInput.value) {
+              nameInput.focus();
+            }
+          }, 400);
+        };
+
+        // ── Close Bottom Sheet ──
+        function closeBookingSheet() {
+          if (!sheet || !sheetBackdrop) return;
+          sheet.classList.remove('is-open');
+          sheetBackdrop.classList.remove('is-visible');
+          document.body.style.overflow = '';
+        }
+
+        if (sheetClose) sheetClose.addEventListener('click', closeBookingSheet);
+        if (sheetBackdrop) sheetBackdrop.addEventListener('click', closeBookingSheet);
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && sheet?.classList.contains('is-open')) closeBookingSheet();
+        });
+
+        // ── Time Chips ──
+        if (timeChips) {
+          timeChips.addEventListener('click', (e) => {
+            const chip = e.target.closest('.time-chip');
+            if (!chip) return;
+            timeChips.querySelectorAll('.time-chip').forEach(c => c.classList.remove('is-active'));
+            chip.classList.add('is-active');
+            if (timeInput) timeInput.value = chip.dataset.value;
+          });
+        }
+
+        // ── Phone Validation ──
+        function isValidPhone(phone) {
+          return /^0\d{8,10}$/.test(phone.replace(/\s/g, ''));
+        }
+
+        // ── Toast System ──
+        let toastTimer = null;
+        function showToast(message, type, duration) {
+          if (!toast || !toastMsg || !toastIcon) return;
+          toast.className = 'form-toast form-toast--' + type;
+          toastMsg.textContent = message;
+          toastIcon.textContent = type === 'success' ? '✅' : type === 'error' ? '❌' : '⏳';
+          toast.hidden = false;
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => { toast.hidden = true; }, duration || 6000);
+        }
+        if (toastClose) toastClose.addEventListener('click', () => { toast.hidden = true; });
+
+        // ── Submit to Google Sheet ──
+        async function submitToSheet(data) {
+          if (!APPS_SCRIPT_URL) {
+            console.log('[Booking] No Apps Script URL configured. Data:', data);
+            return { ok: true, simulated: true };
+          }
+          const formData = new URLSearchParams();
+          for (const [k, v] of Object.entries(data)) formData.append(k, v);
+
+          let lastError;
+          for (let attempt = 1; attempt <= 3; attempt++) {
+            try {
+              if (attempt > 1) showToast(`Đang thử lại (${attempt}/3)...`, 'retrying', 10000);
+              const res = await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+              });
+              return { ok: true };
+            } catch (err) {
+              lastError = err;
+              if (attempt < 3) await new Promise(r => setTimeout(r, Math.pow(2, attempt) * 1000));
+            }
+          }
+          throw lastError;
+        }
+
+        // ── Phone Capture (Step 1) ──
+        window._capturePhone = function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const phoneInput = form.querySelector('input[name="phone"]');
+          const phone = phoneInput?.value?.replace(/\s/g, '');
+
+          if (!isValidPhone(phone)) {
+            showToast('Số điện thoại không hợp lệ. VD: 0899268299', 'error', 5000);
+            phoneInput?.focus();
+            return;
+          }
+
+          // Cache phone
+          saveCache({ phone: phone });
+
+          // Immediately save phone to sheet
+          const formType = form.closest('[data-form-type]')?.dataset.formType || detectFormType();
+          submitToSheet({
+            phone: phone,
+            url: window.location.href,
+            formType: formType,
+            step: 'phone-only'
+          }).catch(() => {});
+
+          // Show success toast
+          showToast('✓ Đã nhận SĐT! Điền thêm thông tin...', 'success', 4000);
+
+          // Open bottom sheet with phone pre-filled
+          window.openBookingSheet(formType, phone);
+        };
+
+        // ── Full Form Submit (Step 2) ──
+        if (sheetForm) {
+          sheetForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(sheetForm);
+            const data = Object.fromEntries(formData.entries());
+
+            // Validate phone (required)
+            if (!data.phone || !isValidPhone(data.phone)) {
+              showToast('Vui lòng nhập số điện thoại hợp lệ', 'error', 5000);
+              if (sheetPhone) sheetPhone.focus();
+              return;
+            }
+
+            // Cache form data (except timeSlot)
+            saveCache(data);
+
+            // Disable submit
+            if (sheetSubmit) {
+              sheetSubmit.disabled = true;
+              sheetSubmit.textContent = 'Đang gửi...';
+            }
+
+            try {
+              data.step = 'full';
+              await submitToSheet(data);
+              showToast('Đặt lịch thành công! Bác sĩ sẽ liên hệ bạn sớm.', 'success', 8000);
+              closeBookingSheet();
+              // Reset date and time selections
+              if (dateInput) dateInput.value = '';
+              if (timeInput) timeInput.value = '';
+              dateChips?.querySelectorAll('.date-chip').forEach(c => c.classList.remove('is-active'));
+              timeChips?.querySelectorAll('.time-chip').forEach(c => c.classList.remove('is-active'));
+              if (timeField) timeField.hidden = true;
+              if (dateCustomWrap) dateCustomWrap.hidden = true;
+            } catch (err) {
+              showToast('Gửi thất bại. Vui lòng gọi 0899 268 299 hoặc nhắn Zalo.', 'error', 15000);
+              // Open Zalo fallback
+              setTimeout(() => {
+                window.open('https://zalo.me/0899268299', '_blank');
+              }, 2000);
+            } finally {
+              if (sheetSubmit) {
+                sheetSubmit.disabled = false;
+                sheetSubmit.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Xác Nhận Đặt Lịch';
+              }
+            }
+          });
+        }
+
+        // ── Auto-intercept booking links ──
+        document.addEventListener('click', (e) => {
+          const link = e.target.closest('a[href*="dat-lich-hen-kham"], a[href*="dat-lich"]');
+          if (link && !link.dataset.noIntercept) {
+            e.preventDefault();
+            const formType = link.dataset.formType || detectFormType();
+            window.openBookingSheet(formType);
+          }
+        });
+
+        // ── Sticky CTA "Đặt Lịch" → open bottom sheet ──
+        const stickyCta = document.getElementById('sticky-cta-booking');
+        if (stickyCta) {
+          stickyCta.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.openBookingSheet(detectFormType());
+          });
+        }
+
+        // ── Header CTA → open bottom sheet ──
+        const headerCta = document.getElementById('header-cta');
+        if (headerCta) {
+          headerCta.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.openBookingSheet(detectFormType());
+          });
+        }
+
+      })();
+    </script>
+
+    <!-- CRO Tracking Module — DataLayer Events + 5W1H + FTC Attribution -->
+    <script is:inline>
+    (function() {
+      'use strict';
+      var DL = window.dataLayer = window.dataLayer || [];
+
+      // ════════════════════════════════════════
+      // 1. FIRST-TOUCH COOKIE (FTC) — Attribution
+      // ════════════════════════════════════════
+      function getFTCookie() {
+        try {
+          var m = document.cookie.match(/(?:^|;\s*)_ftc=([^;]*)/);
+          return m ? JSON.parse(decodeURIComponent(m[1])) : null;
+        } catch(e) { return null; }
+      }
+
+      function setFTCookie(data) {
+        var d = new Date();
+        d.setDate(d.getDate() + 90);
+        document.cookie = '_ftc=' + encodeURIComponent(JSON.stringify(data)) +
+          ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+      }
+
+      function getParam(name) {
+        try {
+          return new URLSearchParams(window.location.search).get(name) || '';
+        } catch(e) { return ''; }
+      }
+
+      // Write FTC cookie ONLY if absent (first touch)
+      if (!getFTCookie()) {
+        var ref = '';
+        try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch(e) {}
+        var ftc = {
+          src: getParam('utm_source') || '',
+          med: getParam('utm_medium') || '',
+          cmp: getParam('utm_campaign') || '',
+          cnt: getParam('utm_content') || '',
+          trm: getParam('utm_term') || '',
+          fbclid: getParam('fbclid') || '',
+          ttclid: getParam('ttclid') || '',
+          gclid: getParam('gclid') || '',
+          ref: ref,
+          ts: new Date().toISOString()
+        };
+        // Only write if there's any meaningful data
+        var hasSrc = ftc.src || ftc.fbclid || ftc.ttclid || ftc.gclid || ftc.ref;
+        if (hasSrc) setFTCookie(ftc);
+      }
+
+      // ════════════════════════════════════════
+      // 2. SESSION ID
+      // ════════════════════════════════════════
+      function getSessionId() {
+        var sid = sessionStorage.getItem('_cro_sid');
+        if (!sid) {
+          sid = Math.random().toString(36).substr(2, 8) + Date.now().toString(36);
+          sessionStorage.setItem('_cro_sid', sid);
+        }
+        return sid;
+      }
+
+      // ════════════════════════════════════════
+      // 3. 5W1H CONTEXT COLLECTOR
+      // ════════════════════════════════════════
+      var PATH_SERVICE_MAP = {
+        '/kham-thai': 'kham-thai',
+        '/sieu-am-5d': 'sieu-am',
+        '/kham-phu-khoa': 'phu-khoa',
+        '/kham-nam-khoa': 'nam-khoa',
+        '/dieu-tri-vo-sinh': 'vo-sinh',
+        '/tranh-thai-an-toan': 'tranh-thai',
+        '/tu-van-truc-tuyen': 'tu-van'
+      };
+
+      function detectPageType() {
+        var p = location.pathname;
+        if (p === '/') return 'home';
+        if (p.startsWith('/blog')) return 'blog';
+        for (var k in PATH_SERVICE_MAP) { if (p.startsWith(k)) return 'service'; }
+        if (p.indexOf('tinh-ngay') >= 0 || p.indexOf('can-nang') >= 0) return 'tool';
+        return 'other';
+      }
+
+      function detectServiceCategory() {
+        var p = location.pathname;
+        for (var k in PATH_SERVICE_MAP) { if (p.startsWith(k)) return PATH_SERVICE_MAP[k]; }
+        return '';
+      }
+
+      function getDeviceType() {
+        var w = window.innerWidth;
+        if (w < 768) return 'mobile';
+        if (w < 1024) return 'tablet';
+        return 'desktop';
+      }
+
+      function getScrollDepth() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        return h > 0 ? Math.round((window.scrollY / h) * 100) : 0;
+      }
+
+      function getDayName(d) {
+        return ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'][d];
+      }
+
+      function isBusinessHours() {
+        var now = new Date();
+        var day = now.getDay();
+        var h = now.getHours();
+        if (day === 0) return (h >= 8 && h < 22);
+        return (h >= 17 && h < 22);
+      }
+
+      function getClickLocation(el) {
+        if (!el) return 'unknown';
+        var closest = el.closest('[id]');
+        if (closest) {
+          var id = closest.id;
+          if (id.indexOf('sticky') >= 0) return 'sticky-cta';
+          if (id.indexOf('header') >= 0 || id.indexOf('site-header') >= 0) return 'header';
+          if (id.indexOf('footer') >= 0 || el.closest('footer')) return 'footer';
+          if (id.indexOf('booking') >= 0) return 'booking-form';
+          return id;
+        }
+        if (el.closest('footer')) return 'footer';
+        if (el.closest('header')) return 'header';
+        if (el.closest('.sticky-cta')) return 'sticky-cta';
+        return 'content';
+      }
+
+      function getReferrerDomain() {
+        try { return document.referrer ? new URL(document.referrer).hostname : '(direct)'; }
+        catch(e) { return '(direct)'; }
+      }
+
+      function get5W1H(extraCtx) {
+        var now = new Date();
+        var ftc = getFTCookie() || {};
+        var ctx = {
+          // WHO
+          user_type: document.cookie.indexOf('_ftc=') >= 0 || localStorage.getItem('ansinh_booking') ? 'returning' : 'new',
+          device_type: getDeviceType(),
+          session_id: getSessionId(),
+          // WHAT
+          page_title: document.title,
+          page_path: location.pathname,
+          page_url: location.href,
+          page_type: detectPageType(),
+          service_category: detectServiceCategory(),
+          // WHEN
+          event_timestamp: now.toISOString(),
+          day_of_week: getDayName(now.getDay()),
+          hour_of_day: now.getHours(),
+          is_business_hours: isBusinessHours(),
+          // WHERE
+          scroll_depth: getScrollDepth(),
+          // WHY
+          referrer_domain: getReferrerDomain(),
+          // HOW — First Touch Attribution
+          ftc_source: ftc.src || '',
+          ftc_medium: ftc.med || '',
+          ftc_campaign: ftc.cmp || '',
+          ftc_content: ftc.cnt || '',
+          ftc_fbclid: ftc.fbclid || '',
+          ftc_ttclid: ftc.ttclid || '',
+          ftc_gclid: ftc.gclid || '',
+          ftc_referrer: ftc.ref || '',
+          ftc_first_visit: ftc.ts || '',
+          // HOW — Last Touch (current URL params)
+          utm_source: getParam('utm_source'),
+          utm_medium: getParam('utm_medium'),
+          utm_campaign: getParam('utm_campaign'),
+          utm_content: getParam('utm_content'),
+          utm_term: getParam('utm_term')
+        };
+        // Merge extra context
+        if (extraCtx) { for (var k in extraCtx) { ctx[k] = extraCtx[k]; } }
+        return ctx;
+      }
+
+      function genEventId() {
+        return 'evt_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
+      }
+
+      // ════════════════════════════════════════
+      // 4. EVENT: cro_view_content — Service/Page View
+      // ════════════════════════════════════════
+      var pageType = detectPageType();
+      if (pageType === 'service' || pageType === 'home' || pageType === 'tool') {
+        DL.push(Object.assign({ event: 'cro_view_content', event_id: genEventId(), content_type: pageType, content_name: detectServiceCategory() || pageType }, get5W1H()));
+      }
+
+      // ════════════════════════════════════════
+      // 5. EVENT: cro_phone_call — Click tel: links
+      // ════════════════════════════════════════
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href^="tel:"]');
+        if (!link) return;
+        var phone = link.getAttribute('href').replace('tel:', '');
+        DL.push(Object.assign({
+          event: 'cro_phone_call',
+          event_id: genEventId(),
+          phone_number: phone,
+          click_location: getClickLocation(link),
+          trigger_element: (link.textContent || '').trim().substring(0, 50)
+        }, get5W1H({ click_location: getClickLocation(link) })));
+      }, true);
+
+      // ════════════════════════════════════════
+      // 6. EVENT: cro_zalo_click — Click Zalo links
+      // ════════════════════════════════════════
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href*="zalo.me"]');
+        if (!link) return;
+        DL.push(Object.assign({
+          event: 'cro_zalo_click',
+          event_id: genEventId(),
+          zalo_url: link.getAttribute('href'),
+          click_location: getClickLocation(link),
+          trigger_element: (link.textContent || '').trim().substring(0, 50) || 'Zalo Icon'
+        }, get5W1H({ click_location: getClickLocation(link) })));
+      }, true);
+
+      // ════════════════════════════════════════
+      // 7. EVENT: cro_open_booking — Booking sheet opened
+      // 8. EVENT: cro_phone_capture + cro_lead
+      //    Deferred: booking module uses <script> (Astro module, deferred)
+      //    so functions may not exist yet. Retry until they load.
+      // ════════════════════════════════════════
+      function initBookingTracking() {
+        // Wrap openBookingSheet
+        if (window.openBookingSheet && !window.openBookingSheet.__cro_wrapped) {
+          var origOpen = window.openBookingSheet;
+          window.openBookingSheet = function(formType, phone) {
+            var type = formType || 'tu-van';
+            DL.push(Object.assign({
+              event: 'cro_open_booking',
+              event_id: genEventId(),
+              form_type: type,
+              has_phone_prefilled: !!phone
+            }, get5W1H()));
+            return origOpen.apply(this, arguments);
+          };
+          window.openBookingSheet.__cro_wrapped = true;
+        }
+
+        // Wrap _capturePhone (Step 1)
+        if (window._capturePhone && !window._capturePhone.__cro_wrapped) {
+          var origCapture = window._capturePhone;
+          window._capturePhone = function(e) {
+            var form = e.target;
+            var phoneInput = form.querySelector('input[name="phone"]');
+            var phone = phoneInput ? phoneInput.value.replace(/\s/g, '') : '';
+            if (/^0\d{8,10}$/.test(phone)) {
+              var formType = '';
+              var ftEl = form.closest('[data-form-type]');
+              if (ftEl) formType = ftEl.dataset.formType;
+              DL.push(Object.assign({
+                event: 'cro_phone_capture',
+                event_id: genEventId(),
+                phone_masked: phone.substring(0, 4) + '***' + phone.substring(phone.length - 2),
+                form_type: formType || detectPageType(),
+                capture_step: 'step1_phone'
+              }, get5W1H()));
+            }
+            return origCapture.apply(this, arguments);
+          };
+          window._capturePhone.__cro_wrapped = true;
+        }
+
+        // Attach cro_lead on booking-form submit (Step 2)
+        var bookingForm = document.getElementById('booking-form');
+        if (bookingForm && !bookingForm.__cro_lead_attached) {
+          bookingForm.addEventListener('submit', function() {
+            var fd = new FormData(bookingForm);
+            var data = {};
+            fd.forEach(function(v, k) { data[k] = v; });
+            var phone = (data.phone || '').replace(/\s/g, '');
+            if (/^0\d{8,10}$/.test(phone)) {
+              DL.push(Object.assign({
+                event: 'cro_lead',
+                event_id: genEventId(),
+                lead_type: 'booking',
+                form_type: data.formType || '',
+                service_name: data.service || '',
+                has_name: !!(data.name && data.name.trim()),
+                has_date: !!data.date,
+                has_time: !!data.timeSlot,
+                has_note: !!(data.note && data.note.trim()),
+                phone_masked: phone.substring(0, 4) + '***' + phone.substring(phone.length - 2)
+              }, get5W1H()));
+            }
+          }, true);
+          bookingForm.__cro_lead_attached = true;
+        }
+
+        // Check if all wrapped
+        var allDone = (window.openBookingSheet && window.openBookingSheet.__cro_wrapped) &&
+                      (window._capturePhone && window._capturePhone.__cro_wrapped) &&
+                      (bookingForm && bookingForm.__cro_lead_attached);
+        return allDone;
+      }
+
+      // Try immediately, then retry via DOMContentLoaded + polling
+      if (!initBookingTracking()) {
+        document.addEventListener('DOMContentLoaded', function() {
+          if (!initBookingTracking()) {
+            var retries = 0;
+            var poll = setInterval(function() {
+              if (initBookingTracking() || ++retries > 20) clearInterval(poll);
+            }, 250);
+          }
+        });
+      }
+
+      // ════════════════════════════════════════
+      // 9. SCROLL DEPTH MILESTONES (25%, 50%, 75%, 90%)
+      // ════════════════════════════════════════
+      var scrollFired = {};
+      var scrollMilestones = [25, 50, 75, 90];
+      function checkScrollMilestone() {
+        var depth = getScrollDepth();
+        for (var i = 0; i < scrollMilestones.length; i++) {
+          var ms = scrollMilestones[i];
+          if (depth >= ms && !scrollFired[ms]) {
+            scrollFired[ms] = true;
+            DL.push({
+              event: 'cro_scroll_depth',
+              scroll_milestone: ms,
+              page_path: location.pathname,
+              page_type: detectPageType()
+            });
+          }
+        }
+      }
+      var scrollTimer;
+      window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(checkScrollMilestone, 200);
+      }, { passive: true });
+
+      // Console log for development
+      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+        console.log('[CRO Tracking] Module loaded. Events: cro_view_content, cro_phone_call, cro_zalo_click, cro_open_booking, cro_phone_capture, cro_lead, cro_scroll_depth');
+        console.log('[CRO Tracking] FTC Cookie:', getFTCookie());
+      }
+    })();
+    </script>
+
   </body>
 </html>
