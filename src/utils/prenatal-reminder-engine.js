@@ -193,7 +193,7 @@ const PRENATAL_MILESTONES = [
 const TIMEZONE = 'Asia/Ho_Chi_Minh';
 const TIMEZONE_OFFSET = '+07:00';
 const CLINIC_NAME = 'Phòng Khám Phú Sản An Sinh';
-const CLINIC_ADDRESS = 'Từ Sơn, Bắc Ninh';
+const CLINIC_ADDRESS = '416 Minh Khai, Đồng Nguyên, Từ Sơn, Bắc Ninh';
 const CLINIC_PHONE = '0899 268 299';
 
 const TIME_SLOTS = {

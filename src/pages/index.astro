@@ -893,7 +893,7 @@ const homeReviews = [
         },
       ],
     })}
-  ></script>
+  />
 
   <!-- ══════════════════════════════════════
      SECTION 10: CTA FINAL
@@ -934,7 +934,7 @@ const homeReviews = [
       <div class="contact-grid">
         <div class="contact-map">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.9!2d105.97!3d21.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31350878152011ed%3A0xe621f64a3d287614!2zUGjDsm5nIGtow6FtIEFuIFNpbmg!5e0!3m2!1svi!2svn!4v1"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14886.76340074854!2d105.95303065874637!3d21.124887919325932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31350878152011ed%3A0xe621f64a3d287614!2zUGjDsm5nIGtow6FtIHPhuqNuIHBo4bulIGtob2EgQW4gU2luaA!5e0!3m2!1svi!2svn!4v1772732996486!5m2!1svi!2svn"
             width="100%"
             height="400"
             style="border:0; border-radius: var(--radius-lg);"
@@ -1026,6 +1026,28 @@ const homeReviews = [
               </p>
             </div>
           </div>
+          <a
+            href="https://maps.app.goo.gl/Xp5bfre69KBS71eE7"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-lg contact-directions-btn"
+            id="directions-cta"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+            Chỉ đường đến phòng khám
+          </a>
         </div>
       </div>
     </div>
@@ -1494,6 +1516,14 @@ const homeReviews = [
   .contact-item strong {
     display: block;
     margin-bottom: var(--space-xs);
+  }
+
+  .contact-directions-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    text-decoration: none;
   }
 
   .contact-item p {

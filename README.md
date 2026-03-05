@@ -1,43 +1,29 @@
-# Astro Starter Kit: Minimal
+# Phu San An Sinh - Production Deployment Guide
 
+## 🌍 URL Production
+- **Domains:** `phusanansinh.pages.dev`
+- **Branch:** `main`
+- **Preview Domain:** `e4dbac36.phusanansinh.pages.dev`
+
+## 🚀 How to deploy to Cloudflare Pages
+**Deploy Command:**
 ```sh
-npm create astro@latest -- --template minimal
+npm run deploy
+# or
+npm run build && npx wrangler pages deploy dist --project-name phusanansinh --branch main
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📦 Project Structure
+- Astro framework (Static output)
+- `src/pages` -> routes
+- `src/content` -> markdown contents
+- `dist/` -> build output directory
 
-## 🚀 Project Structure
+## 🛠️ Commands
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Cài đặt dependencies |
+| `npm run dev` | Khởi động server dev (mặc định: port 4321) |
+| `npm run build` | Build dự án ra thư mục `dist/` |
+| `npm run deploy` | Chạy lệnh build và push thẳng code từ `dist/` lên Cloudflare Pages project: `phusanansinh` |
