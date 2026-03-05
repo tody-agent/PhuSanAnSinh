@@ -1,0 +1,111 @@
+---
+title: "TC-03: Dị dạng Tử cung (Müllerian anomalies)"
+description: "- **Định nghĩa chuẩn (theo ACOG/ASRM):** Là các bất thường bẩm sinh của đường sinh dục nữ do sự gián đoạn trong quá trình hình thành (formation), hòa nhập (fusi"
+pubDate: 2026-03-05
+category: phu-khoa
+tags: ["ASRM 2021","NSAIDs","IUGR","FET","MAC2021"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 5: Phụ Khoa"
+---
+# TC-03: Dị dạng Tử cung (Müllerian anomalies)
+> **Nhóm:** TC | **ICD-10:** Q51 | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (theo ACOG/ASRM):** Là các bất thường bẩm sinh của đường sinh dục nữ do sự gián đoạn trong quá trình hình thành (formation), hòa nhập (fusion) hoặc tái hấp thu (resorption) của ống Müller (ống cận trung thận - paramesonephric ducts) trong thời kỳ bào thai.
+- **Tần suất/Tỷ lệ:**
+    - Khoảng 5.5% ở quần thể nữ giới chung.
+    - Khoảng 8.0% ở phụ nữ vô sinh (infertility).
+    - Lên đến 13.3% ở phụ nữ có tiền sử sảy thai liên tiếp (recurrent pregnancy loss - RPL).
+- **Yếu tố nguy cơ chính:**
+    - Di truyền (đa yếu tố).
+    - Tiếp xúc với nội tiết tố ngoại lai trong bào thai (ví dụ: Diethylstilbestrol - DES, hiện nay hiếm gặp).
+    - Các yếu tố môi trường gây gián đoạn phát triển phôi thai trong giai đoạn tuần thứ 6 đến tuần thứ 12.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:**
+    1. **Sự hình thành:** Thất bại trong việc phát triển một hoặc hai ống Müller (gây khuyết hoặc tử cung một sừng).
+    2. **Sự hòa nhập:** Thất bại trong việc sát nhập hai ống Müller ở phần thấp để tạo thành tử cung và 2/3 trên âm đạo (gây tử cung đôi hoặc tử cung hai sừng).
+    3. **Sự thoái triển vách ngăn:** Thất bại trong việc tiêu biến vách ngăn trung tâm sau khi hai ống đã hòa nhập (gây tử cung có vách ngăn).
+- **Phân loại (ASRM 2021 - MAC System):**
+    - **Agenesis/Hypoplasia:** Không âm đạo và tử cung (Hội chứng Mayer-Rokitansky-Küster-Hauser - MRKH).
+    - **Unicornuate:** Tử cung một sừng (có hoặc không có sừng chột).
+    - **Didelphys:** Tử cung đôi (hai buồng tử cung riêng biệt, hai cổ tử cung).
+    - **Bicornuate:** Tử cung hai sừng (thất bại hòa nhập ở phần đáy).
+    - **Septate:** Tử cung có vách ngăn (hoàn toàn hoặc bán phần - chiếm ~55% các trường hợp).
+    - **Arcuate:** Tử cung hình cung (thường được coi là biến thể bình thường).
+- **Mối liên hệ với sinh sản:** Ảnh hưởng đến khả năng làm tổ của phôi, tưới máu nội mạc tử cung giảm (đặc biệt ở vách ngăn) và hạn chế không gian giãn nở của tử cung trong thai kỳ.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:**
+    - Vô kinh nguyên phát (Primary amenorrhea) trong MRKH.
+    - Đau bụng kinh dữ dội (Dysmenorrhea) nếu có sừng chột chức năng hoặc bế kinh do vách ngăn âm đạo.
+    - Khó khăn trong quan hệ tình dục hoặc đặt tampon (nếu có vách ngăn dọc âm đạo).
+- **Triệu chứng thực thể:** Thường bình thường, trừ khi có vách ngăn âm đạo hoặc không có âm đạo khi thăm khám.
+- **Bệnh nhân thường phàn nàn:** "Tôi đã sảy thai 2 lần liên tiếp ở tam cá nguyệt thứ hai" hoặc "Tôi lập gia đình lâu nhưng chưa có thai, đi siêu âm bác sĩ bảo tử cung có hình dạng lạ".
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| AMH / FSH | Đánh giá dự trữ buồng trứng | Theo độ tuổi | Bình thường trong dị dạng tử cung đơn thuần (phân biệt với rối loạn tuyến yên/buồng trứng) |
+| Chức năng thận (Ure/Creatinine) | Tầm soát dị dạng thận kèm theo | Trong giới hạn | Bất thường nếu có bất sản thận (thường đi kèm tử cung một sừng/đôi) |
+| Karyotype | Xác định di truyền | 46, XX | Loại trừ hội chứng Turner hoặc Swyer khi có vô kinh |
+
+### 4.2 Hình ảnh học
+- **Siêu âm 2D/3D (Transvaginal Ultrasound):** Siêu âm 3D là "tiêu chuẩn vàng" không xâm lấn. Đánh giá chính xác đường bờ phía đáy tử cung để phân biệt Septate (đáy phẳng/lõm nhẹ) và Bicornuate (đáy lõm sâu >1cm).
+- **HSG (Hysterosalpingography):** Đánh giá buồng tử cung và độ thông vòi tử cung. Hạn chế: Không quan sát được đường bờ thanh mạc (không phân biệt được Septate và Bicornuate).
+- **MRI:** Độ chính xác cao (>95%), chỉ định trong các ca phức tạp hoặc khi siêu âm 3D không rõ ràng. Giúp đánh giá tốt các sừng chột (rudimentary horn).
+- **Nội soi (Laparoscopy & Hysteroscopy):** Tiêu chuẩn vàng để chẩn đoán xác định và kết hợp điều trị (ví dụ: cắt vách ngăn).
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Tử cung hai sừng (Bicornuate) | Đáy tử cung lõm sâu > 1cm. |
+| Tử cung có vách ngăn (Septate) | Đáy tử cung bình thường (lồi hoặc lõm < 1cm). |
+| Dính buồng tử cung (Asherman) | Tiền sử nạo hút thai, hình ảnh khuyết trên HSG không đối xứng. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- **Sừng chột có nội mạc (Communicating/Non-communicating rudimentary horn):** Nguy cơ thai ngoài tử cung tại sừng chột, có thể gây vỡ tử cung đe dọa tính mạng.
+- **Bế kinh do tắc nghẽn (Obstructive anomalies):** Gây lạc nội mạc tử cung thứ phát và đau vùng chậu mãn tính.
+- **Dị dạng hệ tiết niệu đi kèm:** 25-40% trường hợp Müllerian anomalies có bất thường thận (thường là bất sản thận một bên).
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- Giảm đau (NSAIDs) cho trường hợp đau bụng kinh.
+- Nội tiết tố hỗ trợ nếu có lạc nội mạc tử cung kèm theo.
+
+### 6.2 Điều trị ngoại khoa
+- **Cắt vách ngăn bằng nội soi buồng tử cung (Hysteroscopic Septoplasty):** Chỉ định cho tử cung có vách ngăn gây sảy thai liên tiếp hoặc vô kinh/vô sinh. Đây là thủ thuật xâm lấn tối thiểu hiệu quả cao.
+- **Phẫu thuật Strassman (Metroplasty):** Ghép hai sừng tử cung trong tử cung hai sừng (hiện nay rất ít chỉ định, trừ khi có biến cố sản khoa nặng nề).
+- **Cắt bỏ sừng chột (Resection of rudimentary horn):** Phòng ngừa thai ngoài tử cung và đau vùng chậu.
+- **Tạo hình âm đạo (Vaginoplasty):** Cho hội chứng MRKH.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- **IUI/IVF:** Không có chỉ định tuyệt đối trừ khi có yếu tố vòi tử cung hoặc tinh trùng kèm theo.
+- **Dự phòng sinh non:** Khâu eo tử cung (Cervical cerclage) có thể được cân nhắc cho tử cung một sừng hoặc hai sừng nếu có tiền sử hở eo hoặc sảy thai muộn/sinh non.
+- **Quản lý thai kỳ:** Theo dõi sát tăng trưởng thai nhi và ngôi thai (thường gặp ngôi bất thường: ngôi mông, ngôi ngang).
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- **Septate:** Sau cắt vách ngăn, tỷ lệ sinh sống (live birth rate) cải thiện rõ rệt (~80%).
+- **Didelphys/Bicornuate:** Tăng nguy cơ sinh non, thai chậm tăng trưởng trong tử cung (IUGR).
+- **Unicornuate:** Tiên lượng sản khoa kém nhất do thể tích tử cung hạn chế và bất thường mạch máu.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Tử cung của bạn có hình dạng hơi khác so với bình thường từ khi bạn còn trong bụng mẹ. Điều này có thể khiến em bé có ít không gian hơn để phát triển hoặc phôi thai khó bám trụ hơn."
+- **Câu hỏi thường gặp:**
+    - *Hỏi:* Tôi có thể mang thai tự nhiên không? -> *Đáp:* Hoàn toàn có thể, tùy loại dị dạng. Tuy nhiên cần theo dõi thai kỳ chặt chẽ hơn.
+    - *Hỏi:* Phẫu thuật cắt vách ngăn có nguy hiểm không? -> *Đáp:* Đây là phẫu thuật nhẹ nhàng qua ngả âm đạo, không có vết mổ trên bụng, hồi phục nhanh.
+
+## 9. CROSS-LINKS
+- **TC-01:** Nhân xơ tử cung (Uterine fibroids)
+- **PD-01:** Tư vấn tiền sản (Preconception counseling)
+- **KTHT-04:** Chuyển phôi đông lạnh (FET)
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ASRM (2021). *The American Society for Reproductive Medicine Müllerian Anomalies Classification (MAC2021)*.
+2. ACOG Practice Bulletin No. 190: *Management of Müllerian Anomalies*.
+3. ESHRE/ESGE classification system of female genital tract congenital anomalies.
+4. Williams Gynecology, 4th Edition.
+
+*Cần chỉ định của bác sĩ chuyên khoa trước khi thực hiện bất kỳ can thiệp phẫu thuật nào.*

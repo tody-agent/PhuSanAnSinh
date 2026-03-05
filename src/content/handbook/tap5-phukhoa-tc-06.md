@@ -1,0 +1,96 @@
+---
+title: "TC-06: Nội mạc Tử cung Mỏng"
+description: "- **Định nghĩa chuẩn:** Nội mạc tử cung (NMTC) được coi là mỏng (Thin Endometrium) khi bề dày (endometrial thickness - EMT) đo được trên siêu âm đường âm đạo (T"
+pubDate: 2026-03-05
+category: phu-khoa
+tags: ["NMTC","TVUS","IVF","PID","CD138+"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 5: Phụ Khoa"
+---
+# TC-06: Nội mạc Tử cung Mỏng
+> **Nhóm:** TC (Tử cung) | **ICD-10:** N85.8 (Other specified noninflammatory disorders of uterus) | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn:** Nội mạc tử cung (NMTC) được coi là mỏng (Thin Endometrium) khi bề dày (endometrial thickness - EMT) đo được trên siêu âm đường âm đạo (TVUS) **< 7mm** vào thời điểm cuối pha nang noãn hoặc ngày khởi trị Progesterone trong các chu kỳ hỗ trợ sinh sản.
+- **Tần suất/Tỷ lệ:** Chiếm khoảng 2.4% - 8.5% các chu kỳ thụ tinh trong ống nghiệm (IVF).
+- **Yếu tố nguy cơ chính:**
+    - Tiền sử nạo hút thai nhiều lần, viêm nhiễm vùng chậu (PID), lao sinh dục.
+    - Phẫu thuật buồng tử cung (cắt polyp, u xơ dưới niêm mạc).
+    - Sử dụng Clomiphene Citrate kéo dài.
+    - Tuổi cao, giảm tưới máu tử cung.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** 
+    - Sự kém đáp ứng của các thụ thể Estrogen (Estrogen Receptor - ER) tại NMTC.
+    - Tổn thương lớp đáy (basalis layer) dẫn đến mất khả năng tăng sinh.
+    - Tăng trở kháng mạch máu tử cung (high uterine artery impedance) gây thiếu máu cục bộ.
+- **Mối liên hệ với sinh sản:** NMTC mỏng làm giảm khả năng bám dính của phôi (implantation failure), thay đổi cửa sổ làm tổ (window of implantation) và tăng tỷ lệ sảy thai tự nhiên do cung cấp oxy không tối ưu cho bánh nhau giai đoạn sớm.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Thường không có triệu chứng đặc hiệu. Một số bệnh nhân có kinh ít (Hypomenorrhea) hoặc vô kinh thứ phát.
+- **Triệu chứng thực thể:** Khám phụ khoa thường bình thường trừ khi có dính buồng tử cung kèm theo.
+- **Bệnh nhân thường phàn nàn:** "Kinh nguyệt của tôi gần đây rất ít, chỉ kéo dài 1-2 ngày và chỉ cần dùng băng vệ sinh hằng ngày" hoặc "Tôi đã chuyển phôi nhiều lần nhưng không đậu dù phôi tốt".
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| FSH, LH, E2 | Đánh giá dự trữ buồng trứng/nội tiết | Theo pha chu kỳ | Hypoestrogenism |
+| Nuôi cấy dịch BTC | Loại trừ viêm nội mạc tử cung mạn | Âm tính | Vi khuẩn mọc (CD138+) |
+| PCR Lao | Loại trừ lao sinh dục | Âm tính | Dương tính (gây xơ hóa NMTC) |
+
+### 4.2 Hình ảnh học
+- **Siêu âm (TVUS):** Tiêu chuẩn vàng. Đo bề dày NMTC trên mặt cắt dọc giữa tử cung, từ lớp đáy này sang lớp đáy đối diện. Đánh giá thêm hình dạng (trilaminar - 3 lá).
+- **Siêu âm bơm nước buồng tử cung (SIS):** Loại trừ dính buồng hoặc polyp nhỏ che lấp.
+- **Nội soi buồng tử cung (Hysteroscopy):** Đánh giá trực tiếp hình thái NMTC, hệ thống mạch máu dưới niêm mạc và phát hiện các dải dính (Asherman syndrome).
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Hội chứng Asherman | Có dải dính cơ học, thường sau nạo hút thai. |
+| Viêm NMTC mạn tính | NMTC phù nề, xung huyết, có thể dày hoặc mỏng nhưng không đáp ứng thuốc. |
+| Mãn kinh sớm (POI) | E2 thấp, FSH cao kèm triệu chứng bốc hỏa. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- Vô kinh hoàn toàn sau thủ thuật nạo hút (nghi ngờ Asherman nặng).
+- Có bằng chứng của Lao nội mạc tử cung (cần điều trị chuyên khoa lao trước khi can thiệp hỗ trợ sinh sản).
+- Thất bại làm tổ liên tiếp (RIF) trên bệnh nhân có NMTC mỏng dù đã tối ưu phác đồ nội tiết.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- **Estradiol (E2):** Tăng liều (Oral, Vaginal, Transdermal). Liều uống có thể từ 6-8mg/ngày, kết hợp đặt âm đạo để tránh chuyển hóa qua gan lần đầu và tăng nồng độ tại chỗ.
+- **Sildenafil (Vaginal):** Liều 25mg x 4 lần/ngày đặt âm đạo. Cơ chế: Ức chế PDE5, giãn mạch tử cung, tăng lưu lượng máu đến NMTC.
+- **Hỗ trợ vận mạch:** Aspirin liều thấp (81mg), Pentoxifylline kết hợp Vitamin E (Trental protocol) giúp cải thiện vi tuần hoàn.
+
+### 6.2 Điều trị bổ trợ hiện đại
+- **Bơm G-CSF (Granulocyte Colony-Stimulating Factor):** Bơm vào buồng tử cung 300mcg trước khi chuyển phôi. Giúp kích thích tế bào gốc nội mạc tăng sinh và biệt hóa.
+- **Huyết tương giàu tiểu cầu tự thân (Autologous PRP):** Bơm 0.5 - 1ml PRP vào buồng tử cung 2-3 lần trong pha nang noãn. Chứa nhiều yếu tố tăng trưởng (VEGF, TGF-beta, PDGF) giúp tái tạo mô NMTC.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Trong chu kỳ FET (Frozen Embryo Transfer): Ưu tiên phác đồ chu kỳ tự nhiên (Natural cycle) hoặc kích thích buồng trứng nhẹ nếu chu kỳ nhân tạo (HRT) thất bại trong việc làm dày NMTC.
+- Cân nhắc chuyển phôi ở độ dày tối ưu nhất có thể (thậm chí 6mm nếu cấu trúc 3 lá đẹp).
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- Tiên lượng phụ thuộc vào nguyên nhân gây mỏng. Nếu do xơ hóa sâu lớp đáy, tỷ lệ thành công rất thấp.
+- Cần theo dõi EMT liên tục mỗi 2-3 ngày trong chu kỳ chuẩn bị. Nếu sau các biện pháp hỗ trợ vẫn < 6mm, cân nhắc hủy chu kỳ hoặc tư vấn mang thai hộ (nếu luật pháp cho phép).
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Niêm mạc tử cung giống như lớp đất để gieo hạt (phôi). Nếu đất quá mỏng, hạt sẽ khó bám rễ và lớn lên. Chúng ta đang nỗ lực dùng các biện pháp 'bón phân, tưới nước' (thuốc, PRP) để lớp đất này dày và màu mỡ hơn."
+- **Câu hỏi thường gặp:** 
+    - *Ăn đậu nành có giúp dày niêm mạc không?* Trả lời: Thực phẩm chứa phytoestrogen có hỗ trợ nhưng không thể thay thế phác đồ điều trị chuyên sâu khi niêm mạc đã có tổn thương thực thể.
+    - *PRP có an toàn không?* Trả lời: Đây là máu tự thân của chị nên rất an toàn, không lo dị ứng hay lây nhiễm.
+
+## 9. CROSS-LINKS
+- [TC-01: Hội chứng Asherman](TC-01.md)
+- [PD-03: Thất bại làm tổ liên tiếp (RIF)](PD-03.md)
+- [PHO-02: Chuẩn bị nội mạc trong chuyển phôi đông lạnh](PHO-02.md)
+
+## 10. TÀI LIỆU THAM KHẢO
+1. **ASRM (2021):** *Current recommendations for thin endometrium management in IVF.*
+2. **ESHRE (2022):** *Guideline on frozen embryo transfer cycles.*
+3. **Liu et al. (2020):** *Platelet-rich plasma as an adjuvant in the treatment of thin endometrium: A meta-analysis.*
+4. **Hướng dẫn điều trị Sản Phụ khoa - Bộ Y tế Việt Nam.**
+
+---
+*Lưu ý: Mọi can thiệp bằng thuốc (Estradiol, Sildenafil, G-CSF) và thủ thuật (PRP) cần được chỉ định và thực hiện bởi Bác sĩ chuyên khoa tại các cơ sở y tế được cấp phép.*

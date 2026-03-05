@@ -1,0 +1,103 @@
+---
+title: "BT-04: U Buồng trứng"
+description: "Chào bạn, với tư cách là Giáo sư Sản Phụ khoa, tôi xin trình bày bài viết chuyên sâu về **U buồng trứng** theo đúng cấu trúc chuẩn y khoa và các hướng dẫn quốc "
+pubDate: 2026-03-05
+category: phu-khoa
+tags: ["ACOG","TOA","OCPs","MIGS","COH"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 5: Phụ Khoa"
+---
+Chào bạn, với tư cách là Giáo sư Sản Phụ khoa, tôi xin trình bày bài viết chuyên sâu về **U buồng trứng** theo đúng cấu trúc chuẩn y khoa và các hướng dẫn quốc tế mới nhất (ACOG, IOTA, RCOG).
+
+---
+
+# BT-04: U Buồng trứng
+> **Nhóm:** BT | **ICD-10:** D27 (Lành tính), C56 (Ác tính) | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (theo WHO/ACOG):** U buồng trứng (Ovarian Tumors) là những khối phát triển bất thường tại buồng trứng, có thể là dạng nang (cystic), đặc (solid) hoặc hỗn hợp. Chúng được chia thành u cơ năng (functional cysts) và u thực thể (neoplastic tumors), trong đó u thực thể gồm các nhóm: biểu mô (epithelial), tế bào mầm (germ cell), và mô đệm dây giới tính (sex cord-stromal).
+- **Tần suất/Tỷ lệ:** Khoảng 5-10% phụ nữ sẽ trải qua phẫu thuật vì nghi ngờ u buồng trứng trong đời. Tỷ lệ ác tính tăng dần theo tuổi, đặc biệt là sau mãn kinh (Postmenopausal).
+- **Yếu tố nguy cơ chính:**
+    - Di truyền: Đột biến gen BRCA1/BRCA2, hội chứng Lynch.
+    - Nội tiết: Có kinh sớm, mãn kinh muộn, không sinh con (nulliparity).
+    - Môi trường & Lối sống: Hút thuốc, béo phì.
+    - Tiền sử gia đình có người mắc ung thư buồng trứng hoặc ung thư vú.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:**
+    - U biểu mô (70-80%): Phát sinh từ lớp biểu mô bề mặt buồng trứng sau các đợt rụng trứng liên tục (giả thuyết "rụng trứng không ngừng").
+    - U tế bào mầm: Phát sinh từ các tế bào trứng chưa trưởng thành (thường gặp ở người trẻ).
+    - U nội tiết (Mô đệm): Phát sinh từ các tế bào sản xuất hormone (Granulosa, Theca).
+- **Phân loại sinh học:** Lành tính (Benign), Giáp biên ác (Borderline), và Ác tính (Malignant).
+- **Mối liên hệ với sinh sản:** Khối u có thể gây xoắn (torsion) làm mất nguồn máu nuôi buồng trứng, hoặc việc phẫu thuật bóc u có thể làm giảm dự trữ buồng trứng (Ovarian Reserve/AMH). Một số u như Lạc nội mạc tử cung (Endometrioma) gây viêm mạn tính và ảnh hưởng trực tiếp đến chất lượng noãn.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Đau bụng âm ỉ vùng hạ vị, cảm giác đầy bụng, chướng hơi, đi tiểu lắt nhắt do chèn ép bàng quang.
+- **Triệu chứng thực thể:** Khám phụ khoa (Bimanual examination) thấy khối u vùng chậu, di động hoặc cố định, mật độ chắc hoặc căng nảy.
+- **Bệnh nhân thường phàn nàn:** "Bác sĩ ơi, dạo này bụng tôi to lên nhanh, hay bị đầy hơi dù ăn ít, và cảm thấy nặng nề ở vùng bụng dưới."
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| **CA-125** | Marker u biểu mô | < 35 U/mL | Tăng mạnh trong K biểu mô, tăng nhẹ trong LNMTC, PID |
+| **HE4** | Marker biểu mô đặc hiệu hơn | < 70-140 pmol/L | Tăng trong K buồng trứng, ít bị ảnh hưởng bởi LNMTC |
+| **Chỉ số ROMA** | Kết hợp CA-125 & HE4 | Tùy trạng thái mãn kinh | Phân loại nguy cơ cao/thấp ác tính |
+| **AFP / β-hCG / LDH**| Tế bào mầm (Germ cell) | Âm tính / Thấp | Nghi ngờ u quái không trưởng thành, u túi noãn hoàng |
+
+### 4.2 Hình ảnh học
+- **Siêu âm (Transvaginal Ultrasound - TVS):** Là tiêu chuẩn vàng đầu tay. Áp dụng quy luật **IOTA (Simple Rules)** hoặc mô hình **ADNEX** để phân loại u lành/ác dựa trên: vách hóa, chồi (papillary projection), thành phần đặc, và tưới máu trên Doppler.
+- **MRI / CT:** Chỉ định khi siêu âm không rõ ràng hoặc nghi ngờ ung thư để đánh giá xâm lấn và di căn (Staging).
+- **Nội soi (Laparoscopy):** Vừa là phương pháp chẩn đoán xác định vừa là phương pháp điều trị.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Thai ngoài tử cung (Ectopic pregnancy) | β-hCG dương tính, đau bụng cấp, trễ kinh |
+| U xơ tử cung dưới thanh mạc (Pedunculated Fibroid) | Xuất phát từ cơ tử cung, mật độ chắc, Doppler khác biệt |
+| Áp xe phần phụ (TOA) | Hội chứng nhiễm trùng (sốt, bạch cầu tăng), đau vùng chậu cấp |
+| Lạc nội mạc tử cung (Endometrioma) | Hình ảnh "kính mờ" (Ground-glass), đau bụng kinh (dysmenorrhea) |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- **Xoắn buồng trứng (Ovarian Torsion):** Đau bụng đột ngột, dữ dội, kèm buồn nôn/nôn. Đây là cấp cứu ngoại khoa để bảo tồn buồng trứng.
+- **Vỡ nang / Xuất huyết nội:** Dấu hiệu mất máu cấp, đề kháng thành bụng.
+- **Nghi ngờ ác tính cao:** Chỉ số ROMA nguy cơ cao, hình ảnh IOTA có nhiều dấu hiệu ác tính (vách dày, chồi lớn, dịch ổ bụng - Ascites). Cần chuyển tuyến chuyên khoa Ung bướu phụ khoa.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- **Theo dõi (Expectant management):** Áp dụng cho nang đơn thùy (Simple cyst) < 5-10cm ở phụ nữ chưa mãn kinh, thường tự biến mất sau 1-3 chu kỳ.
+- **Thuốc nội tiết (OCPs):** Không làm mất khối u hiện có nhưng giúp ngăn ngừa hình thành nang cơ năng mới.
+
+### 6.2 Điều trị ngoại khoa (nếu có)
+- **Chỉ định:** U thực thể to dần, nghi ngờ ác tính, hoặc gây biến chứng.
+- **Phương pháp:** 
+    - Phẫu thuật nội soi (Laparoscopy): Ưu tiên hàng đầu (MIGS) để bóc u bảo tồn (Cystectomy) hoặc cắt phần phụ (Salpingo-oophorectomy).
+    - Phẫu thuật hở (Laparotomy): Khi u quá lớn hoặc nghi ngờ ung thư giai đoạn tiến triển.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- **Bảo tồn khả năng sinh sản:** Trước khi phẫu thuật u buồng trứng (đặc biệt là u lạc nội mạc hoặc K giai đoạn sớm), cần tư vấn trữ lạnh noãn/phôi vì dự trữ buồng trứng sẽ giảm sau can thiệp.
+- **IVF/IUI:** Cần xử lý các khối u ảnh hưởng đến chọc hút noãn hoặc có nguy cơ gây xoắn trong quá trình kích thích buồng trứng (COH).
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- Lành tính: Tiên lượng rất tốt, ít tái phát (trừ u lạc nội mạc).
+- Ác tính: Phụ thuộc vào giai đoạn (Stage) và phân độ mô học (Grade). Cần theo dõi định kỳ bằng siêu âm và marker 3-6 tháng/lần trong những năm đầu.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản cho bệnh nhân:** "Chị có một khối u ở buồng trứng. Đa số các khối u này là lành tính như túi nước. Tuy nhiên, chúng ta cần làm thêm xét nghiệm máu và theo dõi siêu âm kỹ để đảm bảo nó không gây biến chứng xoắn hay có dấu hiệu không tốt."
+- **Câu hỏi thường gặp:**
+    - *Bệnh nhân:* "Mổ bóc u xong tôi có sinh con được không?"
+    - *Bác sĩ:* "Chúng tôi sẽ ưu tiên bóc u bảo tồn phần buồng trứng lành. Tuy nhiên, khả năng sinh sản còn phụ thuộc vào số lượng trứng còn lại sau mổ. Chị nên kiểm tra chỉ số AMH để đánh giá cụ thể."
+
+## 9. CROSS-LINKS
+- **BT-01:** Lạc nội mạc tử cung tại buồng trứng.
+- **F-02:** Hội chứng buồng trứng đa nang (PCOS).
+- **PD-05:** Sàng lọc ung thư phụ khoa.
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ACOG Practice Bulletin No. 174: Evaluation and Management of Adnexal Masses.
+2. IOTA Group (International Ovarian Tumor Analysis) - Simple Rules and ADNEX model.
+3. Hướng dẫn chẩn đoán và điều trị các bệnh Sản phụ khoa - Bộ Y tế Việt Nam.
+
+---
+*Lưu ý: Mọi quyết định điều trị cần có sự thăm khám và chỉ định trực tiếp từ bác sĩ chuyên khoa.*

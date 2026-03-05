@@ -1,0 +1,103 @@
+---
+title: "TK3-06: Chuyển dạ Bình thường & Theo dõi"
+description: "Chào bạn đồng nghiệp, với tư cách là một người đã đồng hành cùng hàng ngàn sản phụ trong khoảnh khắc thiêng liêng này, tôi xin trình bày bài viết chuyên sâu về "
+pubDate: 2026-03-05
+category: san-khoa
+tags: ["EFM","CBC","AFI","CTG","AMTSL"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 6: Sản Khoa"
+---
+Chào bạn đồng nghiệp, với tư cách là một người đã đồng hành cùng hàng ngàn sản phụ trong khoảnh khắc thiêng liêng này, tôi xin trình bày bài viết chuyên sâu về **Chuyển dạ Bình thường và Theo dõi** dựa trên các bằng chứng y khoa hiện đại nhất từ WHO và ACOG.
+
+---
+
+# TK3-06: Chuyển dạ Bình thường & Theo dõi
+> **Nhóm:** TK3 | **ICD-10:** O80 (Single spontaneous delivery) | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (theo WHO/ACOG):** Chuyển dạ (Labor) là một quá trình sinh lý, trong đó các cơn co tử cung nhịp nhàng, tăng dần về tần số và cường độ, dẫn đến sự xóa mở cổ tử cung và sự xuống của ngôi thai, kết thúc bằng việc sổ thai và rau ra ngoài.
+- **Chuyển dạ đủ tháng:** Xảy ra từ đầu tuần 37 đến hết tuần 41 của thai kỳ.
+- **Tần suất/Tỷ lệ:** Khoảng 85-90% thai kỳ kết thúc bằng chuyển dạ tự nhiên mà không cần can thiệp kỹ thuật cao.
+- **Yếu tố nguy cơ chính (ảnh hưởng đến tiến trình):** Béo phì mẹ, đa thai, thai to (Macrosomia), mẹ lớn tuổi, hoặc các bất thường khung chậu.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** Sự tương tác phức tạp giữa các hormone (tăng Estrogen, giảm Progesterone, tăng Oxytocin và Prostaglandin) và sự căng giãn cơ tử cung.
+- **Phân loại giai đoạn chuyển dạ (theo Friedmann cải tiến):**
+    1. **Giai đoạn 1 (Xóa mở CTC):** Từ khi bắt đầu chuyển dạ đến khi mở hết (10cm). Chia làm pha tiềm tàng (Latent phase) và pha hoạt động (Active phase - từ 6cm theo ACOG).
+    2. **Giai đoạn 2 (Sổ thai):** Từ khi mở hết đến khi thai sổ ra ngoài.
+    3. **Giai đoạn 3 (Sổ rau):** Từ khi thai sổ đến khi rau ra ngoài.
+- **Cơ chế đẻ (Mechanism of Labor):** Gồm 7 bước: Lọt (Engagement) -> Xuống (Descent) -> Cúi (Flexion) -> Xoay trong (Internal rotation) -> Ngửa (Extension) -> Xoay ngoài (External rotation) -> Sổ (Expulsion).
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:**
+    - Cơn co tử cung (Uterine contractions): Đều đặn, gây đau, tăng dần. Ít nhất 2 cơn/10 phút, mỗi cơn kéo dài >20 giây.
+    - Ra nhầy hồng (Bloody show).
+    - Có thể có vỡ ối tự nhiên (Spontaneous Rupture of Membranes - SROM).
+- **Triệu chứng thực thể:**
+    - Khám âm đạo: Cổ tử cung xóa (Effacement) và mở (Dilation).
+    - Thành lập đầu ối.
+    - Sự tiến triển của ngôi thai qua các mốc của khung chậu.
+- **Bệnh nhân thường phàn nàn:** "Bác sĩ ơi, bụng tôi gò cứng từng cơn và đau quặn ở vùng lưng dưới lan ra trước bụng, kèm theo ít dịch hồng ở cửa mình."
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| Monitor sản khoa (EFM) | Theo dõi cơn co & Tim thai | Tim thai 110-160 bpm, dao động nội tại tốt | Suy thai (Fetal Distress), cơn co cường tính |
+| Nitrazine Test | Xác định vỡ ối | Giấy quỳ không đổi màu | Giấy quỳ chuyển xanh (Dịch ối kiềm) |
+| Công thức máu (CBC) | Tầm soát nhiễm trùng/thiếu máu | WBC < 15 G/L | Nhiễm trùng ối, mất máu |
+
+### 4.2 Hình ảnh học
+- **Siêu âm:** Đánh giá chỉ số ối (AFI), ngôi thai, vị trí rau bám và ước lượng cân nặng thai nhi.
+- **Monitoring tim thai (CTG):** Là công cụ "vàng" trong theo dõi chuyển dạ để phát hiện sớm các dấu hiệu đe dọa thai nhi.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Chuyển dạ giả (False Labor) | Cơn co không đều, không gây xóa mở CTC, giảm khi nghỉ ngơi. |
+| Nhau tiền đạo chảy máu | Chảy máu đỏ tươi đột ngột, thường không kèm đau bụng gò. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- **Sa dây rốn (Cord Prolapse):** Cấp cứu tối khẩn cấp, cần mổ lấy thai ngay.
+- **Suy thai cấp:** Tim thai chậm kéo dài (<110 bpm) hoặc các nhịp giảm muộn (Late decelerations) trên CTG.
+- **Nghi ngờ vỡ tử cung:** Đau bụng dữ dội ngoài cơn co, mất ngôi thai khi thăm khám, choáng.
+- **Chuyển dạ đình trệ:** Pha hoạt động kéo dài không tiến triển dù cơn co đủ.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa (Theo dõi)
+- **Sử dụng Biểu đồ chuyển dạ (Partograph):** Bắt đầu ghi chép khi vào pha hoạt động để phát hiện sớm các bất thường.
+- **Giảm đau trong đẻ:** Gây tê ngoài màng cứng (Epidural analgesia) là phương pháp hiệu quả nhất hiện nay.
+- **Dinh dưỡng:** Khuyến khích uống nước và ăn nhẹ trong giai đoạn sớm.
+
+### 6.2 Điều trị ngoại khoa (Nếu có chỉ định)
+- **Bấm ối (Amniotomy):** Khi cần tăng cường cơn co hoặc theo dõi tính chất dịch ối.
+- **Mổ lấy thai (Cesarean Section):** Khi có chỉ định do mẹ (khung chậu hẹp, sẹo cũ...) hoặc do thai (suy thai, ngôi bất thường).
+- **Hỗ trợ sinh bằng dụng cụ (Forceps/Ventrone):** Khi giai đoạn 2 kéo dài hoặc mẹ kiệt sức.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- **Xử trí tích cực giai đoạn 3 (AMTSL):** Tiêm Oxytocin ngay sau khi sổ vai trước hoặc sau khi sổ thai, kéo dây rốn có kiểm soát và xoa đáy tử cung để phòng ngừa băng huyết sau sinh (PPH).
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- **Mẹ:** Theo dõi sát mạch, huyết áp, cơn co và lượng máu mất trong 2 giờ đầu sau đẻ (giờ thứ 4 của chuyển dạ).
+- **Con:** Đánh giá chỉ số Apgar ở phút thứ 1, 5 và 10. Thực hiện da kề da (Skin-to-skin) sớm.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Chuyển dạ là một hành trình tự nhiên. Cơn đau là tín hiệu tốt cho thấy tử cung đang làm việc để đưa em bé ra ngoài. Hãy phối hợp thở và rặn theo hướng dẫn của chúng tôi."
+- **Câu hỏi thường gặp:**
+    - *Hỏi:* "Tôi có thể xin mổ ngay vì quá đau không?"
+    - *Trả lời:* "Đau đẻ là sinh lý, chúng tôi có các phương pháp giảm đau an toàn. Mổ lấy thai là một phẫu thuật và chỉ nên thực hiện khi có chỉ định y khoa để tránh tai biến cho cả mẹ và con."
+
+## 9. CROSS-LINKS
+- [TK3-01: Các ngôi thai bất thường](TK3-01.md)
+- [HSS-01: Băng huyết sau sinh](HSS-01.md)
+- [TK3-07: Giảm đau trong sản khoa](TK3-07.md)
+
+## 10. TÀI LIỆU THAM KHẢO
+1. Williams Obstetrics, 26th Edition.
+2. WHO Recommendations: Intrapartum care for a positive childbirth experience (2018).
+3. Hướng dẫn Quốc gia về các dịch vụ Chăm sóc sức khỏe sinh sản - Bộ Y tế Việt Nam.
+4. ACOG Practice Bulletin No. 191: Postpartum Hemorrhage.
+
+---
+**Lưu ý:** *Bài viết này nhằm mục đích cung cấp thông tin chuyên môn cho nhân viên y tế. Mọi can thiệp trong quá trình chuyển dạ cần được thực hiện bởi bác sĩ hoặc hộ sinh có chuyên môn tại các cơ sở y tế được cấp phép.*

@@ -182,8 +182,9 @@ import "../../styles/global.css";
             // Risk badge
             const badge = document.getElementById('risk-badge');
             if (badge) {
+                const LEVEL_NUM = { VERY_HIGH: 5, HIGH: 4, MODERATE: 3, LOW: 2, VERY_LOW: 1 };
                 badge.textContent = strat.label;
-                badge.className = `risk-badge-large level-${strat.level}`;
+                badge.className = `risk-badge-large level-${LEVEL_NUM[strat.level] || 1}`;
             }
             const reason = document.getElementById('risk-reason');
             if (reason) reason.textContent = strat.reason;

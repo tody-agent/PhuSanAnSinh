@@ -1,0 +1,97 @@
+---
+title: "PGT-SR (Structural Rearrangement) — DT-03"
+description: "Tôi sẽ thực hiện biên soạn bài chuyên sâu về **PGT-SR (Preimplantation Genetic Testing for Structural Rearrangement)** theo đúng template và phong cách chuyên g"
+pubDate: 2026-03-05
+category: di-truyen
+tags: ["IVF Specialist","NST","RPL","ICSI","TE"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 4: Di Truyền Học"
+---
+Tôi sẽ thực hiện biên soạn bài chuyên sâu về **PGT-SR (Preimplantation Genetic Testing for Structural Rearrangement)** theo đúng template và phong cách chuyên gia y khoa đầu ngành.
+
+Trước hết, tôi kiểm tra nội dung hiện tại của tệp `DT-03.md` và các chỉ dẫn bổ sung nếu có.
+Tôi sẽ tiến hành biên soạn lại nội dung cho bài **PGT-SR (Structural Rearrangement) — DT-03** để đảm bảo tính chuyên nghiệp, chuẩn xác về mặt y khoa và tuân thủ nghiêm ngặt template Markdown mà bạn đã yêu cầu, loại bỏ các phần dẫn nhập không cần thiết trong tệp tin.
+
+Trước tiên, tôi xem qua bài `DT-01.md` để đảm bảo sự thống nhất về văn phong và trình bày trong nhóm Di truyền.
+Chào đồng nghiệp, với tư cách là Giám đốc Trung tâm Hỗ trợ sinh sản, tôi xin trình bày phác đồ chuyên sâu về **PGT-SR (Preimplantation Genetic Testing for Structural Rearrangement)**. Đây là một kỹ thuật di truyền tinh vi, đóng vai trò "chìa khóa" giúp các cặp vợ chồng mang các tái sắp xếp cấu trúc nhiễm sắc thể vượt qua rào cản sẩy thai liên tiếp và sinh con khỏe mạnh.
+
+Hy vọng tài liệu này sẽ là hướng dẫn hữu ích cho các bác sĩ lâm sàng và chuyên viên phòng Lab.
+
+---
+
+# PGT-SR (Structural Rearrangement) — DT-03
+> **Nhóm:** DT (Di truyền) | **Mã:** DT-03 | **Đối tượng:** Bác sĩ Hỗ trợ sinh sản (IVF Specialist), Chuyên viên Phôi học (Embryologist), Chuyên viên Di truyền.
+
+## 1. ĐỊNH NGHĨA & CHỈ ĐỊNH
+**Định nghĩa:**
+PGT-SR (*Preimplantation Genetic Testing for Structural Rearrangements*) là kỹ thuật xét nghiệm di truyền tiền làm tổ nhằm phát hiện các phôi có bất thường về cấu trúc nhiễm sắc thể (NST) do hệ quả của việc bố hoặc mẹ mang các tái sắp xếp cấu trúc NST cân bằng. Mục tiêu là lựa chọn phôi nguyên bội hoặc phôi mang tái sắp xếp cân bằng để chuyển vào tử cung.
+
+**Mã ICD-10:** 
+- **Z31.43:** Genetic testing of female for procreative management.
+- **Q92-Q99:** Chromosomal abnormalities, not elsewhere classified.
+
+**Chỉ định (Indications):**
+1. Vợ hoặc chồng mang **Chuyển đoạn tương hỗ** (*Reciprocal translocation*).
+2. Vợ hoặc chồng mang **Chuyển đoạn hòa hợp tâm** (*Robertsonian translocation*).
+3. Vợ hoặc chồng mang **Đảo đoạn** (*Inversion*).
+4. Tiền sử sẩy thai liên tiếp (RPL) hoặc sinh con dị tật có liên quan đến bất thường cấu trúc NST ở bố/mẹ.
+
+## 2. NGUYÊN LÝ KHOA HỌC
+*   **Cơ chế giảm phân:** Ở người mang chuyển đoạn cân bằng, khi giảm phân tạo giao tử, các NST sẽ bắt cặp tạo thành cấu trúc phức tạp (như *quadrivalent*). Quá trình phân li (*Segregation*) tạo ra các tổ hợp giao tử:
+    *   **Alternate (Đối diện):** Tạo giao tử bình thường hoặc cân bằng -> Phôi có khả năng sống.
+    *   **Adjacent-1, Adjacent-2, 3:1, 4:0:** Tạo giao tử không cân bằng (mất đoạn/lặp đoạn lớn) -> Phôi lệch bội cấu trúc, thường dẫn đến sẩy thai sớm hoặc dị tật bẩm sinh nặng.
+*   **Kỹ thuật phân tích:** Sử dụng giải trình tự thế hệ mới (**NGS**) độ phân giải cao hoặc SNP-array để phát hiện các đoạn mất/lặp (*Copy Number Variants - CNVs*). NGS có thể phát hiện các đoạn bất thường có kích thước từ 5-10 Mb trở lên (tùy thuộc vào nền tảng kỹ thuật).
+
+## 3. QUY TRÌNH THỰC HIỆN (Step-by-step)
+| Bước | Thời điểm | Hành động | Người thực hiện | Lưu ý |
+|------|----------|----------|----------------|-------|
+| 1. Khám tiền IVF | Trước khi bắt đầu | Lập bộ NST (Karyotype) và tư vấn di truyền kỹ lưỡng. | BS Di truyền | Xác định vị trí điểm gãy (*Breakpoints*) chính xác. |
+| 2. Kích thích buồng trứng | Ngày 2 chu kỳ | Phác đồ cá thể hóa để thu tối đa số phôi nang. | BS Lâm sàng | Số lượng phôi là yếu tố tiên quyết thành công. |
+| 3. Thụ tinh (ICSI) | Ngày chọc hút | Thực hiện ICSI cho tất cả các trường hợp PGT. | CV Phôi học | Tránh ngoại nhiễm ADN từ tinh trùng thừa. |
+| 4. Nuôi cấy phôi | Ngày 1 - Ngày 5/6 | Nuôi cấy đến giai đoạn phôi nang (*Blastocyst*). | CV Phôi học | Chỉ phôi đạt độ nở rộng ≥ 3 mới sinh thiết. |
+| 5. Sinh thiết phôi | Ngày 5/6 | Lấy 5-8 tế bào lá nuôi (TE). | CV Phôi học | Laser hỗ trợ thoát màng trước khi sinh thiết. |
+| 6. Phân tích NGS | 7-10 ngày | Giải trình tự gen và đối soát với bộ NST bố/mẹ. | CV Di truyền | Kiểm tra các đoạn mất/lặp tại điểm gãy đích. |
+| 7. Chuyển phôi trữ (FET) | Chu kỳ sau | Chuẩn bị nội mạc và chuyển phôi Euploid/Balanced. | BS Lâm sàng | Ưu tiên phôi chất lượng hình thái tốt nhất. |
+
+## 4. THUỐC SỬ DỤNG (Trong giai đoạn chuẩn bị nội mạc)
+| Thuốc | Biệt dược | Liều | Đường dùng | Thời gian | Theo dõi |
+|------|----------|-----|-----------|----------|---------|
+| Estradiol | Progynova/Estrace | 4-8 mg/ngày | Uống | Từ ngày 2 chu kỳ | Độ dày nội mạc (Siêu âm) |
+| Progesterone | Cyclogest/Lutinus | 400-800 mg/ngày | Đặt âm đạo | 5 ngày trước FET | Nồng độ P4 huyết thanh |
+| Kháng sinh | Doxycycline | 100 mg x 2 | Uống | Quanh thời điểm chọc hút/chuyển phôi | Ngừa nhiễm trùng |
+
+## 5. THEO DÕI & ĐÁNH GIÁ
+*   **Tỷ lệ phôi chuyển được:** Thường thấp hơn PGT-A (khoảng 15-30% tùy loại chuyển đoạn).
+*   **Độ chính xác:** PGT-SR có độ tin cậy > 95%. Tuy nhiên, NGS thông thường **không phân biệt** được phôi hoàn toàn bình thường và phôi mang chuyển đoạn cân bằng (giống bố/mẹ).
+*   **Chẩn đoán trước sinh:** **BẮT BUỘC** tư vấn bệnh nhân thực hiện chọc ối hoặc sinh thiết gai nhau (CVS) để xác nhận lại bộ NST thai nhi sau khi đậu thai thành công.
+
+## 6. BIẾN CHỨNG & XỬ TRÍ
+| Biến chứng | Tần suất | Nhận biết | Xử trí |
+|-----------|---------|----------|--------|
+| Không có phôi chuyển | 40 - 60% | Kết quả PGT báo tất cả phôi đều bất thường (Unbalanced). | Tư vấn tâm lý, cân nhắc "gom" phôi hoặc xin noãn/tinh trùng. |
+| Kết quả sai lệch | < 2% | Thai nhi có dị tật NST dù PGT-SR bình thường. | Do đoạn mất/lặp quá nhỏ dưới ngưỡng phát hiện của NGS. |
+| Phôi khảm (Mosaic) | 5 - 15% | Kết quả có tỷ lệ tế bào bình thường và bất thường xen kẽ. | Hội chẩn đa chuyên khoa để quyết định có chuyển hay không. |
+
+## 7. KẾT QUẢ KỲ VỌNG
+- Loại bỏ nguy cơ mang thai có bộ NST không cân bằng (gây dị tật hoặc lưu thai).
+- Giảm tỷ lệ sẩy thai tự nhiên ở nhóm bệnh nhân chuyển đoạn NST.
+- Tăng tỷ lệ trẻ sinh sống khỏe mạnh (*Live birth rate*) trên mỗi lần chuyển phôi.
+- Tiết kiệm thời gian và chi phí cho bệnh nhân bằng cách tránh chuyển các phôi không có khả năng sống.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Khả năng di truyền:** Giải thích rằng phôi "Bình thường" trên kết quả PGT-SR có thể vẫn mang chuyển đoạn cân bằng giống bố hoặc mẹ (con sẽ lớn lên khỏe mạnh nhưng gặp vấn đề sinh sản tương tự khi trưởng thành).
+- **Rủi ro hết phôi:** Bệnh nhân cần chuẩn bị tâm lý cho việc không có phôi để chuyển sau một chu kỳ kích trứng.
+- **Tầm quan trọng của chẩn đoán trước sinh:** Nhấn mạnh PGT-SR là xét nghiệm sàng lọc, không thay thế hoàn toàn chẩn đoán tiền sản xâm lấn.
+
+## 9. CROSS-LINKS
+- **DT-01:** PGT-A (Xét nghiệm lệch bội NST).
+- **DT-02:** PGT-M (Xét nghiệm bệnh đơn gen).
+- **VSN-10:** Sẩy thai liên tiếp - Nguyên nhân & Xử trí.
+- **VSM-09:** Vô sinh nam do yếu tố di truyền.
+
+---
+**Ghi chú:** *Mọi chỉ định thực hiện PGT-SR phải dựa trên kết quả Karyotype của cặp vợ chồng và được thực hiện tại các trung tâm IVF có phòng Lab đạt chuẩn quốc tế.*
+
+---
+**Người biên soạn:** *Giáo sư Sảnh Phụ Khoa & Hỗ trợ sinh sản*

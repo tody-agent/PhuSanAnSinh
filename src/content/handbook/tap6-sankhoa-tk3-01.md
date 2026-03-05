@@ -1,0 +1,100 @@
+---
+title: "TK3-01: Siêu âm Tăng trưởng (Growth Scan)"
+description: "Chào đồng nghiệp, với tư cách là một người đã dành hơn ba thập kỷ đồng hành cùng hàng ngàn sản phụ và các cặp vợ chồng hiếm muộn, tôi hiểu rằng giai đoạn tam cá"
+pubDate: 2026-03-05
+category: san-khoa
+tags: ["SGA hoặc Macrosomia","FGR","OGTT","BPD"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 6: Sản Khoa"
+---
+Chào đồng nghiệp, với tư cách là một người đã dành hơn ba thập kỷ đồng hành cùng hàng ngàn sản phụ và các cặp vợ chồng hiếm muộn, tôi hiểu rằng giai đoạn tam cá nguyệt thứ ba là thời điểm "về đích" đầy nhạy cảm. 
+
+Siêu âm tăng trưởng (Growth Scan) không chỉ đơn thuần là việc đo đạc các chỉ số, mà là một cuộc "đối thoại" hình ảnh để đánh giá sức khỏe của đơn vị thai nhi - bánh nhau. Dưới đây là bài tổng quan y khoa chi tiết về kỹ thuật này theo tiêu chuẩn chuyên gia.
+
+---
+
+# TK3-01: Siêu âm Tăng trưởng (Growth Scan)
+> **Nhóm:** TK3 (Tam cá nguyệt 3) | **ICD-10:** O36.5 (Chăm sóc bà mẹ vì thai chậm tăng trưởng) | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (theo ISUOG/ACOG):** Là kỹ thuật siêu âm được thực hiện chủ yếu trong tam cá nguyệt thứ ba (thường từ tuần 28 đến 36) nhằm ước tính trọng lượng thai nhi (Estimated Fetal Weight - EFW), đánh giá sự phát triển tương xứng của các chỉ số sinh trắc học so với tuổi thai và kiểm tra sức khỏe thai thông qua lượng nước ối và vị trí bánh nhau.
+- **Tần suất/Tỷ lệ:** Khoảng 10-15% thai kỳ gặp các vấn đề về tăng trưởng (SGA hoặc Macrosomia).
+- **Yếu tố nguy cơ chính:** 
+    - Mẹ: Tăng huyết áp thai kỳ, đái tháo đường, hút thuốc lá, BMI thấp hoặc quá cao.
+    - Thai: Tiền sử thai chậm tăng trưởng (FGR), đa thai, bất thường nhiễm sắc thể.
+    - Nhau thai: Nhau tiền đạo, bánh nhau nhỏ, suy tuần hoàn bánh nhau.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** Sự tăng trưởng của thai phụ thuộc vào tiềm năng di truyền và sự cung cấp dưỡng chất/oxy qua bánh nhau. Suy bánh nhau (Placental insufficiency) dẫn đến việc tái phân phối tuần hoàn thai nhi (hiệu ứng bảo vệ não - Brain sparing effect) là cơ chế then chốt trong thai chậm tăng trưởng (FGR).
+- **Phân loại:**
+    - **SGA (Small for Gestational Age):** Thai nhỏ hơn bách phân vị thứ 10 nhưng chức năng bánh nhau bình thường (nhỏ do hiến pháp).
+    - **FGR (Fetal Growth Restriction):** Thai không đạt được tiềm năng tăng trưởng do bệnh lý, kèm bất thường Doppler hoặc thiểu ối.
+    - **Macrosomia/LGA:** Thai lớn (thường liên quan đến đái tháo đường thai kỳ).
+- **Mối liên hệ với sinh sản:** Thai kỳ IVF có nguy cơ FGR cao hơn nhẹ so với thụ thai tự nhiên, cần theo dõi sát sao hơn.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Thường không có triệu chứng đặc hiệu. Sản phụ có thể thấy bụng to chậm hơn bình thường.
+- **Triệu chứng thực thể:** Khoảng cách khớp vệ - đáy tử cung (Symphysis-Fundal Height - SFH) nhỏ hơn so với tuổi thai (>3cm).
+- **Bệnh nhân thường phàn nàn:** "Bác sĩ ơi, sao bụng em nhỏ hơn các mẹ cùng tuần thai?", "Dạo này con em máy ít đi".
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| Nghiệm pháp dung nạp Glucose (OGTT) | Loại trừ đái tháo đường gây thai to | Theo chuẩn IADPSG | Đường huyết cao -> Thai to (Macrosomia) |
+| Xét nghiệm sFlt-1/PlGF | Dự báo suy bánh nhau/Tiền sản giật | Tỉ lệ thấp | Tỉ lệ cao -> Nguy cơ FGR cao |
+
+### 4.2 Hình ảnh học
+- **Siêu âm Sinh trắc học (Biometry):** 
+    - Đo 4 chỉ số cơ bản: Đường kính lưỡng đỉnh (BPD), Chu vi đầu (HC), Chu vi bụng (AC), Chiều dài xương đùi (FL).
+    - **Chu vi bụng (AC)** là chỉ số nhạy nhất với tình trạng dinh dưỡng thai nhi.
+    - Sử dụng công thức Hadlock để tính EFW và đối chiếu biểu đồ bách phân vị (Percentile).
+- **Chỉ số nước ối (AFI hoặc MVP):** Đánh giá tình trạng tưới máu thận thai nhi.
+- **Doppler động mạch rốn & động mạch não giữa (MCA):** Bắt buộc nếu EFW < bách phân vị thứ 10 để phân biệt SGA và FGR.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| SGA (Thai nhỏ so với tuổi thai) | EFW < 10th percentile, Doppler bình thường, nước ối bình thường. |
+| FGR (Thai chậm tăng trưởng) | EFW < 10th hoặc 3rd percentile, Doppler bất thường (tăng RI rốn, giảm RI não), thiểu ối. |
+| Sai lệch tuổi thai | Tính toán dựa trên siêu âm 12 tuần đầu cho kết quả khác biệt lớn. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- Mất sóng tâm trương hoặc đảo ngược sóng tâm trương động mạch rốn (AREDV).
+- Thiểu ối nặng (AFI < 5cm hoặc MVP < 2cm).
+- Thai máy ít hoặc biểu đồ đo tim thai (NST) bất thường.
+- Chỉ số AC giảm đột ngột hoặc không tăng trưởng sau 2 tuần.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- Kiểm soát huyết áp mẹ, điều chỉnh đường huyết.
+- Dùng Aspirin liều thấp (nếu được chỉ định từ sớm để dự phòng suy bánh nhau).
+- Hỗ trợ phổi (Corticosteroids) nếu có nguy cơ phải chấm dứt thai kỳ sớm trước 34 tuần.
+### 6.2 Điều trị ngoại khoa (nếu có)
+- Chấm dứt thai kỳ (mổ lấy thai hoặc khởi phát chuyển dạ) dựa trên phân độ FIGO/ISUOG về tình trạng Doppler.
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Các thai kỳ IVF cần được siêu âm tăng trưởng định kỳ mỗi 4 tuần từ tuần 28.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- **Tiên lượng:** FGR có nguy cơ tử vong chu sinh cao, chậm phát triển tâm thần vận động và bệnh lý chuyển hóa khi trưởng thành (giả thuyết Barker).
+- **Theo dõi:** Nếu thai nhỏ, theo dõi Doppler rốn mỗi 1-2 tuần. Nếu có biến đổi Doppler, theo dõi tại bệnh viện chuyên khoa.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Siêu âm này giống như việc kiểm tra 'kho lương thực' và sức khỏe của bé. Chúng tôi không chỉ xem bé nặng bao nhiêu mà còn xem bé có đang nhận đủ oxy và dưỡng chất từ mẹ hay không."
+- **Câu hỏi mẫu:** 
+    - *BN: "Tôi có nên ăn nhiều để con to lên không?"*
+    - *BS: "Nếu nguyên nhân do bánh nhau suy, việc mẹ ăn quá nhiều chỉ khiến mẹ tăng cân mà không giúp bé to hơn. Quan trọng là theo dõi sát sức khỏe thai nhi."*
+
+## 9. CROSS-LINKS
+- [[TK3-02]]: Siêu âm Doppler thai nhi nâng cao.
+- [[SSL-05]]: Tiền sản giật và ảnh hưởng đến thai nhi.
+- [[F-08]]: Bảng bách phân vị tăng trưởng thai nhi chuẩn quốc tế.
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ISUOG Practice Guidelines (updated 2020): Fetal growth restriction.
+2. ACOG Practice Bulletin No. 204: Fetal Growth Restriction.
+3. Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản - Bộ Y tế Việt Nam.
+
+---
+*Lưu ý: Mọi kết quả siêu âm cần được bác sĩ chuyên khoa sản đọc và phối hợp cùng lâm sàng để đưa ra quyết định cuối cùng.*

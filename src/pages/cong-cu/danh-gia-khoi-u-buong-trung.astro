@@ -150,18 +150,18 @@ import "../../styles/global.css";
 
                 if (isNaN(ca125) || ca125 < 0) throw new Error('Vui lòng nhập CA-125.');
 
-                const usFeatures = {
+                const ultrasound = {
                     multilocular: document.getElementById('ov-multilocular').checked,
-                    solidAreas: document.getElementById('ov-solid').checked,
+                    solid: document.getElementById('ov-solid').checked,
                     bilateral: document.getElementById('ov-bilateral').checked,
                     ascites: document.getElementById('ov-ascites').checked,
-                    metastasis: document.getElementById('ov-mets').checked,
+                    metastases: document.getElementById('ov-mets').checked,
                 };
 
                 const postmenopausal = menoStatus === 'post';
-                const result = screenPatient({ ca125, he4, postmenopausal, usFeatures, tumorSize: size });
-                const actions = getActionPlan(result.overallRisk);
-                displayResults(result, actions);
+                const result = screenPatient({ ca125, he4, postmenopausal, ultrasound, tumorSizeCm: size });
+                const actionPlan = getActionPlan(result.overallRisk);
+                displayResults(result, actionPlan.actions);
                 if (errorEl) errorEl.hidden = true;
             } catch (err) {
                 if (errorEl) { errorEl.textContent = err.message; errorEl.hidden = false; }

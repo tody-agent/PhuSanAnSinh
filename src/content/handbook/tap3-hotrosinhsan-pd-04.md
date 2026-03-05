@@ -1,0 +1,87 @@
+---
+title: "Phác đồ Microdose Flare — PD-04"
+description: "Chào đồng nghiệp, với tư cách là một người làm lâm sàng lâu năm trong lĩnh vực Hỗ trợ sinh sản (ART), tôi xin chia sẻ phác đồ **Microdose Flare** — một trong nh"
+pubDate: 2026-03-05
+category: ho-tro-sinh-san
+tags: ["ART","POR","OCP","FSH/hMG","SC"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 3: Hỗ Trợ Sinh Sản"
+---
+Chào đồng nghiệp, với tư cách là một người làm lâm sàng lâu năm trong lĩnh vực Hỗ trợ sinh sản (ART), tôi xin chia sẻ phác đồ **Microdose Flare** — một trong những "vũ khí" quan trọng nhất khi đối mặt với những ca đáp ứng buồng trứng kém (Poor Ovarian Response - POR). 
+
+Phác đồ này tận dụng triệt để hiệu ứng "Flare-up" (bùng nổ) sinh lý của tuyến yên để huy động tối đa các nang noãn còn sót lại. Dưới đây là nội dung chi tiết theo chuẩn y khoa.
+
+---
+
+# Phác đồ Microdose Flare — PD-04
+> **Nhóm:** PD (Protocols - Phác đồ) | **Mã:** PD-04 | **Đối tượng:** Bác sĩ chuyên khoa HTSS (Fertility Specialist)
+
+## 1. ĐỊNH NGHĨA & CHỈ ĐỊNH
+**Microdose Flare Protocol** là phác đồ kích thích buồng trứng sử dụng GnRH agonist liều cực thấp (microdose) vào đầu chu kỳ kinh để tạo ra sự giải phóng ồ ạt FSH và LH nội sinh (Flare effect), phối hợp với FSH ngoại sinh nhằm tối ưu hóa việc chiêu mộ nang noãn.
+
+**Chỉ định:**
+- Bệnh nhân đáp ứng buồng trứng kém (POR) theo tiêu chuẩn Bologna (Bologna criteria).
+- Bệnh nhân thuộc nhóm 3 & 4 theo phân loại POSEIDON (Dự trữ buồng trứng giảm: AMH < 1.2 ng/mL hoặc AFC < 5).
+- Tiền sử thất bại với phác đồ GnRH Antagonist hoặc GnRH Agonist dài (Long protocol) do số noãn thu được quá ít.
+- Phụ nữ lớn tuổi (> 38 tuổi) có dấu hiệu suy giảm dự trữ buồng trứng (DOR - Diminished Ovarian Reserve).
+- **Mã ICD-10:** N97.0 (Vô sinh nữ liên quan đến không phóng noãn); N97.9 (Vô sinh nữ không xác định).
+
+## 2. NGUYÊN LÝ KHOA HỌC
+- **Hiệu ứng Flare-up:** Khi dùng GnRH agonist liều thấp vào đầu pha nang noãn (Follicular phase), tuyến yên sẽ bị kích thích giải phóng một lượng lớn FSH và LH nội sinh ngay lập tức. Lượng FSH này hỗ trợ rất tốt cho việc "cứu vãn" các nang noãn đầu chu kỳ.
+- **Duy trì ức chế:** Sau giai đoạn Flare (thường sau 3-5 ngày), việc tiếp tục dùng liều thấp GnRH agonist sẽ gây ra hiện tượng điều hòa xuống (Down-regulation) thụ thể, giúp ngăn chặn đỉnh LH sớm (Premature LH surge).
+- **Phối hợp OCP:** Thường sử dụng thuốc tránh tay kết hợp (OCP) ở chu kỳ trước để ngăn chặn nang tồn dư (Functional cyst) và đồng bộ hóa quần thể nang thứ cấp.
+
+## 3. QUY TRÌNH THỰC HIỆN (Step-by-step)
+
+| Bước | Thời điểm | Hành động | Người thực hiện | Lưu ý |
+|------|----------|----------|----------------|-------|
+| 1. Chuẩn bị | Chu kỳ trước (Ngày 2-21) | Cho uống OCP (loại kết hợp) trong 14-21 ngày. | Bác sĩ/Bệnh nhân | Tránh dùng quá 21 ngày ở người DOR vì có thể ức chế quá mức. |
+| 2. Nghỉ thuốc | Sau OCP 2-4 ngày | Ngưng OCP, chờ ra kinh. | Bệnh nhân | Nếu không ra kinh sau 5 ngày cần siêu âm kiểm tra nội mạc. |
+| 3. Khởi đầu GnRHa | Ngày 2 của chu kỳ kinh | Bắt đầu tiêm GnRH agonist liều thấp (Microdose). | Điều dưỡng/BN | Thường dùng Buserelin hoặc Leuprolide acetate pha loãng. |
+| 4. Kích thích BT | Ngày 3 của chu kỳ kinh | Bắt đầu tiêm Gonadotropins (FSH/hMG) liều cao. | Bác sĩ | Liều thường từ 300 - 450 IU/ngày. |
+| 5. Theo dõi | Từ Ngày 7-8 chu kỳ | Siêu âm đo nang và định lượng E2, P4, LH. | Bác sĩ/KTV | Chỉnh liều Gonadotropins dựa trên đáp ứng. |
+| 6. Trigger | Khi có ≥ 2 nang ≥ 18mm | Tiêm hCG hoặc Dual Trigger (hCG + GnRHa). | Bác sĩ | Cẩn thận nếu P4 tăng sớm (> 1.5 ng/mL). |
+| 7. Chọc hút | 34 - 36h sau Trigger | Hút dịch nang tìm noãn. | Bác sĩ | Thường thực hiện dưới hướng dẫn siêu âm ngã âm đạo. |
+
+## 4. THUỐC SỬ DỤNG (Ví dụ lâm sàng)
+
+| Thuốc | Biệt dược | Liều | Đường dùng | Thời gian | Theo dõi |
+|------|----------|-----|-----------|----------|---------|
+| GnRH Agonist | Lupron (pha loãng) | 40 - 50 mcg | Tiêm dưới da (SC) | 2 lần/ngày (Sáng/Chiều) | Bắt đầu N2 kinh cho đến ngày Trigger. |
+| rFSH | Gonal-F / Puregon | 225 - 300 IU | Tiêm dưới da (SC) | Hàng ngày từ N3 | Đáp ứng nang trên siêu âm. |
+| hMG | Menopur / Ivf-M | 75 - 150 IU | Tiêm bắp/dưới da | Hàng ngày từ N3 | Bổ sung LH nội sinh cho bệnh nhân lớn tuổi. |
+| Trigger | Ovitrelle / Pregnyl | 250mcg / 5000-10000IU | Tiêm dưới da/bắp | Một liều duy nhất | Chọc hút sau 35h. |
+
+## 5. THEO DÕI & ĐÁNH GIÁ
+- **Chỉ số E2 (Estradiol):** Phải tăng tương ứng với số nang (trung bình 200-300 pg/mL cho mỗi nang trưởng thành). Nếu E2 tăng chậm, tiên lượng số noãn ít.
+- **Độ dày nội mạc tử cung:** Đánh giá khả năng chuyển phôi tươi. Ở nhóm POR, nếu đáp ứng quá kém, nên cân nhắc gom phôi nhiều chu kỳ (Embryo pooling).
+- **LH:** Theo dõi sát để tránh hiện tượng "thoát ức chế" gây rụng trứng sớm (dù hiếm gặp ở phác đồ Flare).
+
+## 6. BIẾN CHỨNG & XỬ TRÍ
+
+| Biến chứng | Tần suất | Nhận biết | Xử trí |
+|-----------|---------|----------|--------|
+| Hủy chu kỳ (Cancellation) | Cao (15-30%) | Không có nang phát triển sau 5-7 ngày kích thuốc. | Tư vấn chuyển sang xin noãn hoặc gom phôi. |
+| Đáp ứng kém | Rất cao | E2 thấp, chỉ có 1-2 nang. | Thảo luận với BN về tỷ lệ thành công thấp trước khi chọc hút. |
+| Nang tồn dư (Cyst) | Thấp | Siêu âm đầu chu kỳ thấy nang > 10mm. | Chọc hút nang hoặc dời chu kỳ. |
+| OHSS | Rất thấp | Bụng chướng, E2 > 3500 pg/mL. | Ít gặp ở nhóm này. Nếu có, trữ phôi toàn bộ. |
+
+## 7. KẾT QUẢ KỲ VỌNG
+- Thu được trung bình 2 - 5 noãn chất lượng tốt ở nhóm POR.
+- Tỷ lệ thụ tinh và tạo phôi tương đương các phác đồ khác nhưng ưu thế hơn về số lượng nang chiêu mộ được ở giai đoạn đầu.
+- Tỷ lệ có thai lâm sàng đạt khoảng 15 - 25% tùy độ tuổi bệnh nhân.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- Giải thích rõ đây là phác đồ dành riêng cho tình trạng "buồng trứng ít trứng" của bệnh nhân.
+- Nhấn mạnh việc tiêm thuốc **Microdose** cần đúng giờ (chia 2 lần/ngày) để duy trì nồng độ thuốc ổn định.
+- Chuẩn bị tâm lý cho khả năng hủy chu kỳ nếu buồng trứng không đáp ứng.
+- Khuyến khích bổ sung DHEA hoặc Coenzyme Q10 trước khi bắt đầu phác đồ 2-3 tháng (Evidence-based hỗ trợ POR).
+
+## 9. CROSS-LINKS
+- [PD-01] Phác đồ GnRH Antagonist linh hoạt.
+- [PD-08] Kỹ thuật gom phôi (Embryo Pooling) ở bệnh nhân giảm dự trữ buồng trứng.
+- [Guidelines] Tiêu chuẩn Bologna 2011 về đáp ứng buồng trứng kém.
+
+---
+**Lưu ý:** *Phác đồ này chỉ mang tính chất tham khảo y khoa dành cho nhân viên y tế. Việc áp dụng cụ thể trên từng bệnh nhân cần có sự chỉ định và giám sát chặt chẽ của Bác sĩ chuyên khoa Hỗ trợ sinh sản sau khi đã thăm khám và làm các xét nghiệm cần thiết.*

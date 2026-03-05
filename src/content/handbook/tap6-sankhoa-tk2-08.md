@@ -1,0 +1,115 @@
+---
+title: "TK2-08: Nhiễm trùng Thai kỳ (TORCH & STIs)"
+description: "Chào bạn, với tư cách là một Giáo sư Sản Phụ khoa, tôi sẽ biên soạn bài hướng dẫn chuyên sâu về **Nhiễm trùng Thai kỳ (TORCH & STIs)**. Đây là nhóm bệnh lý cực "
+pubDate: 2026-03-05
+category: san-khoa
+tags: ["TORCH & STIs","CMV","HSV","STIs"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 6: Sản Khoa"
+---
+Chào bạn, với tư cách là một Giáo sư Sản Phụ khoa, tôi sẽ biên soạn bài hướng dẫn chuyên sâu về **Nhiễm trùng Thai kỳ (TORCH & STIs)**. Đây là nhóm bệnh lý cực kỳ quan trọng vì hệ quả không chỉ dừng lại ở người mẹ mà còn để lại những di chứng nặng nề, thậm chí vĩnh viễn cho thai nhi và trẻ sơ sinh.
+
+Dưới đây là nội dung chi tiết theo chuẩn y khoa:
+
+---
+
+# TK2-08: Nhiễm trùng Thai kỳ (TORCH & STIs)
+> **Nhóm:** TK2 (Thai kỳ quý 2) | **ICD-10:** O98 | **Đối tượng:** BS Sản khoa, BS Sơ sinh, Học viên sau đại học.
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa:** Nhóm nhiễm trùng TORCH bao gồm: **T**oxoplasmosis, **O**thers (Syphilis, Varicella-Zoster, Parvovirus B19, HIV, HBV), **R**ubella, **C**ytomegalovirus (CMV), và **H**erpes Simplex Virus (HSV). Đây là các tác nhân có khả năng truyền từ mẹ sang con (Vertical Transmission) qua nhau thai, trong chuyển dạ hoặc qua sữa mẹ.
+- **Tần suất:** Tỷ lệ nhiễm trùng thay đổi tùy theo khu vực địa lý. Tại Việt Nam, tỷ lệ nhiễm HBV và Giang mai (Syphilis) vẫn còn đáng kể trong cộng đồng thai phụ.
+- **Yếu tố nguy cơ chính:** 
+    - Phụ nữ trong độ tuổi sinh sản chưa được tiêm phòng (Rubella, HBV).
+    - Tiếp xúc với nguồn lây (trẻ em bị bệnh, mèo - đối với Toxoplasmosis).
+    - Quan hệ tình dục không an toàn (STIs).
+    - Nhân viên y tế/giáo viên mầm non (nguy cơ phơi nhiễm CMV cao).
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** 
+    - **Truyền qua nhau thai (Transplacental):** Virus/Ký sinh trùng trong máu mẹ xâm nhập vào tuần hoàn thai nhi. Nguy cơ lây truyền thường tăng dần theo tuổi thai, nhưng mức độ nặng nề của dị tật lại tỷ lệ nghịch với tuổi thai (nhiễm ở quý 1 gây dị tật nặng nhất).
+    - **Đường âm đạo (Ascending/Birth canal):** Lây nhiễm khi vỡ ối hoặc khi thai đi qua đường sinh dục (đặc biệt với HSV, Chlamydia, Gonorrhea).
+- **Phân loại:** 
+    - Nhiễm trùng sơ cấp (Primary infection): Lần đầu nhiễm tác nhân trong thai kỳ, nguy cơ cho thai nhi cao nhất.
+    - Tái nhiễm/Tái hoạt (Reinfection/Reactivation): Nguy cơ cho thai thấp hơn nhờ kháng thể có sẵn.
+- **Mối liên hệ với sinh sản:** Gây sảy thai liên tiếp, thai lưu, chậm tăng trưởng trong tử cung (IUGR), và các dị tật bẩm sinh đa cơ quan.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Thường nghèo nàn hoặc giống cảm cúm (Flu-like symptoms): Sốt nhẹ, mệt mỏi, phát ban, nổi hạch. 
+- **Triệu chứng thực thể:** 
+    - Phát ban đặc hiệu (Rubella).
+    - Vết loét sinh dục hoặc mụn nước (HSV, Syphilis).
+    - Viêm khớp nhẹ.
+- **Bệnh nhân thường phàn nàn:** "Tôi chỉ thấy hơi sốt và nổi ít nốt đỏ trên người, nhưng tôi lo lắng không biết có ảnh hưởng đến em bé không?" hoặc "Tôi đi khám định kỳ và bác sĩ nói em bé nhỏ hơn so với tuổi thai".
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| **IgM/IgG Serology** | Xác định trạng thái miễn dịch | IgM (-), IgG (+) lâu dài | IgM (+), IgG tăng hiệu giá gấp 4 lần hoặc Avididty thấp |
+| **PCR (Amniotic fluid)** | Tìm DNA/RNA tác nhân trong nước ối | Âm tính | Dương tính (Chẩn đoán xác định nhiễm trùng thai nhi) |
+| **RPR/VDRL & TPHA** | Sàng lọc và khẳng định Giang mai | Âm tính | Dương tính (Cần điều trị ngay) |
+| **HBsAg, HIV, HCV** | Sàng lọc bệnh truyền nhiễm máu | Âm tính | Dương tính (Cần phác đồ dự phòng lây truyền mẹ-con) |
+
+### 4.2 Hình ảnh học
+- **Siêu âm:** Rất quan trọng để tìm dấu chứng nhiễm trùng ở thai nhi:
+    - Vôi hóa nội sọ (Intracranial calcifications) - Gợi ý CMV, Toxoplasmosis.
+    - Giãn não thất (Ventriculomegaly), tật đầu nhỏ (Microcephaly).
+    - Gan lách to, báng bụng (Ascites), tràn dịch đa màng.
+    - Phù thai (Hydrops fetalis).
+    - Đục thủy tinh thể, bất thường tim (Rubella).
+- **MRI:** Đánh giá chi tiết các tổn thương hệ thần kinh trung ương thai nhi khi siêu âm nghi ngờ.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Dị tật di truyền | Thường không kèm theo vôi hóa hoặc gan lách to như nhiễm trùng. |
+| Bất đồng nhóm máu | Gây phù thai nhưng xét nghiệm Coombs (+) và tiền sử sản khoa đặc trưng. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- Thai phụ có xét nghiệm chuyển đảo huyết thanh (Seroconversion) cấp tính trong quý 1 hoặc quý 2.
+- Hình ảnh siêu âm có biểu hiện phù thai (Hydrops fetalis).
+- Vỡ ối non ở thai phụ đang có đợt bùng phát Herpes sinh dục cấp tính.
+- Thai phụ bị sốt phát ban chưa rõ nguyên nhân kèm theo các dấu hiệu dọa sinh non.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- **Toxoplasmosis:** Spiramycin (giảm truyền sang thai) hoặc phối hợp Pyrimethamine + Sulfadiazine (nếu đã nhiễm sang thai).
+- **Giang mai (Syphilis):** Benzathine Penicillin G là lựa chọn duy nhất hiệu quả cho cả mẹ và thai.
+- **Herpes (HSV):** Acyclovir hoặc Valacyclovir đường uống từ tuần 36 để dự phòng đợt bùng phát lúc sinh.
+- **HIV/HBV:** Điều trị thuốc kháng virus (ARV/Tenofovir) theo phác đồ chuyên biệt để giảm tải lượng virus.
+
+### 6.2 Điều trị ngoại khoa (nếu có)
+- **Mổ lấy thai (C-section):** Chỉ định khi có tổn thương Herpes sinh dục hoạt động tại thời điểm chuyển dạ hoặc vỡ ối để tránh lây nhiễm cho trẻ sơ sinh.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Đối với cặp vợ chồng nhiễm HIV/HBV/HCV muốn làm IVF: Cần lọc rửa tinh trùng (Sperm washing) và điều trị ổn định tải lượng virus trước khi bắt đầu chu kỳ.
+- Sàng lọc TORCH trước khi mang thai hoặc trước khi làm IVF là quy trình bắt buộc tại các trung tâm hỗ trợ sinh sản.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- **Tiên lượng:** Phụ thuộc vào tác nhân và tuổi thai lúc nhiễm. Rubella quý 1 có nguy cơ dị tật lên đến 85-90%. CMV là nguyên nhân hàng đầu gây điếc bẩm sinh không do di truyền.
+- **Theo dõi:** 
+    - Siêu âm hình thái học chuyên sâu mỗi 2-4 tuần ở các ca nghi ngờ.
+    - Theo dõi thính lực và phát triển tâm thần vận động của trẻ sau sinh (ngay cả khi trẻ sinh ra có vẻ bình thường).
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Một số loại vi khuẩn và virus có thể đi qua nhau thai để sang em bé. Đôi khi mẹ chỉ thấy mệt như cảm cúm nhưng em bé lại bị ảnh hưởng nặng. Việc xét nghiệm và siêu âm giúp chúng ta phát hiện sớm để điều trị hoặc chuẩn bị kế hoạch chăm sóc tốt nhất cho bé sau sinh."
+- **Câu hỏi thường gặp:** 
+    - *Hỏi:* "Tôi bị Rubella lúc 8 tuần, tôi có nên giữ thai không?" -> *Trả lời:* Cần tư vấn kỹ về nguy cơ dị tật rất cao (Hội chứng Rubella bẩm sinh). Quyết định thuộc về gia đình sau khi nghe tư vấn đầy đủ từ hội đồng tiền sản.
+    - *Hỏi:* "Làm sao để tránh các bệnh này?" -> *Trả lời:* Tiêm phòng trước khi mang thai 3 tháng, rửa tay thường xuyên, ăn chín uống sôi, tránh tiếp xúc với chất thải của mèo và quan hệ tình dục an toàn.
+
+## 9. CROSS-LINKS
+- [TK1-05: Sàng lọc trước sinh quý 1](TK1-05.md)
+- [HSS-04: Chăm sóc trẻ sơ sinh từ mẹ nhiễm bệnh truyền nhiễm](HSS-04.md)
+- [DT-03: Chọc ối và các xét nghiệm di truyền](DT-03.md)
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ACOG Practice Bulletin No. 151: Cytomegalovirus, Parvovirus B19, Varicella Zoster, and Toxoplasmosis in Pregnancy.
+2. WHO Guidelines on Syphilis screening and treatment for pregnant women.
+3. Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản - Bộ Y tế Việt Nam.
+4. ESHRE guideline: Management of women with infectious diseases in ART.
+
+---
+**Giáo sư Sản Phụ khoa**
+*Lưu ý: Bài viết này dành cho mục đích đào tạo chuyên môn. Mọi can thiệp lâm sàng cần dựa trên tình trạng cụ thể của bệnh nhân và hướng dẫn hiện hành của cơ sở y tế.*

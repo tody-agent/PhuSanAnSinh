@@ -1,0 +1,89 @@
+---
+title: "Phác đồ Dài (Long GnRH Agonist Protocol) — PD-01"
+description: "Chào bạn, với tư cách là Giáo sư Sản Phụ khoa và Giám đốc Trung tâm Hỗ trợ sinh sản, tôi xin trình bày chi tiết **Phác đồ Dài (Long GnRH Agonist)** — một trong "
+pubDate: 2026-03-05
+category: ho-tro-sinh-san
+tags: ["ART","ASRM/ESHRE","REI","DOR","COH"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 6
+volume: "Tập 3: Hỗ Trợ Sinh Sản"
+---
+Chào bạn, với tư cách là Giáo sư Sản Phụ khoa và Giám đốc Trung tâm Hỗ trợ sinh sản, tôi xin trình bày chi tiết **Phác đồ Dài (Long GnRH Agonist)** — một trong những phác đồ kinh điển và nền tảng trong kích thích buồng trứng hỗ trợ sinh sản (ART), giúp kiểm soát tối ưu đỉnh LH sớm và sự đồng bộ của nang noãn.
+
+Dưới đây là nội dung chi tiết theo chuẩn y khoa quốc tế (ASRM/ESHRE) và hướng dẫn của Bộ Y tế Việt Nam.
+
+---
+
+# Phác đồ Dài (Long GnRH Agonist Protocol) — PD-01
+> **Nhóm:** PD (Phác đồ) | **Mã:** PD-01 | **Đối tượng:** Bác sĩ chuyên khoa Hỗ trợ sinh sản (REI)
+
+## 1. ĐỊNH NGHĨA & CHỈ ĐỊNH
+**Định nghĩa:** Phác đồ Dài (Long Protocol) sử dụng chất đồng vận GnRH (GnRH Agonist) từ giai đoạn hoàng thể (Luteal phase) của chu kỳ trước nhằm ức chế tuyến yên (down-regulation) trước khi bắt đầu kích thích buồng trứng bằng Gonadotropins.
+
+**Chỉ định:**
+*   Phụ nữ có dự trữ buồng trứng (DOR) bình thường.
+*   Bệnh nhân có tiền sử đáp ứng không đồng bộ nang noãn trong các phác đồ ngắn.
+*   Lạc nội mạc tử cung (Endometriosis) mức độ vừa đến nặng.
+*   Bệnh cơ tuyến tử cung (Adenomyosis).
+*   Chủ động về thời gian thực hiện thủ thuật (tiện lợi cho việc sắp xếp lịch chọc hút noãn).
+
+**Mã ICD-10 liên quan:** 
+*   **N97:** Vô sinh nữ (Female infertility).
+*   **Z31.2:** Thụ tinh trong ống nghiệm (In vitro fertilization).
+
+## 2. NGUYÊN LÝ KHOA HỌC
+*   **Cơ chế Down-regulation:** GnRH Agonist ban đầu gây hiệu ứng "Flare-up" (tăng giải phóng FSH và LH), sau đó làm giảm nhạy cảm các thụ thể GnRH tại tuyến yên (receptor downregulation), dẫn đến ức chế bài tiết LH và FSH nội sinh.
+*   **Mục tiêu:** 
+    *   Ngăn chặn đỉnh LH sớm (Premature LH surge), tránh rụng trứng tự nhiên trước khi chọc hút.
+    *   Tạo sự đồng bộ cho quần thể nang noãn phát triển đồng đều dưới tác động của FSH ngoại sinh.
+
+## 3. QUY TRÌNH THỰC HIỆN (Step-by-step)
+| Bước | Thời điểm | Hành động | Người thực hiện | Lưu ý |
+|------|----------|----------|----------------|-------|
+| **1. Chuẩn bị** | Ngày 21 chu kỳ trước | Siêu âm kiểm tra và bắt đầu dùng GnRH Agonist. | BS lâm sàng | Loại trừ thai sớm trước khi dùng thuốc. |
+| **2. Down-regulation** | Ngày 1 - Ngày 3 chu kỳ sau | Siêu âm (Niêm mạc < 5mm, không nang tồn dư > 10mm), xét nghiệm E2 (< 50 pg/mL). | BS lâm sàng | Nếu chưa đạt ức chế, tiếp tục Agonist thêm 1 tuần. |
+| **3. Kích thích buồng trứng (COH)** | Từ ngày đạt Down-regulation | Bắt đầu tiêm Gonadotropins (rFSH/HMG). Giảm liều Agonist xuống 1/2. | Điều dưỡng/BN | Liều cá thể hóa dựa trên AMH, AFC, Tuổi, BMI. |
+| **4. Theo dõi** | Sau 4-5 ngày tiêm FSH | Siêu âm đo nang noãn và xét nghiệm nội tiết (E2, P4). | BS lâm sàng | Điều chỉnh liều thuốc dựa trên đáp ứng. |
+| **5. Trưởng thành noãn (Trigger)** | Khi có ít nhất 3 nang ≥ 17-18mm | Tiêm hCG (hoặc GnRH Agonist nếu nguy cơ OHSS thấp). | Điều dưỡng/BN | Ngừng hoàn toàn GnRH Agonist và FSH. |
+| **6. Chọc hút noãn (OPU)** | 34 - 36 giờ sau Trigger | Tiến hành thủ thuật chọc hút qua ngả âm đạo. | BS thủ thuật | Nhịn ăn uống, chuẩn bị tâm lý bệnh nhân. |
+
+## 4. THUỐC SỬ DỤNG
+| Thuốc | Biệt dược phổ biến | Liều thường dùng | Đường dùng | Thời gian | Theo dõi |
+|------|----------|-----|-----------|----------|---------|
+| **GnRH Agonist** | Triptorelin (Diphereline), Leuprorelin (Lucrin) | 0.1mg/ngày (sau đó giảm 0.05mg) | Tiêm dưới da (SC) | Từ ngày 21 đến ngày Trigger | Triệu chứng thiếu hụt Estrogen. |
+| **Gonadotropins** | Gonal-F, Puregon, Menopur | 150 - 300 IU/ngày | Tiêm dưới da/Bắp | Trung bình 9 - 12 ngày | Đáp ứng buồng trứng (Nang noãn). |
+| **Trigger** | Pregnyl, Ovidrelle | 5000 - 10000 IU hoặc 250mcg | Tiêm bắp/Dưới da | Một liều duy nhất | Thời điểm OPU. |
+
+## 5. THEO DÕI & ĐÁNH GIÁ
+*   **Siêu âm:** Đánh giá số lượng và tốc độ tăng trưởng nang noãn (trung bình 1.5 - 2mm/ngày).
+*   **Nội tiết:** 
+    *   Estradiol (E2): Phản ánh sự trưởng thành của noãn (trung bình 200-300 pg/mL/nang trưởng thành).
+    *   Progesterone (P4): Đánh giá hiện tượng hóa hoàng sớm (P4 > 1.5 ng/mL vào ngày trigger có thể ảnh hưởng tỷ lệ đậu thai).
+*   **Độ dày niêm mạc tử cung (EMT):** Tối ưu khi đạt 8-12mm, dạng 3 lá vào ngày trigger.
+
+## 6. BIẾN CHỨNG & XỬ TRÍ
+| Biến chứng | Tần suất | Nhận biết | Xử trí |
+|-----------|---------|----------|--------|
+| **Quá kích buồng trứng (OHSS)** | 1 - 5% | Bụng chướng, đau, buồn nôn, tiểu ít, E2 > 3500-4000 pg/mL. | Giảm liều FSH, "Coast", Trigger bằng liều thấp hCG, đông phôi toàn bộ (Freeze-all). |
+| **Nang tồn dư (Functional cysts)** | 5 - 10% | Thấy nang lớn vào đầu chu kỳ sau khi dùng Agonist. | Tiếp tục Agonist hoặc chọc hút nang nếu cần. |
+| **Tác dụng phụ do Down-reg** | Thường gặp | Đau đầu, bốc hỏa, khô âm đạo. | Tư vấn, trấn an bệnh nhân, dùng giảm đau nhẹ. |
+
+## 7. KẾT QUẢ KỲ VỌNG
+*   Tỷ lệ thu hoạch noãn trưởng thành (MII) cao (> 80%).
+*   Tỷ lệ thụ tinh ổn định.
+*   Kiểm soát tốt thời điểm OPU, tránh rơi vào ngày nghỉ hoặc quá tải trung tâm.
+
+## 8. TƯ VẤN BỆNH NHÂN
+*   **Tuân thủ:** Việc tiêm thuốc đúng giờ là cực kỳ quan trọng, đặc biệt là liều Trigger.
+*   **Lối sống:** Hạn chế vận động mạnh sau khi kích thích buồng trứng được 1 tuần để tránh xoắn buồng trứng.
+*   **Tâm lý:** Phác đồ này kéo dài hơn phác đồ Ngắn (Antagonist) khoảng 2 tuần, cần sự kiên nhẫn của bệnh nhân.
+*   **Lưu ý:** *Cần chỉ định và theo dõi sát sao của bác sĩ chuyên khoa Hỗ trợ sinh sản để điều chỉnh liều thuốc kịp thời.*
+
+## 9. CROSS-LINKS
+*   [[PD-02]] - Phác đồ Ngắn (GnRH Antagonist).
+*   [[KT-01]] - Kỹ thuật Chọc hút noãn (OPU).
+*   [[BC-01]] - Hội chứng Quá kích buồng trứng (OHSS).
+
+---
+**Giáo sư Sản Phụ khoa**
+*(Ký tên)*

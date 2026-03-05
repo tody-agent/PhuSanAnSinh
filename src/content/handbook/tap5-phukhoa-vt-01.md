@@ -1,0 +1,108 @@
+---
+title: "VT-01: Tắc Vòi trứng"
+description: "I will search for the most relevant existing articles in the `output/` directory and read `sanphu_handbook_prompt.md` to ensure the new article on \"Tắc Vòi trứn"
+pubDate: 2026-03-05
+category: phu-khoa
+tags: ["ACOG/ASRM","PID","HSG","SIS/HyCoSy","TVUS"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 5: Phụ Khoa"
+---
+I will search for the most relevant existing articles in the `output/` directory and read `sanphu_handbook_prompt.md` to ensure the new article on "Tắc Vòi trứng" aligns with the established tone and formatting.
+I will read `output/TAP-02_VoSinh/VSN-02.md` to ensure that the content for VT-01 remains consistent and complementary, as the two topics are closely related.
+Chào đồng nghiệp, với tư cách là một Giáo sư Sản Phụ khoa có 30 năm kinh nghiệm, tôi xin trình bày bài viết chuyên sâu về **Tắc vòi trứng (Tubal Occlusion)**. Đây là một thực thể bệnh lý quan trọng, không chỉ là nguyên nhân gây vô sinh hàng đầu mà còn tiềm ẩn nhiều nguy cơ bệnh lý phụ khoa khác.
+
+Dưới đây là nội dung chi tiết theo đúng template và chuẩn y khoa quốc tế:
+
+---
+
+# VT-01: Tắc Vòi trứng
+> **Nhóm:** VT | **ICD-10:** N97.1 | **Mức độ phổ biến:** ⭐⭐⭐ | 
+> **Độ phức tạp:** Trung cấp | 
+> **Đối tượng:** BS chuyên khoa / ĐD / BN
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (ACOG/ASRM):** Tắc vòi trứng (Tubal occlusion) là tình trạng gián đoạn hoàn toàn hoặc một phần về mặt cơ học dọc theo chiều dài của vòi tử cung (Fallopian tube), ngăn chặn sự di chuyển của giao tử (noãn và tinh trùng) và phôi.
+- **Tần suất/Tỷ lệ:** Chiếm khoảng **25-35%** các trường hợp vô sinh nữ. Trong đó, tắc đoạn xa (distal occlusion) phổ biến hơn tắc đoạn gần (proximal occlusion).
+- **Yếu tố nguy cơ chính:**
+    - Viêm vùng chậu (PID) do Chlamydia hoặc lậu cầu.
+    - Tiền sử nạo hút thai, can thiệp buồng tử cung không đảm bảo vô khuẩn.
+    - Lạc nội mạc tử cung (Endometriosis).
+    - Tiền sử phẫu thuật vùng bụng chậu (viêm ruột thừa vỡ, mổ u nang).
+    - Lao sinh dục (Genital Tuberculosis) — đặc biệt lưu ý tại các nước đang phát triển.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:**
+    - **Hậu quả của viêm nhiễm:** Phản ứng viêm gây phá hủy lớp nội mô (endosalpinx), làm mất các lông chuyển (cilia) và gây dính niêm mạc vòi trứng.
+    - **Tắc đoạn gần:** Thường do các nút nhầy (mucus plugs), mảnh vụn mô, hoặc xơ hóa (Salpingitis isthmica nodosa - SIN).
+    - **Tắc đoạn xa:** Thường do dính loa vòi (fimbrial phimosis) hoặc bít tắc hoàn toàn tạo túi dịch (Hydrosalpinx).
+- **Mối liên hệ với sinh sản:** Vòi trứng là nơi diễn ra sự thụ tinh và nuôi dưỡng phôi trong 72 giờ đầu. Tắc nghẽn làm mất khả năng thụ thai tự nhiên và tăng nguy cơ làm tổ sai chỗ.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Đa số bệnh nhân không có triệu chứng (asymptomatic). Một số có thể đau vùng chậu mãn tính hoặc thống kinh.
+- **Triệu chứng thực thể:** Khám mỏ vịt và khám bằng hai tay thường không phát hiện bất thường, trừ khi có khối ứ dịch vòi trứng lớn (Hydrosalpinx) gây nề phần phụ.
+- **Bệnh nhân thường phàn nàn:** "Tôi thả tự nhiên 2 năm nay, kinh nguyệt rất đều, sức khỏe bình thường nhưng chưa có thai. Trước đây tôi từng mổ ruột thừa/từng nạo thai 1 lần."
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| **Chlamydia IgG** | Tầm soát nhiễm trùng cũ | Âm tính | Dương tính (Nguy cơ cao tổn thương vòi trứng) |
+| **PCR Chlamydia/Lậu** | Tìm tình trạng viêm cấp | Âm tính | Dương tính (Cần điều trị kháng sinh trước can thiệp) |
+| **CA-125** | Loại trừ lạc nội mạc/u BT | < 35 U/mL | Tăng nhẹ trong lạc nội mạc tử cung |
+
+### 4.2 Hình ảnh học
+- **Chụp tử cung vòi trứng (HSG):** Phương pháp sàng lọc hàng đầu. Cho thấy vị trí tắc và hình thái buồng tử cung.
+- **Siêu âm bơm dịch (SIS/HyCoSy):** Đánh giá độ thông vòi trứng bằng chất tương phản vi bọt dưới siêu âm, ít xâm lấn hơn HSG.
+- **Siêu âm ngả âm đạo (TVUS):** Phát hiện hình ảnh ứ dịch vòi trứng (hình xúc xích, vách ngăn không hoàn toàn).
+- **Nội soi ổ bụng (Laparoscopy):** Tiêu chuẩn vàng. Cho phép đánh giá trực tiếp bề mặt vòi trứng, loa vòi và thực hiện test xanh Methylen.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Co thắt vòi trứng | Tắc đoạn gần trên HSG nhưng thông khi nội soi có thuốc giãn cơ. |
+| Lạc tuyến cơ tử cung (Adenomyosis) | Gây tắc đoạn kẽ, chẩn đoán dựa trên MRI/Siêu âm cơ tử cung. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- [x] Đau bụng dưới dữ dội + Trễ kinh (Nghi ngờ **Thai ngoài tử cung vỡ**).
+- [x] Đau vùng chậu cấp + Sốt cao + Phản ứng thành bụng (Nghi ngờ **Áp xe phần phụ/Viêm phúc mạc**).
+→ **Hành động:** Chuyển cấp cứu ngoại sản, bù dịch, kháng sinh tĩnh mạch và phẫu thuật nội soi cấp cứu.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- Không có thuốc làm thông vòi trứng đã bị tắc cơ học.
+- Kháng sinh phối hợp (Ceftriaxone + Doxycycline) nếu có viêm vùng chậu cấp.
+
+### 6.2 Điều trị ngoại khoa
+- **Nội soi gỡ dính (Adhesiolysis):** Giải phóng vòi trứng khỏi các dây dính quanh tử cung/buồng trứng.
+- **Tạo hình vòi trứng (Salpingostomy/Fimbrioplasty):** Mở thông loa vòi trứng cho trường hợp tắc đoạn xa mức độ nhẹ.
+- **Thông vòi trứng đoạn gần bằng Catheter (Tubal Cannulation):** Thực hiện qua soi buồng tử cung.
+- **Cắt vòi trứng (Salpingectomy):** Chỉ định khi ứ dịch vòi trứng nặng trước khi làm IVF.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- **IVF (Thụ tinh trong ống nghiệm):** Là phương pháp hiệu quả nhất cho tắc vòi trứng cả hai bên hoặc tổn thương niêm mạc nặng.
+- **IUI:** Chỉ làm khi thông ít nhất một bên và vòi trứng đó có chức năng tốt.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- Tỷ lệ có thai tự nhiên sau phẫu thuật tạo hình vòi trứng khoảng 20-30% tùy mức độ tổn thương.
+- Nguy cơ thai ngoài tử cung tăng lên 10-15% sau phẫu thuật vòi trứng.
+- Theo dõi: Nếu sau phẫu thuật 6-12 tháng không có thai tự nhiên, tư vấn làm IVF ngay.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Vòi trứng của chị giống như một cây cầu bị gãy. Tinh trùng và trứng không thể gặp nhau trên cầu được. Chúng ta có thể sửa cầu nếu hỏng nhẹ, hoặc dùng 'máy bay' (IVF) để đưa phôi trực tiếp vào nhà (tử cung)."
+- **Câu hỏi thường gặp:**
+    - *"Em bị tắc 1 bên thì có con tự nhiên được không?"* → Có, nhưng tỷ lệ giảm và cần theo dõi nguy cơ thai ngoài tử cung.
+    - *"Thông vòi trứng xong có bị tắc lại không?"* → Có nguy cơ tái dính cao, nên cần cố gắng có thai sớm sau mổ.
+
+## 9. CROSS-LINKS
+- Xem thêm: [[VSN-02]] - Vô sinh yếu tố vòi trứng
+- Phác đồ liên quan: [[PD-02]] - Phác đồ Antagonist cho IVF
+- Kỹ thuật: [[KTHT-02]] - Quy trình Thụ tinh trong ống nghiệm
+
+## 10. TÀI LIỆU THAM KHẢO
+1. **ASRM Practice Committee (2021):** Role of tubal surgery in the era of assisted reproductive technology.
+2. **ESHRE Guideline (2023):** Management of tubal factor infertility.
+3. **Bộ Y tế Việt Nam:** Hướng dẫn chẩn đoán và điều trị các bệnh Sản Phụ khoa.
+
+---
+*Ghi chú: Mọi chỉ định can thiệp cần được thực hiện bởi bác sĩ chuyên khoa sau khi đã đánh giá toàn diện dự trữ buồng trứng và tinh dịch đồ của người chồng.*

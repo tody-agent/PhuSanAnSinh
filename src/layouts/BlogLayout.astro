@@ -50,20 +50,11 @@ const formattedUpdate = updatedDate
   : null;
 ---
 
-<BaseLayout title={`${title} | Phòng Khám An Sinh`} description={description} ogImage={heroImage} ogType="article">
-  <Fragment slot="head">
-    <meta property="article:published_time" content={pubDate.toISOString()} />
-    {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
-    <meta property="article:section" content={categoryMap[category] || category} />
-    {tags.map((tag) => <meta property="article:tag" content={tag} />)}
-    <meta property="article:author" content={author} />
-  </Fragment>
-
+<BaseLayout title={`${title} | Phòng Khám An Sinh`} description={description}>
   <article
     class="article-page"
     itemscope
     itemtype="https://schema.org/MedicalWebPage"
-    data-blog-category={category}
   >
     <header class="article-header">
       <div class="container">
@@ -83,19 +74,6 @@ const formattedUpdate = updatedDate
             >{formattedDate}</time
           >
           {readingTime && <span>{readingTime} phút đọc</span>}
-          <button
-            class="tts-trigger-btn"
-            id="tts-trigger"
-            aria-label="Nghe bài viết"
-            title="Nghe bài viết"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-            </svg>
-            <span>Nghe</span>
-          </button>
         </div>
         {
           heroImage && (
@@ -113,19 +91,18 @@ const formattedUpdate = updatedDate
 
     <div class="container">
       <div class="article-layout">
-        <div class="article-content prose" id="article-content" itemprop="mainContentOfPage">
+        <div class="article-content prose" itemprop="mainContentOfPage">
           <slot />
         </div>
         <aside class="article-sidebar">
           <div class="sidebar-cta card">
             <h3>Cần tư vấn?</h3>
             <p>Bác sĩ chuyên khoa sẵn sàng giải đáp thắc mắc của bạn.</p>
-            <button
-              type="button"
+            <a
+              href="https://phusanansinh.com/dat-lich-hen-kham.html"
               class="btn btn-accent btn-sm"
-              id="article-sidebar-cta"
-              onclick="window.openBookingSheet && window.openBookingSheet()"
-            >Hẹn Khám Ngay</button>
+              id="article-sidebar-cta">Hẹn Khám</a
+            >
             <a
               href="tel:0899268299"
               class="btn btn-outline btn-sm mt-1"
@@ -156,9 +133,7 @@ const formattedUpdate = updatedDate
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
       name: title,
-      headline: title,
       description: description,
-      image: heroImage ? `https://phusanansinh.com${heroImage}` : "https://phusanansinh.com/og-image.jpg",
       datePublished: pubDate.toISOString(),
       ...(updatedDate && { dateModified: updatedDate.toISOString() }),
       author: {
@@ -172,257 +147,6 @@ const formattedUpdate = updatedDate
       },
     })}
   ></script>
-
-  <!-- Blog TTS Reader (ReadIt Master) -->
-  <script>
-    (function () {
-      'use strict';
-      if (!('speechSynthesis' in window)) return;
-
-      var synth = window.speechSynthesis;
-      var utterances = [];
-      var currentIdx = 0;
-      var isPlaying = false;
-      var isPaused = false;
-      var playerBar = null;
-      var keepAliveTimer = null;
-      var cancelGuard = false;
-
-      /* ── Extract core text ── */
-      function extractCoreText() {
-        var article = document.getElementById('article-content');
-        if (!article || !article.textContent.trim()) return '';
-        var clone = article.cloneNode(true);
-        clone.querySelectorAll(
-          'script, style, nav, footer, iframe, img, video, audio, svg, figure, ' +
-          '[aria-hidden="true"], .sidebar-cta, .sidebar-tags, .tag-list, .blog-cta-box'
-        ).forEach(function(el) { el.remove(); });
-        return clone.innerText
-          .replace(/\n{3,}/g, '\n\n')
-          .replace(/\s{2,}/g, ' ')
-          .trim();
-      }
-
-      /* ── Chunking ── */
-      function splitIntoChunks(text, maxLen) {
-        maxLen = maxLen || 2500;
-        var chunks = [];
-        var sentences = text.split(/(?<=[.!?。？！\n])\s+/);
-        var current = '';
-        for (var i = 0; i < sentences.length; i++) {
-          var s = sentences[i];
-          if ((current + ' ' + s).length > maxLen && current) {
-            chunks.push(current.trim());
-            current = s;
-          } else {
-            current += (current ? ' ' : '') + s;
-          }
-        }
-        if (current.trim()) chunks.push(current.trim());
-        return chunks;
-      }
-
-      /* ── Voice selection ── */
-      function getViVoice() {
-        var voices = synth.getVoices();
-        var vi = voices.find(function(v) { return v.lang === 'vi-VN' && v.localService; })
-          || voices.find(function(v) { return v.lang === 'vi-VN'; })
-          || voices.find(function(v) { return v.lang.startsWith('vi'); });
-        return vi || null;
-      }
-
-      /* ── Build utterances ── */
-      function buildUtterances(text) {
-        var chunks = splitIntoChunks(text);
-        var voice = getViVoice();
-        return chunks.map(function(chunk, i) {
-          var u = new SpeechSynthesisUtterance(chunk);
-          u.lang = 'vi-VN';
-          u.rate = 1.0;
-          u.pitch = 1.0;
-          if (voice) u.voice = voice;
-          u.onend = function() {
-            if (i < chunks.length - 1) {
-              currentIdx = i + 1;
-              synth.speak(utterances[currentIdx]);
-              updateProgress();
-            } else {
-              stopReading();
-            }
-          };
-          u.onerror = function(e) {
-            if (cancelGuard || e.error === 'canceled' || e.error === 'interrupted') return;
-            stopReading();
-          };
-          return u;
-        });
-      }
-
-      /* ── Player bar ── */
-      function esc(str) {
-        var d = document.createElement('div');
-        d.textContent = str || '';
-        return d.innerHTML;
-      }
-
-      function createPlayerBar(title) {
-        if (playerBar) return;
-        playerBar = document.createElement('div');
-        playerBar.className = 'tts-player-bar';
-        playerBar.innerHTML =
-          '<div class="tts-bar-inner">' +
-            '<div class="tts-bar-info">' +
-              '<span class="tts-bar-icon">🔊</span>' +
-              '<span class="tts-bar-title">' + esc(title) + '</span>' +
-            '</div>' +
-            '<div class="tts-bar-controls">' +
-              '<button class="tts-bar-btn tts-btn-toggle" aria-label="Tạm dừng">' +
-                '<svg class="tts-icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>' +
-                '<svg class="tts-icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M8 5v14l11-7z"/></svg>' +
-              '</button>' +
-              '<button class="tts-bar-btn tts-btn-close" aria-label="Đóng">' +
-                '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
-              '</button>' +
-            '</div>' +
-          '</div>' +
-          '<div class="tts-bar-progress"><div class="tts-bar-progress-fill"></div></div>';
-        document.body.appendChild(playerBar);
-        playerBar.querySelector('.tts-btn-toggle').addEventListener('click', togglePause);
-        playerBar.querySelector('.tts-btn-close').addEventListener('click', stopReading);
-        requestAnimationFrame(function() {
-          requestAnimationFrame(function() {
-            playerBar.classList.add('active');
-          });
-        });
-        document.body.style.paddingBottom = '72px';
-      }
-
-      function hidePlayerBar() {
-        if (!playerBar) return;
-        playerBar.classList.remove('active');
-        document.body.style.paddingBottom = '';
-        var ref = playerBar;
-        setTimeout(function() {
-          if (ref && !ref.classList.contains('active')) {
-            ref.remove();
-          }
-        }, 400);
-        playerBar = null;
-      }
-
-      function updateProgress() {
-        if (!playerBar || !utterances.length) return;
-        var pct = ((currentIdx + 1) / utterances.length) * 100;
-        var fill = playerBar.querySelector('.tts-bar-progress-fill');
-        if (fill) fill.style.width = pct + '%';
-      }
-
-      function updateToggleIcon() {
-        if (!playerBar) return;
-        var ip = playerBar.querySelector('.tts-icon-pause');
-        var ipl = playerBar.querySelector('.tts-icon-play');
-        var btn = playerBar.querySelector('.tts-btn-toggle');
-        if (isPaused) {
-          ip.style.display = 'none'; ipl.style.display = '';
-          btn.setAttribute('aria-label', 'Tiếp tục');
-        } else {
-          ip.style.display = ''; ipl.style.display = 'none';
-          btn.setAttribute('aria-label', 'Tạm dừng');
-        }
-      }
-
-      /* ── Controls ── */
-      function startReading() {
-        var text = extractCoreText();
-        if (!text) return;
-        cancelGuard = true;
-        synth.cancel();
-        cancelGuard = false;
-        utterances = buildUtterances(text);
-        currentIdx = 0;
-        isPlaying = true;
-        isPaused = false;
-        var h1 = document.querySelector('h1[itemprop="name"]');
-        var title = h1 ? h1.textContent : 'Bài viết';
-        createPlayerBar(title);
-        updateToggleIcon();
-        updateTriggerState();
-        synth.speak(utterances[0]);
-        updateProgress();
-        startKeepAlive();
-      }
-
-      function togglePause() {
-        if (!isPlaying) return;
-        if (isPaused) { synth.resume(); isPaused = false; }
-        else { synth.pause(); isPaused = true; }
-        updateToggleIcon();
-        updateTriggerState();
-      }
-
-      function stopReading() {
-        cancelGuard = true;
-        synth.cancel();
-        cancelGuard = false;
-        isPlaying = false;
-        isPaused = false;
-        utterances = [];
-        currentIdx = 0;
-        hidePlayerBar();
-        updateTriggerState();
-        stopKeepAlive();
-      }
-
-      /* ── Chrome keep-alive ── */
-      function startKeepAlive() {
-        stopKeepAlive();
-        keepAliveTimer = setInterval(function() {
-          if (synth.speaking && !synth.paused) {
-            synth.pause();
-            synth.resume();
-          }
-        }, 10000);
-      }
-      function stopKeepAlive() {
-        if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
-      }
-
-      /* ── Trigger button state ── */
-      function updateTriggerState() {
-        var btn = document.getElementById('tts-trigger');
-        if (!btn) return;
-        if (isPlaying) btn.classList.add('active');
-        else btn.classList.remove('active');
-      }
-
-      /* ── Init ── */
-      function init() {
-        if (!document.getElementById('article-content')) return;
-        if (synth.getVoices().length === 0) {
-          synth.addEventListener('voiceschanged', function onV() {
-            synth.removeEventListener('voiceschanged', onV);
-          });
-        }
-        var btn = document.getElementById('tts-trigger');
-        if (btn) {
-          btn.addEventListener('click', function() {
-            if (!isPlaying) startReading();
-            else togglePause();
-          });
-        }
-        window.addEventListener('beforeunload', function() {
-          synth.cancel();
-          stopKeepAlive();
-        });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
-    })();
-  </script>
 </BaseLayout>
 
 <style>
@@ -614,143 +338,88 @@ const formattedUpdate = updatedDate
   }
 
   @media (max-width: 768px) {
+    .article-page {
+      overflow-x: hidden;
+    }
+
+    .article-header {
+      padding: var(--space-xl) 0;
+    }
+
+    .article-category {
+      font-size: 0.6875rem;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .article-header h1 {
+      font-size: clamp(1.125rem, 5vw, 1.5rem);
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+
+    .breadcrumb ol {
+      font-size: 0.75rem;
+      margin-bottom: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .article-meta {
+      font-size: 0.8125rem;
+      gap: var(--space-md);
+    }
+
     .article-layout {
       grid-template-columns: 1fr;
+      padding-top: var(--space-xl);
+      gap: var(--space-xl);
     }
 
     .sidebar-cta {
       position: static;
     }
-  }
 
-  /* ── TTS Trigger Button ── */
-  .tts-trigger-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: var(--primary-light);
-    color: var(--primary);
-    border: 1px solid transparent;
-    border-radius: var(--radius-full);
-    padding: 0.25rem 0.75rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    line-height: 1;
-  }
-
-  .tts-trigger-btn:hover {
-    background: var(--primary);
-    color: white;
-  }
-
-  .tts-trigger-btn.active {
-    background: var(--primary);
-    color: white;
-    animation: tts-pulse 2s infinite;
-  }
-
-  @keyframes tts-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-  }
-</style>
-
-<style is:global>
-  /* ── TTS Player Bar ── */
-  .tts-player-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    transform: translateY(100%);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    padding-bottom: env(safe-area-inset-bottom, 0);
-  }
-
-  .tts-player-bar.active {
-    transform: translateY(0);
-  }
-
-  .tts-bar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 16px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-  }
-
-  .tts-bar-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  .tts-bar-title {
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .tts-bar-controls {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-  }
-
-  .tts-bar-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    color: inherit;
-    transition: background 0.15s ease;
-  }
-
-  .tts-bar-btn:hover {
-    background: rgba(0, 0, 0, 0.06);
-  }
-
-  .tts-bar-progress {
-    height: 3px;
-    background: rgba(0, 0, 0, 0.08);
-  }
-
-  .tts-bar-progress-fill {
-    height: 100%;
-    width: 0%;
-    background: var(--primary, #2d5016);
-    border-radius: 0 3px 3px 0;
-    transition: width 0.3s linear;
-  }
-
-  @media (max-width: 768px) {
-    .tts-bar-inner {
-      padding: 8px 12px;
+    /* Mobile prose typography — optimized for content density */
+    .prose {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
-    .tts-bar-btn {
-      width: 36px;
-      height: 36px;
+
+    .prose :global(h2) {
+      font-size: 1.125rem;
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-md);
+      padding-bottom: 0.375rem;
     }
-    .tts-bar-title {
-      font-size: 13px;
+
+    .prose :global(h3) {
+      font-size: 1rem;
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    .prose :global(p) {
+      margin-bottom: var(--space-md);
+    }
+
+    .prose :global(ul),
+    .prose :global(ol) {
+      margin-bottom: var(--space-md);
+      padding-left: var(--space-lg);
+    }
+
+    .prose :global(li) {
+      margin-bottom: 0.125rem;
+    }
+
+    .prose :global(blockquote) {
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .prose :global(img) {
+      margin: var(--space-lg) 0;
     }
   }
 </style>

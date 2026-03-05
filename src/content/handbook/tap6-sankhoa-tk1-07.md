@@ -1,0 +1,111 @@
+---
+title: "TK1-07: Siêu âm Tam cá Nguyệt 1"
+description: "I will search for the existing files in the `output/TAP-06_SanKhoa/` directory to understand the naming convention and content style, and then I will create the"
+pubDate: 2026-03-05
+category: san-khoa
+tags: ["ART","NIPT/Double Test","CVS hoặc chọc ối","TK1"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 6: Sản Khoa"
+---
+I will search for the existing files in the `output/TAP-06_SanKhoa/` directory to understand the naming convention and content style, and then I will create the medical article for "Siêu âm Tam cá Nguyệt 1" following the requested template and professional medical standards.
+
+I will read the `TK1-01.md` file to understand the structure and style of existing medical articles in the project, ensuring consistency in the new article.
+
+I will create the medical article for "Siêu âm Tam cá Nguyệt 1" (First Trimester Ultrasound), ensuring it follows the requested template and professional standards, including timing, CRL measurements, and screening protocols.
+
+I will use the `write_file` tool to create the medical article for "Siêu âm Tam cá Nguyệt 1", ensuring all details and the requested template are correctly included.
+
+I will use the `cli_help` tool to inquire about the available tools for writing or modifying files, as they appear to be missing from the current tool declarations despite being mentioned in the system prompt.
+
+I will use the `codebase_investigator` tool to understand how other agents or scripts in the project handle file writing, as the expected tools for this task seem to be missing from the current declarations.
+
+I will re-run the `list_directory` command on `output/TAP-06_SanKhoa/` to confirm whether `TK1-07.md` exists, as there is a discrepancy between the `codebase_investigator`'s findings and my previous observations.
+
+I will read the content of `output/TAP-06_SanKhoa/TK1-07.md` to determine what it contains and how it was created, as it appeared between my directory listing calls despite my previous failed attempts to write to it.
+
+I have verified that the `TK1-07.md` file already exists and follows the required template and professional standards, including accurate timing and screening protocols. Although I cannot modify the file directly, the current content is high-quality and aligns with the "GIÁO SƯ SẢN PHỤ KHOA" persona. I will now examine `scripts/rnd_config.py` to ensure all metadata for `TK1-07` is consistent with the project's standards.
+
+Chào các đồng nghiệp, với tư cách là người đã đồng hành cùng hàng ngàn thai kỳ, tôi khẳng định rằng siêu âm Tam cá nguyệt 1 (First Trimester Ultrasound) không chỉ đơn thuần là việc "xem con ra sao" mà là một **"Cuộc khảo sát sinh tồn và sàng lọc mang tính quyết định"**. Đây là thời điểm vàng để xác định tuổi thai chính xác nhất, sàng lọc các bất thường nhiễm sắc thể và dự phòng các biến chứng sản khoa nguy hiểm như tiền sản giật.
+
+Dưới đây là nội dung chi tiết theo chuẩn chuyên khoa:
+
+# TK1-07: Siêu âm Tam cá Nguyệt 1
+> **Nhóm:** TK1 | **ICD-10:** Z36.3 | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (theo ACOG/ISUOG):** Siêu âm tam cá nguyệt 1 (First-trimester ultrasound) là thăm dò chẩn đoán hình ảnh thực hiện từ thời điểm xác nhận có thai đến 13 tuần 6 ngày. Giai đoạn quan trọng nhất là "Siêu âm hình thái học sớm" thực hiện từ 11 tuần 0 ngày đến 13 tuần 6 ngày (tương ứng chiều dài đầu mông - CRL từ 45mm đến 84mm).
+- **Tần suất/Tỷ lệ:** Là chỉ định thường quy cho 100% phụ nữ mang thai.
+- **Yếu tố nguy cơ chính:** Sản phụ lớn tuổi (>35 tuổi), tiền sử gia đình có bất thường di truyền, tiền sử sinh con dị tật, hoặc mang thai sau hỗ trợ sinh sản (ART).
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế:** Giai đoạn này đánh dấu sự hoàn thiện các cơ quan cơ bản (Organogenesis). Siêu âm cho phép đánh giá sự phát triển bình thường hoặc các sai lệch cấu trúc sớm.
+- **Phân loại:**
+    - Siêu âm xác nhận sức sống và vị trí thai (6-10 tuần).
+    - Siêu âm sàng lọc lệch bội và hình thái sớm (11-13 tuần 6 ngày).
+- **Mối liên hệ với sinh sản:** Xác định chính xác tuổi thai là "kim chỉ nam" cho mọi can thiệp sản khoa về sau (quản lý thai chậm tăng trưởng, dọa sinh non, khởi phát chuyển dạ).
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Thường không có triệu chứng đặc hiệu, sản phụ đi khám theo lịch hẹn định kỳ. Một số có thể kèm nghén nhẹ hoặc lo lắng về sức khỏe thai nhi.
+- **Triệu chứng thực thể:** Tử cung lớn tương ứng tuổi thai trên lâm sàng.
+- **Bệnh nhân thường phàn nàn:** "Bác sĩ ơi, độ mờ da gáy bao nhiêu là an toàn?", "Con em đã đủ tay chân chưa?", "Em có cần làm thêm xét nghiệm máu (NIPT/Double Test) không?"
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng (Phối hợp sàng lọc)
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| **PAPP-A** | Sàng lọc lệch bội | MoM > 0.5 | Thấp (nguy cơ Down, Tiền sản giật) |
+| **Free β-hCG** | Sàng lọc lệch bội | 0.5 - 2.0 MoM | Cao (Down), Thấp (Trisomy 18/13) |
+| **NIPT (cfDNA)** | Sàng lọc không xâm lấn | Nguy cơ thấp | Nguy cơ cao với các cặp NST |
+
+### 4.2 Hình ảnh học
+- **Siêu âm (Tiêu chuẩn ISUOG):**
+    - **Đo CRL (Crown-Rump Length):** Tính tuổi thai chính xác nhất (sai số ± 3-5 ngày).
+    - **Đo NT (Nuchal Translucency):** Độ mờ da gáy. Ngưỡng bất thường khi NT > 95th percentile (thường lấy mốc > 2.5 - 3.0mm, đặc biệt > 3.5mm là nguy cơ rất cao).
+    - **Xương mũi (Nasal Bone):** Hiện diện (giảm nguy cơ Down) hay bất sản/thiểu sản.
+    - **Dòng chảy ống tĩnh mạch (Ductus Venosus):** Đánh giá sóng a (đảo ngược gợi ý bất thường tim/NST).
+    - **Cấu trúc giải phẫu:** Kiểm tra vòm sọ, đám rối mạch mạc, dạ dày, bàng quang, 2 tay, 2 chân.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| **Thai trứng (Molar)** | Hình ảnh bão tuyết, không thấy phôi hoặc phôi bất thường, hCG cực cao. |
+| **Thai ngừng phát triển** | CRL ≥ 7mm không thấy tim thai hoặc túi thai trống. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- **NT > 3.5mm:** Cần tư vấn xét nghiệm xâm lấn (CVS hoặc chọc ối) ngay.
+- **Phù thai (Hydrops):** Tích tụ dịch ở ít nhất 2 khoang cơ thể.
+- **Dị tật lớn:** Không hộp sọ (Acrania), thoát vị rốn (Exomphalos) chứa gan.
+- **Đa thai:** Đặc biệt là song thai một nhau một ối (Monoamniotic) cần theo dõi sát tại trung tâm chuyên sâu.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- Dự phòng **Tiền sản giật**: Nếu siêu âm Doppler động mạch tử cung và xét nghiệm PLGF cho thấy nguy cơ cao, chỉ định **Aspirin 81-150mg/ngày** bắt đầu trước 16 tuần.
+- Bổ sung vi chất (Acid Folic, Sắt, Canxi).
+### 6.2 Điều trị ngoại khoa (nếu có)
+- Đình chỉ thai nghén nếu phát hiện dị tật nặng không tương thích sự sống sau khi hội chẩn tiền sản.
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Với thai IVF: Đối chiếu tuổi thai giữa ngày chuyển phôi và siêu âm. Tiếp tục hỗ trợ hoàng thể nếu cần thiết đến tuần 10-12.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- Nếu sàng lọc quý 1 bình thường: Hẹn siêu âm hình thái chi tiết (Level II) lúc 20-22 tuần.
+- Nếu NT dày nhưng NST bình thường: Vẫn cần siêu âm tim thai chuyên sâu ở tuần 18-20 để loại trừ dị tật tim.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Siêu âm hôm nay là quan trọng nhất để bác sĩ tính ngày dự sinh cho chị và đo 'độ mờ da gáy' nhằm kiểm tra sớm nguy cơ bệnh Down của bé. Kết quả hiện tại của bé rất tốt..."
+- **Câu hỏi thường gặp:**
+    - *Q: NT bình thường rồi có cần làm NIPT không?*
+    - *A: NT mỏng là dấu hiệu tốt nhưng không loại trừ 100% các bất thường di truyền nhỏ. NIPT có độ chính xác cao hơn cho các hội chứng phổ biến như Down.*
+
+## 9. CROSS-LINKS
+- [TK1-01: Xác nhận Thai Trong tử cung](TK1-01.md)
+- [TK1-05: Thai Trứng](TK1-05.md)
+- [TK2-01: Siêu âm Hình thái học](TK2-01.md)
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ISUOG Practice Guidelines: Performance of first-trimester fetal ultrasound scan (2023).
+2. ACOG Practice Bulletin No. 226: Screening for Fetal Chromosomal Abnormalities.
+3. Hướng dẫn quốc gia về chăm sóc sức khỏe sinh sản - Bộ Y tế Việt Nam.
+
+---
+*Lưu ý: Siêu âm đo NT cần được thực hiện bởi bác sĩ có chứng chỉ đào tạo của Fetal Medicine Foundation (FMF).*

@@ -1,43 +1,24 @@
 ---
-import BookingBottomSheet from "../components/BookingBottomSheet.astro";
-
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
-  ogType?: "website" | "article";
 }
 
 const {
   title,
   description = "Phòng khám sản phụ khoa uy tín tại Từ Sơn, Bắc Ninh. Siêu âm 5D, khám thai, điều trị phụ khoa, nam khoa, vô sinh. Bác sĩ chuyên khoa 20+ năm kinh nghiệm. Đặt lịch ngay!",
   ogImage = "/og-image.jpg",
-  ogType = "website",
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- DataLayer Init (before GTM) -->
-    <script is:inline>window.dataLayer = window.dataLayer || [];</script>
-
-    <!-- Google Tag Manager -->
-    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5WVXVR36');</script>
-    <!-- End Google Tag Manager -->
-
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="format-detection" content="telephone=no, address=no" />
     <link rel="canonical" href={canonicalURL.href} />
 
     <!-- Open Graph -->
@@ -45,15 +26,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonicalURL.href} />
-    <meta property="og:type" content={ogType} />
-    <meta property="og:site_name" content="Phòng Khám An Sinh" />
+    <meta property="og:type" content="website" />
     <meta property="og:locale" content="vi_VN" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -61,10 +35,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Preconnect fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Non-blocking font loading (replaces render-blocking @import in global.css) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" /></noscript>
 
     <title>{title}</title>
 
@@ -86,12 +56,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           addressRegion: "Bắc Ninh",
           addressCountry: "VN",
         },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 21.1185888,
-          longitude: 105.9591462
-        },
-        priceRange: "$$",
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -119,21 +83,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           "Andrology",
           "ReproductiveEndocrinology",
         ],
-        department: [
-          {
-            "@type": "MedicalClinic",
-            name: "Khoa Sản",
-            medicalSpecialty: "Obstetrics"
-          },
-          {
-            "@type": "MedicalClinic",
-            name: "Khoa Phụ",
-            medicalSpecialty: "Gynecology"
-          }
-        ],
         sameAs: ["https://www.facebook.com/phongkhamansinh"],
       })}
-    ></script>
+    />
 
     <!-- Schema.org SiteNavigationElement -->
     <script
@@ -142,32 +94,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "@context": "https://schema.org",
         "@type": "SiteNavigationElement",
         name: [
-          "Trang chủ",
           "Dịch vụ",
           "Công cụ thai kỳ",
+          "Bài viết",
           "Kiến thức y khoa",
-          "Về chúng tôi",
           "Liên hệ",
         ],
         url: [
-          "https://phusanansinh.com/",
           "https://phusanansinh.com/sieu-am-5d",
           "https://phusanansinh.com/tinh-ngay-rung-trung",
           "https://phusanansinh.com/blog",
-          "https://phusanansinh.com/phong-kham-tu-son",
+          "https://phusanansinh.com/san-phu-handbook",
           "https://phusanansinh.com/#lien-he",
         ],
       })}
-    ></script>
-
-    <slot name="head" />
+    />
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WVXVR36"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <a href="#main-content" class="sr-only">Bỏ qua đến nội dung chính</a>
 
     <header class="site-header" id="site-header">
@@ -198,70 +141,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <span class="logo-sub">Sản Phụ Khoa</span>
           </div>
         </a>
-
-        <!-- Mobile inline nav (visible only on mobile) -->
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
-          <button
-            class="mobile-nav-item"
-            id="mobile-tools-trigger"
-            aria-label="Công cụ"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              ><path
-                d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-              ></path>
-            </svg>
-            <span>Công cụ</span>
-          </button>
-          <a href="/blog" class="mobile-nav-item" aria-label="Kiến thức">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              ><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path
-                d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-            <span>Kiến thức</span>
-          </a>
-          <button
-            class="mobile-nav-item"
-            id="mobile-search-trigger"
-            aria-label="Tìm kiếm"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              ><circle cx="11" cy="11" r="8"></circle><line
-                x1="21"
-                y1="21"
-                x2="16.65"
-                y2="16.65"></line>
-            </svg>
-            <span>Tìm</span>
-          </button>
-        </nav>
 
         <!-- Backdrop overlay for mobile drawer -->
         <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
@@ -317,26 +196,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </div>
 
           <ul class="nav-list" role="list">
-            <li>
-              <a href="/">
-                <svg
-                  class="nav-item-icon"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                  ><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                  ></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-                Trang chủ
-              </a>
-            </li>
-
             <!-- Dịch vụ Dropdown -->
             <li class="nav-has-dropdown">
               <button
@@ -534,33 +393,319 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </div>
             </li>
 
-            <!-- Công cụ — triggers popup -->
-            <li>
+            <!-- Công cụ Dropdown -->
+            <li class="nav-has-dropdown">
               <button
-                class="nav-link-btn"
-                id="tools-trigger"
-                aria-haspopup="dialog"
+                class="nav-dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
               >
+                <span class="nav-trigger-content">
+                  <svg
+                    class="nav-item-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    ><path
+                      d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                    ></path>
+                  </svg>
+                  Công cụ
+                </span>
                 <svg
-                  class="nav-item-icon"
-                  width="20"
-                  height="20"
+                  class="dropdown-chevron"
+                  width="12"
+                  height="12"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  stroke-width="2.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   aria-hidden="true"
-                  ><rect x="3" y="3" width="7" height="7"></rect><rect
-                    x="14"
-                    y="3"
-                    width="7"
-                    height="7"></rect><rect x="14" y="14" width="7" height="7"
-                  ></rect><rect x="3" y="14" width="7" height="7"></rect>
+                  ><polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
-                Công cụ
               </button>
+              <div class="nav-dropdown nav-dropdown-mega" role="menu">
+                <div class="dropdown-mega-inner">
+                  <div class="dropdown-grid dropdown-tools">
+                    <a
+                      href="/tinh-ngay-rung-trung"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--primary)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><rect
+                            x="3"
+                            y="4"
+                            width="18"
+                            height="18"
+                            rx="2"
+                            ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"
+                          ></line><line x1="8" y1="2" x2="8" y2="6"></line><line
+                            x1="3"
+                            y1="10"
+                            x2="21"
+                            y2="10"></line>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Tính ngày rụng trứng</strong>
+                        <span>Dự đoán ngày rụng trứng & cửa sổ thụ thai</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/tinh-ngay-du-sinh"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--primary)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><circle cx="12" cy="12" r="10"></circle><path
+                            d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
+                            x1="9"
+                            y1="9"
+                            x2="9.01"
+                            y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"
+                          ></line>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Tính ngày dự sinh</strong>
+                        <span>Tính EDD theo công thức Naegele</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/can-nang-thai-nhi"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--primary)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><path d="M12 3v17.25M18 9l-6 3.5L6 9"></path><path
+                            d="M18 9c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-6c0-1.1.9-2 2-2"
+                          ></path>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Cân nặng thai nhi</strong>
+                        <span>Tra bảng chuẩn WHO theo tuần</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/du-doan-sinh-non"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--warning)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><path
+                            d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+                          ></path><line x1="12" y1="9" x2="12" y2="13"
+                          ></line><line x1="12" y1="17" x2="12.01" y2="17"
+                          ></line>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Dự đoán sinh non</strong>
+                        <span>Đánh giá nguy cơ QUiPP + FMF</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/sang-loc-tien-san-giat"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--primary)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><path
+                            d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"
+                          ></path><rect
+                            x="8"
+                            y="2"
+                            width="8"
+                            height="4"
+                            rx="1"
+                            ry="1"></rect><path d="M9 14l2 2 4-4"></path>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Sàng lọc tiền sản giật</strong>
+                        <span>ACOG/USPSTF 2021 + NICE NG133</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/du-doan-dai-thao-duong-thai-ky"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--primary)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><path
+                            d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                          ></path>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Dự đoán ĐTĐ thai kỳ</strong>
+                        <span>FMF + PersonalGDM + Iowa</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/danh-gia-khoi-u-buong-trung"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--primary)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><circle cx="11" cy="11" r="8"></circle><line
+                            x1="21"
+                            y1="21"
+                            x2="16.65"
+                            y2="16.65"></line>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Đánh giá u buồng trứng</strong>
+                        <span>RMI 1–4 + ROMA score</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/bishop-score"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--primary)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                          ></path><polyline points="22 4 12 14.01 9 11.01"
+                          ></polyline>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Bishop Score</strong>
+                        <span>Đánh giá CTC & khởi phát chuyển dạ</span>
+                      </div>
+                    </a>
+                    <a
+                      href="/cong-cu/doppler-thai-nhi"
+                      class="dropdown-tool-card"
+                      role="menuitem"
+                    >
+                      <span class="tool-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--primary)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                      </span>
+                      <div class="tool-info">
+                        <strong>Doppler thai nhi</strong>
+                        <span>UA-PI, MCA-PSV, CPR, UtA-PI</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dropdown-promo">
+                    <span class="promo-label">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="vertical-align: -2px; margin-right: 4px;"
+                        ><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"
+                        ></path><path
+                          d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"></path>
+                      </svg>
+                      Bài viết liên quan
+                    </span>
+                    <a href="/blog" class="promo-link">Mang thai & Sinh con →</a
+                    >
+                    <a href="/blog" class="promo-link">Sức khỏe sinh sản →</a>
+                  </div>
+                </div>
+              </div>
             </li>
 
             <li>
@@ -580,130 +725,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                   ></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
                   ></path>
                 </svg>
-                Kiến thức
+                Bài viết
               </a>
             </li>
 
-            <!-- Về chúng tôi Dropdown -->
-            <li class="nav-has-dropdown">
-              <button
-                class="nav-dropdown-trigger"
-                aria-expanded="false"
-                aria-haspopup="true"
-              >
-                <span class="nav-trigger-content">
-                  <svg
-                    class="nav-item-icon"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                    ><circle cx="12" cy="12" r="10"></circle><line
-                      x1="12"
-                      y1="16"
-                      x2="12"
-                      y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"
-                    ></line>
-                  </svg>
-                  Về chúng tôi
-                </span>
+            <li>
+              <a href="/san-phu-handbook">
                 <svg
-                  class="dropdown-chevron"
-                  width="12"
-                  height="12"
+                  class="nav-item-icon"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2.5"
+                  stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   aria-hidden="true"
-                  ><polyline points="6 9 12 15 18 9"></polyline>
+                  ><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  ></path>
                 </svg>
-              </button>
-              <div class="nav-dropdown" role="menu">
-                <div class="dropdown-grid dropdown-about">
-                  <a href="/#bac-si" class="dropdown-item" role="menuitem">
-                    <span class="dropdown-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="var(--primary)"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                        ></path><circle cx="9" cy="7" r="4"></circle><path
-                          d="M23 21v-2a4 4 0 00-3-3.87"></path><path
-                          d="M16 3.13a4 4 0 010 7.75"></path>
-                      </svg>
-                    </span>
-                    <div>
-                      <strong>Đội ngũ bác sĩ</strong><span class="dropdown-desc"
-                        >20+ năm kinh nghiệm</span
-                      >
-                    </div>
-                  </a>
-                  <a
-                    href="/phong-kham-tu-son"
-                    class="dropdown-item"
-                    role="menuitem"
-                  >
-                    <span class="dropdown-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="var(--primary)"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
-                        ></path><circle cx="12" cy="10" r="3"></circle>
-                      </svg>
-                    </span>
-                    <div>
-                      <strong>Phòng khám Từ Sơn</strong><span
-                        class="dropdown-desc">416 Minh Khai, Đồng Nguyên</span
-                      >
-                    </div>
-                  </a>
-                  <a
-                    href="/tu-van-truc-tuyen"
-                    class="dropdown-item"
-                    role="menuitem"
-                  >
-                    <span class="dropdown-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="var(--primary)"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        ><path
-                          d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                        ></path>
-                      </svg>
-                    </span>
-                    <div>
-                      <strong>Tư vấn trực tuyến</strong><span
-                        class="dropdown-desc">Hỏi đáp bác sĩ miễn phí</span
-                      >
-                    </div>
-                  </a>
-                </div>
-              </div>
+                Kiến thức
+              </a>
             </li>
 
             <li>
@@ -726,115 +770,108 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 Liên hệ
               </a>
             </li>
-
-            <!-- Mobile drawer CTA -->
-            <div class="drawer-cta">
-              <a
-                href="https://phusanansinh.com/dat-lich-hen-kham.html"
-                class="btn btn-accent drawer-cta-btn"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"
-                  ></rect><line x1="16" y1="2" x2="16" y2="6"></line><line
-                    x1="8"
-                    y1="2"
-                    x2="8"
-                    y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                Hẹn Khám Ngay
-              </a>
-              <a href="tel:0899268299" class="drawer-phone">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  ><path
-                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-                  ></path>
-                </svg>
-                0899 268 299
-              </a>
-            </div>
-
-            <div class="header-actions">
-              <button
-                class="search-trigger"
-                id="search-trigger"
-                aria-label="Tìm kiếm (Ctrl+K)"
-                title="Tìm kiếm (Ctrl+K)"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                  ><circle cx="11" cy="11" r="8"></circle><line
-                    x1="21"
-                    y1="21"
-                    x2="16.65"
-                    y2="16.65"></line>
-                </svg>
-              </button>
-              <a
-                href="tel:0899268299"
-                class="header-phone"
-                aria-label="Gọi hotline 0899 268 299"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                  ><path
-                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-                  ></path>
-                </svg>
-                <span>0899 268 299</span>
-              </a>
-              <a
-                href="https://phusanansinh.com/dat-lich-hen-kham.html"
-                class="btn btn-primary btn-sm"
-                id="header-cta"
-              >
-                Hẹn Khám
-              </a>
-            </div>
-
-            <button
-              class="mobile-toggle"
-              aria-label="Mở menu"
-              aria-expanded="false"
-              id="mobile-toggle"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
           </ul>
+
+          <!-- Mobile drawer CTA -->
+          <div class="drawer-cta">
+            <a
+              href="https://phusanansinh.com/dat-lich-hen-kham.html"
+              class="btn btn-accent drawer-cta-btn"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"
+                ></rect><line x1="16" y1="2" x2="16" y2="6"></line><line
+                  x1="8"
+                  y1="2"
+                  x2="8"
+                  y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Hẹn Khám Ngay
+            </a>
+            <a href="tel:0899268299" class="drawer-phone">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                ></path>
+              </svg>
+              0899 268 299
+            </a>
+          </div>
         </nav>
+
+        <div class="header-actions">
+          <button
+            class="search-trigger"
+            id="search-trigger"
+            aria-label="Tìm kiếm (Ctrl+K)"
+            title="Tìm kiếm (Ctrl+K)"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><circle cx="11" cy="11" r="8"></circle><line
+                x1="21"
+                y1="21"
+                x2="16.65"
+                y2="16.65"></line>
+            </svg>
+          </button>
+          <a
+            href="tel:0899268299"
+            class="header-phone"
+            aria-label="Gọi hotline 0899 268 299"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+              ></path>
+            </svg>
+            <span>0899 268 299</span>
+          </a>
+        </div>
+
+        <button
+          class="mobile-toggle"
+          aria-label="Mở menu"
+          aria-expanded="false"
+          id="mobile-toggle"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
@@ -998,34 +1035,54 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </div>
 
           <div class="footer-col">
-            <h4>Công cụ thai kỳ</h4>
+            <h4>Công cụ</h4>
             <ul role="list">
               <li><a href="/tinh-ngay-rung-trung">Tính ngày rụng trứng</a></li>
-              <li><a href="/cong-cu/tinh-ngay-du-sinh">Tính ngày dự sinh</a></li>
+              <li>
+                <a href="/cong-cu/tinh-ngay-du-sinh">Tính ngày dự sinh</a>
+              </li>
               <li><a href="/can-nang-thai-nhi">Cân nặng thai nhi</a></li>
-            </ul>
-            <h4 class="footer-subheading">Sàng lọc nguy cơ</h4>
-            <ul role="list">
               <li><a href="/cong-cu/du-doan-sinh-non">Dự đoán sinh non</a></li>
-              <li><a href="/cong-cu/sang-loc-tien-san-giat">Tiền sản giật</a></li>
-              <li><a href="/cong-cu/du-doan-dai-thao-duong-thai-ky">ĐTĐ thai kỳ</a></li>
-              <li><a href="/cong-cu/danh-gia-khoi-u-buong-trung">U buồng trứng</a></li>
-            </ul>
-            <h4 class="footer-subheading">Đánh giá lâm sàng</h4>
-            <ul role="list">
-              <li><a href="/cong-cu/bishop-score">Bishop Score</a></li>
-              <li><a href="/cong-cu/doppler-thai-nhi">Doppler thai nhi</a></li>
+              <li>
+                <a href="/cong-cu/sang-loc-tien-san-giat"
+                  >Sàng lọc tiền sản giật</a
+                >
+              </li>
+              <li>
+                <a href="/cong-cu/du-doan-dai-thao-duong-thai-ky"
+                  >Dự đoán ĐTĐ thai kỳ</a
+                >
+              </li>
+              <li>
+                <a href="/cong-cu/danh-gia-khoi-u-buong-trung"
+                  >Đánh giá u buồng trứng</a
+                >
+              </li>
+              <li>
+                <a href="/cong-cu/bishop-score">Bishop Score</a>
+              </li>
+              <li><a href="/tu-van-truc-tuyen">Tư vấn trực tuyến</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
-            <h4>Khám phá</h4>
+            <h4>Sản Phụ Handbook</h4>
             <ul role="list">
-              <li><a href="/phong-kham-tu-son">Phòng khám Từ Sơn</a></li>
-              <li><a href="/#bac-si">Đội ngũ bác sĩ</a></li>
-              <li><a href="/#review">Cảm nhận khách hàng</a></li>
-              <li><a href="/tu-van-truc-tuyen">Tư vấn trực tuyến</a></li>
-              <li><a href="/blog">Kiến thức y khoa</a></li>
+              <li><a href="/san-phu-handbook">Tất cả bài viết</a></li>
+              <li>
+                <a href="/san-phu-handbook?cat=nen-tang">Nền Tảng Y Khoa</a>
+              </li>
+              <li><a href="/san-phu-handbook?cat=phu-khoa">Phụ Khoa</a></li>
+              <li><a href="/san-phu-handbook?cat=san-khoa">Sản Khoa</a></li>
+              <li>
+                <a href="/san-phu-handbook?cat=vo-sinh-hiem-muon"
+                  >Vô Sinh & Hiếm Muộn</a
+                >
+              </li>
+              <li><a href="/san-phu-handbook?cat=hau-san">Hậu Sản</a></li>
+              <li>
+                <a href="/san-phu-handbook?cat=di-truyen">Di Truyền Học</a>
+              </li>
             </ul>
           </div>
 
@@ -1137,7 +1194,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Sticky CTA Bar (Mobile) -->
     <div class="sticky-cta" role="complementary" aria-label="Hành động nhanh">
-      <a href="tel:0899268299" class="sticky-cta-item" aria-label="Gọi hotline">
+      <a
+        href="tel:0869935808"
+        class="sticky-cta-item"
+        aria-label="Bác sĩ tư vấn"
+      >
         <svg
           width="18"
           height="18"
@@ -1148,11 +1209,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           stroke-linecap="round"
           stroke-linejoin="round"
           aria-hidden="true"
-          ><path
-            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-          ></path>
+          ><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle
+            cx="12"
+            cy="7"
+            r="4"></circle>
         </svg>
-        <span>Hotline</span>
+        <span>BS Tư vấn</span>
       </a>
       <a
         href="https://phusanansinh.com/dat-lich-hen-kham.html"
@@ -1181,11 +1243,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </svg>
         <span>Đặt Lịch</span>
       </a>
-      <button
-        class="sticky-cta-item"
-        id="sticky-services-trigger"
-        aria-label="Dịch vụ"
-      >
+      <a href="tel:0899268299" class="sticky-cta-item" aria-label="Gọi hotline">
         <svg
           width="18"
           height="18"
@@ -1196,178 +1254,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           stroke-linecap="round"
           stroke-linejoin="round"
           aria-hidden="true"
-          ><rect x="3" y="3" width="7" height="7"></rect><rect
-            x="14"
-            y="3"
-            width="7"
-            height="7"></rect><rect x="14" y="14" width="7" height="7"
-          ></rect><rect x="3" y="14" width="7" height="7"></rect>
+          ><path
+            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+          ></path>
         </svg>
-        <span>Dịch vụ</span>
-      </button>
-    </div>
-
-    <!-- Services Popup (Mobile) -->
-    <div class="services-popup-backdrop" id="services-popup-backdrop"></div>
-    <div
-      class="services-popup"
-      id="services-popup"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Dịch vụ"
-    >
-      <div class="tools-popup-handle"><span></span></div>
-      <div class="tools-popup-header">
-        <h3>Dịch vụ</h3>
-        <button
-          class="tools-popup-close"
-          id="services-popup-close"
-          aria-label="Đóng"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><line x1="18" y1="6" x2="6" y2="18"></line><line
-              x1="6"
-              y1="6"
-              x2="18"
-              y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <div class="tools-popup-body">
-        <div class="tools-popup-grid">
-          <a href="/sieu-am-5d" class="tools-popup-card">
-            <span class="tool-icon">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Siêu âm 5D</strong><span>Hình ảnh thai nhi sắc nét</span>
-            </div>
-          </a>
-          <a href="/kham-thai" class="tools-popup-card">
-            <span class="tool-icon">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-                ></path><path d="M9 12l2 2 4-4"></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Khám thai</strong><span>Theo dõi thai kỳ toàn diện</span>
-            </div>
-          </a>
-          <a href="/kham-phu-khoa" class="tools-popup-card">
-            <span class="tool-icon">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path
-                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
-                ></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Phụ khoa</strong><span>Khám & điều trị bệnh phụ khoa</span
-              >
-            </div>
-          </a>
-          <a href="/kham-nam-khoa" class="tools-popup-card">
-            <span class="tool-icon">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                ></path><circle cx="8.5" cy="7" r="4"></circle><line
-                  x1="20"
-                  y1="8"
-                  x2="20"
-                  y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Nam khoa</strong><span>Sức khỏe nam giới</span>
-            </div>
-          </a>
-          <a href="/dieu-tri-vo-sinh" class="tools-popup-card">
-            <span class="tool-icon">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                ></path><circle cx="9" cy="7" r="4"></circle><path
-                  d="M23 21v-2a4 4 0 00-3-3.87"></path><path
-                  d="M16 3.13a4 4 0 010 7.75"></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Điều trị vô sinh</strong><span
-                >Hỗ trợ sinh sản hiện đại</span
-              >
-            </div>
-          </a>
-          <a href="/tranh-thai-an-toan" class="tools-popup-card">
-            <span class="tool-icon">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Tránh thai</strong><span>Biện pháp an toàn, hiệu quả</span
-              >
-            </div>
-          </a>
-        </div>
-      </div>
+        <span>Hotline</span>
+      </a>
     </div>
 
     <style>
@@ -1494,7 +1386,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         transform: translateX(-50%) translateY(8px);
         background: #fff;
         border-radius: var(--radius-lg);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12),
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.12),
           0 4px 16px rgba(0, 0, 0, 0.06);
         border: 1px solid var(--border-light);
         padding: var(--space-md);
@@ -1502,7 +1395,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+        transition:
+          opacity 200ms ease,
+          transform 200ms ease,
+          visibility 200ms;
         z-index: 200;
       }
 
@@ -1573,7 +1469,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       /* ── Mega Dropdown (Công cụ) ── */
       .nav-dropdown-mega {
-        min-width: 680px;
+        min-width: 480px;
         padding: 0;
       }
 
@@ -1581,39 +1477,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         display: flex;
       }
 
-      .dropdown-categories {
+      .dropdown-tools {
         flex: 1;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0;
-        padding: var(--space-sm) var(--space-md);
-      }
-
-      .dropdown-category {
-        padding: var(--space-xs) 0;
-      }
-
-      .dropdown-category:not(:last-child) {
-        border-right: 1px solid var(--border-light);
-        padding-right: var(--space-sm);
-        margin-right: var(--space-sm);
-      }
-
-      .category-label {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.6875rem;
-        font-weight: 700;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        padding: 0.375rem 0.75rem;
-        margin-bottom: 2px;
-      }
-
-      .category-label svg {
-        opacity: 0.6;
+        padding: var(--space-md);
       }
 
       .dropdown-tool-card {
@@ -1743,10 +1609,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       /* ── Footer ── */
       .site-footer {
-        background: #f8f9fb;
-        color: var(--text-secondary);
+        background: var(--text-primary);
+        color: #c9cdd4;
         padding: var(--space-4xl) 0 var(--space-xl);
-        border-top: 1px solid var(--border-light);
       }
 
       .footer-grid {
@@ -1756,13 +1621,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .site-footer h4 {
-        color: var(--text-primary);
+        color: #fff;
         font-size: 1rem;
         margin-bottom: var(--space-lg);
       }
 
       .footer-desc {
-        color: var(--text-muted);
+        color: #9ca3af;
         font-size: 0.875rem;
         margin-top: var(--space-md);
       }
@@ -1775,21 +1640,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .footer-col a {
-        color: var(--text-muted);
+        color: #9ca3af;
         font-size: 0.875rem;
         transition: color var(--transition-fast);
       }
 
       .footer-col a:hover {
-        color: var(--primary);
-      }
-
-      .footer-subheading {
-        font-size: 0.8125rem;
-        margin-top: var(--space-md);
-        margin-bottom: var(--space-xs);
-        color: var(--text-secondary);
-        font-weight: 600;
+        color: #fff;
       }
 
       .footer-contact li {
@@ -1797,7 +1654,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         align-items: flex-start;
         gap: var(--space-sm);
         font-size: 0.875rem;
-        color: var(--text-muted);
+        color: #9ca3af;
       }
 
       .footer-contact svg {
@@ -1806,11 +1663,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .footer-contact a {
-        color: var(--text-muted);
-      }
-
-      .footer-contact a:hover {
-        color: var(--primary);
+        color: #9ca3af;
       }
 
       .footer-bottom {
@@ -1819,9 +1672,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         align-items: center;
         margin-top: var(--space-3xl);
         padding-top: var(--space-xl);
-        border-top: 1px solid var(--border-light);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 0.8125rem;
-        color: var(--text-muted);
+        color: #6b7280;
       }
 
       .footer-social {
@@ -1830,7 +1683,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .footer-social a {
-        color: var(--text-muted);
+        color: #6b7280;
         transition: color var(--transition-fast);
       }
 
@@ -1846,40 +1699,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         left: 0;
         right: 0;
         z-index: 99;
-        background: #ffffff;
-        padding: var(--space-sm) var(--space-md)
-          calc(var(--space-sm) + env(safe-area-inset-bottom));
-        justify-content: space-around;
-        align-items: center;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border-top: 1px solid var(--border-light);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
-      }
-
-      .sticky-cta.is-hidden {
-        transform: translateY(100%);
-        opacity: 0;
-        pointer-events: none;
+        padding: var(--space-sm) var(--space-md);
+        justify-content: space-around;
       }
 
       .sticky-cta-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 3px;
+        gap: 2px;
         color: var(--text-secondary);
-        font-size: 0.75rem;
+        font-size: 0.6875rem;
         font-weight: 500;
         text-decoration: none;
         min-height: 44px;
-        min-width: 60px;
+        min-width: 44px;
         justify-content: center;
         padding: var(--space-xs);
         transition: color var(--transition-fast);
-        background: transparent;
-        border: none;
-        font-family: inherit;
-        line-height: 1.2;
-        cursor: pointer;
       }
 
       .sticky-cta-item:hover {
@@ -1925,84 +1766,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         display: none;
       }
 
-      /* ── Mobile Nav Bar (hidden on desktop) ── */
-      .mobile-nav {
-        display: none;
-        align-items: center;
-        gap: 0;
-        margin-left: auto;
-      }
-
-      .mobile-nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        padding: 6px 8px;
-        font-size: 0;
-        font-weight: 500;
-        color: var(--text-secondary);
-        text-decoration: none;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        border-radius: var(--radius-sm);
-        transition: all var(--transition-fast);
-        min-height: 44px;
-        min-width: 44px;
-        justify-content: center;
-        font-family: inherit;
-      }
-
-      .mobile-nav-item span {
-        display: none;
-      }
-
-      .mobile-nav-item:hover,
-      .mobile-nav-item:active {
-        color: var(--primary);
-        background: var(--primary-light);
-      }
-
-      .mobile-nav-item svg {
-        flex-shrink: 0;
-      }
-
-      /* ── Services Popup (Mobile) ── */
-      .services-popup-backdrop {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 998;
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-      }
-
-      .services-popup-backdrop.is-visible {
-        display: block;
-      }
-
-      .services-popup {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        background: #fff;
-        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-        box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.15);
-        transform: translateY(100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        max-height: 80vh;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-      }
-
-      .services-popup.is-open {
-        transform: translateY(0);
-      }
-
       /* ── Responsive ── */
       @media (max-width: 768px) {
         /* FIX FIXED CONTAINING BLOCK BUG ON IOS:
@@ -2014,43 +1777,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           background: #ffffff;
         }
 
-        /* ── NEW: Show mobile nav, hide old drawer ── */
-        .mobile-nav {
-          display: flex;
-        }
-
-        .mobile-toggle {
-          display: none !important;
-        }
-
-        .main-nav {
-          display: none !important;
-        }
-
-        .nav-backdrop {
-          display: none !important;
-        }
-
-        .header-actions {
-          display: none !important;
-        }
-
-        .header-inner {
-          padding: 0 var(--space-sm);
-        }
-
-        .logo-icon {
-          width: 32px;
-          height: 32px;
-        }
-
-        .logo-sub {
-          font-size: 0.5rem;
-        }
-
-        .logo-brand {
-          font-size: 1rem;
-        }
         /* ── Mobile Drawer ── */
         .main-nav {
           position: fixed;
@@ -2253,33 +1979,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           overflow: hidden;
         }
 
-        .dropdown-categories {
-          display: flex !important;
-          flex-direction: column;
-          grid-template-columns: none !important;
-          padding: var(--space-xs) 0 !important;
+        .dropdown-tools {
+          padding: var(--space-xs) 0;
           width: 100%;
-        }
-
-        .dropdown-category {
-          padding: 0;
-        }
-
-        .dropdown-category:not(:last-child) {
-          border-right: none !important;
-          padding-right: 0 !important;
-          margin-right: 0 !important;
-          border-bottom: 1px solid var(--border-light);
-          padding-bottom: var(--space-xs);
-          margin-bottom: var(--space-xs);
-        }
-
-        .category-label {
-          padding: 0.5rem var(--space-lg);
-          padding-left: calc(var(--space-lg) + 3px);
-          font-size: 0.625rem;
-          color: var(--primary);
-          opacity: 0.8;
+          flex: none;
         }
 
         .dropdown-item {
@@ -2377,6 +2080,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
 
         /* ── Header Optimizations ── */
+        .header-inner {
+          gap: 8px;
+        }
+
+        .header-actions {
+          margin-left: auto;
+        }
+
         .header-phone {
           display: none;
         }
@@ -2421,14 +2132,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
 
         body {
-          padding-bottom: 84px; /* Increase for sticky bottom area */
+          padding-bottom: 64px;
         }
 
         /* ── Footer ── */
-        .site-footer {
-          padding: var(--space-2xl) 0 var(--space-lg);
-        }
-
         .footer-grid {
           grid-template-columns: 1fr;
           gap: var(--space-xl);
@@ -2499,6 +2206,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           transition: none !important;
         }
       }
+
       /* ═══════════════════════════════════════
          Universal Search Styles
          ═══════════════════════════════════════ */
@@ -2554,7 +2262,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         max-width: 560px;
         background: var(--surface);
         border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-xl), 0 0 0 1px var(--border-light);
+        box-shadow:
+          var(--shadow-xl),
+          0 0 0 1px var(--border-light);
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -2674,7 +2384,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         color: var(--text-muted);
       }
 
-      :global(.search-suggestions) {
+      .search-suggestions {
         display: flex;
         flex-wrap: wrap;
         gap: var(--space-sm);
@@ -2682,7 +2392,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         margin-top: var(--space-md);
       }
 
-      :global(.search-suggestions a) {
+      .search-suggestions a {
         font-size: 0.75rem;
         padding: 0.35rem 0.75rem;
         border-radius: var(--radius-full);
@@ -2693,7 +2403,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         transition: all var(--transition-fast);
       }
 
-      :global(.search-suggestions a:hover) {
+      .search-suggestions a:hover {
         background: var(--primary-light);
         border-color: var(--primary);
         color: var(--primary-dark);
@@ -2816,7 +2526,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .search-results :global(.search-result-cat) {
-        font-size: 0.6875rem;
+        font-size: 0.75rem;
         color: var(--text-muted);
       }
 
@@ -2840,285 +2550,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         align-items: center;
         justify-content: center;
         min-width: 20px;
-        padding: 1px 5px;
+        padding: 1px 4px;
         font-family: var(--font-body);
         font-size: 0.625rem;
         font-weight: 600;
-        color: var(--text-secondary);
+        color: var(--text-muted);
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 3px;
-        margin-right: 3px;
-        line-height: 1.5;
+        margin-right: 2px;
       }
 
-      /* Mobile search */
       @media (max-width: 768px) {
-        .search-overlay {
-          padding-top: 0;
-          align-items: flex-end;
-        }
-
         .search-container {
-          max-width: 100%;
-          max-height: 85vh;
-          border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-          animation: searchSlideUp 250ms ease;
-        }
-
-        @keyframes searchSlideUp {
-          from {
-            opacity: 0;
-            transform: translateY(100%);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .search-footer-hints {
-          display: none;
-        }
-
-        .search-kbd {
-          display: none;
-        }
-      }
-      /* ── Nav Link Button (Công cụ trigger) ── */
-      .nav-link-btn {
-        background: none;
-        border: none;
-        font: inherit;
-        color: inherit;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 0.75rem;
-        border-radius: var(--radius-sm);
-        transition: all var(--transition-fast);
-        font-size: 0.9375rem;
-        font-weight: 500;
-      }
-      .nav-link-btn:hover {
-        color: var(--primary);
-        background: var(--primary-light);
-      }
-
-      /* ── Tools Popup / Bottom Sheet ── */
-      .tools-popup-backdrop {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45);
-        z-index: 9998;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-      }
-      .tools-popup-backdrop.is-visible {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .tools-popup {
-        position: fixed;
-        z-index: 9999;
-        background: #fff;
-        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-        box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.15);
-        max-height: 85vh;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        /* Mobile: bottom sheet */
-        bottom: 0;
-        left: 0;
-        right: 0;
-        transform: translateY(100%);
-        transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
-      }
-      .tools-popup.is-open {
-        transform: translateY(0);
-      }
-
-      .tools-popup-handle {
-        display: flex;
-        justify-content: center;
-        padding: 10px 0 4px;
-      }
-      .tools-popup-handle span {
-        width: 36px;
-        height: 4px;
-        background: #d1d5db;
-        border-radius: 2px;
-      }
-
-      .tools-popup-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.75rem 1.25rem;
-        border-bottom: 1px solid var(--border-light);
-        position: sticky;
-        top: 0;
-        background: #fff;
-        z-index: 1;
-      }
-      .tools-popup-header h3 {
-        font-size: 1.125rem;
-        font-weight: 700;
-        color: var(--text-primary);
-        margin: 0;
-      }
-      .tools-popup-close {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 6px;
-        border-radius: var(--radius-sm);
-        color: var(--text-muted);
-        transition: all var(--transition-fast);
-      }
-      .tools-popup-close:hover {
-        background: var(--surface-alt);
-        color: var(--text-primary);
-      }
-
-      .tools-popup-body {
-        padding: 1rem 1.25rem 2rem;
-      }
-
-      .tools-popup-section-label {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.6875rem;
-        font-weight: 700;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        padding: 0.625rem 0 0.375rem;
-        margin-top: 0.5rem;
-      }
-      .tools-popup-section-label:first-child {
-        margin-top: 0;
-      }
-      .tools-popup-section-label svg {
-        opacity: 0.5;
-      }
-
-      .tools-popup-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2px;
-      }
-
-      .tools-popup-card {
-        display: flex;
-        align-items: center;
-        gap: 0.875rem;
-        padding: 0.875rem;
-        border-radius: var(--radius-md);
-        text-decoration: none;
-        color: var(--text-primary);
-        transition: all var(--transition-fast);
-      }
-      .tools-popup-card:hover,
-      .tools-popup-card:active {
-        background: var(--primary-light);
-      }
-      .tools-popup-card .tool-icon {
-        width: 2.5rem;
-        height: 2.5rem;
-        min-width: 2.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--surface-alt);
-        border-radius: var(--radius-md);
-        flex-shrink: 0;
-      }
-      .tools-popup-card:hover .tool-icon {
-        background: #fff;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-      }
-      .tools-popup-card .tool-info strong {
-        display: block;
-        font-size: 0.9375rem;
-        font-weight: 600;
-        color: var(--text-primary);
-      }
-      .tools-popup-card .tool-info span {
-        display: block;
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        margin-top: 1px;
-      }
-      .tools-popup-card:hover .tool-info strong {
-        color: var(--primary-dark);
-      }
-
-      /* ── Coming Soon Tools ── */
-      .coming-soon-tool {
-        opacity: 0.55;
-        cursor: default;
-      }
-      .coming-soon-tool .tool-icon {
-        filter: grayscale(0.6);
-      }
-
-      /* Footer coming-soon */
-      .coming-soon-link {
-        cursor: default;
-        opacity: 0.6;
-      }
-      .coming-soon-badge {
-        display: inline-block;
-        font-size: 0.625rem;
-        font-weight: 600;
-        color: var(--accent);
-        background: var(--accent-light);
-        padding: 1px 6px;
-        border-radius: var(--radius-full);
-        margin-left: 4px;
-        vertical-align: middle;
-        letter-spacing: 0.02em;
-      }
-      .site-footer .coming-soon-badge {
-        color: var(--accent);
-        background: var(--accent-light);
-      }
-
-      /* Desktop: centered modal */
-      @media (min-width: 769px) {
-        .tools-popup {
-          bottom: auto;
-          left: 50%;
-          top: 50%;
-          right: auto;
-          width: 560px;
+          margin: 0 var(--space-md);
           max-height: 80vh;
-          border-radius: var(--radius-xl);
-          transform: translate(-50%, -50%) scale(0.95);
-          opacity: 0;
-          transition: transform 0.25s cubic-bezier(0.32, 0.72, 0, 1),
-            opacity 0.25s ease;
         }
-        .tools-popup.is-open {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
+        .search-overlay {
+          padding-top: 8vh;
         }
-        .tools-popup-handle {
+        .search-footer {
           display: none;
-        }
-        .tools-popup-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 4px;
-        }
-        .tools-popup-card .tool-info strong {
-          font-size: 0.875rem;
         }
       }
     </style>
@@ -3199,7 +2651,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           function (e) {
             e.preventDefault();
           },
-          { passive: false }
+          { passive: false },
         );
       }
 
@@ -3277,11 +2729,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       // Escape key closes everything
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
-          // Close search first if open
-          if (searchOverlay && !searchOverlay.hidden) {
-            closeSearch();
-            return;
-          }
           closeDrawer();
           document.querySelectorAll(".nav-dropdown-trigger").forEach((t) => {
             t.setAttribute("aria-expanded", "false");
@@ -3301,7 +2748,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             header.style.boxShadow =
               window.scrollY > 10 ? "var(--shadow-sm)" : "none";
           },
-          { passive: true }
+          { passive: true },
         );
       }
 
@@ -3311,9 +2758,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       const searchTrigger = document.getElementById("search-trigger");
       const searchOverlay = document.getElementById("search-overlay");
-      const searchBackdrop = document.getElementById("search-backdrop");
+      const searchBackdropEl = document.getElementById("search-backdrop");
       const searchInput = document.getElementById(
-        "search-input"
+        "search-input",
       ) as HTMLInputElement;
       const searchResults = document.getElementById("search-results");
       const searchEmpty = document.getElementById("search-empty");
@@ -3323,7 +2770,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       let activeIndex = -1;
       let debounceTimer: ReturnType<typeof setTimeout>;
 
-      // Vietnamese normalize function (inline for performance)
+      // Vietnamese normalize function
       function normalize(text: string): string {
         if (!text) return "";
         return text
@@ -3340,7 +2787,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       function searchScore(
         entry: any,
         tokens: string[],
-        fullQuery: string
+        fullQuery: string,
       ): number {
         if (!tokens.length) return 0;
         const title = normalize(entry.t);
@@ -3353,7 +2800,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             title.includes(tk) ||
             desc.includes(tk) ||
             tags.some((tag: string) => tag.includes(tk)) ||
-            cat.includes(tk)
+            cat.includes(tk),
         );
         if (!allMatch) return 0;
 
@@ -3425,18 +2872,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
         for (const token of tokens) {
           let pos = 0;
-          let safety = 0;
-          while (safety++ < 1000) {
+          while (true) {
             const idx = normText.indexOf(token, pos);
             if (idx === -1) break;
             ranges.push([idx, idx + token.length]);
-            pos = idx + token.length;
+            pos = idx + 1;
           }
         }
 
         if (!ranges.length) return text;
 
-        // Merge overlapping ranges
         ranges.sort((a, b) => a[0] - b[0]);
         const merged: Array<[number, number]> = [ranges[0]];
         for (let i = 1; i < ranges.length; i++) {
@@ -3487,13 +2932,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               <line x1="8" y1="8" x2="14" y2="14" stroke="var(--error)"></line>
             </svg>
-            <p>Không tìm thấy kết quả cho "<strong>${escapeHtml(
-              query
-            )}</strong>"</p>
+            <p>Không tìm thấy kết quả cho "<strong>${escapeHtml(query)}</strong>"</p>
             <span class="search-hint" style="margin-top: 0.5rem;">Gợi ý tìm kiếm phổ biến:</span>
             <div class="search-suggestions">
-               <a href="/tinh-ngay-rung-trung">Tính ngày rụng trứng</a>
-               <a href="/can-nang-thai-nhi">Cân nặng thai nhi</a>
+               <a href="/cong-cu/du-doan-sinh-non">Dự đoán sinh non</a>
+               <a href="/cong-cu/tinh-ngay-du-sinh">Tính ngày dự sinh</a>
                <a href="/sieu-am-5d">Siêu âm 5D</a>
                <a href="/kham-thai">Khám thai</a>
             </div>
@@ -3512,21 +2955,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <a class="search-result-link" href="${r.u}" data-index="${i}">
               <span class="search-result-icon">${typeIcon(r.y)}</span>
               <div class="search-result-text">
-                <div class="search-result-title">${highlightText(
-                  r.t,
-                  query
-                )}</div>
+                <div class="search-result-title">${highlightText(r.t, query)}</div>
                 <div class="search-result-desc">${escapeHtml(r.d)}</div>
                 <div class="search-result-meta">
-                  <span class="search-result-badge" data-type="${
-                    r.y
-                  }">${typeName(r.y)}</span>
+                  <span class="search-result-badge" data-type="${r.y}">${typeName(r.y)}</span>
                   <span class="search-result-cat">${escapeHtml(r.c)}</span>
                 </div>
               </div>
             </a>
           </li>
-        `
+        `,
           )
           .join("");
       }
@@ -3549,7 +2987,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         searchOverlay.hidden = false;
         document.body.style.overflow = "hidden";
         loadIndex();
-        // Small delay for animation
         requestAnimationFrame(() => {
           searchInput.focus();
         });
@@ -3568,7 +3005,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       // Event listeners
       searchTrigger?.addEventListener("click", openSearch);
-      searchBackdrop?.addEventListener("click", closeSearch);
+      searchBackdropEl?.addEventListener("click", closeSearch);
 
       // Ctrl+K / Cmd+K shortcut
       document.addEventListener("keydown", (e) => {
@@ -3616,1370 +3053,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           (items[activeIndex] as HTMLAnchorElement).click();
         }
       });
-      // ── Tools Popup ──
-      const toolsTrigger = document.getElementById("tools-trigger");
-      const toolsPopup = document.getElementById("tools-popup");
-      const toolsBackdrop = document.getElementById("tools-popup-backdrop");
-      const toolsClose = document.getElementById("tools-popup-close");
 
-      function openToolsPopup() {
-        // Close mobile drawer if open
-        const drawer = document.querySelector(".nav-list");
-        if (drawer && drawer.classList.contains("is-open")) {
-          drawer.classList.remove("is-open");
-          document.body.style.overflow = "";
-        }
-        toolsBackdrop?.classList.add("is-visible");
-        toolsPopup?.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeToolsPopup() {
-        toolsBackdrop?.classList.remove("is-visible");
-        toolsPopup?.classList.remove("is-open");
-        document.body.style.overflow = "";
-      }
-
-      if (toolsTrigger) {
-        toolsTrigger.addEventListener("click", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          openToolsPopup();
-        });
-      }
-
-      // Also bind the mobile drawer's "Công cụ" button if it exists
-      document.querySelectorAll(".nav-link-btn").forEach((btn) => {
-        if (
-          btn.textContent.trim().includes("Công cụ") &&
-          btn !== toolsTrigger
-        ) {
-          btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            openToolsPopup();
-          });
-        }
-      });
-
-      if (toolsClose) toolsClose.addEventListener("click", closeToolsPopup);
-      if (toolsBackdrop)
-        toolsBackdrop.addEventListener("click", closeToolsPopup);
-
+      // Escape closes search
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && toolsPopup?.classList.contains("is-open")) {
-          closeToolsPopup();
-        }
-      });
-
-      // ── Mobile Nav Buttons ──
-      const mobileToolsTrigger = document.getElementById(
-        "mobile-tools-trigger"
-      );
-      const mobileSearchTrigger = document.getElementById(
-        "mobile-search-trigger"
-      );
-
-      // Mobile "Công cụ" button → open tools popup
-      mobileToolsTrigger?.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        openToolsPopup();
-      });
-
-      // Mobile search icon → open search modal
-      mobileSearchTrigger?.addEventListener("click", () => {
-        openSearch();
-      });
-
-      // ── Services Popup (Bottom Bar "Dịch vụ") ──
-      const servicesTrigger = document.getElementById(
-        "sticky-services-trigger"
-      );
-      const servicesPopup = document.getElementById("services-popup");
-      const servicesBackdrop = document.getElementById(
-        "services-popup-backdrop"
-      );
-      const servicesClose = document.getElementById("services-popup-close");
-
-      function openServicesPopup() {
-        servicesBackdrop?.classList.add("is-visible");
-        servicesPopup?.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeServicesPopup() {
-        servicesBackdrop?.classList.remove("is-visible");
-        servicesPopup?.classList.remove("is-open");
-        document.body.style.overflow = "";
-      }
-
-      servicesTrigger?.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        openServicesPopup();
-      });
-
-      servicesClose?.addEventListener("click", closeServicesPopup);
-      servicesBackdrop?.addEventListener("click", closeServicesPopup);
-
-      document.addEventListener("keydown", (e) => {
-        if (
-          e.key === "Escape" &&
-          servicesPopup?.classList.contains("is-open")
-        ) {
-          closeServicesPopup();
+        if (e.key === "Escape" && !searchOverlay?.hidden) {
+          closeSearch();
         }
       });
     </script>
-    <!-- Tools Popup / Bottom Sheet -->
-    <div
-      class="tools-popup-backdrop"
-      id="tools-popup-backdrop"
-      aria-hidden="true"
-    >
-    </div>
-    <div
-      class="tools-popup"
-      id="tools-popup"
-      role="dialog"
-      aria-label="Công cụ y khoa"
-      aria-modal="true"
-    >
-      <div class="tools-popup-handle"><span></span></div>
-      <div class="tools-popup-header">
-        <h3>Công cụ y khoa</h3>
-        <button
-          class="tools-popup-close"
-          id="tools-popup-close"
-          aria-label="Đóng"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><line x1="18" y1="6" x2="6" y2="18"></line><line
-              x1="6"
-              y1="6"
-              x2="18"
-              y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <div class="tools-popup-body">
-        <!-- PHỔ BIẾN: Công cụ thai kỳ cơ bản -->
-        <div class="tools-popup-section-label">
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line
-              x1="16"
-              y1="2"
-              x2="16"
-              y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line
-              x1="3"
-              y1="10"
-              x2="21"
-              y2="10"></line>
-          </svg>
-          Thai kỳ
-        </div>
-        <div class="tools-popup-grid">
-          <a href="/tinh-ngay-rung-trung" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"
-                ></rect><line x1="16" y1="2" x2="16" y2="6"></line><line
-                  x1="8"
-                  y1="2"
-                  x2="8"
-                  y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Tính ngày rụng trứng</strong><span
-                >Dự đoán cửa sổ thụ thai</span
-              >
-            </div>
-          </a>
-          <a href="/cong-cu/tinh-ngay-du-sinh" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><circle cx="12" cy="12" r="10"></circle><path
-                  d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
-                  x1="9"
-                  y1="9"
-                  x2="9.01"
-                  y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Tính ngày dự sinh</strong>
-            </div>
-          </a>
-          <a href="/can-nang-thai-nhi" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M12 3v17.25M18 9l-6 3.5L6 9"></path><path
-                  d="M18 9c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-6c0-1.1.9-2 2-2"
-                ></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Cân nặng thai nhi</strong><span>Chuẩn WHO theo tuần</span>
-            </div>
-          </a>
-        </div>
-
-        <!-- SÀNG LỌC NGUY CƠ -->
-        <div class="tools-popup-section-label">
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path
-              d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
-            ></path><line x1="12" y1="9" x2="12" y2="13"></line><line
-              x1="12"
-              y1="17"
-              x2="12.01"
-              y2="17"></line>
-          </svg>
-          Sàng lọc nguy cơ
-        </div>
-        <div class="tools-popup-grid">
-          <a href="/cong-cu/sang-loc-tien-san-giat" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path
-                  d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"
-                ></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"
-                ></rect><path d="M9 14l2 2 4-4"></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Sàng lọc tiền sản giật</strong>
-            </div>
-          </a>
-          <a href="/cong-cu/du-doan-sinh-non" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--warning)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path
-                  d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
-                ></path><line x1="12" y1="9" x2="12" y2="13"></line><line
-                  x1="12"
-                  y1="17"
-                  x2="12.01"
-                  y2="17"></line>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Dự đoán sinh non</strong>
-            </div>
-          </a>
-          <a href="/cong-cu/du-doan-dai-thao-duong-thai-ky" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path
-                  d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-                ></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Dự đoán ĐTĐ thai kỳ</strong>
-            </div>
-          </a>
-          <a href="/cong-cu/danh-gia-khoi-u-buong-trung" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><circle cx="11" cy="11" r="8"></circle><line
-                  x1="21"
-                  y1="21"
-                  x2="16.65"
-                  y2="16.65"></line>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Đánh giá u buồng trứng</strong>
-            </div>
-          </a>
-        </div>
-
-        <!-- ĐÁNH GIÁ LÂM SÀNG -->
-        <div class="tools-popup-section-label">
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path
-              d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"
-            ></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-          </svg>
-          Đánh giá lâm sàng
-        </div>
-        <div class="tools-popup-grid">
-          <a href="/cong-cu/bishop-score" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline
-                  points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Bishop Score</strong>
-            </div>
-          </a>
-          <a href="/cong-cu/doppler-thai-nhi" class="tools-popup-card">
-            <span class="tool-icon"
-              ><svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
-            </span>
-            <div class="tool-info">
-              <strong>Doppler thai nhi</strong>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Booking Bottom Sheet -->
-    <BookingBottomSheet />
-
-    <script>
-      // ── Booking Form System ──
-      (function() {
-        // Form type config
-        const FORM_CONFIG = {
-          'kham-thai': {
-            title: 'Đặt Lịch Khám Thai',
-            icon: '🤰',
-            hint: 'BS sản khoa 20+ năm đồng hành trọn thai kỳ',
-            defaultService: 'Khám thai định kỳ'
-          },
-          'sieu-am': {
-            title: 'Đặt Lịch Siêu Âm 5D',
-            icon: '📷',
-            hint: 'Hình ảnh thai nhi sắc nét với Samsung 5D',
-            defaultService: 'Siêu âm 5D'
-          },
-          'phu-khoa': {
-            title: 'Đặt Lịch Khám Phụ Khoa',
-            icon: '💗',
-            hint: 'Khám kín đáo, bác sĩ nữ chuyên khoa',
-            defaultService: 'Khám phụ khoa'
-          },
-          'nam-khoa': {
-            title: 'Đặt Lịch Khám Nam Khoa',
-            icon: '💪',
-            hint: 'Bảo mật tuyệt đối, bác sĩ chuyên khoa',
-            defaultService: 'Khám nam khoa'
-          },
-          'vo-sinh': {
-            title: 'Đặt Lịch Tư Vấn Vô Sinh',
-            icon: '👶',
-            hint: 'Hỗ trợ sinh sản hiện đại, tận tâm',
-            defaultService: 'Điều trị vô sinh'
-          },
-          'tranh-thai': {
-            title: 'Đặt Lịch Tư Vấn Tránh Thai',
-            icon: '🛡️',
-            hint: 'Tư vấn biện pháp an toàn, hiệu quả',
-            defaultService: 'Tư vấn tránh thai'
-          },
-          'tu-van': {
-            title: 'Đặt Lịch Tư Vấn',
-            icon: '📋',
-            hint: 'Bác sĩ sẽ liên hệ bạn trong 30 phút',
-            defaultService: ''
-          }
-        };
-
-        // Blog category → form type mapping
-        const CATEGORY_MAP = {
-          'mang-thai': 'kham-thai',
-          'phu-khoa': 'phu-khoa',
-          'nam-khoa': 'nam-khoa',
-          'vo-sinh': 'vo-sinh',
-          'suc-khoe-sinh-san': 'tu-van',
-          'local-seo': 'tu-van',
-          'cong-cu': 'tu-van'
-        };
-
-        // Page path → form type mapping
-        const PATH_MAP = {
-          '/kham-thai': 'kham-thai',
-          '/sieu-am-5d': 'sieu-am',
-          '/kham-phu-khoa': 'phu-khoa',
-          '/kham-nam-khoa': 'nam-khoa',
-          '/dieu-tri-vo-sinh': 'vo-sinh',
-          '/tranh-thai-an-toan': 'tranh-thai',
-          '/tu-van-truc-tuyen': 'tu-van'
-        };
-
-        // Apps Script URL (placeholder — replace when deployed)
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhGZhDL-amRDrsyuPmgEYoLC_vlE_vZRdaaQgtFb3MXL2xW4xlFOWI736sYfPdoc8/exec';
-
-        // DOM refs
-        const sheet = document.getElementById('booking-sheet');
-        const sheetBackdrop = document.getElementById('booking-backdrop');
-        const sheetClose = document.getElementById('booking-close');
-        const sheetForm = document.getElementById('booking-form');
-        const sheetTitle = document.getElementById('booking-title');
-        const sheetHint = document.getElementById('booking-hint');
-        const sheetIcon = document.getElementById('booking-icon');
-        const sheetPhone = document.getElementById('booking-phone');
-        const sheetService = document.getElementById('booking-service');
-        const sheetSubmit = document.getElementById('booking-submit');
-        const timeChips = document.getElementById('booking-time-chips');
-        const timeInput = document.getElementById('booking-time');
-        const timeField = document.getElementById('booking-time-field');
-        const dateChips = document.getElementById('booking-date-chips');
-        const dateInput = document.getElementById('booking-date');
-        const dateCustomWrap = document.getElementById('booking-date-custom');
-        const dateCustomInput = document.getElementById('booking-date-input');
-        const toast = document.getElementById('form-toast');
-        const toastMsg = document.getElementById('form-toast-msg');
-        const toastIcon = document.getElementById('form-toast-icon');
-        const toastClose = document.getElementById('form-toast-close');
-
-        // ── Detect form type from current page ──
-        function detectFormType() {
-          const path = window.location.pathname;
-          // Check path mapping
-          for (const [p, type] of Object.entries(PATH_MAP)) {
-            if (path.startsWith(p)) return type;
-          }
-          // Check blog data-blog-category attribute
-          const blogArticle = document.querySelector('[data-blog-category]');
-          if (blogArticle) {
-            const blogCat = blogArticle.getAttribute('data-blog-category');
-            if (blogCat && CATEGORY_MAP[blogCat]) return CATEGORY_MAP[blogCat];
-          }
-          // Fallback: check blog category text
-          const categoryEl = document.querySelector('.article-category');
-          if (categoryEl) {
-            const categoryText = categoryEl.textContent.trim().toLowerCase();
-            for (const [cat, type] of Object.entries(CATEGORY_MAP)) {
-              const categoryLabel = {
-                'mang-thai': 'mang thai',
-                'phu-khoa': 'bệnh phụ khoa',
-                'nam-khoa': 'nam khoa',
-                'vo-sinh': 'điều trị vô sinh',
-                'suc-khoe-sinh-san': 'sức khỏe sinh sản',
-                'local-seo': 'phòng khám',
-                'cong-cu': 'công cụ y khoa'
-              }[cat] || cat;
-              if (categoryText.includes(categoryLabel)) return type;
-            }
-          }
-          // Check data attribute on page
-          const pageFormType = document.querySelector('[data-page-form-type]');
-          if (pageFormType) return pageFormType.dataset.pageFormType;
-          return 'tu-van';
-        }
-
-        // ── localStorage Cache ──
-        const CACHE_KEY = 'ansinh_booking';
-        function saveCache(data) {
-          try {
-            const cache = loadCache();
-            // Save everything except timeSlot
-            if (data.phone) cache.phone = data.phone;
-            if (data.name) cache.name = data.name;
-            if (data.service) cache.service = data.service;
-            if (data.note) cache.note = data.note;
-            localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-          } catch(e) {}
-        }
-        function loadCache() {
-          try {
-            return JSON.parse(localStorage.getItem(CACHE_KEY) || '{}');
-          } catch(e) { return {}; }
-        }
-
-        // ── Vietnamese day names ──
-        const DAY_NAMES = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
-
-        function addDays(date, n) {
-          const d = new Date(date);
-          d.setDate(d.getDate() + n);
-          return d;
-        }
-
-        function formatDateLabel(d) {
-          return `${d.getDate()}/${d.getMonth() + 1}`;
-        }
-
-        function getNextDayOfWeek(dayOfWeek) {
-          const now = new Date();
-          const today = now.getDay();
-          let diff = dayOfWeek - today;
-          if (diff <= 0) diff += 7;
-          return addDays(now, diff);
-        }
-
-        function formatISODate(d) {
-          const y = d.getFullYear();
-          const m = String(d.getMonth() + 1).padStart(2, '0');
-          const dd = String(d.getDate()).padStart(2, '0');
-          return `${y}-${m}-${dd}`;
-        }
-
-        // ── Date Chips generation ──
-        function renderDateChips() {
-          if (!dateChips) return;
-          const now = new Date();
-          const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-          const tomorrow = addDays(today, 1);
-          const dayAfter = addDays(today, 2);
-          const nextSat = getNextDayOfWeek(6);
-          const nextSun = getNextDayOfWeek(0);
-
-          const chips = [
-            { label: 'Hôm nay', sub: `${DAY_NAMES[today.getDay()]}, ${formatDateLabel(today)}`, value: formatISODate(today), recommended: true },
-            { label: 'Ngày mai', sub: `${DAY_NAMES[tomorrow.getDay()]}, ${formatDateLabel(tomorrow)}`, value: formatISODate(tomorrow) },
-            { label: 'Ngày kia', sub: `${DAY_NAMES[dayAfter.getDay()]}, ${formatDateLabel(dayAfter)}`, value: formatISODate(dayAfter) },
-            { label: 'T7 tới', sub: `${formatDateLabel(nextSat)}`, value: formatISODate(nextSat) },
-            { label: 'CN tới', sub: `${formatDateLabel(nextSun)}`, value: formatISODate(nextSun) },
-            { label: 'Chọn ngày', sub: '', value: '__custom__', isCustom: true }
-          ];
-
-          // Deduplicate: if nextSat/nextSun is same as today/tomorrow/dayAfter, skip
-          const usedDates = new Set();
-          const finalChips = [];
-          for (const c of chips) {
-            if (c.value === '__custom__') {
-              finalChips.push(c);
-              continue;
-            }
-            if (!usedDates.has(c.value)) {
-              usedDates.add(c.value);
-              finalChips.push(c);
-            }
-          }
-
-          /* UX: Serial Position Effect — "Hôm nay" gets is-recommended highlight */
-          const calendarSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>';
-          dateChips.innerHTML = finalChips.map(c => {
-            const classes = ['date-chip'];
-            if (c.recommended) classes.push('is-recommended');
-            if (c.isCustom) classes.push('date-chip--custom');
-            return `<button type="button" class="${classes.join(' ')}" data-value="${c.value}">${c.isCustom ? calendarSvg : ''}<span class="date-chip-label">${c.label}</span>${c.sub ? `<span class="date-chip-sub">${c.sub}</span>` : ''}</button>`;
-          }).join('');
-
-          // Reset selections
-          if (dateInput) dateInput.value = '';
-          if (timeInput) timeInput.value = '';
-          if (timeField) timeField.hidden = true;
-          if (dateCustomWrap) dateCustomWrap.hidden = true;
-        }
-
-        // ── Dynamic Time Chips based on selected date ──
-        // Mon-Sat (Thu 2 - Thu 7): 17h-19h, Sunday (Chu Nhat): 8h-11h, 15h-19h
-        function renderTimeChipsForDate(dateStr) {
-          if (!timeChips || !timeField) return;
-          const d = new Date(dateStr + 'T00:00:00');
-          const day = d.getDay(); // 0=Sun
-          let chips = [];
-          if (day === 0) {
-            chips = [
-              { label: '☀️ Sáng (8h-11h)', value: `Sáng CN ${formatDateLabel(d)} (8h-11h)` },
-              { label: '🌤️ Chiều-Tối (15h-19h)', value: `Chiều-Tối CN ${formatDateLabel(d)} (15h-19h)` }
-            ];
-          } else {
-            chips = [
-              { label: '🌙 Tối (17h-19h)', value: `Tối ${DAY_NAMES[day]} ${formatDateLabel(d)} (17h-19h)` }
-            ];
-          }
-          timeChips.innerHTML = chips.map(c =>
-            `<button type="button" class="time-chip" data-value="${c.value}">${c.label}</button>`
-          ).join('');
-          if (timeInput) timeInput.value = '';
-          timeField.hidden = false;
-
-          // Auto-select if only one option
-          if (chips.length === 1) {
-            const singleChip = timeChips.querySelector('.time-chip');
-            if (singleChip) {
-              singleChip.classList.add('is-active');
-              if (timeInput) timeInput.value = singleChip.dataset.value;
-            }
-          }
-        }
-
-        // ── Date Chip click handler ──
-        function setupDateChipHandlers() {
-          if (!dateChips) return;
-          dateChips.addEventListener('click', (e) => {
-            const chip = e.target.closest('.date-chip');
-            if (!chip) return;
-            dateChips.querySelectorAll('.date-chip').forEach(c => c.classList.remove('is-active'));
-            chip.classList.add('is-active');
-            const val = chip.dataset.value;
-            if (val === '__custom__') {
-              if (dateCustomWrap) dateCustomWrap.hidden = false;
-              if (dateCustomInput) {
-                // Set min to today
-                dateCustomInput.min = formatISODate(new Date());
-                dateCustomInput.value = '';
-                dateCustomInput.focus();
-              }
-              if (dateInput) dateInput.value = '';
-              if (timeField) timeField.hidden = true;
-            } else {
-              if (dateCustomWrap) dateCustomWrap.hidden = true;
-              if (dateInput) dateInput.value = val;
-              renderTimeChipsForDate(val);
-            }
-          });
-
-          // Custom date input change
-          if (dateCustomInput) {
-            dateCustomInput.addEventListener('change', () => {
-              const val = dateCustomInput.value;
-              if (val) {
-                if (dateInput) dateInput.value = val;
-                renderTimeChipsForDate(val);
-              }
-            });
-          }
-        }
-        setupDateChipHandlers();
-
-        // ── Service Hints for special services ──
-        const serviceHintEl = document.getElementById('booking-service-hint');
-        const serviceHintText = document.getElementById('booking-service-hint-text');
-
-        function updateServiceHint(formType) {
-          if (!serviceHintEl || !serviceHintText) return;
-          if (formType === 'vo-sinh' || formType === 'tranh-thai') {
-            serviceHintText.textContent = 'Dịch vụ ' + (formType === 'vo-sinh' ? 'khám vô sinh' : 'cấy que tránh thai') + ' quý khách nên liên hệ đặt lịch hẹn trước với BS Nguyệt qua Zalo: 0899 268 299';
-            serviceHintEl.hidden = false;
-          } else {
-            serviceHintEl.hidden = true;
-          }
-        }
-
-        // ── Pre-fill from cache on page load ──
-        function prefillFromCache() {
-          const cache = loadCache();
-          // Pre-fill inline phone capture inputs
-          if (cache.phone) {
-            document.querySelectorAll('.phone-capture-input').forEach(input => {
-              if (!input.value) input.value = cache.phone;
-            });
-          }
-        }
-        prefillFromCache();
-
-        // ── Open Bottom Sheet ──
-        window.openBookingSheet = function(formType, phone) {
-          if (!sheet || !sheetBackdrop) return;
-          const type = formType || detectFormType();
-          const config = FORM_CONFIG[type] || FORM_CONFIG['tu-van'];
-          const cache = loadCache();
-
-          // Update contextual header
-          if (sheetTitle) sheetTitle.textContent = config.title;
-          if (sheetHint) sheetHint.textContent = config.hint;
-          if (sheetIcon) sheetIcon.textContent = config.icon;
-
-          // Pre-fill phone: param > cache
-          if (sheetPhone) {
-            sheetPhone.value = phone || cache.phone || '';
-          }
-
-          // Pre-fill name from cache
-          const nameInput = document.getElementById('booking-name');
-          if (nameInput && !nameInput.value && cache.name) {
-            nameInput.value = cache.name;
-          }
-
-          // Pre-fill note from cache
-          const noteInput = document.getElementById('booking-note');
-          if (noteInput && !noteInput.value && cache.note) {
-            noteInput.value = cache.note;
-          }
-
-          // Auto-select service
-          if (sheetService && config.defaultService) {
-            for (const opt of sheetService.options) {
-              if (opt.value === config.defaultService) {
-                opt.selected = true;
-                break;
-              }
-            }
-          } else if (sheetService && cache.service) {
-            for (const opt of sheetService.options) {
-              if (opt.value === cache.service) {
-                opt.selected = true;
-                break;
-              }
-            }
-          }
-
-          // Set hidden fields
-          const urlInput = sheetForm?.querySelector('input[name="url"]');
-          const typeInput = sheetForm?.querySelector('input[name="formType"]');
-          if (urlInput) urlInput.value = window.location.href;
-          if (typeInput) typeInput.value = type;
-
-          // Render date chips (resets time selection)
-          renderDateChips();
-
-          // Show service hint for special services
-          updateServiceHint(type);
-
-          // Show
-          sheetBackdrop.classList.add('is-visible');
-          sheet.classList.add('is-open');
-          document.body.style.overflow = 'hidden';
-
-          // Focus: if no phone, focus phone; otherwise focus name
-          setTimeout(() => {
-            if (sheetPhone && !sheetPhone.value) {
-              sheetPhone.focus();
-            } else if (nameInput && !nameInput.value) {
-              nameInput.focus();
-            }
-          }, 400);
-        };
-
-        // ── Close Bottom Sheet ──
-        function closeBookingSheet() {
-          if (!sheet || !sheetBackdrop) return;
-          sheet.classList.remove('is-open');
-          sheetBackdrop.classList.remove('is-visible');
-          document.body.style.overflow = '';
-        }
-
-        if (sheetClose) sheetClose.addEventListener('click', closeBookingSheet);
-        if (sheetBackdrop) sheetBackdrop.addEventListener('click', closeBookingSheet);
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && sheet?.classList.contains('is-open')) closeBookingSheet();
-        });
-
-        // ── Time Chips ──
-        if (timeChips) {
-          timeChips.addEventListener('click', (e) => {
-            const chip = e.target.closest('.time-chip');
-            if (!chip) return;
-            timeChips.querySelectorAll('.time-chip').forEach(c => c.classList.remove('is-active'));
-            chip.classList.add('is-active');
-            if (timeInput) timeInput.value = chip.dataset.value;
-          });
-        }
-
-        // ── Phone Validation ──
-        function isValidPhone(phone) {
-          return /^0\d{8,10}$/.test(phone.replace(/\s/g, ''));
-        }
-
-        // ── Toast System ──
-        let toastTimer = null;
-        function showToast(message, type, duration) {
-          if (!toast || !toastMsg || !toastIcon) return;
-          toast.className = 'form-toast form-toast--' + type;
-          toastMsg.textContent = message;
-          toastIcon.textContent = type === 'success' ? '✅' : type === 'error' ? '❌' : '⏳';
-          toast.hidden = false;
-          clearTimeout(toastTimer);
-          toastTimer = setTimeout(() => { toast.hidden = true; }, duration || 6000);
-        }
-        if (toastClose) toastClose.addEventListener('click', () => { toast.hidden = true; });
-
-        // ── Submit to Google Sheet ──
-        async function submitToSheet(data) {
-          if (!APPS_SCRIPT_URL) {
-            console.log('[Booking] No Apps Script URL configured. Data:', data);
-            return { ok: true, simulated: true };
-          }
-          const formData = new URLSearchParams();
-          for (const [k, v] of Object.entries(data)) formData.append(k, v);
-
-          let lastError;
-          for (let attempt = 1; attempt <= 3; attempt++) {
-            try {
-              if (attempt > 1) showToast(`Đang thử lại (${attempt}/3)...`, 'retrying', 10000);
-              const res = await fetch(APPS_SCRIPT_URL, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors'
-              });
-              return { ok: true };
-            } catch (err) {
-              lastError = err;
-              if (attempt < 3) await new Promise(r => setTimeout(r, Math.pow(2, attempt) * 1000));
-            }
-          }
-          throw lastError;
-        }
-
-        // ── Phone Capture (Step 1) ──
-        window._capturePhone = function(e) {
-          e.preventDefault();
-          const form = e.target;
-          const phoneInput = form.querySelector('input[name="phone"]');
-          const phone = phoneInput?.value?.replace(/\s/g, '');
-
-          if (!isValidPhone(phone)) {
-            showToast('Số điện thoại không hợp lệ. VD: 0899268299', 'error', 5000);
-            phoneInput?.focus();
-            return;
-          }
-
-          // Cache phone
-          saveCache({ phone: phone });
-
-          // Immediately save phone to sheet
-          const formType = form.closest('[data-form-type]')?.dataset.formType || detectFormType();
-          submitToSheet({
-            phone: phone,
-            url: window.location.href,
-            formType: formType,
-            step: 'phone-only'
-          }).catch(() => {});
-
-          // Show success toast
-          showToast('✓ Đã nhận SĐT! Điền thêm thông tin...', 'success', 4000);
-
-          // Open bottom sheet with phone pre-filled
-          window.openBookingSheet(formType, phone);
-        };
-
-        // ── Full Form Submit (Step 2) ──
-        if (sheetForm) {
-          sheetForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(sheetForm);
-            const data = Object.fromEntries(formData.entries());
-
-            // Validate phone (required)
-            if (!data.phone || !isValidPhone(data.phone)) {
-              showToast('Vui lòng nhập số điện thoại hợp lệ', 'error', 5000);
-              if (sheetPhone) sheetPhone.focus();
-              return;
-            }
-
-            // Cache form data (except timeSlot)
-            saveCache(data);
-
-            // Disable submit
-            if (sheetSubmit) {
-              sheetSubmit.disabled = true;
-              sheetSubmit.textContent = 'Đang gửi...';
-            }
-
-            try {
-              data.step = 'full';
-              await submitToSheet(data);
-              showToast('Đặt lịch thành công! Bác sĩ sẽ liên hệ bạn sớm.', 'success', 8000);
-              closeBookingSheet();
-              // Reset date and time selections
-              if (dateInput) dateInput.value = '';
-              if (timeInput) timeInput.value = '';
-              dateChips?.querySelectorAll('.date-chip').forEach(c => c.classList.remove('is-active'));
-              timeChips?.querySelectorAll('.time-chip').forEach(c => c.classList.remove('is-active'));
-              if (timeField) timeField.hidden = true;
-              if (dateCustomWrap) dateCustomWrap.hidden = true;
-            } catch (err) {
-              showToast('Gửi thất bại. Vui lòng gọi 0899 268 299 hoặc nhắn Zalo.', 'error', 15000);
-              // Open Zalo fallback
-              setTimeout(() => {
-                window.open('https://zalo.me/0899268299', '_blank');
-              }, 2000);
-            } finally {
-              if (sheetSubmit) {
-                sheetSubmit.disabled = false;
-                sheetSubmit.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Xác Nhận Đặt Lịch';
-              }
-            }
-          });
-        }
-
-        // ── Auto-intercept booking links ──
-        document.addEventListener('click', (e) => {
-          const link = e.target.closest('a[href*="dat-lich-hen-kham"], a[href*="dat-lich"]');
-          if (link && !link.dataset.noIntercept) {
-            e.preventDefault();
-            const formType = link.dataset.formType || detectFormType();
-            window.openBookingSheet(formType);
-          }
-        });
-
-        // ── Sticky CTA "Đặt Lịch" → open bottom sheet ──
-        const stickyCta = document.getElementById('sticky-cta-booking');
-        if (stickyCta) {
-          stickyCta.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.openBookingSheet(detectFormType());
-          });
-        }
-
-        // ── Header CTA → open bottom sheet ──
-        const headerCta = document.getElementById('header-cta');
-        if (headerCta) {
-          headerCta.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.openBookingSheet(detectFormType());
-          });
-        }
-
-      })();
-    </script>
-
-    <!-- CRO Tracking Module — DataLayer Events + 5W1H + FTC Attribution -->
-    <script is:inline>
-    (function() {
-      'use strict';
-      var DL = window.dataLayer = window.dataLayer || [];
-
-      // ════════════════════════════════════════
-      // 1. FIRST-TOUCH COOKIE (FTC) — Attribution
-      // ════════════════════════════════════════
-      function getFTCookie() {
-        try {
-          var m = document.cookie.match(/(?:^|;\s*)_ftc=([^;]*)/);
-          return m ? JSON.parse(decodeURIComponent(m[1])) : null;
-        } catch(e) { return null; }
-      }
-
-      function setFTCookie(data) {
-        var d = new Date();
-        d.setDate(d.getDate() + 90);
-        document.cookie = '_ftc=' + encodeURIComponent(JSON.stringify(data)) +
-          ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
-      }
-
-      function getParam(name) {
-        try {
-          return new URLSearchParams(window.location.search).get(name) || '';
-        } catch(e) { return ''; }
-      }
-
-      // Write FTC cookie ONLY if absent (first touch)
-      if (!getFTCookie()) {
-        var ref = '';
-        try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch(e) {}
-        var ftc = {
-          src: getParam('utm_source') || '',
-          med: getParam('utm_medium') || '',
-          cmp: getParam('utm_campaign') || '',
-          cnt: getParam('utm_content') || '',
-          trm: getParam('utm_term') || '',
-          fbclid: getParam('fbclid') || '',
-          ttclid: getParam('ttclid') || '',
-          gclid: getParam('gclid') || '',
-          ref: ref,
-          ts: new Date().toISOString()
-        };
-        // Only write if there's any meaningful data
-        var hasSrc = ftc.src || ftc.fbclid || ftc.ttclid || ftc.gclid || ftc.ref;
-        if (hasSrc) setFTCookie(ftc);
-      }
-
-      // ════════════════════════════════════════
-      // 2. SESSION ID
-      // ════════════════════════════════════════
-      function getSessionId() {
-        var sid = sessionStorage.getItem('_cro_sid');
-        if (!sid) {
-          sid = Math.random().toString(36).substr(2, 8) + Date.now().toString(36);
-          sessionStorage.setItem('_cro_sid', sid);
-        }
-        return sid;
-      }
-
-      // ════════════════════════════════════════
-      // 3. 5W1H CONTEXT COLLECTOR
-      // ════════════════════════════════════════
-      var PATH_SERVICE_MAP = {
-        '/kham-thai': 'kham-thai',
-        '/sieu-am-5d': 'sieu-am',
-        '/kham-phu-khoa': 'phu-khoa',
-        '/kham-nam-khoa': 'nam-khoa',
-        '/dieu-tri-vo-sinh': 'vo-sinh',
-        '/tranh-thai-an-toan': 'tranh-thai',
-        '/tu-van-truc-tuyen': 'tu-van'
-      };
-
-      function detectPageType() {
-        var p = location.pathname;
-        if (p === '/') return 'home';
-        if (p.startsWith('/blog')) return 'blog';
-        for (var k in PATH_SERVICE_MAP) { if (p.startsWith(k)) return 'service'; }
-        if (p.indexOf('tinh-ngay') >= 0 || p.indexOf('can-nang') >= 0) return 'tool';
-        return 'other';
-      }
-
-      function detectServiceCategory() {
-        var p = location.pathname;
-        for (var k in PATH_SERVICE_MAP) { if (p.startsWith(k)) return PATH_SERVICE_MAP[k]; }
-        return '';
-      }
-
-      function getDeviceType() {
-        var w = window.innerWidth;
-        if (w < 768) return 'mobile';
-        if (w < 1024) return 'tablet';
-        return 'desktop';
-      }
-
-      function getScrollDepth() {
-        var h = document.documentElement.scrollHeight - window.innerHeight;
-        return h > 0 ? Math.round((window.scrollY / h) * 100) : 0;
-      }
-
-      function getDayName(d) {
-        return ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'][d];
-      }
-
-      function isBusinessHours() {
-        var now = new Date();
-        var day = now.getDay();
-        var h = now.getHours();
-        if (day === 0) return (h >= 8 && h < 22);
-        return (h >= 17 && h < 22);
-      }
-
-      function getClickLocation(el) {
-        if (!el) return 'unknown';
-        var closest = el.closest('[id]');
-        if (closest) {
-          var id = closest.id;
-          if (id.indexOf('sticky') >= 0) return 'sticky-cta';
-          if (id.indexOf('header') >= 0 || id.indexOf('site-header') >= 0) return 'header';
-          if (id.indexOf('footer') >= 0 || el.closest('footer')) return 'footer';
-          if (id.indexOf('booking') >= 0) return 'booking-form';
-          return id;
-        }
-        if (el.closest('footer')) return 'footer';
-        if (el.closest('header')) return 'header';
-        if (el.closest('.sticky-cta')) return 'sticky-cta';
-        return 'content';
-      }
-
-      function getReferrerDomain() {
-        try { return document.referrer ? new URL(document.referrer).hostname : '(direct)'; }
-        catch(e) { return '(direct)'; }
-      }
-
-      function get5W1H(extraCtx) {
-        var now = new Date();
-        var ftc = getFTCookie() || {};
-        var ctx = {
-          // WHO
-          user_type: document.cookie.indexOf('_ftc=') >= 0 || localStorage.getItem('ansinh_booking') ? 'returning' : 'new',
-          device_type: getDeviceType(),
-          session_id: getSessionId(),
-          // WHAT
-          page_title: document.title,
-          page_path: location.pathname,
-          page_url: location.href,
-          page_type: detectPageType(),
-          service_category: detectServiceCategory(),
-          // WHEN
-          event_timestamp: now.toISOString(),
-          day_of_week: getDayName(now.getDay()),
-          hour_of_day: now.getHours(),
-          is_business_hours: isBusinessHours(),
-          // WHERE
-          scroll_depth: getScrollDepth(),
-          // WHY
-          referrer_domain: getReferrerDomain(),
-          // HOW — First Touch Attribution
-          ftc_source: ftc.src || '',
-          ftc_medium: ftc.med || '',
-          ftc_campaign: ftc.cmp || '',
-          ftc_content: ftc.cnt || '',
-          ftc_fbclid: ftc.fbclid || '',
-          ftc_ttclid: ftc.ttclid || '',
-          ftc_gclid: ftc.gclid || '',
-          ftc_referrer: ftc.ref || '',
-          ftc_first_visit: ftc.ts || '',
-          // HOW — Last Touch (current URL params)
-          utm_source: getParam('utm_source'),
-          utm_medium: getParam('utm_medium'),
-          utm_campaign: getParam('utm_campaign'),
-          utm_content: getParam('utm_content'),
-          utm_term: getParam('utm_term')
-        };
-        // Merge extra context
-        if (extraCtx) { for (var k in extraCtx) { ctx[k] = extraCtx[k]; } }
-        return ctx;
-      }
-
-      function genEventId() {
-        return 'evt_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
-      }
-
-      // ════════════════════════════════════════
-      // 4. EVENT: cro_view_content — Service/Page View
-      // ════════════════════════════════════════
-      var pageType = detectPageType();
-      if (pageType === 'service' || pageType === 'home' || pageType === 'tool') {
-        DL.push(Object.assign({ event: 'cro_view_content', event_id: genEventId(), content_type: pageType, content_name: detectServiceCategory() || pageType }, get5W1H()));
-      }
-
-      // ════════════════════════════════════════
-      // 5. EVENT: cro_phone_call — Click tel: links
-      // ════════════════════════════════════════
-      document.addEventListener('click', function(e) {
-        var link = e.target.closest('a[href^="tel:"]');
-        if (!link) return;
-        var phone = link.getAttribute('href').replace('tel:', '');
-        DL.push(Object.assign({
-          event: 'cro_phone_call',
-          event_id: genEventId(),
-          phone_number: phone,
-          click_location: getClickLocation(link),
-          trigger_element: (link.textContent || '').trim().substring(0, 50)
-        }, get5W1H({ click_location: getClickLocation(link) })));
-      }, true);
-
-      // ════════════════════════════════════════
-      // 6. EVENT: cro_zalo_click — Click Zalo links
-      // ════════════════════════════════════════
-      document.addEventListener('click', function(e) {
-        var link = e.target.closest('a[href*="zalo.me"]');
-        if (!link) return;
-        DL.push(Object.assign({
-          event: 'cro_zalo_click',
-          event_id: genEventId(),
-          zalo_url: link.getAttribute('href'),
-          click_location: getClickLocation(link),
-          trigger_element: (link.textContent || '').trim().substring(0, 50) || 'Zalo Icon'
-        }, get5W1H({ click_location: getClickLocation(link) })));
-      }, true);
-
-      // ════════════════════════════════════════
-      // 7. EVENT: cro_open_booking — Booking sheet opened
-      // 8. EVENT: cro_phone_capture + cro_lead
-      //    Deferred: booking module uses <script> (Astro module, deferred)
-      //    so functions may not exist yet. Retry until they load.
-      // ════════════════════════════════════════
-      function initBookingTracking() {
-        // Wrap openBookingSheet
-        if (window.openBookingSheet && !window.openBookingSheet.__cro_wrapped) {
-          var origOpen = window.openBookingSheet;
-          window.openBookingSheet = function(formType, phone) {
-            var type = formType || 'tu-van';
-            DL.push(Object.assign({
-              event: 'cro_open_booking',
-              event_id: genEventId(),
-              form_type: type,
-              has_phone_prefilled: !!phone
-            }, get5W1H()));
-            return origOpen.apply(this, arguments);
-          };
-          window.openBookingSheet.__cro_wrapped = true;
-        }
-
-        // Wrap _capturePhone (Step 1)
-        if (window._capturePhone && !window._capturePhone.__cro_wrapped) {
-          var origCapture = window._capturePhone;
-          window._capturePhone = function(e) {
-            var form = e.target;
-            var phoneInput = form.querySelector('input[name="phone"]');
-            var phone = phoneInput ? phoneInput.value.replace(/\s/g, '') : '';
-            if (/^0\d{8,10}$/.test(phone)) {
-              var formType = '';
-              var ftEl = form.closest('[data-form-type]');
-              if (ftEl) formType = ftEl.dataset.formType;
-              DL.push(Object.assign({
-                event: 'cro_phone_capture',
-                event_id: genEventId(),
-                phone_masked: phone.substring(0, 4) + '***' + phone.substring(phone.length - 2),
-                form_type: formType || detectPageType(),
-                capture_step: 'step1_phone'
-              }, get5W1H()));
-            }
-            return origCapture.apply(this, arguments);
-          };
-          window._capturePhone.__cro_wrapped = true;
-        }
-
-        // Attach cro_lead on booking-form submit (Step 2)
-        var bookingForm = document.getElementById('booking-form');
-        if (bookingForm && !bookingForm.__cro_lead_attached) {
-          bookingForm.addEventListener('submit', function() {
-            var fd = new FormData(bookingForm);
-            var data = {};
-            fd.forEach(function(v, k) { data[k] = v; });
-            var phone = (data.phone || '').replace(/\s/g, '');
-            if (/^0\d{8,10}$/.test(phone)) {
-              DL.push(Object.assign({
-                event: 'cro_lead',
-                event_id: genEventId(),
-                lead_type: 'booking',
-                form_type: data.formType || '',
-                service_name: data.service || '',
-                has_name: !!(data.name && data.name.trim()),
-                has_date: !!data.date,
-                has_time: !!data.timeSlot,
-                has_note: !!(data.note && data.note.trim()),
-                phone_masked: phone.substring(0, 4) + '***' + phone.substring(phone.length - 2)
-              }, get5W1H()));
-            }
-          }, true);
-          bookingForm.__cro_lead_attached = true;
-        }
-
-        // Check if all wrapped
-        var allDone = (window.openBookingSheet && window.openBookingSheet.__cro_wrapped) &&
-                      (window._capturePhone && window._capturePhone.__cro_wrapped) &&
-                      (bookingForm && bookingForm.__cro_lead_attached);
-        return allDone;
-      }
-
-      // Try immediately, then retry via DOMContentLoaded + polling
-      if (!initBookingTracking()) {
-        document.addEventListener('DOMContentLoaded', function() {
-          if (!initBookingTracking()) {
-            var retries = 0;
-            var poll = setInterval(function() {
-              if (initBookingTracking() || ++retries > 20) clearInterval(poll);
-            }, 250);
-          }
-        });
-      }
-
-      // ════════════════════════════════════════
-      // 9. SCROLL DEPTH MILESTONES (25%, 50%, 75%, 90%)
-      // ════════════════════════════════════════
-      var scrollFired = {};
-      var scrollMilestones = [25, 50, 75, 90];
-      function checkScrollMilestone() {
-        var depth = getScrollDepth();
-        for (var i = 0; i < scrollMilestones.length; i++) {
-          var ms = scrollMilestones[i];
-          if (depth >= ms && !scrollFired[ms]) {
-            scrollFired[ms] = true;
-            DL.push({
-              event: 'cro_scroll_depth',
-              scroll_milestone: ms,
-              page_path: location.pathname,
-              page_type: detectPageType()
-            });
-          }
-        }
-      }
-      var lastScrollTop = 0;
-      var stickyBar = document.querySelector('.sticky-cta');
-      var scrollThreshold = 10;
-
-      window.addEventListener('scroll', function() {
-        var st = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Check milestone tracking
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(checkScrollMilestone, 200);
-
-        // Removed hide/show logic for stickyBar on scroll to improve UX on calculator pages
-        // The bar will now act as a standard permanent bottom action bar
-      }, { passive: true });
-
-      // Console log for development
-      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-        console.log('[CRO Tracking] Module loaded. Events: cro_view_content, cro_phone_call, cro_zalo_click, cro_open_booking, cro_phone_capture, cro_lead, cro_scroll_depth');
-        console.log('[CRO Tracking] FTC Cookie:', getFTCookie());
-      }
-    })();
-    </script>
-
   </body>
 </html>

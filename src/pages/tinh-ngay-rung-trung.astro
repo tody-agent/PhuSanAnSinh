@@ -535,7 +535,7 @@ import "../styles/global.css";
         </div>
     </section>
 
-    <style is:global>
+    <style>
         /* ── Tool Hero ── */
         .tool-hero {
             background: linear-gradient(
@@ -703,7 +703,7 @@ import "../styles/global.css";
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-light);
             background: var(--surface);
-            transition: box-shadow var(--transition-base);
+            transition: all var(--transition-base);
         }
         .result-card:hover {
             box-shadow: var(--shadow-md);
@@ -739,15 +739,9 @@ import "../styles/global.css";
         }
         .result-date {
             display: block;
-            font-size: clamp(1rem, 3.5vw, 1.25rem);
+            font-size: 1.25rem;
             color: var(--text-primary);
             margin-top: 2px;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-        .result-info {
-            min-width: 0;
-            flex: 1;
         }
 
         /* ── Phases Card ── */
@@ -1015,127 +1009,43 @@ import "../styles/global.css";
             line-height: 1.7;
         }
 
-        /* ── Animations (opacity-only to avoid layout reflow) ── */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to   { opacity: 1; }
+        /* ── Animations ── */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .calc-results-panel:not([hidden]) {
-            animation: fadeIn 0.3s ease-out;
+            animation: fadeInUp 0.4s ease-out;
         }
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
-            /* Layout containment — prevent ANY child from widening the page */
             .calc-layout {
                 grid-template-columns: 1fr;
-                max-width: 100%;
-                overflow: hidden;
             }
-
-            /* Force all panels and cards to respect viewport */
-            .calc-form-panel,
-            .calc-results-panel,
-            .calc-card,
-            .card {
-                max-width: 100%;
-                width: 100%;
-                box-sizing: border-box;
+            .calc-card {
                 position: static;
             }
-
-            /* Form elements — full width within card */
-            .form-input,
-            .form-range,
-            .calc-submit {
-                max-width: 100%;
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            /* Result cards — single column */
             .results-cards {
                 grid-template-columns: 1fr;
             }
-            .result-card {
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-
-            /* Phases legend wrap for small screens */
-            .phases-legend {
-                gap: var(--space-sm) var(--space-md);
-            }
-
-            /* Calendar cells — smaller on mobile */
-            .cal-day {
-                min-height: 28px;
-                font-size: 0.75rem;
-            }
-
-            /* Forecast table — allow horizontal scroll, shrink text */
-            .forecast-table-wrap {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                max-width: 100%;
-            }
-            .forecast-table th,
-            .forecast-table td {
-                padding: var(--space-xs) var(--space-sm);
-                font-size: 0.75rem;
-            }
-
-            /* CTA section — stack buttons */
             .cta-actions {
                 flex-direction: column;
                 align-items: stretch;
             }
-
-            /* Hero — tighter padding */
             .tool-hero {
-                padding: var(--space-2xl) 0 var(--space-xl);
-            }
-            .hero-sub {
-                font-size: 1rem;
-            }
-
-            /* FAQ — slightly smaller text */
-            .faq-question {
-                font-size: 0.9375rem;
-            }
-        }
-
-        /* ── Small phones (≤374px) ── */
-        @media (max-width: 374px) {
-            .result-card {
-                gap: var(--space-sm);
-                padding: var(--space-md);
-            }
-            .result-icon {
-                width: 44px;
-                height: 44px;
-            }
-            .result-icon svg {
-                width: 22px;
-                height: 22px;
-            }
-            .result-date {
-                font-size: 0.875rem;
-            }
-            .cal-day {
-                min-height: 24px;
-                font-size: 0.6875rem;
-            }
-            .phases-bar {
-                height: 24px;
-            }
-            .phase-segment {
-                font-size: 0.5625rem;
+                padding: var(--space-3xl) 0 var(--space-xl);
             }
         }
     </style>
 
-    <script>
+    <script type="module">
         import {
             calculateOvulationDay,
             calculateFertileWindow,
@@ -1192,34 +1102,27 @@ import "../styles/global.css";
             const phases = generateCyclePhases(lmpDate, cycleLength);
             const forecasts = predictMultipleCycles(lmpDate, cycleLength, 6);
 
-            // Batch all DOM mutations in a single rAF to avoid cascading reflows
-            requestAnimationFrame(() => {
-                // Key dates
-                document.getElementById("result-ovulation").textContent =
-                    formatDateVN(cycle.ovulationDay);
-                document.getElementById("result-fertile").textContent =
-                    formatDateVN(cycle.fertileWindow.start) +
-                    " → " +
-                    formatDateVN(cycle.fertileWindow.end);
-                document.getElementById("result-next-period").textContent =
-                    formatDateVN(cycle.nextPeriod);
+            // Key dates
+            document.getElementById("result-ovulation").textContent =
+                formatDateVN(cycle.ovulationDay);
+            document.getElementById("result-fertile").textContent =
+                formatDateVN(cycle.fertileWindow.start) +
+                " → " +
+                formatDateVN(cycle.fertileWindow.end);
+            document.getElementById("result-next-period").textContent =
+                formatDateVN(cycle.nextPeriod);
 
-                // Phases bar
-                renderPhasesBar(phases, cycleLength);
+            // Phases bar
+            renderPhasesBar(phases, cycleLength);
 
-                // Calendar
-                renderCalendar(cycle, phases);
+            // Calendar
+            renderCalendar(cycle, phases);
 
-                // Forecast table
-                renderForecast(forecasts);
+            // Forecast table
+            renderForecast(forecasts);
 
-                resultsPanel.hidden = false;
-
-                // Defer scroll to next frame so browser paints first
-                requestAnimationFrame(() => {
-                    resultsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
-                });
-            });
+            resultsPanel.hidden = false;
+            resultsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
         }
 
         function renderPhasesBar(phases, cycleLength) {

@@ -1,0 +1,106 @@
+---
+title: "BT-01: Nang Buồng trứng Chức năng"
+description: "Chào bạn, với tư cách là một Giáo sư Sản Phụ khoa và chuyên gia hỗ trợ sinh sản, tôi xin trình bày bài viết y khoa chi tiết về **Nang Buồng trứng Chức năng** dự"
+pubDate: 2026-03-05
+category: phu-khoa
+tags: ["CBC","COCs","PCOS"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 5: Phụ Khoa"
+---
+Chào bạn, với tư cách là một Giáo sư Sản Phụ khoa và chuyên gia hỗ trợ sinh sản, tôi xin trình bày bài viết y khoa chi tiết về **Nang Buồng trứng Chức năng** dựa trên các bằng chứng y khoa hiện đại và hướng dẫn thực hành lâm sàng quốc tế.
+
+---
+
+# BT-01: Nang Buồng trứng Chức năng
+> **Nhóm:** BT (Buồng trứng) | **ICD-10:** N83.0 (Nang bọc noãn), N83.1 (Nang hoàng thể) | **Đối tượng:** BS (Bác sĩ)
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (theo ACOG/ASRM/WHO):** Nang buồng trứng chức năng (Functional Ovarian Cysts) là những khối dạng nang hình thành từ sự biến đổi sinh lý của chu kỳ kinh nguyệt bình thường. Chúng không phải là bệnh lý tân sinh (neoplasm) mà là kết quả của việc nang noãn không phóng noãn hoặc hoàng thể không thoái triển đúng hạn.
+- **Tần suất/Tỷ lệ:** Là loại khối u buồng trứng phổ biến nhất ở phụ nữ trong độ tuổi sinh sản. Hầu như mọi phụ nữ đều có ít nhất một nang chức năng trong đời, thường được phát hiện tình cờ qua siêu âm.
+- **Yếu tố nguy cơ chính:**
+    - Sử dụng thuốc kích thích buồng trứng (trong IUI/IVF).
+    - Sử dụng thuốc tránh thai chỉ có Progestin hoặc dụng cụ tửu cung chứa Levonorgestrel.
+    - Tiền sử có nang chức năng trước đó.
+    - Hút thuốc lá (làm thay đổi nội tiết).
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:**
+    1.  **Nang bọc noãn (Follicular Cyst):** Xảy ra khi nang De Graaf không phóng noãn (ovulation failure) mà tiếp tục phát triển và tích tụ dịch. Đường kính thường > 3cm.
+    2.  **Nang hoàng thể (Corpus Luteum Cyst):** Sau khi phóng noãn, hoàng thể không thoái triển mà đóng kín lại, tích tụ dịch hoặc máu (hoàng thể xuất huyết - Hemorrhagic Corpus Luteum).
+    3.  **Nang hoàng tuyến (Theca Lutein Cyst):** Do sự kích thích quá mức của hCG nồng độ cao (thường gặp trong đa thai, thai trứng hoặc hội chứng quá kích buồng trứng - OHSS).
+- **Phân loại:** Nang bọc noãn, Nang hoàng thể, Nang hoàng tuyến.
+- **Mối liên hệ với sinh sản:** Nang chức năng thường gây rối loạn kinh nguyệt tạm thời và có thể gây nhầm lẫn khi bắt đầu một chu kỳ IVF (cần phân biệt với nang tồn dư).
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Đa số không có triệu chứng (asymptomatic). Một số trường hợp gây đau bụng dưới âm ỉ, cảm giác nặng vùng chậu hoặc chậm kinh (delayed menses).
+- **Triệu chứng thực thể:** Khám vùng chậu có thể sờ thấy khối nề, di động, không đau tại vùng phụ (nếu nang lớn).
+- **Bệnh nhân thường phàn nàn:** "Thưa bác sĩ, tôi thấy đau tức vùng bụng dưới bên phải đã 1 tuần nay, tháng này kinh nguyệt của tôi cũng chưa thấy đến."
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| **β-hCG** | Loại trừ thai ngoài tử cung/thai nghén | < 5 mIU/mL | Dương tính gợi ý nang liên quan đến thai kỳ |
+| **CA-125** | Tầm soát u buồng trứng ác tính | < 35 U/mL | Có thể tăng nhẹ trong nang xuất huyết nhưng thường bình thường |
+| **Công thức máu (CBC)** | Đánh giá mất máu hoặc nhiễm trùng | WBC: 4-10 G/L; Hb: 120-150 g/L | WBC tăng (xoắn/vỡ), Hb giảm (vỡ nang xuất huyết) |
+
+### 4.2 Hình ảnh học
+- **Siêu âm (Transvaginal Ultrasound - TVS):** Là tiêu chuẩn vàng. Nang chức năng điển hình có thành mỏng, một thùy (unilocular), dịch trong (anechoic), không có chồi vách, không tăng sinh mạch máu trên Doppler. Kích thước thường 3-8cm.
+- **MRI / CT:** Chỉ định khi siêu âm không rõ ràng hoặc nghi ngờ ác tính (tuy nhiên hiếm khi cần thiết cho nang chức năng).
+- **Nội soi (Laparoscopy):** Chỉ định khi có biến chứng cấp cứu (xoắn, vỡ gây láng máng máu).
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| **Lạc nội mạc tử cung (Endometrioma)** | Hình ảnh "kính mờ" (ground-glass), thành dày, không biến mất sau hành kinh. |
+| **U quái buồng trứng (Dermoid Cyst)** | Có thành phần hỗn hợp (mỡ, tóc, vôi hóa). |
+| **Thai ngoài tử cung (Ectopic Pregnancy)** | β-hCG dương tính, hình ảnh túi thai vùng phụ, đau bụng cấp. |
+| **Ung thư buồng trứng** | Nang đa thùy, có chồi vách, tăng sinh mạch máu, dịch ổ bụng. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- Đau bụng cấp tính, đột ngột, dữ dội kèm buồn nôn/nôn (Nghi ngờ **Xoắn buồng trứng - Ovarian Torsion**).
+- Dấu hiệu đề kháng thành bụng, tụt huyết áp, mạch nhanh (Nghi ngờ **Vỡ nang xuất huyết gây tràn máu phúc mạc**).
+- Sốt cao, đau vùng chậu không đáp ứng thuốc giảm đau (Nghi ngờ áp xe phần phụ).
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- **Theo dõi mong đợi (Expectant Management):** Hầu hết nang chức năng sẽ tự biến mất sau 1-2 chu kỳ kinh nguyệt (6-8 tuần). Tái khám siêu âm sau sạch kinh.
+- **Thuốc tránh thai kết hợp (COCs):** Không giúp nang hiện tại biến mất nhanh hơn nhưng có tác dụng ngăn chặn hình thành nang mới bằng cách ức chế trục hạ đồi - tuyến yên - buồng trứng.
+- **Giảm đau:** Sử dụng NSAIDs (Ibuprofen, Naproxen) nếu có đau tức nhẹ.
+
+### 6.2 Điều trị ngoại khoa (nếu có)
+- Chỉ định khi:
+    - Nang không biến mất sau 3 tháng theo dõi hoặc kích thước tăng nhanh (>10cm).
+    - Nghi ngờ ác tính trên hình ảnh học hoặc điểm RMI cao.
+    - Biến chứng cấp cứu: Xoắn nang hoặc vỡ nang gây chảy máu trong không ổn định huyết động.
+- Phương pháp: Nội soi bóc nang (Cystectomy) bảo tồn mô buồng trứng là ưu tiên hàng đầu.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Trong IVF, nếu siêu âm ngày 2 chu kỳ (baseline scan) thấy nang chức năng > 20mm kèm Progesterone > 1.5 ng/ml: **Trì hoãn kích thích buồng trứng** vì nang này có thể cản trở sự phát triển đồng bộ của các nang noãn khác. Có thể dùng GnRH antagonist hoặc COCs để nang thoái triển.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- Tiên lựơng rất tốt, đa số tự giới hạn.
+- Tỷ lệ tái phát: Thường xuyên xảy ra ở phụ nữ có cơ địa rối loạn rụng noãn.
+- Không tăng nguy cơ ung thư buồng trứng trong tương lai.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Nang của chị là nang sinh lý, hình thành do trứng không rụng hoặc sau khi rụng trứng tạo ra dịch. Đây không phải u bướu nguy hiểm và thường tự biến mất sau 1-2 tháng mà không cần phẫu thuật."
+- **Câu hỏi thường gặp:**
+    - *Hỏi:* Tôi có cần kiêng quan hệ tình dục không?
+    - *Trả lời:* Nếu nang lớn (>5cm), nên hạn chế vận động mạnh hoặc quan hệ thô bạo để tránh nguy cơ vỡ nang hoặc xoắn buồng trứng.
+    - *Hỏi:* Nang này có làm tôi bị vô sinh không?
+    - *Trả lời:* Nang chức năng chỉ gây chậm kinh tạm thời, không gây vô sinh lâu dài. Sau khi nang biến mất, chị có thể mang thai bình thường.
+
+## 9. CROSS-LINKS
+- [BT-02: Hội chứng buồng trứng đa nang (PCOS)]
+- [BT-05: Lạc nội mạc tử cung tại buồng trứng]
+- [KTHT-01: Quy trình kích thích buồng trứng trong IVF]
+
+## 10. TÀI LIỆU THAM KHẢO
+1.  ACOG Practice Bulletin No. 174: Management of Adnexal Masses.
+2.  Williams Gynecology, 4th Edition.
+3.  Hướng dẫn chẩn đoán và điều trị các bệnh Sản phụ khoa - Bộ Y tế Việt Nam.
+
+---
+*Lưu ý: Mọi chẩn đoán và điều trị cần có chỉ định trực tiếp từ bác sĩ chuyên khoa Sản Phụ khoa.*

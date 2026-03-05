@@ -1,0 +1,118 @@
+---
+title: "TK1-06: Nghén Nặng (Hyperemesis Gravidarum)"
+description: "Chào bạn, với tư cách là Giáo sư Sản Phụ khoa, tôi xin trình bày bài viết chuyên sâu về tình trạng **Nghén nặng (Hyperemesis Gravidarum - HG)**. Đây là một thác"
+pubDate: 2026-03-05
+category: san-khoa
+tags: ["BMI","ART","ALT/AST","TSH","OHSS"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 6: Sản Khoa"
+---
+Chào bạn, với tư cách là Giáo sư Sản Phụ khoa, tôi xin trình bày bài viết chuyên sâu về tình trạng **Nghén nặng (Hyperemesis Gravidarum - HG)**. Đây là một thách thức lâm sàng đòi hỏi sự phối hợp chặt chẽ giữa hồi sức nội khoa và chăm sóc sản khoa để đảm bảo an toàn cho cả mẹ và thai nhi.
+
+---
+
+# TK1-06: Nghén Nặng (Hyperemesis Gravidarum)
+> **Nhóm:** TK1 (Sản khoa tầng 1) | **ICD-10:** O21.1 (Nghén nặng có rối loạn chuyển hóa) | **Đối tượng:** Bác sĩ Sản phụ khoa & Nội khoa
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (theo ACOG):** Nghén nặng là tình trạng nôn mửa trầm trọng liên quan đến thai kỳ, dẫn đến sụt cân trên 5% trọng lượng cơ thể trước khi mang thai, kèm theo tình trạng mất nước (dehydration), rối loạn điện giải (electrolyte imbalance) và có sự hiện diện của ceton trong nước tiểu (ketonuria). 
+- **Tần suất/Tỷ lệ:** Chiếm khoảng 0.3% – 3% tổng số thai kỳ. Đây là nguyên nhân hàng đầu gây nhập viện trong 12 tuần đầu thai kỳ.
+- **Yếu tố nguy cơ chính:**
+    - Mang thai lần đầu (primigravida).
+    - Đa thai (multiple gestation), thai trứng (molar pregnancy).
+    - Tiền sử bản thân hoặc gia đình bị nghén nặng trong các lần mang thai trước.
+    - Bệnh lý tuyến giáp hoặc rối loạn tâm lý trước đó.
+    - Chỉ số khối cơ thể (BMI) cao hoặc thấp quá mức.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** Chưa được làm rõ hoàn toàn nhưng có liên quan mật thiết đến:
+    - **Hormone:** Sự gia tăng nhanh chóng của hCG (Human Chorionic Gonadotropin) và Estrogen. Đỉnh điểm của HG thường trùng với thời điểm hCG đạt mức cao nhất (tuần 10-12).
+    - **Di truyền:** Các nghiên cứu gần đây chỉ ra mối liên quan với gen GDF15 và IGFBP7 (liên quan đến sự thèm ăn và nôn mửa).
+    - **Thuyết tiến hóa:** Cơ chế bảo vệ thai nhi khỏi các độc tố tiềm tàng.
+    - **Nhiễm trùng:** Có mối liên quan yếu với vi khuẩn *Helicobacter pylori*.
+- **Phân loại:** 
+    - Nghén thông thường (Nausea and Vomiting of Pregnancy - NVP): 70-80% thai phụ.
+    - Nghén nặng (Hyperemesis Gravidarum - HG): Thể lâm sàng nghiêm trọng.
+- **Mối liên hệ với sinh sản:** Thai kỳ sau hỗ trợ sinh sản (ART), đặc biệt là sau khi chuyển nhiều phôi dẫn đến đa thai, có tỷ lệ HG cao hơn do nồng độ hormone nội tiết được duy trì ở mức rất cao.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:**
+    - Nôn mửa liên tục, không thể ăn uống (intractable vomiting).
+    - Mệt mỏi rã rời, chóng mặt, ngất xỉu.
+    - Rối loạn vị giác, sợ mùi (osmosmia).
+    - Tiết nước bọt quá mức (ptyalism).
+- **Triệu chứng thực thể:**
+    - Sụt cân nhanh chóng (>5% trọng lượng).
+    - Dấu hiệu mất nước: Môi khô, da đàn hồi kém, mạch nhanh, huyết áp thấp tư thế.
+    - Hơi thở có mùi ceton (mùi trái cây chín).
+- **Bệnh nhân thường phàn nàn:** "Thưa bác sĩ, tôi không thể giữ nổi một ngụm nước trong bụng, chỉ cần ngửi thấy mùi cơm là tôi nôn thốc nôn tháo đến mật xanh mật vàng."
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| Ceton niệu | Đánh giá tình trạng đói (starvation) | Âm tính | Dương tính (+ đến ++++) |
+| Điện giải đồ | Kiểm tra mất Na+, K+, Cl- | K+: 3.5-5.0 mmol/L | Hạ Kali, hạ Clo, kiềm chuyển hóa |
+| Chức năng gan (ALT/AST) | Loại trừ viêm gan | ALT < 40 U/L | Tăng nhẹ (thường < 300 U/L) |
+| Chức năng giáp (TSH, fT4) | Loại trừ cường giáp | TSH bình thường | TSH thấp, fT4 tăng (cường giáp thoáng qua) |
+| Hematocrit (Hct) | Đánh giá độ cô đặc máu | 35-45% | Tăng do thiếu dịch |
+
+### 4.2 Hình ảnh học
+- **Siêu âm:** Bắt buộc để xác định tình trạng thai (đơn/đa thai), loại trừ thai trứng (gestational trophoblastic disease).
+- **MRI / CT:** Chỉ chỉ định khi nghi ngờ có bệnh lý thần kinh trung ương (rất hiếm).
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Viêm dạ dày/Loét | Đau vùng thượng vị điểm hình, nôn sau ăn |
+| Viêm túi mật/Tụy | Đau bụng dữ dội, tăng Amylase/Lipase |
+| Nhiễm trùng tiểu | Sốt, tiểu gắt buốt, xét nghiệm nước tiểu có bạch cầu |
+| Cường giáp bệnh lý | Có bướu cổ, lồi mắt, TSH thấp kéo dài qua tam cá nguyệt 2 |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- Nôn ra máu (Hội chứng Mallory-Weiss).
+- Thay đổi ý thức, lú lẫn, rối loạn vận nhãn (Nghi ngờ bệnh não Wernicke do thiếu Vitamin B1).
+- Vô niệu hoặc thiểu niệu (Suy thận cấp trước thận).
+- Sụt cân >10% hoặc không đáp ứng với điều trị nội khoa ngoại trú.
+- Vàng da, đau bụng dữ dội.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ (Cần chỉ định của bác sĩ chuyên khoa)
+### 6.1 Điều trị nội khoa
+- **Bồi phụ dịch:** Ringer's Lactate hoặc Normal Saline. 
+    - **Lưu ý tối quan trọng:** Phải bổ sung **Vitamin B1 (Thiamine)** trước khi truyền dịch có pha Glucose để tránh gây ra bệnh não Wernicke cấp tính.
+- **Thuốc chống nôn (Bậc thang ACOG):**
+    1. Vitamin B6 (Pyridoxine) + Doxylamine (Lựa chọn đầu tay).
+    2. Metoclopramide hoặc Promethazine.
+    3. Ondansetron (Sử dụng thận trọng, thường sau 10 tuần thai).
+- **Corticosteroids:** Methylprednisolone (Chỉ dùng cho trường hợp kháng trị và sau 10 tuần để tránh nguy cơ sứt môi/hở hàm ếch).
+
+### 6.2 Điều trị ngoại khoa (nếu có)
+- Không có chỉ định ngoại khoa trực tiếp cho HG. Tuy nhiên, nếu HG do thai trứng, cần thực hiện hút thai trứng cấp cứu.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Trong các chu kỳ IVF, nếu bệnh nhân có dấu hiệu nghén sớm và nặng, cần theo dõi sát nguy cơ **Quá kích buồng trứng (OHSS)** phối hợp, vì hai tình trạng này có thể làm trầm trọng lẫn nhau do nồng độ hCG ngoại sinh hoặc nội sinh.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- **Mẹ:** Tiên lượng tốt nếu được bù dịch kịp thời. Biến chứng nặng như suy thận, vỡ thực quản hoặc bệnh não Wernicke hiện nay rất hiếm gặp nhờ can thiệp sớm.
+- **Thai nhi:** Đa số không ảnh hưởng đến sự phát triển nếu mẹ được điều trị tốt. Tuy nhiên, HG kéo dài không kiểm soát có thể dẫn đến thai chậm tăng trưởng trong tử cung (IUGR) hoặc sinh non.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Cơ thể chị đang phản ứng quá mức với các nội tiết tố nuôi thai. Đây không phải lỗi của chị, và chúng tôi sẽ giúp chị vượt qua giai đoạn khó khăn này bằng cách bù lại lượng nước và dinh dưỡng đã mất."
+- **Câu hỏi thường gặp:** 
+    - *Hỏi:* "Tôi nôn nhiều thế này con tôi có bị đói không?"
+    - *Trả lời:* "Thai nhi ở giai đoạn đầu rất nhỏ, nhu cầu năng lượng chưa cao. Bé sẽ lấy dưỡng chất dự trữ từ mẹ. Quan trọng là chị cần bù nước và điện giải để máu lưu thông đến bánh nhau tốt nhất."
+- **Chế độ ăn:** Chia nhỏ bữa (6-8 bữa/ngày), ưu tiên đồ khô (bánh mì, bánh quy), tránh đồ dầu mỡ và các mùi kích thích.
+
+## 9. CROSS-LINKS
+- [TK1-01: Chăm sóc thai kỳ 3 tháng đầu]
+- [F-05: Thai trứng và bệnh lý nguyên bào nuôi]
+- [KTHT-05: Biến chứng sau chuyển phôi]
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ACOG Practice Bulletin No. 189: Nausea and Vomiting of Pregnancy.
+2. Bộ Y tế Việt Nam: Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.
+3. ESHRE Guidelines on Pregnancy after ART.
+
+---
+*Lưu ý: Mọi quyết định điều trị phải dựa trên thăm khám lâm sàng trực tiếp và chỉ định của bác sĩ chuyên khoa.*

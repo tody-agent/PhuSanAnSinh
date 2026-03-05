@@ -171,6 +171,13 @@ const CATEGORY_MAP: Record<string, string> = {
     'cong-cu': 'Công Cụ Y Khoa',
     'dich-vu': 'Dịch Vụ',
     'gioi-thieu': 'Giới Thiệu',
+    // Handbook categories
+    'nen-tang': 'Nền Tảng Y Khoa',
+    'vo-sinh-hiem-muon': 'Vô Sinh & Hiếm Muộn',
+    'ho-tro-sinh-san': 'Hỗ Trợ Sinh Sản',
+    'di-truyen': 'Di Truyền Học',
+    'san-khoa': 'Sản Khoa',
+    'hau-san': 'Hậu Sản',
 };
 
 export const GET: APIRoute = async () => {
@@ -185,7 +192,18 @@ export const GET: APIRoute = async () => {
         y: 'blog' as const,
     }));
 
-    const allEntries = [...STATIC_PAGES, ...blogEntries];
+    const handbookPosts = await getCollection('handbook');
+
+    const handbookEntries = handbookPosts.map((post) => ({
+        t: post.data.title,
+        d: post.data.description.slice(0, 120),
+        u: `/san-phu-handbook/${post.id.replace(/\.mdx?$/, '')}`,
+        c: CATEGORY_MAP[post.data.category] || post.data.category,
+        k: post.data.tags || [],
+        y: 'handbook' as const,
+    }));
+
+    const allEntries = [...STATIC_PAGES, ...blogEntries, ...handbookEntries];
 
     return new Response(JSON.stringify(allEntries), {
         headers: {
@@ -193,3 +211,4 @@ export const GET: APIRoute = async () => {
         },
     });
 };
+

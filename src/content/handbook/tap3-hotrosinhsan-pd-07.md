@@ -1,0 +1,89 @@
+---
+title: "Phác đồ Chu kỳ Tự nhiên (Natural Cycle IVF) — PD-07"
+description: "Thụ tinh trong ống nghiệm chu kỳ tự nhiên (Natural Cycle IVF - NC-IVF) là kỹ thuật thu thập nang noãn đơn độc được chọn lọc tự nhiên bởi cơ thể người phụ nữ tro"
+pubDate: 2026-03-05
+category: ho-tro-sinh-san
+tags: ["RIF","OHSS","TVUS","LH","LH surge"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 3: Hỗ Trợ Sinh Sản"
+---
+# Phác đồ Chu kỳ Tự nhiên (Natural Cycle IVF) — PD-07
+> **Nhóm:** PD | **Mã:** PD-07 | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & CHỈ ĐỊNH
+**Định nghĩa:**
+Thụ tinh trong ống nghiệm chu kỳ tự nhiên (Natural Cycle IVF - NC-IVF) là kỹ thuật thu thập nang noãn đơn độc được chọn lọc tự nhiên bởi cơ thể người phụ nữ trong một chu kỳ kinh nguyệt bình thường mà không sử dụng thuốc kích thích buồng trứng (Controlled Ovarian Stimulation - COS). 
+
+**Mã ICD-10:** 
+- **N97:** Nữ vô sinh (Female infertility)
+- **Z31.2:** Thụ tinh trong ống nghiệm (In vitro fertilization)
+
+**Chỉ định:**
+1. **Dự trữ buồng trứng cực thấp (Very Poor Ovarian Reserve):** Chỉ số AMH < 0.5 ng/mL, AFC < 3 nang, bệnh nhân không đáp ứng với các phác đồ kích thích buồng trứng liều cao (Poor responders theo tiêu chuẩn Bologna).
+2. **Tiền sử ung thư nhạy cảm hormone:** Ung thư vú, ung thư nội mạc tử cung (tránh tình trạng nồng độ Estradiol tăng quá cao).
+3. **Thất bại làm tổ nhiều lần (RIF):** Nghi ngờ do nồng độ hormone cao trong chu kỳ kích thích làm ảnh hưởng đến cửa sổ làm tổ (Window of Implantation).
+4. **Lựa chọn của bệnh nhân:** Mong muốn giảm thiểu chi phí, tránh tác dụng phụ của thuốc hoặc nguy cơ quá kích buồng trứng (OHSS).
+5. **Vấn đề đạo đức/tôn giáo:** Không muốn tạo ra quá nhiều phôi dư thừa.
+
+## 2. NGUYÊN LÝ KHOA HỌC
+- **Sự chọn lọc tự nhiên:** Trong một chu kỳ bình thường, cơ thể tự tuyển chọn một nang noãn ưu thế (Dominant follicle) có chất lượng tốt nhất và có khả năng phát triển cao nhất.
+- **Tính tiếp nhận của nội mạc tử cung (Endometrial Receptivity):** Trong NC-IVF, nồng độ Estradiol (E2) và Progesterone (P4) duy trì ở mức sinh lý, giúp nội mạc tử cung phát triển đồng bộ, tối ưu hóa khả năng làm tổ so với các chu kỳ kích thích buồng trứng liều cao.
+- **Tránh lệch lạc di truyền:** Một số nghiên cứu giả định rằng việc ép buộc nhiều nang phát triển cùng lúc có thể làm tăng tỷ lệ noãn bất thường nhiễm sắc thể (Aneuploidy) ở nhóm bệnh nhân lớn tuổi.
+
+## 3. QUY TRÌNH THỰC HIỆN (Step-by-step)
+| Bước | Thời điểm | Hành động | Người thực hiện | Lưu ý |
+|------|----------|----------|----------------|-------|
+| 1. Đánh giá cơ bản | Ngày 2-3 chu kỳ | Siêu âm (TVUS), xét nghiệm nội tiết (E2, LH, P4, FSH) | Bác sĩ điều trị | Loại trừ nang tồn dư (Functional cyst) |
+| 2. Theo dõi nang | Từ ngày 8 chu kỳ | Siêu âm TVUS mỗi 1-2 ngày để đo kích thước nang | Bác sĩ điều trị | Theo dõi độ dày nội mạc tử cung |
+| 3. Giám sát LH | Khi nang ≥ 14mm | Xét nghiệm máu (LH, E2) mỗi ngày hoặc 2 lần/ngày | Xét nghiệm | Phát hiện sớm đỉnh LH (LH surge) tự nhiên |
+| 4. Ngăn rụng trứng sớm | Khi nang ≥ 14-15mm | Sử dụng GnRH antagonist (nếu áp dụng Modified NC-IVF) | Điều dưỡng/BN | Tránh tình trạng rụng trứng trước khi OPU |
+| 5. Trưởng thành noãn | Khi nang ≥ 16-18mm | Tiêm hCG hoặc GnRH agonist (Trigger) | Bác sĩ/BN | Thời điểm cực kỳ quan trọng |
+| 6. Chọc hút noãn (OPU) | 34-36h sau Trigger | Hút dịch nang dưới hướng dẫn siêu âm | BS Sản/Phôi học | Dùng kim nhỏ (single lumen), áp lực thấp |
+| 7. Labo & Cấy phôi | Ngày 0-5 | IVF/ICSI, nuôi cấy phôi | Chuyên viên phôi học | Thường ưu tiên ICSI để tối ưu hóa tỷ lệ thụ tinh |
+| 8. Chuyển phôi (ET) | Ngày 2, 3 hoặc 5 | Chuyển phôi tươi hoặc trữ phôi | Bác sĩ điều trị | Thường chuyển phôi tươi do nội mạc tối ưu |
+
+## 4. THUỐC SỬ DỤNG (Thường dùng trong Modified NC-IVF)
+| Thuốc | Biệt dược | Liều | Đường dùng | Thời gian | Theo dõi |
+|------|----------|-----|-----------|----------|---------|
+| GnRH Antagonist | Cetrotide / Orgalutran | 0.25mg | Tiêm dưới da | Khi nang ≥ 14mm | Ngăn đỉnh LH sớm |
+| HCG | Pregnyl / Ovitrelle | 5000-10000 IU | Tiêm bắp/dưới da | Khi nang đạt chuẩn | Trigger rụng trứng |
+| Progesterone | Cyclogest / Utrogestan | 400-800mg | Đặt âm đạo | Sau OPU 2 ngày | Hỗ trợ hoàng thể |
+| Kháng viêm | Indomethacin | 25-50mg | Uống | Trước OPU 12-24h | Ngăn rụng trứng sớm (tùy ca) |
+
+## 5. THEO DÕI & ĐÁNH GIÁ
+- **Siêu âm:** Đánh giá tốc độ phát triển nang (trung bình 1.5 - 2mm/ngày).
+- **Xét nghiệm E2:** Mỗi nang trưởng thành tương ứng nồng độ E2 khoảng 200-300 pg/mL.
+- **Xét nghiệm LH:** Nếu LH tăng đột biến (> 15-20 mIU/mL) trước khi Trigger, cần cân nhắc chọc hút sớm hoặc hủy chu kỳ.
+- **Đánh giá noãn:** Kiểm tra sự hiện diện của cực cầu 1 (MII) sau khi chọc hút.
+
+## 6. BIẾN CHỨNG & XỬ TRÍ
+| Biến chứng | Tần suất | Nhận biết | Xử trí |
+|-----------|---------|----------|--------|
+| Rụng trứng sớm | 10-20% | LH tăng cao, nang biến mất trên siêu âm | Hủy chu kỳ hoặc thử chọc hút dịch cùng đồ |
+| Hội chứng nang trống | 5-10% | Không tìm thấy noãn trong dịch nang | Tư vấn tâm lý, xem xét đổi thuốc Trigger chu kỳ sau |
+| Thất bại thụ tinh | 10-15% | Noãn không phân chia sau 18-24h | Xem xét kỹ thuật ICSI cho chu kỳ kế tiếp |
+| Không có phôi chuyển | 20-30% | Do noãn chất lượng kém hoặc không thụ tinh | Gom phôi (Embryo pooling) nhiều chu kỳ |
+
+## 7. KẾT QUẢ KỲ VỌNG
+- **Tỷ lệ thu hồi noãn:** 80-90% mỗi nang hút được.
+- **Tỷ lệ thụ tinh:** 70-80%.
+- **Tỷ lệ thai lâm sàng:** 15-20% mỗi chu kỳ chuyển phôi (thấp hơn COS nhưng chi phí thấp hơn).
+- **Tỷ lệ thai cộng dồn:** Tăng đáng kể sau 3-4 chu kỳ thực hiện liên tiếp.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Tâm lý:** Bệnh nhân cần hiểu đây là "cuộc đua của một chiến binh duy nhất". Nguy cơ không có phôi để chuyển trong một chu kỳ là khá cao.
+- **Chi phí:** Giải thích rõ chi phí thấp hơn do không dùng thuốc kích thích, nhưng có thể phải thực hiện nhiều lần.
+- **Sức khỏe:** Nhấn mạnh sự an toàn, không đau, không nguy cơ quá kích buồng trứng.
+- **Lối sống:** Khuyến cáo chế độ ăn giàu chất chống oxy hóa, nghỉ ngơi hợp lý để tối ưu chất lượng nang duy nhất này.
+
+## 9. CROSS-LINKS
+- **PD-01:** Phác đồ Kích thích buồng trứng chuẩn (Antagonist protocol).
+- **PD-08:** Phác đồ Kích thích nhẹ (Minimal Stimulation IVF).
+- **KTHT-04:** Kỹ thuật Chọc hút noãn (OPU).
+- **PHO-02:** Kỹ thuật ICSI.
+
+---
+**Lưu ý từ Giáo sư:** *NC-IVF đòi hỏi sự kiên nhẫn của cả bác sĩ và bệnh nhân. Việc theo dõi sát sao nồng độ LH là chìa khóa thành công để tránh mất noãn. Đối với nhóm bệnh nhân giảm dự trữ buồng trứng, NC-IVF đôi khi là tia hy vọng cuối cùng khi các phương pháp khác đã thất bại.*
+
+**Cần chỉ định và theo dõi sát của bác sĩ chuyên khoa hỗ trợ sinh sản.**

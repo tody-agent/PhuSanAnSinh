@@ -1,0 +1,118 @@
+---
+title: "VT-04: Thai Ngoài tử cung tại Vòi trứng"
+description: "Chào bạn, với tư cách là Giáo sư Sản Phụ khoa, tôi sẽ biên soạn bài viết chuyên sâu về **Thai ngoài tử cung tại vòi trứng (Tubal Ectopic Pregnancy)**. Đây là mộ"
+pubDate: 2026-03-05
+category: phu-khoa
+tags: ["IUI","CBC","TVS"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 5: Phụ Khoa"
+---
+Chào bạn, với tư cách là Giáo sư Sản Phụ khoa, tôi sẽ biên soạn bài viết chuyên sâu về **Thai ngoài tử cung tại vòi trứng (Tubal Ectopic Pregnancy)**. Đây là một cấp cứu sản khoa thường gặp nhất và đòi hỏi sự nhạy bén trong chẩn đoán cũng như cá thể hóa trong điều trị để bảo tồn khả năng sinh sản cho người bệnh.
+
+Dưới đây là nội dung chi tiết theo đúng template y khoa chuẩn:
+
+# VT-04: Thai Ngoài tử cung tại Vòi trứng
+> **Nhóm:** VT | **ICD-10:** O00.1 | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn:** Thai ngoài tử cung (*Ectopic Pregnancy - EP*) là tình trạng trứng sau khi thụ tinh làm tổ và phát triển ở bất kỳ vị trí nào bên ngoài buồng tử cung. Thai tại vòi trứng chiếm khoảng 95-97% tổng số các trường hợp thai ngoài tử cung.
+- **Tần suất/Tỷ lệ:** Chiếm khoảng 1-2% tổng số các thai kỳ tự nhiên. Tỷ lệ này tăng cao hơn (đến 3-5%) ở nhóm bệnh nhân hỗ trợ sinh sản (*ART*).
+- **Yếu tố nguy cơ chính:**
+    - Tiền sử viêm nhiễm vùng chậu (*Pelvic Inflammatory Disease - PID*), đặc biệt do *Chlamydia trachomatis*.
+    - Tiền sử phẫu thuật vòi trứng hoặc phẫu thuật vùng chậu/ổ bụng trước đó.
+    - Tiền sử thai ngoài tử cung (nguy cơ tái phát gấp 3-10 lần).
+    - Hút thuốc lá (làm giảm cử động của lông chuyển vòi trứng).
+    - Sử dụng các kỹ thuật hỗ trợ sinh sản (IUI, IVF).
+    - Lạc nội mạc tử cung (*Endometriosis*) tại vòi trứng.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** Sự chậm trễ hoặc tắc nghẽn trong quá trình vận chuyển phôi từ vòi trứng vào buồng tử cung. Nguyên nhân có thể do tổn thương cấu trúc (sẹo, dính) hoặc rối loạn chức năng nhu động/lông chuyển của vòi trứng.
+- **Phân loại vị trí tại vòi trứng:**
+    - Đoạn bóng (*Ampulla*): 70% (vị trí phổ biến nhất).
+    - Đoạn eo (*Isthmus*): 12%.
+    - Đoạn loa/phễu (*Fimbrial*): 11%.
+    - Đoạn kẽ (*Interstitial*): 2-3% (nguy cơ mất máu cực lớn khi vỡ).
+- **Mối liên hệ với sinh sản:** Thai ngoài tử cung tại vòi trứng thường dẫn đến hủy hoại cấu trúc vòi trứng đó, ảnh hưởng trực tiếp đến khả năng thụ thai tự nhiên trong tương lai.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng (Tam chứng kinh điển):** 
+    1. Trễ kinh (*Amenorrhea*).
+    2. Đau bụng dưới (thường đau lệch một bên, âm ỉ hoặc nhói).
+    3. Ra máu âm đạo bất thường (thường máu nâu đen, ít, rỉ rả).
+- **Triệu chứng thực thể:**
+    - Khám mỏ vịt: Có máu từ buồng tử cung chảy ra.
+    - Thăm khám bằng tay: Tử cung hơi to, mềm; có khối nề/đau ở cạnh tử cung (phần phụ); dấu hiệu đẩy cổ tử cung đau (*Cervical motion tenderness*).
+- **Bệnh nhân thường phàn nàn:** "Tôi bị trễ kinh 1 tuần, thử que 2 vạch nhưng mấy hôm nay đau bụng lâm râm bên phải và ra ít máu màu nâu."
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| Serum β-hCG | Xác định có thai và theo dõi sự phát triển | Tăng gấp đôi sau mỗi 48h | Tăng chậm (<35% trong 48h) hoặc đi ngang |
+| Progesterone | Đánh giá tính chất sống của thai | >25 ng/mL (thai sống) | <5 ng/mL (gợi ý thai bất thường/EP) |
+| Công thức máu (CBC) | Đánh giá tình trạng mất máu/nhiễm trùng | Hb >12 g/dL | Hb giảm (nếu có xuất huyết nội) |
+
+### 4.2 Hình ảnh học
+- **Siêu âm đầu dò âm đạo (TVS):** Là tiêu chuẩn vàng.
+    - Hình ảnh "Empty uterus" (buồng tử cung trống).
+    - Hình ảnh "Bagel sign" (khối nhẫn ở phần phụ có túi thai).
+    - Hình ảnh "Blobs sign" (khối hỗn hợp ở phần phụ - thường là máu cục quanh túi thai).
+    - Có dịch ổ bụng (dịch túi cùng Douglas).
+- **MRI:** Chỉ định trong trường hợp nghi ngờ thai đoạn kẽ hoặc các vị trí hiếm gặp khác mà siêu âm không rõ.
+- **Nội soi ổ bụng (Laparoscopy):** Vừa là công cụ chẩn đoán xác định cuối cùng, vừa là phương pháp điều trị.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Dọa sẩy thai / Sẩy thai | β-hCG thường rất cao hoặc giảm nhanh, siêu âm có túi thai trong tử cung. |
+| Nang hoàng thể vỡ | Test thai âm tính (trừ khi có thai kèm theo), đau đột ngột. |
+| Viêm ruột thừa | Đau khu trú vùng hố chậu phải, sốt, bạch cầu tăng, test thai âm tính. |
+| U nang buồng trứng xoắn | Đau dữ dội, khối u buồng trứng rõ trên siêu âm, test thai âm tính. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- Bệnh nhân có dấu hiệu sốc mất máu: Mạch nhanh, huyết áp tụt, da xanh niêm nhạt.
+- Đau bụng dữ dội, phản ứng thành bụng dương tính (nghi ngờ vỡ vòi trứng gây xuất huyết nội).
+- Dấu hiệu kích thích phúc mạc: Đau lan lên vai (dấu hiệu Kehr do máu kích thích thần kinh hoành).
+- **HÀNH ĐỘNG:** Thiết lập đường truyền tĩnh mạch, hồi sức chống sốc và phẫu thuật nội soi cấp cứu ngay lập tức.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa (Methotrexate - MTX)
+- **Chỉ định:** Huyết động ổn định, β-hCG < 5000 mIU/mL, chưa có tim thai trên siêu âm, khối thai < 3.5 - 4cm, bệnh nhân tuân thủ theo dõi.
+- **Phác đồ:** Đơn liều (50mg/m2 da) hoặc đa liều.
+- **Theo dõi:** Định lượng β-hCG vào ngày 4 và ngày 7. Nếu giảm >15%, theo dõi hàng tuần cho đến khi <5 mIU/mL.
+
+### 6.2 Điều trị ngoại khoa
+- **Phẫu thuật nội soi (Laparoscopy):** Là lựa chọn ưu tiên.
+    - **Mở vòi trứng lấy khối thai (Salpingostomy):** Bảo tồn vòi trứng cho phụ nữ còn nhu cầu sinh con nhưng có nguy cơ sót mô rau (cần theo dõi β-hCG sau mổ).
+    - **Cắt vòi trứng (Salpingectomy):** Chỉ định khi vòi trứng vỡ, tổn thương nặng, hoặc bệnh nhân đã đủ con.
+- **Mổ mở (Laparotomy):** Khi huyết động không ổn định hoặc dính quá nhiều không thể nội soi.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Nếu bệnh nhân thực hiện IVF, cần kiểm tra vị trí túi thai sớm (tuần 5-6) để loại trừ thai ngoài tử cung hoặc thai đôi (một trong - một ngoài tử cung - *Heterotopic pregnancy*).
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- Tiên lượng bảo tồn khả năng sinh sản đạt khoảng 60-70% nếu điều trị kịp thời.
+- Nguy cơ tái phát ở vòi trứng đối bên là 10-15%.
+- Theo dõi β-hCG cho đến khi về âm tính là bắt buộc để loại trừ bệnh lý nguyên bào nuôi tồn tại.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Thai của chị không nằm trong buồng tử cung mà bị kẹt lại ở vòi trứng. Vòi trứng rất mảnh, không thể giãn ra để chứa thai nhi như tử cung, nên nếu để lớn thêm sẽ gây vỡ, chảy máu ồ ạt nguy hiểm tính mạng."
+- **Câu hỏi & Trả lời:**
+    - *Hỏi: Tôi có thể đưa thai vào lại tử cung được không?*
+    - *Trả lời:* Hiện nay y học chưa thể di chuyển khối thai đã làm tổ từ vòi trứng vào tử cung được.
+    - *Hỏi: Sau bao lâu tôi có thể mang thai lại?*
+    - *Trả lời:* Nếu điều trị MTX, cần đợi ít nhất 3-6 tháng để thuốc thải hết. Nếu phẫu thuật, nên đợi ít nhất 3 chu kỳ kinh nguyệt để cơ thể hồi phục.
+
+## 9. CROSS-LINKS
+- [TK1-02: Sàng lọc sớm trong 3 tháng đầu]
+- [VSN-05: Tổn thương vòi trứng và Vô sinh]
+- [AD-01: Chảy máu âm đạo bất thường]
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ACOG Practice Bulletin No. 193: Tubal Ectopic Pregnancy.
+2. ESHRE Guideline on the management of ectopic pregnancy.
+3. Phác đồ điều trị Sản Phụ khoa - Bệnh viện Từ Dũ / Bệnh viện Phụ sản Trung ương.
+
+---
+**Lưu ý:** *Mọi quyết định điều trị cần có sự thăm khám trực tiếp và chỉ định của bác sĩ chuyên khoa Sản Phụ khoa dựa trên tình trạng lâm sàng cụ thể của bệnh nhân.*

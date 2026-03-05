@@ -2,7 +2,7 @@
    Phú Sản An Sinh — Design System
    Clean Healthcare Theme
    ═══════════════════════════════════════════════ */
-/* Fonts loaded via <link preload> in BaseLayout.astro for non-blocking rendering */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 /* ── Reset & Base ── */
 *,
@@ -275,11 +275,12 @@ p {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
   padding: var(--space-xl);
-  transition: box-shadow var(--transition-base);
+  transition: all var(--transition-base);
 }
 
 .card:hover {
   box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 /* ── Grid ── */
@@ -372,23 +373,6 @@ p {
   border: 0;
 }
 
-/* ── Mobile spacing optimization ── */
-@media (max-width: 768px) {
-  .section {
-    padding: var(--space-2xl) 0;
-    /* 6rem → 3rem */
-  }
-
-  .section-header {
-    margin-bottom: var(--space-xl);
-    /* 4rem → 2rem */
-  }
-
-  .section-header h2 {
-    margin-bottom: var(--space-sm);
-  }
-}
-
 /* ── Small Phone ── */
 @media (max-width: 374px) {
   :root {
@@ -404,12 +388,7 @@ p {
   }
 
   .section {
-    padding: var(--space-xl) 0;
-    /* Even tighter on small phones */
-  }
-
-  .section-header {
-    margin-bottom: var(--space-lg);
+    padding: var(--space-2xl) 0;
   }
 
   .btn-lg {
@@ -428,99 +407,5 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-/* ── Skeleton Loading System ── */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.skeleton {
-  background: linear-gradient(90deg, var(--border-light) 25%, #e8e8e8 37%, var(--border-light) 63%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s ease-in-out infinite;
-  border-radius: var(--radius-md);
-}
-
-.skeleton-text {
-  height: 14px;
-  margin-bottom: var(--space-sm);
-  border-radius: var(--radius-sm);
-}
-
-.skeleton-heading {
-  height: 24px;
-  width: 60%;
-  margin-bottom: var(--space-lg);
-  border-radius: var(--radius-sm);
-}
-
-.skeleton-input {
-  height: 48px;
-  margin-bottom: var(--space-xl);
-  border-radius: var(--radius-md);
-}
-
-.skeleton-chips {
-  display: flex;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-xl);
-}
-
-.skeleton-chip {
-  height: 40px;
-  flex: 1;
-  border-radius: var(--radius-full);
-}
-
-.skeleton-btn {
-  height: 52px;
-  border-radius: var(--radius-md);
-}
-
-.skeleton-circle {
-  border-radius: 50%;
-}
-
-.calc-skeleton {
-  padding: var(--space-xl);
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-light);
-}
-
-/* Hide skeleton when tool is loaded */
-.tool-loaded .calc-skeleton {
-  display: none;
-}
-
-/* Show form when tool is loaded */
-.calc-form-hidden {
-  display: none;
-}
-
-.tool-loaded .calc-form-hidden {
-  display: block;
-}
-
-/* Skeleton fade-out animation */
-.skeleton-fade-out {
-  animation: fadeOut 200ms ease forwards;
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
   }
 }

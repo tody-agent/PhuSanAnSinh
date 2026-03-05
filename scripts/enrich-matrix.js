@@ -17,16 +17,14 @@ import { enrichPhuKhoa } from './knowledge/phu-khoa.js';
 import { enrichSieuAm } from './knowledge/sieu-am.js';
 import { enrichSKSS } from './knowledge/skss.js';
 import { enrichLocalSEO } from './knowledge/local-seo.js';
-import { enrichNamKhoa } from './knowledge/nam-khoa.js';
-import { enrichSauSinh } from './knowledge/sau-sinh.js';
 
 const enrichers = {
-    'mang-thai': (a) => a.slug.includes('sau-sinh') || a.title.toLowerCase().includes('sau sinh') || a.title.toLowerCase().includes('cho con bú') ? enrichSauSinh(a) : enrichMangThai(a),
-    'hiem-muon': (a) => a.slug.includes('-nu-') ? enrichHiemMuonNu(a) : (a.slug.includes('-nam-') ? enrichHiemMuonNam(a) : enrichHiemMuonNu(a)), // Default general to Nu
+    'mang-thai': enrichMangThai,
+    'hiem-muon': (a) => a.slug.includes('-nu-') ? enrichHiemMuonNu(a) : enrichHiemMuonNam(a),
     'phu-khoa': enrichPhuKhoa,
     'sieu-am': enrichSieuAm,
     'suc-khoe-sinh-san': enrichSKSS,
-    'local-seo': (a) => a.title.toLowerCase().includes('nam khoa') || a.title.toLowerCase().includes('tinh dịch') ? enrichNamKhoa(a) : enrichLocalSEO(a),
+    'local-seo': enrichLocalSEO,
 };
 
 const enriched = MATRIX.map(article => {

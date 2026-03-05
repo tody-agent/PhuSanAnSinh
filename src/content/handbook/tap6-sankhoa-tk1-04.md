@@ -1,0 +1,109 @@
+---
+title: "TK1-04: Sẩy thai — Các thể"
+description: "Chào các đồng nghiệp, với tư cách là một bác sĩ lâm sàng lâu năm, tôi hiểu rằng sẩy thai không chỉ là một biến cố y khoa mà còn là một sang chấn tâm lý nặng nề "
+pubDate: 2026-03-05
+category: san-khoa
+tags: ["APS","CTC","CBC","TVUS","NSAIDs"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 6: Sản Khoa"
+---
+Chào các đồng nghiệp, với tư cách là một bác sĩ lâm sàng lâu năm, tôi hiểu rằng sẩy thai không chỉ là một biến cố y khoa mà còn là một sang chấn tâm lý nặng nề cho người bệnh. Việc phân loại chính xác các thể lâm sàng là chìa khóa để đưa ra quyết định can thiệp kịp thời, bảo tồn khả năng sinh sản và giảm thiểu biến chứng.
+
+Dưới đây là bài tổng quan hệ thống về các thể sẩy thai dựa trên các bằng chứng y khoa hiện đại nhất.
+
+---
+
+# TK1-04: Sẩy thai — Các thể
+> **Nhóm:** TK1 | **ICD-10:** O03 (Spontaneous abortion) | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn:** Sẩy thai (Miscarriage/Spontaneous abortion) là tình trạng kết thúc thai kỳ tự nhiên trước khi thai có khả năng sống độc lập. Theo WHO và Bộ Y tế Việt Nam, sẩy thai là sự tống xuất thai ra khỏi buồng tử cung trước tuần thứ 22 của thai kỳ hoặc trọng lượng thai < 500g.
+- **Tần suất:** Chiếm khoảng 10-15% các trường hợp mang thai trên lâm sàng. Nếu tính cả các trường hợp sẩy thai sớm (thai hóa học), tỷ lệ này có thể lên tới 50%.
+- **Yếu tố nguy cơ chính:**
+    - Tuổi mẹ cao (>35 tuổi tăng nguy cơ đáng kể).
+    - Tiền sử sẩy thai trước đó.
+    - Các bệnh lý nội khoa: Tiểu đường kiểm soát kém, hội chứng Antiphospholipid (APS), bất thường tuyến giáp.
+    - Lối sống: Hút thuốc lá, uống rượu, béo phì.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** 
+    - Khoảng 50-60% sẩy thai trong tam cá nguyệt đầu tiên (First trimester) liên quan đến bất thường nhiễm sắc thể (Aneuploidy).
+    - Quá trình thoái hóa lá nuôi, xuất huyết trong màng rụng dẫn đến sự tách rời của túi thai, kích thích tử cung co bóp để tống xuất tổ chức.
+- **Phân loại lâm sàng:** Dựa trên trạng thái cổ tử cung (Cervical os) và sự tống xuất của các thành phần thụ thai (Products of conception - POC).
+- **Mối liên hệ với sinh sản:** Sẩy thai liên tiếp (Recurrent Pregnancy Loss - RPL) định nghĩa khi có ≥ 2 lần sẩy thai, cần được tầm soát sâu về di truyền, nội tiết và cấu trúc tử cung.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:**
+    - Ra máu âm đạo (Vaginal bleeding): Từ rỉ rả đến ồ ạt, máu tươi hoặc máu cục.
+    - Đau bụng dưới (Pelvic pain/Cramping): Đau kiểu cơn co tử cung, đau vùng hạ vị hoặc đau lưng.
+- **Triệu chứng thực thể:** Khám mỏ vịt và thăm âm đạo để xác định:
+    - Cổ tử cung (CTC) đóng hay mở.
+    - Kích thước tử cung có tương xứng với tuổi thai không.
+    - Sự hiện diện của mô thai tại cổ tử cung.
+- **Bệnh nhân thường phàn nàn:** "Tôi bị ra máu đỏ tươi kèm theo đau quặn bụng từng cơn như đau đẻ."
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| **Serum beta-hCG** | Theo dõi sự phát triển thai | Tăng gấp đôi sau 48h | Tăng chậm, đi ngang hoặc giảm |
+| **Công thức máu (CBC)** | Đánh giá mất máu/nhiễm trùng | Hb > 12 g/dL, WBC bình thường | Hb giảm, WBC tăng (nếu nhiễm khuẩn) |
+| **Nhóm máu & Rh** | Dự phòng bất đồng nhóm máu | N/A | Rh (-) cần tiêm Anti-D |
+| **Progesterone** | Tiên lượng khả năng sống của thai | > 20-25 ng/mL | < 5 ng/mL gợi ý thai ngừng phát triển |
+
+### 4.2 Hình ảnh học
+- **Siêu âm đầu dò âm đạo (TVUS):** Là tiêu chuẩn vàng.
+    - Chẩn đoán sẩy thai khi: CRL (chiều dài đầu mông) ≥ 7mm mà không có tim thai, hoặc MSD (đường kính túi thai) ≥ 25mm mà không có phôi thai.
+- **MRI / CT:** Không có chỉ định trong chẩn đoán sẩy thai thông thường.
+
+### 4.3 Chẩn đoán phân biệt
+| Thể sẩy thai | Cổ tử cung | Siêu âm / Triệu chứng |
+|------|---------------------|----------------------|
+| **Dọa sẩy (Threatened)** | Đóng | Có tim thai, có thể có máu tụ dưới màng đệm. |
+| **Sẩy thai khó tránh (Inevitable)** | Mở | Túi thai thấp, màng ối có thể vỡ. |
+| **Sẩy thai không trọn (Incomplete)** | Mở | Còn tổ chức rau/thai trong buồng tử cung. |
+| **Sẩy thai trọn (Complete)** | Đóng | Buồng tử cung sạch, hết đau bụng và ra máu. |
+| **Sẩy thai lưu (Missed)** | Đóng | Phôi thai không có tim thai, bệnh nhân mất dấu hiệu nghén. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- Ra máu âm đạo ồ ạt gây sốc mất máu (Tụt huyết áp, mạch nhanh, niêm mạc nhợt).
+- Đau bụng dữ dội kèm phản ứng thành bụng (Nghi ngờ thai ngoài tử cung vỡ).
+- Sốt cao, dịch âm đạo hôi, tử cung đau khi ấn (Sẩy thai nhiễm khuẩn - Septic abortion).
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- **Dọa sẩy thai:** Nghỉ ngơi, hỗ trợ hoàng thể (Progesterone đường uống hoặc đặt âm đạo).
+- **Sẩy thai lưu/không trọn:** 
+    - **Misoprostol:** Phác đồ 800mcg đặt âm đạo hoặc 600mcg ngậm dưới lưỡi. Theo dõi tống xuất mô thai.
+    - Giảm đau (NSAIDs) là cần thiết.
+
+### 6.2 Điều trị ngoại khoa
+- **Hút thai chân không (MVA):** Chỉ định khi có chống chỉ định nội khoa, ra máu nhiều kéo dài, hoặc sẩy thai nhiễm khuẩn. Ưu tiên hơn nạo bằng thìa sắt (D&C) để tránh dính buồng tử cung.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Sau sẩy thai, cần đợi ít nhất 1 chu kỳ kinh nguyệt bình thường trước khi chuyển phôi (FET) hoặc thực hiện IUI tiếp theo.
+- Tầm soát xét nghiệm di truyền (Karyotyping) cả hai vợ chồng nếu sẩy thai liên tiếp.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- Đa số phụ nữ sẩy thai một lần vẫn có khả năng mang thai bình thường lần sau (tỷ lệ thành công > 80%).
+- Theo dõi beta-hCG cho đến khi về âm tính (đặc biệt trong sẩy thai lưu để loại trừ bệnh lý nguyên bào nuôi).
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích:** "Sẩy thai ở giai đoạn sớm thường là do lỗi tự nhiên trong quá trình phân chia nhiễm sắc thể, không phải do lỗi của chị (không phải do đi lại, làm việc hay ăn uống)."
+- **Câu hỏi thường gặp:** 
+    - *Hỏi:* Tôi có thể mang thai lại ngay không?
+    - *Đáp:* Nên đợi cơ thể hồi phục và tử cung ổn định sau ít nhất 1-2 tháng. Hãy bổ sung Acid Folic ngay từ bây giờ.
+
+## 9. CROSS-LINKS
+- [TK1-05: Sẩy thai liên tiếp — Phác đồ chẩn đoán]()
+- [TK1-10: Thai ngoài tử cung — Chẩn đoán phân biệt]()
+- [HTSS-04: Chuẩn bị niêm mạc sau sẩy thai]()
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ACOG Practice Bulletin No. 200: Early Pregnancy Loss.
+2. ESHRE Guideline: Recurrent Pregnancy Loss (2023 update).
+3. Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản - Bộ Y tế Việt Nam.
+
+---
+*Lưu ý: Mọi quyết định điều trị cần có chỉ định trực tiếp từ bác sĩ chuyên khoa dựa trên tình trạng cụ thể của từng bệnh nhân.*

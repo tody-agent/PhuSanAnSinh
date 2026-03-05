@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from "astro:content";
+import HandbookLayout from "../../layouts/HandbookLayout.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("handbook");
+    return posts.map((post) => ({
+        params: { slug: post.id.replace(/\.mdx?$/, "") },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<HandbookLayout
+    title={post.data.title}
+    description={post.data.description}
+    pubDate={post.data.pubDate}
+    updatedDate={post.data.updatedDate}
+    category={post.data.category}
+    tags={post.data.tags}
+    author={post.data.author}
+    readingTime={post.data.readingTime}
+    volume={post.data.volume}
+>
+    <Content />
+</HandbookLayout>

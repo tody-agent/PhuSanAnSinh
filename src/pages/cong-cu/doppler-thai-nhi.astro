@@ -188,42 +188,48 @@ import "../../styles/global.css";
 
                 if (!uaPi && !mcaPsvVal && !utaLeft) throw new Error('Vui lòng nhập ít nhất một chỉ số Doppler.');
 
+                // Map EDF chip values to engine constants
+                const edfMap = { present: 'PRESENT', absent: 'AEDF', reversed: 'REDF' };
                 const results = [];
-                const classifyInput = { gaWeeks: ga, endDiastolic: edfStatus };
+                const classifyInput = { gaWeeks: ga, endDiastolic: edfMap[edfStatus] || 'PRESENT' };
 
-                // UA assessment via INTERGROWTH-21st
+                // UA assessment via INTERGROWTH-21st (index: 'PI' | 'RI' | 'SD')
                 if (uaPi) {
-                    const uaIG21 = calcIG21(uaPi, 'UA_PI', ga);
-                    classifyInput.uaIG21 = uaIG21;
-                    results.push({ name: '🔴 Động mạch rốn (UA PI)', status: uaIG21.zScore > 2 ? 'abnormal' : 'normal', detail: `Z-score: <strong>${uaIG21.zScore.toFixed(2)}</strong> | Centile: <strong>${uaIG21.centile.toFixed(1)}</strong>` });
+                    const uaIG21 = calcIG21(uaPi, 'PI', ga);
+                    if (uaIG21) {
+                        classifyInput.uaIG21 = uaIG21;
+                        results.push({ name: '🔴 Động mạch rốn (UA PI)', status: uaIG21.z > 2 ? 'abnormal' : 'normal', detail: `Z-score: <strong>${uaIG21.z.toFixed(2)}</strong> | Centile: <strong>${uaIG21.centile.toFixed(1)}</strong>` });
+                    }
                     if (uaRi) {
-                        const riIG21 = calcIG21(uaRi, 'UA_RI', ga);
-                        results.push({ name: '🔴 UA RI', status: riIG21.zScore > 2 ? 'abnormal' : 'normal', detail: `Z-score: <strong>${riIG21.zScore.toFixed(2)}</strong> | Centile: <strong>${riIG21.centile.toFixed(1)}</strong>` });
+                        const riIG21 = calcIG21(uaRi, 'RI', ga);
+                        if (riIG21) {
+                            results.push({ name: '🔴 UA RI', status: riIG21.z > 2 ? 'abnormal' : 'normal', detail: `Z-score: <strong>${riIG21.z.toFixed(2)}</strong> | Centile: <strong>${riIG21.centile.toFixed(1)}</strong>` });
+                        }
                     }
                 }
 
-                // MCA-PSV (Anemia screening)
+                // MCA-PSV (Anemia screening) — returns anemiaClass, not anemiaRisk
                 if (mcaPsvVal) {
                     const mcaPsv = calcMcaPsv(mcaPsvVal, ga);
                     classifyInput.mcaPsv = mcaPsv;
-                    const anemiaLabel = mcaPsv.anemiaRisk !== 'none' ? ` | Thiếu máu: <strong>${mcaPsv.anemiaRisk}</strong>` : '';
-                    results.push({ name: '🔵 MCA-PSV (Thiếu máu)', status: mcaPsv.anemiaRisk !== 'none' ? 'abnormal' : 'normal', detail: `MoM: <strong>${mcaPsv.mom.toFixed(2)}</strong>${anemiaLabel}` });
+                    const anemiaLabel = mcaPsv.anemiaClass !== 'NORMAL' ? ` | Thiếu máu: <strong>${mcaPsv.anemiaClass}</strong>` : '';
+                    results.push({ name: '🔵 MCA-PSV (Thiếu máu)', status: mcaPsv.anemiaClass !== 'NORMAL' ? 'abnormal' : 'normal', detail: `MoM: <strong>${mcaPsv.mom.toFixed(2)}</strong>${anemiaLabel}` });
                 }
 
-                // FMF Doppler (CPR)
+                // FMF Doppler (CPR) — returns cpr, cpr_status, cpr_5th
                 if (uaPi && mcaPiVal) {
                     const fmf = calcFmfDoppler(uaPi, mcaPiVal, ga);
                     classifyInput.fmf = fmf;
-                    results.push({ name: '📊 CPR (MCA/UA)', status: fmf.cprCentile < 5 ? 'abnormal' : fmf.cprCentile < 10 ? 'warning' : 'normal', detail: `CPR: <strong>${fmf.cpr.toFixed(2)}</strong> | Centile: <strong>${fmf.cprCentile.toFixed(1)}</strong>` });
+                    results.push({ name: '📊 CPR (MCA/UA)', status: fmf.cpr_status === 'ABNORMAL' ? 'abnormal' : 'normal', detail: `CPR: <strong>${fmf.cpr.toFixed(2)}</strong> | 5th: <strong>${fmf.cpr_5th.toFixed(2)}</strong> | ${fmf.cpr_status === 'ABNORMAL' ? '⚠️ < P5' : '✅ Bình thường'}` });
                 }
 
-                // UtA-PI
+                // UtA-PI — returns piMean, mom, status, ref95th
                 if (utaLeft || utaRight) {
                     const piL = utaLeft || utaRight;
                     const piR = utaRight || utaLeft;
                     const uta = calcUtaPi(piL, piR, ga);
                     classifyInput.uta = uta;
-                    results.push({ name: '🟡 UtA-PI trung bình', status: uta.zScore > 2 ? 'abnormal' : uta.zScore > 1.5 ? 'warning' : 'normal', detail: `Mean PI: <strong>${uta.meanPi.toFixed(2)}</strong> | Z-score: <strong>${uta.zScore.toFixed(2)}</strong> | Centile: <strong>${uta.centile.toFixed(1)}</strong>` });
+                    results.push({ name: '🟡 UtA-PI trung bình', status: uta.status === 'ABNORMAL' ? 'abnormal' : 'normal', detail: `Mean PI: <strong>${uta.piMean.toFixed(2)}</strong> | MoM: <strong>${uta.mom.toFixed(2)}</strong> | P95: <strong>${uta.ref95th.toFixed(2)}</strong>` });
                 }
 
                 // Overall classification
@@ -244,13 +250,13 @@ import "../../styles/global.css";
             const badge = document.getElementById('severity-badge');
             const desc = document.getElementById('severity-desc');
             if (badge && overall) {
-                const SEVERITY_LABELS = { normal: 'Bình thường', abnormal_mild: 'Bất thường nhẹ', abnormal_moderate: 'Bất thường vừa', abnormal_severe: 'Bất thường nặng', critical: 'Nguy kịch' };
-                const SEVERITY_CLASS = { normal: 'normal', abnormal_mild: 'mild', abnormal_moderate: 'moderate', abnormal_severe: 'severe', critical: 'critical' };
+                const SEVERITY_LABELS = { NORMAL: 'Bình thường', ABNORMAL: 'Bất thường', SEVERE: 'Bất thường nặng', CRITICAL: 'Nguy kịch' };
+                const SEVERITY_CLASS = { NORMAL: 'normal', ABNORMAL: 'mild', SEVERE: 'severe', CRITICAL: 'critical' };
                 badge.textContent = SEVERITY_LABELS[overall.severity] || overall.severity;
-                badge.className = `severity-badge ${SEVERITY_CLASS[overall.severity] || overall.severity}`;
+                badge.className = `severity-badge ${SEVERITY_CLASS[overall.severity] || 'normal'}`;
             }
-            if (desc && overall) {
-                desc.textContent = overall.summary || '';
+            if (desc && overall && overall.alerts && overall.alerts.length) {
+                desc.textContent = overall.alerts[0];
             }
 
             // Individual results
@@ -269,10 +275,10 @@ import "../../styles/global.css";
                 }).join('');
             }
 
-            // Warnings
+            // Warnings (engine returns .alerts, not .warnings)
             const warningsEl = document.getElementById('doppler-warnings');
-            if (warningsEl && overall?.warnings?.length) {
-                warningsEl.innerHTML = overall.warnings.map(w => `
+            if (warningsEl && overall?.alerts?.length) {
+                warningsEl.innerHTML = overall.alerts.map(w => `
                     <div class="doppler-warning"><span>🚨</span><p>${w}</p></div>
                 `).join('');
             } else if (warningsEl) {

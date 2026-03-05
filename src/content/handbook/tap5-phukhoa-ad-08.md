@@ -1,0 +1,117 @@
+---
+title: "AD-08: Teo Âm đạo (GSM)"
+description: "Chào quý đồng nghiệp, tôi xin trình bày bài tổng quan chuyên sâu về **Hội chứng Niệu dục Mãn kinh (Genitourinary Syndrome of Menopause - GSM)**, một thuật ngữ h"
+pubDate: 2026-03-05
+category: phu-khoa
+tags: ["GSM","POI","AIs","MI","BV"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 5: Phụ Khoa"
+---
+Chào quý đồng nghiệp, tôi xin trình bày bài tổng quan chuyên sâu về **Hội chứng Niệu dục Mãn kinh (Genitourinary Syndrome of Menopause - GSM)**, một thuật ngữ hiện đại thay thế cho "Teo âm đạo" nhằm phản ánh đầy đủ hơn các tác động của tình trạng thiếu hụt Estrogen lên toàn bộ hệ thống sinh dục và tiết niệu dưới.
+
+Dưới đây là nội dung chi tiết theo định dạng chuẩn y khoa:
+
+---
+
+# AD-08: Teo Âm đạo (GSM)
+> **Nhóm:** AD | **ICD-10:** N95.2 | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn:** Hội chứng Niệu dục Mãn kinh (Genitourinary Syndrome of Menopause - GSM) là một tập hợp các triệu chứng và dấu hiệu lâm sàng liên quan đến tình trạng suy giảm Estrogen và các Steroid sinh dục khác, gây ra những thay đổi tại môi lớn/môi bé, âm vật, tầng sinh môn, âm đạo, niệu đạo và bàng quang.
+- **Tần suất/Tỷ lệ:** Ước tính ảnh hưởng đến khoảng **50% - 70%** phụ nữ sau mãn kinh. Khác với các triệu chứng vận mạch (bốc hỏa), GSM thường không tự thuyên giảm theo thời gian mà tiến triển nặng hơn nếu không điều trị.
+- **Yếu tố nguy cơ chính:** 
+    - Mãn kinh tự nhiên hoặc mãn kinh do phẫu thuật (cắt 2 buồng trứng).
+    - Suy buồng trứng sớm (POI).
+    - Điều trị ung thư: Hóa trị, xạ trị vùng chậu, hoặc sử dụng thuốc ức chế Aromatase (AIs) trong ung thư vú.
+    - Không sinh con qua đường âm đạo (Nulliparity).
+    - Hút thuốc lá (làm tăng chuyển hóa Estrogen).
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** 
+    - Suy giảm Estrogen dẫn đến giảm lưu lượng máu đến mô âm đạo và giảm sản sinh Collagen/Elastin.
+    - Biểu mô âm đạo bị mỏng đi (Atrophy), các nếp gấp (Rugae) biến mất.
+    - Giảm nồng độ Glycogen trong tế bào biểu mô -> Giảm nguồn thức ăn cho vi khuẩn có lợi (*Lactobacillus*) -> pH âm đạo tăng (thường > 5.0).
+    - Mất cân bằng hệ vi sinh khiến các vi khuẩn có hại dễ xâm nhập, gây viêm và nhiễm trùng tiểu tái phát.
+- **Phân loại:** GSM bao gồm 3 nhóm biểu hiện chính:
+    1. Triệu chứng âm đạo (khô, rát, kích ứng).
+    2. Triệu chứng tình dục (đau khi giao hợp, giảm hưng phấn).
+    3. Triệu chứng tiết niệu (tiểu gấp, tiểu đau, nhiễm trùng tiểu tái phát).
+- **Mối liên hệ với sinh sản:** Ở phụ nữ lớn tuổi vẫn mong muốn có con (với trứng hiến) hoặc phụ nữ trẻ bị suy buồng trứng sớm, GSM gây đau khi giao hợp (Dyspareunia), dẫn đến rào cản tâm lý và giảm tần suất quan hệ, ảnh hưởng gián tiếp đến khả năng thụ thai tự nhiên.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:**
+    - Khô âm đạo (Vaginal dryness) - triệu chứng phổ biến nhất.
+    - Cảm giác nóng rát, ngứa hoặc kích ứng vùng kín.
+    - Đau khi giao hợp (Dyspareunia), đôi khi chảy máu nhẹ sau quan hệ.
+    - Tiểu rắt, tiểu gấp, tiểu đêm.
+- **Triệu chứng thực thể:**
+    - Niêm mạc âm đạo nhợt nhạt, khô, mất các nếp gấp rugae.
+    - Mô âm đạo dễ bị tổn thương (xuất hiện các điểm xuất huyết nhỏ khi thăm khám).
+    - Môi bé teo nhỏ, lỗ âm đạo có thể bị hẹp (Introital stenosis).
+    - Lỗ niệu đạo đỏ hoặc có thịt dư niệu đạo (Urethral caruncle).
+- **Bệnh nhân thường phàn nàn:** "Bác sĩ ơi, tôi cảm thấy vùng dưới luôn khô rát như có lửa đốt, và chuyện vợ chồng trở thành nỗi ám ảnh vì quá đau đớn."
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| Đo pH âm đạo | Đánh giá tính acid | 3.8 - 4.5 | pH > 5.0 (gợi ý teo âm đạo) |
+| Chỉ số trưởng thành (MI) | Tỷ lệ tế bào biểu mô | Ưu thế tế bào bề mặt | Ưu thế tế bào cận đáy (Parabasal cells) |
+| Soi tươi/Cấy dịch | Loại trừ viêm nhiễm | Không có mầm bệnh | Loại trừ Candida, BV, Trichomonas |
+| Tổng phân tích nước tiểu | Loại trừ UTI | Âm tính | Có bạch cầu/vi khuẩn nếu có UTI kèm theo |
+
+### 4.2 Hình ảnh học
+- **Siêu âm:** Đánh giá độ dày nội mạc tử cung (đặc biệt nếu có xuất huyết âm đạo sau mãn kinh để loại trừ ung thư).
+- **Nội soi (nếu chỉ định):** Soi cổ tử cung/âm đạo có thể thấy hình ảnh mạch máu dưới niêm mạc mỏng manh, dễ vỡ.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| Lichen phẳng (Lichen Sclerosus) | Các mảng trắng hình số 8, ngứa dữ dội, dính môi bé. |
+| Viêm âm đạo do vi khuẩn (BV) | Dịch tiết hôi, xét nghiệm Clue cells (+). |
+| Co thắt âm đạo (Vaginismus) | Đau do co thắt cơ sàn chậu, không có dấu hiệu teo mô rõ rệt. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- **Xuất huyết âm đạo sau mãn kinh (Postmenopausal bleeding):** Phải loại trừ ung thư nội mạc tử cung trước khi điều trị Estrogen tại chỗ.
+- **Khối u vùng chậu kèm triệu chứng tiết niệu:** Cần loại trừ u xơ tử cung lớn hoặc u buồng trứng chèn ép bàng quang.
+- **Tổn thương loét hoặc sùi vùng âm hộ/âm đạo:** Nghi ngờ ung thư âm hộ/âm đạo.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- **Lựa chọn đầu tay (Non-hormonal):** Chất dưỡng ẩm âm đạo (Vaginal moisturizers) dùng thường quy và chất bôi trơn (Lubricants) khi quan hệ.
+- **Liệu pháp Estrogen tại chỗ (Local Vaginal Estrogen - LVE):** 
+    - Đây là "tiêu chuẩn vàng" cho GSM.
+    - Dạng kem, viên đặt hoặc vòng đặt (Estring).
+    - Liều thấp thường không gây tăng nồng độ Estrogen hệ thống đáng kể.
+- **Điều trị khác:**
+    - **Ospemifene:** Thuốc điều biến thụ thể Estrogen chọn lọc (SERM) đường uống.
+    - **Prasterone (DHEA đặt âm đạo):** Tiền chất Steroid giúp cải thiện độ dày niêm mạc.
+
+### 6.2 Điều trị ngoại khoa / Công nghệ (Cần chỉ định chuyên khoa)
+- **Laser CO2 Fractional / Laser Er:YAG:** Kích thích tăng sinh Collagen và tái tạo niêm mạc âm đạo. Hiệu quả tốt cho bệnh nhân không muốn hoặc không thể dùng Hormone (như bệnh nhân ung thư vú).
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Trong các chu kỳ chuẩn bị nội mạc tử cung cho chuyển phôi trữ (FET) ở phụ nữ lớn tuổi hoặc POI, việc kiểm soát GSM giúp cải thiện chất lượng cuộc sống và sự thoải mái khi thực hiện các thủ thuật thăm khám/đặt thuốc âm đạo.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- **Tiên lượng:** Tốt nếu được điều trị duy trì. GSM là bệnh lý mãn tính, triệu chứng sẽ tái phát nếu ngừng điều trị.
+- **Theo dõi:** Đánh giá lại sau 2-3 tháng bắt đầu điều trị. Kiểm tra định kỳ hàng năm về độ dày nội mạc tử cung và vú nếu dùng Hormone lâu dài.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Vùng kín của chị cũng giống như làn da, theo thời gian và sự sụt giảm nội tiết, nó sẽ trở nên mỏng và khô hơn. Điều này hoàn toàn có thể cải thiện được bằng các loại thuốc nuôi dưỡng tại chỗ."
+- **Câu hỏi thường gặp:**
+    - *Q: Dùng Estrogen tại chỗ có gây ung thư vú không?*
+    - *A: Với liều thấp tại chỗ, hấp thu vào máu rất ít, nồng độ vẫn nằm trong ngưỡng sinh lý của phụ nữ mãn kinh nên tính an toàn rất cao. Tuy nhiên, vẫn cần bác sĩ theo dõi sát.*
+
+## 9. CROSS-LINKS
+- **AD-01:** Viêm đạo do vi khuẩn/nấm.
+- **Menopause:** Hội chứng tiền mãn kinh và mãn kinh.
+
+## 10. TÀI LIỆU THAM KHẢO
+1. ACOG Practice Bulletin No. 141: Management of Menopausal Symptoms.
+2. NAMS (North American Menopause Society) - The 2020 Genitourinary Syndrome of Menopause Position Statement.
+3. Hướng dẫn chẩn đoán và điều trị các bệnh Sản phụ khoa - Bộ Y tế Việt Nam.
+
+---
+*Lưu ý: Mọi liệu pháp nội tiết cần có sự thăm khám và chỉ định trực tiếp từ bác sĩ chuyên khoa Sản Phụ khoa để đảm bảo loại trừ các chống chỉ định.*

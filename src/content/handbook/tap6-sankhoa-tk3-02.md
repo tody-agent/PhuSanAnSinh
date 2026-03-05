@@ -1,0 +1,107 @@
+---
+title: "TK3-02: Thai Chậm Tăng trưởng (Fetal Growth Restriction - FGR)"
+description: "Chào đồng nghiệp, dưới tư cách là một bác sĩ lâm sàng lâu năm, tôi xin trình bày bài tổng quan chuyên sâu về **Thai chậm tăng trưởng trong tử cung (FGR/IUGR)**."
+pubDate: 2026-03-05
+category: san-khoa
+tags: ["FGR/IUGR","FGR","EFW","AC","APS"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 6: Sản Khoa"
+---
+Chào đồng nghiệp, dưới tư cách là một bác sĩ lâm sàng lâu năm, tôi xin trình bày bài tổng quan chuyên sâu về **Thai chậm tăng trưởng trong tử cung (FGR/IUGR)**. Đây là một trong những thách thức lớn nhất của Sản khoa hiện đại, đòi hỏi sự phối hợp chặt chẽ giữa hình ảnh học, nội tiết và hồi sức sơ sinh.
+
+---
+
+# TK3-02: Thai Chậm Tăng trưởng (Fetal Growth Restriction - FGR)
+> **Nhóm:** TK3 (Thai kỳ 3 tháng cuối) | **ICD-10:** O36.5 (Maternal care for poor fetal growth) | **Đối tượng:** Bác sĩ Sản phụ khoa / Học viên sau đại học
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn (theo ACOG/ISUOG/Delphi):** 
+    - Thai chậm tăng trưởng (FGR) là tình trạng thai nhi không đạt được tiềm năng tăng trưởng sinh học do nguyên nhân bệnh lý (thường là suy bánh nhau).
+    - Tiêu chuẩn chẩn đoán phổ biến: Ước lượng trọng lượng thai (EFW) hoặc Chu vi bụng (AC) dưới bách phân vị thứ 10 (< 10th percentile) so với tuổi thai, kèm theo bất thường Doppler hoặc EFW/AC < bách phân vị thứ 3.
+    - *Lưu ý:* Cần phân biệt với Thai nhỏ so với tuổi thai (SGA - Small for Gestational Age) vốn có thể là "nhỏ sinh lý".
+- **Tần suất/Tỷ lệ:** Chiếm khoảng 5 – 10% các thai kỳ. Là nguyên nhân thứ hai gây tử vong chu sinh sau sinh non.
+- **Yếu tố nguy cơ chính:**
+    - Mẹ: Tăng huyết áp thai kỳ, tiền sản giật, bệnh lý tự miễn (APS), hút thuốc lá, suy dinh dưỡng.
+    - Thai: Bất thường nhiễm sắc thể (Trisomy 18, 13), nhiễm trùng bào thai (CMV, Rubella).
+    - Nhau thai: Nhau bong non mạn tính, nhồi máu bánh nhau, bất thường dây rốn bám màng.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** Do sự xâm nhập không đầy đủ của các tế bào nuôi vào động mạch xoắn tử cung, dẫn đến tăng kháng trở mạch máu và giảm dòng máu đến hồ huyết. Thai nhi phản ứng bằng cách tái phân phối tuần hoàn (Brain-sparing effect) để ưu tiên máu cho não, tim và tuyến thượng thận.
+- **Phân loại:**
+    - **FGR khởi phát sớm (<32 tuần):** Liên quan chặt chẽ với tiền sản giật, thiếu hụt bánh nhau nặng, tiên lượng xấu.
+    - **FGR khởi phát muộn (≥32 tuần):** Phổ biến hơn, khó chẩn đoán hơn vì Doppler động mạch rốn thường bình thường, nhưng nguy cơ tử vong thai đột ngột cao.
+- **Mối liên hệ với sinh sản:** Những phụ nữ có tiền sử IUI/IVF hoặc các bệnh lý nội tiết (PCOS, lạc nội mạc tử cung) có nguy cơ FGR cao hơn do bất thường về môi trường làm tổ.
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Thường không có triệu chứng đặc hiệu. Sản phụ có thể thấy tăng cân ít.
+- **Triệu chứng thực thể:** Chiều cao tử cung thấp hơn so với tuổi thai (chênh lệch >3cm).
+- **Bệnh nhân thường phàn nàn:** *"Bác sĩ ơi, sao bụng tôi nhỏ hơn các bà bầu khác cùng tháng?"* hoặc *"Tôi cảm thấy thai máy yếu/ít đi."*
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| **sFlt-1/PlGF** | Tầm soát suy bánh nhau | Tỷ lệ thấp | Tỷ lệ >38 (gợi ý nguy cơ tiền sản giật/FGR) |
+| **NIPT / Chọc ối** | Loại trừ bất thường di truyền | Bộ NST bình thường | Lệch bội, vi mất đoạn |
+| **TORCH Panel** | Tìm nguyên nhân nhiễm trùng | Âm tính | IgM dương tính với CMV, Toxoplasma... |
+
+### 4.2 Hình ảnh học
+- **Siêu âm Biometry:** Đo AC, BPD, FL, HC để tính EFW theo công thức Hadlock.
+- **Doppler Động mạch rốn (UA):** Đánh giá kháng trở bánh nhau (Tăng PI, mất hoặc đảo ngược sóng tâm trương).
+- **Doppler Động mạch não giữa (MCA):** Đánh giá hiện tượng "tăng tưới máu não" (PI giảm).
+- **Doppler Ống tĩnh mạch (DV):** Chỉ số sinh tồn quan trọng, báo hiệu suy tim thai sắp xảy ra.
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| **SGA (Small for Gestational Age)** | Thai nhỏ nhưng Doppler bình thường, tăng trưởng theo đường cong ổn định. |
+| **Sai lệch tuổi thai** | Thường do nhớ nhầm ngày kinh, siêu âm 3 tháng đầu không khớp. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- **Đảo ngược sóng tâm trương động mạch rốn (REDF).**
+- **Mất hoặc đảo ngược sóng tâm trương ống tĩnh mạch (DV).**
+- **Trắc nghiệm sinh vật học (BPP) < 4/10.**
+- **CTG có nhịp giảm biến đổi hoặc nhịp giảm muộn, dao động nội tâm thất thấp.**
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa
+- Không có thuốc "điều trị" FGR triệt để. 
+- **Aspirin liều thấp (100-150mg):** Dùng dự phòng từ trước 16 tuần cho đối tượng nguy cơ cao.
+- **Corticosteroids (Betamethasone/Dexamethasone):** Hỗ trợ trưởng thành phổi nếu dự kiến sinh trước 34 tuần.
+- **Magnesium Sulfate:** Bảo vệ hệ thần kinh thai nhi nếu sinh trước 32 tuần.
+
+### 6.2 Điều trị ngoại khoa (Chấm dứt thai kỳ)
+- Là phương pháp điều trị duy nhất khi môi trường tử cung không còn an toàn.
+- **Thời điểm:** 
+    - Mất sóng tâm trương (AEDF): Xem xét sinh ở 33-34 tuần.
+    - Đảo ngược sóng (REDF): Xem xét sinh ở 30-32 tuần.
+    - Doppler bình thường nhưng EFW < bách phân vị thứ 3: Sinh ở 37 tuần.
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Kiểm soát tốt huyết áp và các bệnh lý nền trước khi thực hiện IVF/FET.
+- Ưu tiên chuyển đơn phôi (eSET) để tránh đa thai – một yếu tố nguy cơ hàng đầu của FGR.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- **Ngắn hạn:** Nguy cơ ngạt sau sinh, hạ đường huyết, đa hồng cầu, hạ thân nhiệt.
+- **Dài hạn:** Thuyết Barker (Lập trình bào thai) – tăng nguy cơ cao huyết áp, tiểu đường type 2 và bệnh tim mạch khi trưởng thành.
+- **Theo dõi:** Siêu âm Doppler mỗi 1-2 tuần (tùy mức độ nặng).
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Em bé hiện tại hơi nhỏ so với tuổi thai vì bánh nhau cung cấp dưỡng chất không đủ. Chúng ta cần theo dõi sát bằng siêu âm để chọn thời điểm bé chào đời an toàn nhất."
+- **Câu hỏi thường gặp:** 
+    - *Q: Tôi ăn nhiều hơn có giúp bé to lên không?* 
+    - *A: Chế độ ăn cân bằng là cần thiết, nhưng FGR thường do vấn đề vận chuyển tại bánh nhau, không đơn thuần là do mẹ ăn thiếu.*
+
+## 9. CROSS-LINKS
+- [[TK2-05: Tiền sản giật & THA thai kỳ]]
+- [[DT-01: Sàng lọc lệch bội nhiễm sắc thể]]
+- [[SSL-01: Hồi sức sơ sinh tại phòng sinh]]
+
+## 10. TÀI LIỆU THAM KHẢO
+1. **ACOG Practice Bulletin No. 204:** Fetal Growth Restriction (2019).
+2. **ISUOG Practice Guidelines:** Diagnosis and management of small-for-gestational-age fetus and fetal growth restriction (2020).
+3. **Hướng dẫn Quốc gia về các dịch vụ Chăm sóc sức khỏe sinh sản - Bộ Y tế Việt Nam.**
+
+---
+*Lưu ý: Mọi quyết định can thiệp cần dựa trên tình trạng lâm sàng cụ thể và sự hội chẩn giữa bác sĩ Sản khoa và bác sĩ Sơ sinh.*

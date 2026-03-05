@@ -1,0 +1,102 @@
+---
+title: "TK3-09: Sinh thường Sau mổ cũ (VBAC)"
+description: "Chào các đồng nghiệp, với tư cách là một bác sĩ lâm sàng lâu năm, tôi hiểu rằng quyết định cho phép một sản phụ có vết mổ cũ thử thách sinh ngả âm đạo (TOLAC) l"
+pubDate: 2026-03-05
+category: san-khoa
+tags: ["TOLAC","VBAC","CBC","EFM"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 8
+volume: "Tập 6: Sản Khoa"
+---
+Chào các đồng nghiệp, với tư cách là một bác sĩ lâm sàng lâu năm, tôi hiểu rằng quyết định cho phép một sản phụ có vết mổ cũ thử thách sinh ngả âm đạo (TOLAC) là một sự cân cân nhắc kỹ lưỡng giữa lợi ích và nguy cơ. Dưới đây là bài tổng quan y khoa chi tiết về **Sinh thường sau mổ cũ (VBAC)** dựa trên các bằng chứng cập nhật nhất từ ACOG, RCOG và hướng dẫn của Bộ Y tế Việt Nam.
+
+# TK3-09: Sinh thường Sau mổ cũ (VBAC)
+> **Nhóm:** TK3 | **ICD-10:** O34.2 (Chăm sóc bà mẹ do có sẹo tử cung từ phẫu thuật trước đó) | **Đối tượng:** BS
+
+## 1. ĐỊNH NGHĨA & DỊCH TỄ
+- **Định nghĩa chuẩn:** 
+    - **TOLAC (Trial of Labor After Cesarean):** Là quá trình thử thách sinh ngả âm đạo ở phụ nữ đã có tiền sử mổ lấy thai trước đó, bất kể kết quả cuối cùng là sinh thường hay mổ lại.
+    - **VBAC (Vaginal Birth After Cesarean):** Là kết quả thành công của việc sinh ngả âm đạo sau khi đã thực hiện TOLAC.
+- **Tần suất/Tỷ lệ:** Tỷ lệ thành công của TOLAC dao động từ **60 - 80%**. Tuy nhiên, tỷ lệ này phụ thuộc rất lớn vào lý do mổ lần trước và các đặc điểm sản khoa hiện tại.
+- **Yếu tố nguy cơ chính:** Nguy cơ đáng ngại nhất là **Vỡ tử cung (Uterine Rupture)** với tỷ lệ khoảng 0.5 - 0.9% đối với sẹo mổ ngang đoạn dưới.
+
+## 2. SINH BỆNH HỌC & CƠ CHẾ
+- **Cơ chế bệnh sinh:** Sự toàn vẹn của sẹo mổ cũ trên tử cung phụ thuộc vào quá trình lành vết thương sau cuộc mổ trước. Quá trình này bị ảnh hưởng bởi: kỹ thuật khâu tử cung, tình trạng nhiễm trùng hậu phẫu, khoảng cách giữa hai lần mang thai (inter-pregnancy interval < 18 tháng làm tăng nguy cơ vỡ).
+- **Phân loại sẹo tử cung:**
+    - Sẹo ngang đoạn dưới (Low transverse): Nguy cơ vỡ thấp nhất.
+    - Sẹo dọc thân tử cung (Classical): Nguy cơ vỡ cao (4-9%), chống chỉ định TOLAC.
+    - Sẹo hình chữ T hoặc chữ J: Nguy cơ vỡ cao.
+- **Mối liên hệ với sinh sản:** Vết mổ cũ có thể liên quan đến tình trạng khuyết sẹo mổ lấy thai (Isthmuscele), gây rong kinh hoặc khó khăn trong chuyển phôi (nếu làm IVF).
+
+## 3. TRIỆU CHỨNG & BIỂU HIỆN LÂM SÀNG
+- **Triệu chứng cơ năng:** Trong quá trình TOLAC, sản phụ có thể đau bụng liên tục, đặc biệt là đau vùng vết mổ ngay cả ngoài cơn co.
+- **Triệu chứng thực thể:** 
+    - Cơn co tử cung cường tính hoặc mất nhịp nhàng.
+    - Ra máu âm đạo bất thường.
+    - Ngôi thai rút lên cao (Loss of fetal station).
+- **Bệnh nhân thường phàn nàn:** "Tôi thấy đau chói ở vùng sẹo mổ cũ ngay cả khi không có cơn gò", "Tôi cảm thấy mệt lả và khó thở".
+
+## 4. CHẨN ĐOÁN
+### 4.1 Xét nghiệm / Cận lâm sàng
+| Xét nghiệm | Mục đích | Giá trị bình thường | Bất thường gợi ý |
+|------------|---------|-------------------|--------------------|
+| **Công thức máu (CBC)** | Theo dõi tình trạng mất máu | Hb > 11g/dL | Hb tụt nhanh gợi ý chảy máu nội mô do vỡ tử cung |
+| **Monitoring sản khoa (EFM)** | Theo dõi tim thai và cơn co | Nhịp tim thai cơ bản 110-160 | **Nhịp chậm (Bradycardia)** hoặc biến đổi nặng là dấu hiệu nhạy nhất của vỡ tử cung |
+
+### 4.2 Hình ảnh học
+- **Siêu âm:** Đánh giá độ dày đoạn dưới tử cung (Lower Uterine Segment - LUS). 
+    - Ngưỡng cắt (Cut-off) thường được sử dụng là **2.0 - 3.5 mm**. Nếu < 2.0 mm, nguy cơ vỡ tử cung khi chuyển dạ tăng cao.
+    - Xác định vị trí bánh nhau (loại trừ nhau tiền đạo, nhau cài răng lược trên vết mổ cũ).
+- **MRI:** Thường không chỉ định cấp cứu trong chuyển dạ, nhưng hữu ích trong thai kỳ để đánh giá các trường hợp nghi ngờ nhau cài răng lược (Placenta Accreta Spectrum - PAS).
+
+### 4.3 Chẩn đoán phân biệt
+| Bệnh | Đặc điểm phân biệt |
+|------|---------------------|
+| **Nhau bong non** | Đau bụng khởi phát đột ngột, tử cung cứng như gỗ, thường kèm tăng huyết áp. |
+| **Dọa vỡ tử cung** | Xuất hiện vòng Bandl, cơn co dồn dập nhưng tử cung chưa vỡ hoàn toàn. |
+
+## 5. ⚠️ CỜ ĐỎ — KHI NÀO CẦN CAN THIỆP KHẨN / CHUYỂN TUYẾN
+- **Biến đổi tim thai:** Nhịp chậm kéo dài hoặc nhịp biến đổi lặp lại không hồi phục.
+- **Đau vùng sẹo mổ:** Đau chói, ấn đau khu trú tại vết mổ.
+- **Thay đổi huyết động:** Sản phụ vã mồ hôi, mạch nhanh, huyết áp tụt, dấu hiệu sốc mất máu.
+- **Ngưng tiến triển chuyển dạ:** Cơn co tử cung đang mạnh đột ngột yếu đi hoặc mất hẳn.
+
+## 6. ĐIỀU TRỊ & QUẢN LÝ
+### 6.1 Điều trị nội khoa (Quản lý TOLAC)
+- **Lựa chọn đối tượng (Candidate selection):** 
+    - 01 lần mổ đẻ cũ sẹo ngang đoạn dưới.
+    - Khung chậu bình thường về mặt lâm sàng.
+    - Không có các sẹo mổ tử cung khác (như bóc nhân xơ sâu vào buồng).
+    - Cơ sở y tế có khả năng mổ lấy thai cấp cứu trong vòng 15-30 phút (Available OR & Anesthesia).
+- **Giảm đau:** Gây tê ngoài màng cứng (Epidural) **không** làm mờ đi các dấu hiệu của vỡ tử cung và được khuyến khích để tăng tỷ lệ thành công VBAC.
+- **Tăng co:** Sử dụng Oxytocin cần cực kỳ thận trọng, theo dõi sát tần số cơn co (tránh > 5 cơn/10 phút).
+
+### 6.2 Điều trị ngoại khoa
+- **Mổ lấy thai lặp lại (ERCS - Elective Repeat Cesarean Delivery):** Chỉ định khi TOLAC thất bại hoặc sản phụ không đủ điều kiện/từ chối TOLAC. Thời điểm tối ưu là **39 tuần 0 ngày**.
+- **Phẫu thuật cấp cứu:** Khi có dấu hiệu vỡ tử cung, cần mở bụng ngay lập tức để cứu thai và xử trí tổn thương tử cung (khâu phục hồi hoặc cắt tử cung nếu cần).
+
+### 6.3 Phác đồ hỗ trợ sinh sản liên quan
+- Ở bệnh nhân có vết mổ cũ cần làm IVF, cần đánh giá kỹ độ dày cơ tử cung tại vị trí sẹo để tư vấn nguy cơ vỡ tử cung hoặc nhau cài răng lược trong thai kỳ sau.
+
+## 7. TIÊN LƯỢNG & THEO DÕI
+- **Tiên lượng tốt:** Nếu sản phụ đã từng sinh thường trước đó (đặc biệt là đã từng VBAC thành công), tỷ lệ thành công lên đến **90%**.
+- **Theo dõi hậu sản:** Theo dõi sát dấu hiệu sinh tồn, tình trạng co hồi tử cung và máu âm đạo để phát hiện sớm các biến chứng muộn của vỡ tử cung hoặc đờ tử cung.
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Giải thích đơn giản:** "Chị có thể thử sinh thường lần này nếu vết mổ cũ là sẹo ngang và sức khỏe thai nhi tốt. Sinh thường giúp chị hồi phục nhanh hơn, tránh được các rủi ro của một cuộc đại phẫu, nhưng chúng ta phải theo dõi rất sát tại bệnh viện để đảm bảo an toàn tuyệt đối cho cả mẹ và con."
+- **Câu hỏi thường gặp:** 
+    - *Hỏi:* Tôi có thể dùng thuốc giục sinh không? 
+    - *Trả lời:* Có thể dùng Oxytocin nhưng phải rất thận trọng. Tuy nhiên, các thuốc đặt âm đạo để làm chín muồi cổ tử cung (Prostaglandins) thường bị tránh dùng vì làm tăng nguy cơ vỡ tử cung.
+
+## 9. CROSS-LINKS
+- [TK3-05: Mổ lấy thai (Cesarean Section)](../TK3-05.md)
+- [TK3-10: Nhau cài răng lược (Placenta Accreta Spectrum)](../TK3-10.md)
+- [SLTT-02: Băng huyết sau sinh](../SLTT-02.md)
+
+## 10. TÀI LIỆU THAM KHẢO
+1. **ACOG Practice Bulletin No. 205:** Vaginal Birth After Cesarean Delivery.
+2. **RCOG Green-top Guideline No. 45:** Birth after Previous Caesarean Birth.
+3. **Bộ Y tế Việt Nam:** Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản (2016).
+
+---
+*Lưu ý: Mọi quyết định về phương pháp sinh cần có sự thăm khám và chỉ định trực tiếp của bác sĩ chuyên khoa phụ sản tại các bệnh viện có đầy đủ trang thiết bị cấp cứu.*

@@ -1,0 +1,84 @@
+---
+title: "Phác đồ PPOS — PD-05"
+description: "Chào đồng nghiệp, với tư cách là người làm lâm sàng lâu năm, tôi rất ủng hộ việc chuẩn hóa các phác đồ kích thích buồng trứng (Ovarian Stimulation) để tối ưu hó"
+pubDate: 2026-03-05
+category: ho-tro-sinh-san
+tags: ["BS","LH surge","PCOS","OHSS","DOR"]
+author: "Giáo sư Sản Phụ khoa"
+readingTime: 7
+volume: "Tập 3: Hỗ Trợ Sinh Sản"
+---
+Chào đồng nghiệp, với tư cách là người làm lâm sàng lâu năm, tôi rất ủng hộ việc chuẩn hóa các phác đồ kích thích buồng trứng (Ovarian Stimulation) để tối ưu hóa kết quả và giảm gánh nặng cho bệnh nhân. Dưới đây là bài viết chi tiết về phác đồ PPOS, một bước tiến quan trọng trong cá thể hóa điều trị IVF.
+
+# Phác đồ PPOS — PD-05
+> **Nhóm:** PD (Hỗ trợ sinh sản) | **Mã:** PD-05 | **Đối tượng:** Bác sĩ chuyên khoa (BS)
+
+## 1. ĐỊNH NGHĨA & CHỈ ĐỊNH
+**Định nghĩa:** PPOS (Progestin-primed Ovarian Stimulation) là phác đồ kích thích buồng trứng sử dụng Progestin đường uống để ngăn chặn đỉnh LH (LH surge) sớm, thay thế cho các thuốc đối vận (Antagonist) hoặc đồng vận (Agonist) GnRH dạng tiêm truyền thống.
+
+**Mã ICD-10:** N97 (Nữ vô sinh).
+
+**Chỉ định:**
+- Bệnh nhân có kế hoạch trữ phôi toàn bộ (Freeze-all strategy).
+- Hội chứng buồng trứng đa nang (PCOS) - Nhằm giảm nguy cơ quá kích buồng trứng (OHSS).
+- Dự trữ buồng trứng thấp (DOR) hoặc đáp ứng kém (POR).
+- Bảo tồn khả năng sinh sản (Fertility preservation) ở bệnh nhân ung thư.
+- Hiến noãn (Egg donation).
+- Bệnh nhân mong muốn giảm số lượng mũi tiêm và tối ưu hóa chi phí điều trị.
+
+## 2. NGUYÊN LÝ KHOA HỌC
+- **Cơ chế ức chế LH:** Progestin tác động lên trục Hạ đồi - Tuyến yên (Hypothalamic-Pituitary axis), làm giảm tần số xung GnRH và ngăn chặn hiệu ứng điều hòa ngược dương tính (positive feedback) của Estrogen, từ đó ngăn chặn sự xuất hiện của đỉnh LH trước khi chọc hút.
+- **Tác động nội mạc tử cung (Endometrium):** Progestin gây biến đổi bài tiết sớm ở nội mạc tử cung, tạo ra sự mất đồng bộ nghiêm trọng giữa tuổi phôi và niêm mạc tử cung. Vì vậy, **không thể chuyển phôi tươi** trong chu kỳ PPOS.
+- **Tính ưu việt:** Progestin đường uống có hiệu quả ức chế LH tương đương Antagonist nhưng thân thiện hơn với bệnh nhân (tiện lợi, ít đau, chi phí thấp).
+
+## 3. QUY TRÌNH THỰC HIỆN (Step-by-step)
+| Bước | Thời điểm | Hành động | Người thực hiện | Lưu ý |
+|------|----------|----------|----------------|-------|
+| 1. Đánh giá nền | Ngày 2-3 chu kỳ | Siêu âm AFC, xét nghiệm nội tiết (FSH, LH, E2, P4, AMH) | BS Sản Phụ khoa | Loại trừ nang tồn dư (Functional cysts) |
+| 2. Kích thích buồng trứng | Ngày 2-3 chu kỳ | Bắt đầu FSH/hMG phối hợp Progestin đường uống hàng ngày | BS Sản Phụ khoa | Liều Gonadotropin cá thể hóa theo AMH/AFC |
+| 3. Theo dõi | Từ ngày 6-7 KTBT | Siêu âm đo nang noãn và xét nghiệm (E2, LH, P4) | BS Sản Phụ khoa | Theo dõi sát LH nếu có đáp ứng buồng trứng mạnh |
+| 4. Trưởng thành noãn | Khi ≥ 2 nang ≥ 18mm | Tiêm thuốc Trigger (GnRH agonist hoặc hCG) | BS/Điều dưỡng | Ngưng Progestin vào ngày tiêm Trigger |
+| 5. Chọc hút noãn (OPU) | 34-36h sau Trigger | Chọc hút dưới hướng dẫn siêu âm | BS Sản Phụ khoa | Gây mê tĩnh mạch |
+| 6. Lab IVF | Ngày OPU | Thụ tinh (IVF/ICSI) và nuôi cấy phôi | Chuyên viên phôi học | **Trữ đông toàn bộ phôi** (Freeze-all) |
+
+## 4. THUỐC SỬ DỤNG
+| Thuốc | Biệt dược | Liều | Đường dùng | Thời gian | Theo dõi |
+|------|----------|-----|-----------|----------|---------|
+| Gonadotropins | Gonal-F, Puregon, Menopur | 150 - 300 IU/ngày | Tiêm dưới da | Từ N2-3 đến ngày Trigger | Phát triển nang noãn |
+| Progestin | Medroxyprogesterone acetate (MPA) | 10 mg/ngày | Uống | Cùng lúc với Gonadotropin | Ngăn đỉnh LH |
+| Hoặc Progestin khác | Dydrogesterone | 20 mg/ngày | Uống | Cùng lúc với Gonadotropin | Ít ảnh hưởng nồng độ P4 máu |
+| Trigger (Ưu tiên) | Decapeptyl, Diphereline | 0.2 mg | Tiêm dưới da | Một liều duy nhất | Giảm tối đa nguy cơ OHSS |
+| Trigger (Thay thế) | Ovitrelle, Pregnyl | 250mcg hoặc 5000 - 10000 IU | Tiêm dưới da/bắp | Một liều duy nhất | Cân nhắc khi nguy cơ OHSS thấp |
+
+## 5. THEO DÕI & ĐÁNH GIÁ
+- **Sự tăng trưởng nang noãn:** Tốc độ tăng trung bình 1.5 - 2 mm/ngày.
+- **Nồng độ LH:** Mục tiêu duy trì < 10 mIU/mL. Nếu LH > 10, cần đánh giá lại sự tuân thủ thuốc uống.
+- **Nồng độ P4:** Thường tăng nhẹ do Progestin ngoại sinh (tùy loại Progestin sử dụng có thể gây chéo phản ứng với xét nghiệm).
+- **Đáp ứng buồng trứng:** Theo dõi sát nồng độ E2 để điều chỉnh liều Gonadotropin kịp thời.
+
+## 6. BIẾN CHỨNG & XỬ TRÍ
+| Biến chứng | Tần suất | Nhận biết | Xử trí |
+|-----------|---------|----------|--------|
+| Hội chứng quá kích buồng trứng (OHSS) | Thấp | Bụng chướng, đau, buồn nôn, dịch ổ bụng | Trigger bằng Agonist, truyền Albumin, theo dõi sát |
+| Đỉnh LH sớm (LH surge) | < 1% | LH tăng vọt, nang noãn biến đổi nội tiết | Hủy chu kỳ hoặc chọc hút sớm nếu đủ điều kiện |
+| Xuất huyết sau chọc hút | Hiếm gặp | Đau bụng cấp, dấu hiệu mất máu, dịch ổ bụng tăng | Theo dõi sát, bù dịch hoặc phẫu thuật nếu cần |
+
+## 7. KẾT QUẢ KỲ VỌNG
+- Số lượng và chất lượng noãn thu được tương đương với phác đồ Antagonist truyền thống.
+- Tỷ lệ noãn trưởng thành (MII) đạt trên 75-80%.
+- Tỷ lệ thai lâm sàng cộng dồn đạt mức tối ưu nhờ sự đồng bộ hóa tốt hơn trong chu kỳ chuyển phôi trữ (FET).
+
+## 8. TƯ VẤN BỆNH NHÂN
+- **Chiến lược Freeze-all:** Giải thích rõ tại sao không thể chuyển phôi tươi (do thuốc Progestin làm biến đổi niêm mạc tử cung sớm, không thuận lợi cho phôi làm tổ).
+- **Tính tiện lợi:** Nhấn mạnh việc giảm số mũi tiêm thuốc ngăn rụng trứng, giúp giảm căng thẳng tâm lý.
+- **Chi phí:** Phác đồ giúp tiết kiệm đáng kể chi phí thuốc cho bệnh nhân.
+- **Tuân thủ:** Dặn dò bệnh nhân uống thuốc Progestin đúng giờ, không được quên liều để đảm bảo ức chế rụng trứng hiệu quả.
+- **Lưu ý đặc biệt:** "Mọi quy trình cần được chỉ định và theo dõi chặt chẽ bởi bác sĩ chuyên khoa Hỗ trợ sinh sản".
+
+## 9. CROSS-LINKS
+- **PD-01:** Phác đồ chuẩn bị nội mạc tử cung cho chuyển phôi trữ (FET).
+- **VSM-05:** Dự phòng và quản lý Hội chứng quá kích buồng trứng (OHSS).
+- **KTHT-01:** Quy trình nuôi cấy phôi trong phòng Lab.
+
+---
+*Ghi chú: Phác đồ này được xây dựng dựa trên các bằng chứng y học thực chứng (Evidence-based medicine) và hướng dẫn của ASRM/ESHRE. Bác sĩ lâm sàng cần cá thể hóa liều lượng tùy theo từng trường hợp cụ thể.*

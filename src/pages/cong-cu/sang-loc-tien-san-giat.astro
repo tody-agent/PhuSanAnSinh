@@ -178,7 +178,7 @@ import "../../styles/global.css";
         document.getElementById('calc-skeleton')?.classList.add('skeleton-fade-out');
         document.getElementById('calc-form-panel')?.classList.remove('calc-form-hidden');
 
-        const { preprocess, classifyACOG, classifyNICE, checkConcordance, aspirinTiming, getFollowUp, screenPatient, createEmptyPatient } = await import('../../utils/preeclampsia-engine.js');
+        const { preprocess, classifyACOG, classifyNICE, checkConcordance, aspirinTiming, getFollowUp, createEmptyPatient } = await import('../../utils/preeclampsia-engine.js');
 
         document.getElementById('pe-form')?.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -193,33 +193,49 @@ import "../../styles/global.css";
                 const height = parseFloat(document.getElementById('pe-height').value) || null;
 
                 const patient = createEmptyPatient();
-                patient.age = age;
-                patient.gaWeeks = gaWeeks;
-                if (weight) patient.weight = weight;
-                if (height) patient.height = height;
+                patient.maternal_age = age;
+                patient.gestational_age_weeks = gaWeeks;
+                if (weight) patient.weight_kg = weight;
+                if (height) patient.height_cm = height;
 
-                patient.priorPreeclampsia = document.getElementById('pe-prior-pe').checked;
-                patient.chronicHypertension = document.getElementById('pe-chronic-htn').checked;
-                patient.pregestationalDiabetes = document.getElementById('pe-diabetes').checked;
-                patient.renalDisease = document.getElementById('pe-kidney').checked;
-                patient.autoimmune = document.getElementById('pe-autoimmune').checked;
-                patient.multifetal = document.getElementById('pe-multifetal').checked;
-                patient.nulliparous = document.getElementById('pe-nulliparous').checked;
-                patient.familyHistory = document.getElementById('pe-family').checked;
-                patient.priorPretermSGA = document.getElementById('pe-prior-preterm').checked;
-                patient.ivf = document.getElementById('pe-ivf').checked;
-                patient.interpregnancyInterval10 = document.getElementById('pe-interval').checked;
+                // High risk factors
+                patient.high_risk.history_preeclampsia = document.getElementById('pe-prior-pe').checked;
+                patient.high_risk.chronic_hypertension = document.getElementById('pe-chronic-htn').checked;
+                patient.high_risk.pregestational_diabetes = document.getElementById('pe-diabetes').checked;
+                patient.high_risk.chronic_kidney_disease = document.getElementById('pe-kidney').checked;
+                patient.high_risk.autoimmune_disease = document.getElementById('pe-autoimmune').checked;
+                patient.high_risk.multifetal = document.getElementById('pe-multifetal').checked;
 
-                const result = screenPatient(patient);
-                displayResults(result, gaWeeks);
+                // Moderate risk factors
+                patient.moderate_risk.nulliparity = document.getElementById('pe-nulliparous').checked;
+                patient.moderate_risk.family_history_pe = document.getElementById('pe-family').checked;
+                patient.moderate_risk.previous_adverse_outcome = document.getElementById('pe-prior-preterm').checked;
+                patient.moderate_risk.ivf = document.getElementById('pe-ivf').checked;
+                patient.moderate_risk.interpregnancy_gt_10y = document.getElementById('pe-interval').checked;
 
+                // Run individual classifiers for nested result shape
+                preprocess(patient);
+                const acog = classifyACOG(patient);
+                const nice = classifyNICE(patient);
+                const concordance = checkConcordance(acog, nice, patient);
+                const timing = aspirinTiming(gaWeeks, acog.aspirin);
+                const highestCat = acog.category === 'HIGH' || nice.category === 'HIGH' ? 'HIGH'
+                    : acog.category === 'MODERATE' || nice.category === 'MODERATE' ? 'MODERATE' : 'LOW';
+
+                const result = {
+                    acog, nice, concordance,
+                    aspirinTiming: timing,
+                    followUp: getFollowUp(highestCat),
+                };
+
+                displayResults(result);
                 if (errorEl) errorEl.hidden = true;
             } catch (err) {
                 if (errorEl) { errorEl.textContent = err.message; errorEl.hidden = false; }
             }
         });
 
-        function displayResults(result, gaWeeks) {
+        function displayResults(result) {
             const panel = document.getElementById('results-panel');
             if (panel) panel.hidden = false;
 

@@ -26,4 +26,28 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+const handbook = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        pubDate: z.coerce.date(),
+        updatedDate: z.coerce.date().optional(),
+        category: z.enum([
+            'nen-tang',
+            'vo-sinh-hiem-muon',
+            'ho-tro-sinh-san',
+            'di-truyen',
+            'phu-khoa',
+            'san-khoa',
+            'hau-san',
+        ]),
+        tags: z.array(z.string()).default([]),
+        author: z.string().default('Giáo sư Sản Phụ khoa'),
+        readingTime: z.number().optional(),
+        volume: z.string().optional(),
+    }),
+});
+
+export const collections = { blog, handbook };
+
