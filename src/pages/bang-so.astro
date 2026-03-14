@@ -374,7 +374,9 @@ import "../styles/global.css";
         } catch (e) {
           console.error('Fetch error:', e);
         }
-        // ── Poll every X seconds ──
+      }
+
+      // ── Poll every X seconds ──
       fetchQueue();
       setInterval(fetchQueue, 3000);
 
