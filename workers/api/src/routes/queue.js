@@ -184,6 +184,104 @@ export async function handleQueueBook(request, env) {
   });
 }
 
+// POST /api/queue/checkin — Admin/Receptionist: check-in a pre-booked patient by phone
+export async function handleQueueCheckin(request, env) {
+  const payload = await requireAuth(request, env);
+  if (!payload) return json({ error: 'Unauthorized' }, 401);
+
+  const { phone } = await request.json();
+  if (!phone?.trim()) return json({ status: 'error', message: 'Số điện thoại là bắt buộc' }, 400);
+
+  const sql = getDb(env);
+  
+  // Find today's booking
+  const todayBooking = await sql`
+    SELECT id, name, service, dob, gender, note
+    FROM bookings
+    WHERE tenant_id = ${payload.tenant_id} AND phone = ${phone.trim()}
+      AND date = CURRENT_DATE AND (status = 'pending' OR status = 'confirmed')
+    ORDER BY created_at DESC LIMIT 1
+  `;
+
+  if (!todayBooking.length) {
+    return json({ status: 'error', message: 'Không tìm thấy lịch hẹn cho số điện thoại này hôm nay.' }, 404);
+  }
+
+  const booking = todayBooking[0];
+
+  // Update booking to confirmed if it's pending (or just mark as checked in)
+  await sql`
+    UPDATE bookings SET status = 'confirmed' 
+    WHERE id = ${booking.id} AND status = 'pending'
+  `;
+
+  // Check if ticket already generated for this booking today
+  const existingTicket = await sql`
+    SELECT ticket_number, service_code, name FROM queue_tickets
+    WHERE tenant_id = ${payload.tenant_id} AND booking_id = ${booking.id}
+    LIMIT 1
+  `;
+
+  if (existingTicket.length) {
+    return json({
+      status: 'success',
+      queueNumber: existingTicket[0].ticket_number,
+      name: existingTicket[0].name,
+      service: booking.service || '',
+      message: 'Khách hàng đã check-in trước đó'
+    });
+  }
+
+  // Look up service code
+  const svcRows = await sql`
+    SELECT code FROM services WHERE tenant_id = ${payload.tenant_id} AND name = ${booking.service || ''}
+    LIMIT 1
+  `;
+  const serviceCode = svcRows.length ? svcRows[0].code : 'CH';
+
+  // Generate ticket number: YYMMDD-CODE-NNN
+  const now = new Date();
+  const tz = new Intl.DateTimeFormat('en', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    year: '2-digit', month: '2-digit', day: '2-digit'
+  });
+  const parts = tz.formatToParts(now);
+  const y = parts.find(p => p.type === 'year').value;
+  const m = parts.find(p => p.type === 'month').value;
+  const d = parts.find(p => p.type === 'day').value;
+  const datePrefix = `${y}${m}${d}`;
+
+  // Find max number for today
+  const maxResult = await sql`
+    SELECT ticket_number FROM queue_tickets
+    WHERE tenant_id = ${payload.tenant_id} AND ticket_number LIKE ${datePrefix + '-%'}
+    ORDER BY created_at DESC LIMIT 1
+  `;
+
+  let nextNum = 1;
+  if (maxResult.length) {
+    const lastParts = maxResult[0].ticket_number.split('-');
+    if (lastParts.length === 3) {
+      nextNum = parseInt(lastParts[2], 10) + 1;
+    }
+  }
+
+  const ticketNumber = `${datePrefix}-${serviceCode}-${String(nextNum).padStart(3, '0')}`;
+
+  await sql`
+    INSERT INTO queue_tickets (tenant_id, ticket_number, name, dob, gender, phone, service, note, priority, booking_id, service_code)
+    VALUES (${payload.tenant_id}, ${ticketNumber}, ${booking.name}, ${booking.dob || null}, ${booking.gender || 'Nữ'},
+            ${phone.trim()}, ${booking.service || null}, ${booking.note || null}, 1, ${booking.id}, ${serviceCode})
+  `;
+
+  return json({
+    status: 'success',
+    queueNumber: ticketNumber,
+    name: booking.name,
+    service: booking.service || ''
+  });
+}
+
 // ═══════════════════════════════════════
 // ADMIN ENDPOINTS (require auth)
 // ═══════════════════════════════════════

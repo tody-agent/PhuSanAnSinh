@@ -5,7 +5,7 @@
 import { handleAuthLogin, handleAuthMe } from './routes/auth.js';
 import { handleCreateBooking, handleListBookings, handleUpdateBooking } from './routes/bookings.js';
 import { handleCreateReview, handleListReviews, handleUpdateReview } from './routes/reviews.js';
-import { handleGetQueueConfig, handleGetQueueCurrent, handleQueueBook, handleQueueNext, handleListQueueTickets, handleSkipTicket, handleTransferTicket, handleAssignRoom, handleGetMyRoom, handleUpsertRoom, handleDeleteRoom, handleListQueueStaff } from './routes/queue.js';
+import { handleGetQueueConfig, handleGetQueueCurrent, handleQueueBook, handleQueueNext, handleListQueueTickets, handleSkipTicket, handleTransferTicket, handleAssignRoom, handleGetMyRoom, handleUpsertRoom, handleDeleteRoom, handleListQueueStaff, handleQueueCheckin } from './routes/queue.js';
 import { handleListLeads, handleUpdateLead } from './routes/leads.js';
 import { handleDashboard } from './routes/dashboard.js';
 import { handleListResources, handleResourceDownload } from './routes/resources.js';
@@ -111,6 +111,9 @@ export default {
       }
       else if (path === '/api/queue/skip' && method === 'POST') {
         response = await handleSkipTicket(request, env);
+      }
+      else if (path === '/api/queue/checkin' && method === 'POST') {
+        response = await handleQueueCheckin(request, env);
       }
       else if (path === '/api/queue/transfer' && method === 'POST') {
         response = await handleTransferTicket(request, env);

@@ -14,66 +14,122 @@ import "../styles/global.css";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   </head>
-  <body class="tv-body dark-theme">
-    <div class="tv-container" id="tv-container">
-      
-      <!-- TV Header -->
+  <body>
+
+    <!-- ===== TV LAYOUT ===== -->
+    <div class="tv-root" id="tv-root">
+
+      <!-- HEADER -->
       <header class="tv-header">
         <div class="tv-brand">
           <img src="/AnSinhLogo_256.png" alt="An Sinh" class="tv-logo" />
-          <div class="tv-title-group">
-            <h1 class="tv-title">PHÒNG KHÁM AN SINH</h1>
-            <h2 class="tv-subtitle">TRẠNG THÁI GỌI SỐ</h2>
+          <div>
+            <h1 class="tv-clinic-name">PHÒNG KHÁM AN SINH</h1>
+            <p class="tv-clinic-sub">SỐ THỨ TỰ KHÁM BỆNH</p>
           </div>
         </div>
-        
-        <div class="tv-controls">
-          <button id="btn-fullscreen" class="tv-btn" title="Toàn màn hình">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+        <div class="tv-header-right">
+          <button id="btn-fullscreen" class="tv-icon-btn" title="Toàn màn hình" aria-label="Fullscreen">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
           </button>
           <div class="tv-clock" id="tv-clock">--:--</div>
         </div>
       </header>
-      
-      <!-- Notification Banner -->
-      <div id="tv-alert" class="tv-alert" hidden>
-        <span class="tv-alert-icon">🔔</span>
-        <span class="tv-alert-text">Mời khách hàng <strong id="alert-name">---</strong> vào <strong id="alert-room">---</strong> (Số: <span id="alert-num">---</span>)</span>
-      </div>
 
-      <!-- TV Main Grid -->
+      <!-- MAIN SPLIT -->
       <main class="tv-main">
-        <div class="tv-grid" id="tv-grid">
-          <!-- Rendered by JS -->
-          <div class="tv-loading">
-            <div class="spinner"></div>
-            <p>Đang kết nối hệ thống...</p>
+
+        <!-- LEFT: FOCUS ZONE (Currently Called Patient) -->
+        <section class="tv-focus" id="tv-focus">
+          <div class="tv-focus-inner" id="tv-focus-content">
+            <!-- Idle state -->
+            <div class="tv-focus-idle" id="focus-idle">
+              <svg class="tv-focus-idle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="tv-focus-idle-text">Đang chờ gọi số...</p>
+              <p class="tv-focus-idle-hint">Vui lòng ngồi chờ đến lượt</p>
+            </div>
+            <!-- Active state (hidden by default, shown by JS) -->
+            <div class="tv-focus-active" id="focus-active" style="display:none">
+              <div class="tv-focus-badge" id="focus-badge">ĐANG GỌI</div>
+              <div class="tv-focus-room" id="focus-room">Phòng 1</div>
+              <div class="tv-focus-number" id="focus-number">---</div>
+              <div class="tv-focus-name" id="focus-name">---</div>
+              <div class="tv-focus-doctor" id="focus-doctor"></div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        <!-- RIGHT: ROOM STATUS LIST -->
+        <aside class="tv-sidebar" id="tv-sidebar">
+          <h2 class="tv-sidebar-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            Trạng Thái Phòng Khám
+          </h2>
+          <div class="tv-room-list" id="tv-room-list">
+            <!-- Loading -->
+            <div class="tv-room-loading" id="room-loading">
+              <div class="tv-spinner"></div>
+              <span>Đang kết nối...</span>
+            </div>
+          </div>
+
+          <!-- PROMO BLOCK: Carousel QR Codes (Sticky Bottom) -->
+          <div class="tv-sidebar-promo-wrapper">
+            <!-- Promo 1: Booking -->
+            <div class="tv-promo-slide active" id="promo-1">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://ansinh.app/dat-lich" alt="QR Đặt Lịch" class="tv-promo-qr-large" crossorigin="anonymous" />
+              <div class="tv-promo-info-large">
+                <span class="tv-promo-tag" style="background:var(--brand)">ĐẶT LỊCH TRƯỚC</span>
+                <strong>Giảm thời gian chờ</strong>
+                <span>Quét mã vuông để đặt lịch khám ngay trên điện thoại của bạn.</span>
+              </div>
+            </div>
+            <!-- Promo 2: Tool -->
+            <div class="tv-promo-slide" id="promo-2">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://ansinh.app/tinh-ngay-du-sinh" alt="QR Dự Sinh" class="tv-promo-qr-large" crossorigin="anonymous" style="border-color:#059669;box-shadow:0 4px 12px rgba(5,150,105,0.2)" />
+              <div class="tv-promo-info-large">
+                <span class="tv-promo-tag" style="background:#059669">TIỆN ÍCH MẸ BẦU</span>
+                <strong>Tính Ngày Dự Sinh</strong>
+                <span>Công cụ y khoa giúp mẹ bầu theo dõi thai kỳ chuẩn xác.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
       </main>
 
-      <!-- TV Footer -->
+      <!-- ALERT BANNER (Slides from top) -->
+      <div id="tv-alert" class="tv-alert" style="display:none">
+        <div class="tv-alert-bell">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        </div>
+        <span class="tv-alert-text">Mời <strong id="alert-name">---</strong> vào <strong id="alert-room">---</strong></span>
+        <span class="tv-alert-num" id="alert-num">---</span>
+      </div>
+
+      <!-- FOOTER TICKER -->
       <footer class="tv-footer">
-        <div class="tv-ticker-wrap">
-          <div class="tv-ticker">
-            <span class="tv-ticker-item">Vui lòng ngồi chờ đến lượt gọi tên.</span>
-            <span class="tv-ticker-item">Chuẩn bị sẵn CCCD/BHYT nếu cần.</span>
-            <span class="tv-ticker-item">Ưu tiên bệnh nhân cấp cứu, người già yếu, trẻ nhỏ và phụ nữ có thai (số đặt trước).</span>
+        <div class="tv-ticker-track">
+          <div class="tv-ticker" id="tv-ticker">
+            <span>📋 Vui lòng ngồi chờ đến lượt gọi tên.</span>
+            <span>🆔 Chuẩn bị sẵn CCCD / BHYT nếu cần.</span>
+            <span>⭐ Ưu tiên người già, trẻ nhỏ, phụ nữ có thai, và người đã đặt lịch trước.</span>
+            <span>📋 Vui lòng ngồi chờ đến lượt gọi tên.</span>
+            <span>🆔 Chuẩn bị sẵn CCCD / BHYT nếu cần.</span>
+            <span>⭐ Ưu tiên người già, trẻ nhỏ, phụ nữ có thai, và người đã đặt lịch trước.</span>
           </div>
         </div>
       </footer>
-      
-      <!-- Hidden Audio Element for Ding -->
+
+      <!-- Audio -->
       <audio id="audio-ding" preload="auto">
         <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg" />
       </audio>
-
     </div>
 
+    <!-- ===== SCRIPT ===== -->
     <script>
       const API_URL = 'https://ansinh-api.todyai.workers.dev/api/queue/current';
-      
-      // Get Zone from URL
       const urlParams = new URLSearchParams(window.location.search);
       const zone = urlParams.get('zone');
       const fetchUrl = zone ? `${API_URL}?zone=${zone}` : API_URL;
@@ -83,445 +139,792 @@ import "../styles/global.css";
       let isFirstLoad = true;
       /** @type {ReturnType<typeof setTimeout> | null} */
       let alertTimeout = null;
-      
-      // Clock
+      /** @type {{ roomId: string, roomName: string, customerName: string, queueNumber: string, doctorName: string, timeCalled: string } | null} */
+      let currentFocus = null;
+
+      // ── Clock ──
       function updateClock() {
-        const el = document.getElementById("tv-clock");
+        const el = document.getElementById('tv-clock');
         if (el) {
-          const now = new Date();
-          el.textContent = now.toLocaleTimeString("vi-VN", {
-            hour: "2-digit",
-            minute: "2-digit",
-          });
+          el.textContent = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
         }
       }
       setInterval(updateClock, 1000);
       updateClock();
 
-      // Fullscreen
+      // ── Fullscreen ──
       const btnFs = document.getElementById('btn-fullscreen');
       if (btnFs) {
         btnFs.addEventListener('click', () => {
           if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(err => {
-              console.error(`Error attempting to enable fullscreen: ${err.message}`);
-            });
+            document.documentElement.requestFullscreen().catch(() => {});
           } else {
             document.exitFullscreen();
           }
         });
       }
 
-      /**
-       * @param {string} text
-       */
+      // ── TTS ──
+      /** @param {string} text */
       function speakText(text) {
         if (!('speechSynthesis' in window)) return;
-        
-        // Cancel any ongoing speech
         window.speechSynthesis.cancel();
-        
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'vi-VN';
-        utterance.rate = 0.9; // Slightly slower for clarity
-        utterance.pitch = 1;
-        
-        // Try to find a Vietnamese voice
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'vi-VN';
+        u.rate = 0.85;
+        u.pitch = 1;
         const voices = window.speechSynthesis.getVoices();
-        const viVoice = voices.find(v => v.lang.includes('vi') || v.lang.includes('VN'));
-        if (viVoice) utterance.voice = viVoice;
-        
-        window.speechSynthesis.speak(utterance);
+        const vi = voices.find(v => v.lang.includes('vi') || v.lang.includes('VN'));
+        if (vi) u.voice = vi;
+        window.speechSynthesis.speak(u);
       }
 
       function playDing() {
         /** @type {HTMLAudioElement | null} */
-        const audio = (document.getElementById('audio-ding'));
+        const audio = document.getElementById('audio-ding');
         if (audio) {
           audio.currentTime = 0;
-          audio.play().catch((/** @type {Error} */ e) => console.log('Audio auto-play blocked by browser. User must interact first.'));
+          audio.play().catch(() => {});
         }
       }
 
+      // ── Alert Banner ──
       /**
        * @param {string} roomName
        * @param {string} customerName
        * @param {string} queueNumber
        */
       function triggerAlert(roomName, customerName, queueNumber) {
-        // Show banner
-        /** @type {HTMLElement | null} */ const elRoom = document.getElementById('alert-room');
-        /** @type {HTMLElement | null} */ const elName = document.getElementById('alert-name');
-        /** @type {HTMLElement | null} */ const elNum = document.getElementById('alert-num');
-        /** @type {HTMLElement | null} */ const alertEl = document.getElementById('tv-alert');
+        const elRoom = document.getElementById('alert-room');
+        const elName = document.getElementById('alert-name');
+        const elNum = document.getElementById('alert-num');
+        const alertEl = document.getElementById('tv-alert');
 
         if (elRoom) elRoom.textContent = roomName;
         if (elName) elName.textContent = customerName;
         if (elNum) elNum.textContent = queueNumber ? queueNumber.split('-').pop() : '';
-        
+
         if (alertEl) {
-          alertEl.hidden = false;
-          alertEl.classList.remove('slide-out');
-          alertEl.classList.add('slide-in');
+          alertEl.style.display = 'flex';
+          alertEl.classList.remove('alert-hide');
+          alertEl.classList.add('alert-show');
         }
-        
-        // Play Sound + TTS
+
         playDing();
         setTimeout(() => {
           speakText(`Mời khách hàng, ${customerName}, vào ${roomName}.`);
-        }, 1500); // Speak after ding
-        
-        // Hide banner after 10s
-        clearTimeout(alertTimeout);
+        }, 1500);
+
+        if (alertTimeout) clearTimeout(alertTimeout);
         alertTimeout = setTimeout(() => {
           if (alertEl) {
-            alertEl.classList.remove('slide-in');
-            alertEl.classList.add('slide-out');
-            setTimeout(() => { if (alertEl) alertEl.hidden = true; }, 500);
+            alertEl.classList.remove('alert-show');
+            alertEl.classList.add('alert-hide');
+            setTimeout(() => { if (alertEl) alertEl.style.display = 'none'; }, 600);
           }
         }, 10000);
       }
 
-      // Fetch Data
-      async function fetchQueue() {
-        try {
-          const res = await fetch(fetchUrl);
-          const result = await res.json();
-          
-          if (result.status === 'success' && result.data) {
-            renderGrid(result.data);
-          }
-        } catch (e) {
-          console.error("Fetch error:", e);
+      // ── Update Focus Zone (Left Panel) ──
+      /**
+       * @param {{ roomId: string, roomName: string, customerName: string, queueNumber: string, doctorName: string }} info
+       */
+      function updateFocus(info) {
+        const idle = document.getElementById('focus-idle');
+        const active = document.getElementById('focus-active');
+        const badge = document.getElementById('focus-badge');
+        const room = document.getElementById('focus-room');
+        const num = document.getElementById('focus-number');
+        const name = document.getElementById('focus-name');
+        const doc = document.getElementById('focus-doctor');
+        const focusSection = document.getElementById('tv-focus');
+
+        if (idle) idle.style.display = 'none';
+        if (active) active.style.display = 'flex';
+        if (badge) badge.textContent = 'ĐANG GỌI';
+        if (room) room.textContent = info.roomName;
+        if (num) num.textContent = info.queueNumber ? info.queueNumber.split('-').pop() : '---';
+        if (name) name.textContent = info.customerName || '---';
+        if (doc) doc.textContent = info.doctorName ? `BS. ${info.doctorName}` : '';
+
+        // Pulse animation
+        if (focusSection) {
+          focusSection.classList.remove('focus-pulse');
+          void focusSection.offsetWidth; // force reflow
+          focusSection.classList.add('focus-pulse');
         }
       }
 
+      // ── Render Sidebar (Right Panel) ──
       /**
-       * @param {Record<string, {queueNumber?: string, customerName?: string, type?: string, doctorName?: string}>} data
+       * @param {Record<string, {queueNumber?: string, customerName?: string, type?: string, doctorName?: string, timeCalled?: string}>} data
+       * @param {string | null} focusRoomId
        */
-      function renderGrid(data) {
-        /** @type {HTMLElement | null} */
-        const grid = document.getElementById('tv-grid');
-        if (!grid) return;
-        
+      function renderSidebar(data, focusRoomId) {
+        const list = document.getElementById('tv-room-list');
+        if (!list) return;
+
         const rooms = Object.keys(data);
-        
         if (rooms.length === 0) {
-          if (isFirstLoad) grid.innerHTML = '<div class="tv-empty">Chưa có dữ liệu phòng khám</div>';
+          list.innerHTML = '<div class="tv-room-empty">Chưa có phòng khám nào</div>';
           return;
         }
 
         let html = '';
-        /** @type {Array<{roomName: string, customerName: string, queueNumber: string}>} */
-        let newlyCalled = [];
-
-        rooms.forEach((roomId) => {
+        rooms.forEach(roomId => {
           const info = data[roomId];
-          const ticketNum = info.queueNumber ? info.queueNumber.split('-').pop() : '---';
+          const ticketShort = info.queueNumber ? info.queueNumber.split('-').pop() : '---';
           const custName = info.customerName || 'Chưa gọi';
           const rType = info.type || 'Phòng';
-          
           const roomLabel = `${rType} ${roomId}`.toUpperCase();
-
-          // Check if this is a new call (only after first load)
-          const stateKey = `${roomId}-${info.queueNumber}`;
-          let isNew = false;
-          
-          if (!isFirstLoad && info.queueNumber && lastState[roomId] !== info.queueNumber) {
-            isNew = true;
-            newlyCalled.push({
-              roomName: roomLabel,
-              customerName: custName,
-              queueNumber: info.queueNumber
-            });
-          }
-          
-          lastState[roomId] = info.queueNumber;
+          const isFocus = roomId === focusRoomId;
+          const hasPatient = !!info.queueNumber;
 
           html += `
-            <div class="tv-card ${isNew ? 'flash' : ''}">
-              <div class="tv-card-header">
-                <span class="tv-room-label">${roomLabel}</span>
-                <span class="tv-doc-name">${info.doctorName || ''}</span>
+            <div class="tv-room-card ${isFocus ? 'is-active' : ''} ${hasPatient ? 'has-patient' : ''}">
+              <div class="tv-room-card-left">
+                <span class="tv-room-card-label">${roomLabel}</span>
+                <span class="tv-room-card-doctor">${info.doctorName ? 'BS. ' + info.doctorName : ''}</span>
               </div>
-              <div class="tv-card-body">
-                <div class="tv-number ${info.queueNumber ? 'text-primary' : 'text-muted'}">
-                  ${ticketNum}
-                </div>
-                <div class="tv-customer">${custName}</div>
+              <div class="tv-room-card-right">
+                <span class="tv-room-card-num ${hasPatient ? '' : 'is-idle'}">${ticketShort}</span>
+                <span class="tv-room-card-name">${custName}</span>
               </div>
             </div>
           `;
         });
 
-        grid.innerHTML = html;
-        isFirstLoad = false;
+        list.innerHTML = html;
+      }
 
-        // Trigger alert for the first newly called person
-        if (newlyCalled.length > 0) {
-          const c = newlyCalled[0];
-          triggerAlert(c.roomName, c.customerName, c.queueNumber);
+      // ── Fetch & Process ──
+      async function fetchQueue() {
+        try {
+          const res = await fetch(fetchUrl);
+          const result = await res.json();
+          if (result.status !== 'success' || !result.data) return;
+
+          const data = result.data;
+          const rooms = Object.keys(data);
+
+          // Hide loading
+          const loadEl = document.getElementById('room-loading');
+          if (loadEl) loadEl.hidden = true;
+
+          if (rooms.length === 0) {
+            renderSidebar(data, null);
+            return;
+          }
+
+          // Detect newly called
+          /** @type {Array<{roomId: string, roomName: string, customerName: string, queueNumber: string, doctorName: string, timeCalled: string}>} */
+          let newlyCalled = [];
+          rooms.forEach(roomId => {
+            const info = data[roomId];
+            if (!isFirstLoad && info.queueNumber && lastState[roomId] !== info.queueNumber) {
+              const rType = info.type || 'Phòng';
+              newlyCalled.push({
+                roomId,
+                roomName: `${rType} ${roomId}`.toUpperCase(),
+                customerName: info.customerName || 'Khách hàng',
+                queueNumber: info.queueNumber,
+                doctorName: info.doctorName || '',
+                timeCalled: info.timeCalled || ''
+              });
+            }
+            lastState[roomId] = info.queueNumber;
+          });
+
+          // If new call → update focus + trigger alert
+          if (newlyCalled.length > 0) {
+            const newest = newlyCalled[0];
+            currentFocus = newest;
+            updateFocus(newest);
+            triggerAlert(newest.roomName, newest.customerName, newest.queueNumber);
+          }
+
+          // On first load, pick the most recently called room for focus
+          if (isFirstLoad) {
+            let latestRoom = null;
+            let latestTime = '';
+            rooms.forEach(roomId => {
+              const info = data[roomId];
+              if (info.queueNumber && info.timeCalled && info.timeCalled > latestTime) {
+                latestTime = info.timeCalled;
+                latestRoom = roomId;
+              }
+            });
+            if (latestRoom) {
+              const info = data[latestRoom];
+              const rType = info.type || 'Phòng';
+              currentFocus = {
+                roomId: latestRoom,
+                roomName: `${rType} ${latestRoom}`.toUpperCase(),
+                customerName: info.customerName || '---',
+                queueNumber: info.queueNumber || '',
+                doctorName: info.doctorName || '',
+                timeCalled: info.timeCalled || ''
+              };
+              updateFocus(currentFocus);
+            }
+          }
+
+          isFirstLoad = false;
+          renderSidebar(data, currentFocus?.roomId || null);
+        } catch (e) {
+          console.error('Fetch error:', e);
         }
-      }
-
-      // Start Polling
+        // ── Poll every X seconds ──
       fetchQueue();
-      setInterval(fetchQueue, 5000); // 5 seconds
+      setInterval(fetchQueue, 3000);
 
-      // Fix for Speech Synthesis not loading voices immediately
-      if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = function() {
-          console.log("TTS Voices loaded");
-        };
-      }
+      // ── Promo Carousel Logic ──
+      let currentPromo = 1;
+      setInterval(() => {
+        const p1 = document.getElementById('promo-1');
+        const p2 = document.getElementById('promo-2');
+        if (p1 && p2) {
+          if (currentPromo === 1) {
+            p1.classList.remove('active');
+            p2.classList.add('active');
+            currentPromo = 2;
+          } else {
+            p2.classList.remove('active');
+            p1.classList.add('active');
+            currentPromo = 1;
+          }
+        }
+      }, 10000); // Tự động chuyển mỗi 10 giây
     </script>
 
-    <style>
+    <!-- ===== STYLES ===== -->
+    <style is:global>
+      /* ── Design Tokens ── */
       :root {
-        --tv-bg: #0f172a;
-        --tv-card: #1e293b;
-        --tv-card-border: #334155;
-        --tv-primary: #38bdf8;
-        --tv-primary-glow: rgba(56, 189, 248, 0.4);
-        --tv-text: #f8fafc;
-        --tv-muted: #64748b;
-        --tv-accent: #f59e0b;
+        --bg: #f0f4f8;
+        --bg-header: #ffffff;
+        --surface: #ffffff;
+        --surface-active: #ebf5ff;
+        --border: #e2e8f0;
+        --border-active: #2563eb;
+
+        --brand: #1e40af;        /* Passport Blue — medical trust */
+        --brand-light: #3b82f6;
+        --brand-glow: rgba(37, 99, 235, 0.15);
+        --accent: #059669;       /* Green for active/success */
+        --accent-light: #d1fae5;
+
+        --text: #0f172a;
+        --text-secondary: #475569;
+        --text-muted: #94a3b8;
+        --text-inverse: #ffffff;
+
+        --focus-bg: linear-gradient(135deg, #1e3a8a 0%, #1e40af 40%, #2563eb 100%);
+        --alert-bg: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+
+        --radius: 16px;
+        --radius-sm: 10px;
+        --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-lg: 0 10px 40px rgba(0,0,0,0.08);
       }
 
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      
-      body.tv-body {
-        font-family: 'Inter', system-ui, sans-serif;
-        background-color: var(--tv-bg);
-        color: var(--tv-text);
-        overflow: hidden; /* No scroll on TV */
-        height: 100vh;
+      /* ── Reset ── */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        overflow: hidden;
+        height: 100dvh;
+        -webkit-font-smoothing: antialiased;
       }
 
-      .tv-container {
+      /* ── Root Layout ── */
+      .tv-root {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        height: 100dvh;
+        position: relative;
       }
 
-      /* Header */
+      /* ── HEADER ── */
       .tv-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.5rem 3rem;
-        background: rgba(15, 23, 42, 0.9);
-        border-bottom: 2px solid var(--tv-card-border);
+        padding: 0.75rem 2rem;
+        background: var(--bg-header);
+        border-bottom: 1px solid var(--border);
         flex-shrink: 0;
+        z-index: 10;
       }
       .tv-brand {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1rem;
       }
       .tv-logo {
-        width: 80px;
-        height: 80px;
-        border-radius: 16px;
-        box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
       }
-      .tv-title {
-        font-size: 2.5rem;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: var(--tv-text);
-        margin-bottom: 0.25rem;
-      }
-      .tv-subtitle {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--tv-primary);
-        letter-spacing: 5px;
-      }
-      .tv-controls {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-      }
-      .tv-btn {
-        background: transparent;
-        border: none;
-        color: var(--tv-muted);
-        cursor: pointer;
-        transition: color 0.2s;
-      }
-      .tv-btn:hover { color: var(--tv-text); }
-      .tv-clock {
-        font-size: 3.5rem;
+      .tv-clinic-name {
+        font-size: 1.5rem;
         font-weight: 800;
-        font-variant-numeric: tabular-nums;
-        color: var(--tv-primary);
-        text-shadow: 0 0 20px var(--tv-primary-glow);
+        color: var(--brand);
+        letter-spacing: 1px;
+        line-height: 1.2;
       }
-
-      /* Alert Banner */
-      .tv-alert {
-        background: linear-gradient(90deg, #1e3a8a, #3b82f6);
-        color: white;
-        padding: 1.5rem 3rem;
+      .tv-clinic-sub {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+      .tv-header-right {
         display: flex;
         align-items: center;
         gap: 1.5rem;
+      }
+      .tv-icon-btn {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .tv-icon-btn:hover { background: var(--brand-glow); color: var(--brand); }
+      .tv-clock {
         font-size: 2.5rem;
-        border-bottom: 4px solid #60a5fa;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        z-index: 50;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+        color: var(--brand);
       }
-      .tv-alert-icon { font-size: 3rem; animation: ring 1s infinite alternate; }
-      .tv-alert-text { font-weight: 500; }
-      .tv-alert strong { font-weight: 900; color: #fde047; }
-      
-      @keyframes ring {
-        0% { transform: rotate(-15deg); }
-        100% { transform: rotate(15deg); }
-      }
-      .slide-in { animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-      .slide-out { animation: slideOut 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-      @keyframes slideIn { from { transform: translateY(-100%); } to { transform: translateY(0); } }
-      @keyframes slideOut { from { transform: translateY(0); } to { transform: translateY(-100%); } }
 
-      /* Main Grid */
+      /* ── MAIN SPLIT ── */
       .tv-main {
         flex: 1;
-        padding: 3rem;
-        overflow-y: auto;
-      }
-      .tv-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 2.5rem;
-        height: 100%;
-        align-content: start;
-      }
-      
-      /* Card View */
-      .tv-card {
-        background: var(--tv-card);
-        border: 2px solid var(--tv-card-border);
-        border-radius: 24px;
+        grid-template-columns: 62fr 38fr;
+        gap: 0;
         overflow: hidden;
+      }
+
+      /* ── LEFT: FOCUS ZONE ── */
+      .tv-focus {
+        background: var(--focus-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Decorative circles */
+      .tv-focus::before,
+      .tv-focus::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.08;
+        background: white;
+      }
+      .tv-focus::before {
+        width: 500px; height: 500px;
+        top: -150px; left: -100px;
+      }
+      .tv-focus::after {
+        width: 350px; height: 350px;
+        bottom: -100px; right: -50px;
+      }
+
+      .tv-focus-inner {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        width: 100%;
+      }
+
+      /* Idle */
+      .tv-focus-idle {
         display: flex;
         flex-direction: column;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        transition: transform 0.3s, border-color 0.3s;
+        align-items: center;
+        gap: 1rem;
       }
-      .tv-card.flash {
-        animation: cardFlash 2s cubic-bezier(0.16, 1, 0.3, 1);
-        border-color: var(--tv-primary);
+      .tv-focus-idle-icon {
+        width: 80px;
+        height: 80px;
+        color: rgba(255,255,255,0.3);
+        animation: idlePulse 3s ease-in-out infinite;
       }
-      @keyframes cardFlash {
-        0% { transform: scale(1); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        10% { transform: scale(1.05); box-shadow: 0 0 50px var(--tv-primary-glow); border-color: var(--tv-primary); }
-        100% { transform: scale(1); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+      @keyframes idlePulse {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(1.05); }
       }
-      
-      .tv-card-header {
-        background: rgba(0,0,0,0.2);
-        padding: 1.5rem;
+      .tv-focus-idle-text {
+        font-size: 2rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.5);
+      }
+      .tv-focus-idle-hint {
+        font-size: 1.25rem;
+        color: rgba(255,255,255,0.3);
+      }
+
+      /* Active */
+      .tv-focus-active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .tv-focus-badge {
+        display: inline-block;
+        background: #ef4444;
+        color: white;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 3px;
+        padding: 0.4rem 1.5rem;
+        border-radius: 100px;
+        text-transform: uppercase;
+        animation: badgePulse 2s ease-in-out infinite;
+      }
+      @keyframes badgePulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+        50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+      }
+      .tv-focus-room {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.7);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-top: 0.5rem;
+      }
+      .tv-focus-number {
+        font-size: clamp(6rem, 12vw, 14rem);
+        font-weight: 900;
+        color: #ffffff;
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+        text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        letter-spacing: -2px;
+        margin: 0.25rem 0;
+      }
+      .tv-focus-name {
+        font-size: clamp(1.75rem, 3vw, 3rem);
+        font-weight: 700;
+        color: #fde68a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .tv-focus-doctor {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: rgba(255,255,255,0.5);
+        margin-top: 0.5rem;
+      }
+
+      /* Focus pulse on new call */
+      .focus-pulse {
+        animation: focusPulseAnim 1.5s ease-out;
+      }
+      @keyframes focusPulseAnim {
+        0% { filter: brightness(1.3); }
+        100% { filter: brightness(1); }
+      }
+
+      /* ── RIGHT: SIDEBAR ── */
+      .tv-sidebar {
+        background: var(--surface);
+        border-left: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .tv-sidebar-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-secondary);
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        flex-shrink: 0;
+      }
+      .tv-sidebar-title svg {
+        color: var(--brand-light);
+        flex-shrink: 0;
+      }
+
+      .tv-room-list {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      /* Room Card */
+      .tv-room-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 2px solid var(--tv-card-border);
+        padding: 1rem 1.25rem;
+        border-radius: var(--radius-sm);
+        border: 2px solid transparent;
+        background: var(--bg);
+        transition: all 0.3s ease;
       }
-      .tv-room-label {
-        font-size: 1.75rem;
-        font-weight: 800;
-        color: var(--tv-muted);
-        letter-spacing: 1px;
+      /* ── PROMO BLOCK CAROUSEL (Sticky Bottom Sidebar) ── */
+      .tv-sidebar-promo-wrapper {
+        margin-top: auto;
+        border-top: 1px solid var(--border);
+        background: var(--surface);
+        position: relative;
+        height: 140px; /* Fixed height for carousel */
+        overflow: hidden;
       }
-      .tv-doc-name {
-        font-size: 1.25rem;
-        color: var(--tv-muted);
-        font-weight: 500;
+      .tv-promo-slide {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1rem 1.75rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Apple-like smooth spring */
+        pointer-events: none;
       }
-      
-      .tv-card-body {
-        padding: 2.5rem 1.5rem;
-        text-align: center;
-        flex: 1;
+      .tv-promo-slide.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .tv-promo-qr-large {
+        width: 100px;
+        height: 100px;
+        border-radius: 12px;
+        background: #fff;
+        padding: 4px;
+        border: 2px solid var(--brand-light);
+        flex-shrink: 0;
+        object-fit: contain;
+        animation: qrPulse 3s infinite alternate;
+      }
+      @keyframes qrPulse {
+        0% { box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); transform: scale(1); }
+        100% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.5); transform: scale(1.05); }
+      }
+      .tv-promo-info-large {
         display: flex;
         flex-direction: column;
+        gap: 0.35rem;
         justify-content: center;
       }
-      
-      .tv-number {
-        font-size: 8rem;
-        font-weight: 900;
-        line-height: 1;
-        margin-bottom: 1rem;
-        font-variant-numeric: tabular-nums;
-        text-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      }
-      .text-primary { color: var(--tv-primary); }
-      .text-muted { color: var(--tv-card-border); }
-      
-      .tv-customer {
-        font-size: 2.25rem;
-        font-weight: 700;
-        color: var(--tv-text);
+      .tv-promo-tag {
+        align-self: flex-start;
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 800;
+        padding: 0.25rem 0.6rem;
+        border-radius: 100px;
         text-transform: uppercase;
-        min-height: 3rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.2rem;
+      }
+      .tv-promo-info-large strong {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1.2;
+        letter-spacing: 0.5px;
+      }
+      .tv-promo-info-large span {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.4;
       }
 
-      /* Loading / Empty */
-      .tv-loading, .tv-empty {
-        grid-column: 1 / -1;
+      /* Empty State */
+      .tv-room-card.has-patient {
+        background: var(--surface);
+        border-color: var(--border);
+      }
+      .tv-room-card.is-active {
+        background: var(--surface-active);
+        border-color: var(--border-active);
+        box-shadow: 0 0 0 3px var(--brand-glow);
+      }
+
+      .tv-room-card-left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+      .tv-room-card-label {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--text);
+        letter-spacing: 0.5px;
+      }
+      .tv-room-card.is-active .tv-room-card-label {
+        color: var(--brand);
+      }
+      .tv-room-card-doctor {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .tv-room-card-right {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.15rem;
+      }
+      .tv-room-card-num {
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--brand);
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+      }
+      .tv-room-card-num.is-idle {
+        color: var(--text-muted);
+        font-size: 1.5rem;
+      }
+      .tv-room-card-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        max-width: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* Loading / Empty in sidebar */
+      .tv-room-loading, .tv-room-empty {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 50vh;
-        font-size: 2rem;
-        color: var(--tv-muted);
+        gap: 1rem;
+        padding: 3rem;
+        color: var(--text-muted);
+        font-size: 1rem;
       }
-      .spinner {
-        width: 60px;
-        height: 60px;
-        border: 6px solid var(--tv-card-border);
-        border-top-color: var(--tv-primary);
+      .tv-spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid var(--border);
+        border-top-color: var(--brand-light);
         border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-bottom: 1.5rem;
+        animation: spin 0.8s linear infinite;
       }
       @keyframes spin { to { transform: rotate(360deg); } }
 
-      /* Footer Ticker */
+      /* ── ALERT BANNER ── */
+      .tv-alert {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--alert-bg);
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.25rem 2.5rem;
+        box-shadow: 0 8px 30px rgba(220, 38, 38, 0.3);
+      }
+      .tv-alert-bell {
+        animation: bellRing 0.8s ease-in-out infinite alternate;
+      }
+      @keyframes bellRing {
+        0% { transform: rotate(-12deg); }
+        100% { transform: rotate(12deg); }
+      }
+      .tv-alert-text {
+        font-size: 1.75rem;
+        font-weight: 600;
+        flex: 1;
+      }
+      .tv-alert-text strong {
+        font-weight: 900;
+        color: #fde68a;
+      }
+      .tv-alert-num {
+        font-size: 3rem;
+        font-weight: 900;
+        font-variant-numeric: tabular-nums;
+        color: #fde68a;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+
+      .alert-show { animation: alertSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      .alert-hide { animation: alertSlideOut 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      @keyframes alertSlideIn { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+      @keyframes alertSlideOut { from { transform: translateY(0); } to { transform: translateY(-100%); } }
+
+      /* ── FOOTER TICKER ── */
       .tv-footer {
-        background: var(--tv-primary);
-        color: #0f172a;
-        padding: 0.75rem 0;
+        background: var(--brand);
+        color: var(--text-inverse);
+        padding: 0.6rem 0;
         overflow: hidden;
         flex-shrink: 0;
       }
-      .tv-ticker-wrap {
-        width: 100%;
+      .tv-ticker-track {
         overflow: hidden;
         white-space: nowrap;
       }
       .tv-ticker {
-        display: inline-block;
-        animation: ticker 30s linear infinite;
-        font-size: 1.5rem;
-        font-weight: 700;
+        display: inline-flex;
+        gap: 4rem;
+        animation: tickerScroll 40s linear infinite;
+        font-size: 1.1rem;
+        font-weight: 600;
       }
-      .tv-ticker-item {
-        padding: 0 3rem;
-        position: relative;
+      .tv-ticker span {
+        flex-shrink: 0;
       }
-      .tv-ticker-item::after {
-        content: "•";
-        position: absolute;
-        right: -10px;
-        opacity: 0.5;
-      }
-      @keyframes ticker {
-        0% { transform: translate3d(100%, 0, 0); }
+      @keyframes tickerScroll {
+        0% { transform: translate3d(50%, 0, 0); }
         100% { transform: translate3d(-100%, 0, 0); }
+      }
+
+      /* ── Responsive (for smaller screens / portrait TVs) ── */
+      @media (max-width: 900px) {
+        .tv-main {
+          grid-template-columns: 1fr;
+          grid-template-rows: 50vh 1fr;
+        }
+        .tv-sidebar {
+          border-left: none;
+          border-top: 1px solid var(--border);
+        }
+        .tv-focus-number {
+          font-size: 6rem;
+        }
       }
     </style>
   </body>
