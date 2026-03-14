@@ -17,5 +17,8 @@
     "@astrojs/sitemap": "^3.7.0",
     "astro": "^5.18.0",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@neondatabase/serverless": "^1.0.2"
   }
 }

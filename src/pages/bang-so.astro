@@ -1,0 +1,528 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Bảng Số Thứ Tự — Phòng Khám An Sinh</title>
+    <link rel="icon" type="image/png" href="/AnSinhLogo_256.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="tv-body dark-theme">
+    <div class="tv-container" id="tv-container">
+      
+      <!-- TV Header -->
+      <header class="tv-header">
+        <div class="tv-brand">
+          <img src="/AnSinhLogo_256.png" alt="An Sinh" class="tv-logo" />
+          <div class="tv-title-group">
+            <h1 class="tv-title">PHÒNG KHÁM AN SINH</h1>
+            <h2 class="tv-subtitle">TRẠNG THÁI GỌI SỐ</h2>
+          </div>
+        </div>
+        
+        <div class="tv-controls">
+          <button id="btn-fullscreen" class="tv-btn" title="Toàn màn hình">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+          </button>
+          <div class="tv-clock" id="tv-clock">--:--</div>
+        </div>
+      </header>
+      
+      <!-- Notification Banner -->
+      <div id="tv-alert" class="tv-alert" hidden>
+        <span class="tv-alert-icon">🔔</span>
+        <span class="tv-alert-text">Mời khách hàng <strong id="alert-name">---</strong> vào <strong id="alert-room">---</strong> (Số: <span id="alert-num">---</span>)</span>
+      </div>
+
+      <!-- TV Main Grid -->
+      <main class="tv-main">
+        <div class="tv-grid" id="tv-grid">
+          <!-- Rendered by JS -->
+          <div class="tv-loading">
+            <div class="spinner"></div>
+            <p>Đang kết nối hệ thống...</p>
+          </div>
+        </div>
+      </main>
+
+      <!-- TV Footer -->
+      <footer class="tv-footer">
+        <div class="tv-ticker-wrap">
+          <div class="tv-ticker">
+            <span class="tv-ticker-item">Vui lòng ngồi chờ đến lượt gọi tên.</span>
+            <span class="tv-ticker-item">Chuẩn bị sẵn CCCD/BHYT nếu cần.</span>
+            <span class="tv-ticker-item">Ưu tiên bệnh nhân cấp cứu, người già yếu, trẻ nhỏ và phụ nữ có thai (số đặt trước).</span>
+          </div>
+        </div>
+      </footer>
+      
+      <!-- Hidden Audio Element for Ding -->
+      <audio id="audio-ding" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg" />
+      </audio>
+
+    </div>
+
+    <script>
+      const API_URL = 'https://ansinh-api.todyai.workers.dev/api/queue/current';
+      
+      // Get Zone from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const zone = urlParams.get('zone');
+      const fetchUrl = zone ? `${API_URL}?zone=${zone}` : API_URL;
+
+      /** @type {Record<string, string>} */
+      let lastState = {};
+      let isFirstLoad = true;
+      /** @type {ReturnType<typeof setTimeout> | null} */
+      let alertTimeout = null;
+      
+      // Clock
+      function updateClock() {
+        const el = document.getElementById("tv-clock");
+        if (el) {
+          const now = new Date();
+          el.textContent = now.toLocaleTimeString("vi-VN", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+        }
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+
+      // Fullscreen
+      const btnFs = document.getElementById('btn-fullscreen');
+      if (btnFs) {
+        btnFs.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(err => {
+              console.error(`Error attempting to enable fullscreen: ${err.message}`);
+            });
+          } else {
+            document.exitFullscreen();
+          }
+        });
+      }
+
+      /**
+       * @param {string} text
+       */
+      function speakText(text) {
+        if (!('speechSynthesis' in window)) return;
+        
+        // Cancel any ongoing speech
+        window.speechSynthesis.cancel();
+        
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'vi-VN';
+        utterance.rate = 0.9; // Slightly slower for clarity
+        utterance.pitch = 1;
+        
+        // Try to find a Vietnamese voice
+        const voices = window.speechSynthesis.getVoices();
+        const viVoice = voices.find(v => v.lang.includes('vi') || v.lang.includes('VN'));
+        if (viVoice) utterance.voice = viVoice;
+        
+        window.speechSynthesis.speak(utterance);
+      }
+
+      function playDing() {
+        /** @type {HTMLAudioElement | null} */
+        const audio = (document.getElementById('audio-ding'));
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play().catch((/** @type {Error} */ e) => console.log('Audio auto-play blocked by browser. User must interact first.'));
+        }
+      }
+
+      /**
+       * @param {string} roomName
+       * @param {string} customerName
+       * @param {string} queueNumber
+       */
+      function triggerAlert(roomName, customerName, queueNumber) {
+        // Show banner
+        /** @type {HTMLElement | null} */ const elRoom = document.getElementById('alert-room');
+        /** @type {HTMLElement | null} */ const elName = document.getElementById('alert-name');
+        /** @type {HTMLElement | null} */ const elNum = document.getElementById('alert-num');
+        /** @type {HTMLElement | null} */ const alertEl = document.getElementById('tv-alert');
+
+        if (elRoom) elRoom.textContent = roomName;
+        if (elName) elName.textContent = customerName;
+        if (elNum) elNum.textContent = queueNumber ? queueNumber.split('-').pop() : '';
+        
+        if (alertEl) {
+          alertEl.hidden = false;
+          alertEl.classList.remove('slide-out');
+          alertEl.classList.add('slide-in');
+        }
+        
+        // Play Sound + TTS
+        playDing();
+        setTimeout(() => {
+          speakText(`Mời khách hàng, ${customerName}, vào ${roomName}.`);
+        }, 1500); // Speak after ding
+        
+        // Hide banner after 10s
+        clearTimeout(alertTimeout);
+        alertTimeout = setTimeout(() => {
+          if (alertEl) {
+            alertEl.classList.remove('slide-in');
+            alertEl.classList.add('slide-out');
+            setTimeout(() => { if (alertEl) alertEl.hidden = true; }, 500);
+          }
+        }, 10000);
+      }
+
+      // Fetch Data
+      async function fetchQueue() {
+        try {
+          const res = await fetch(fetchUrl);
+          const result = await res.json();
+          
+          if (result.status === 'success' && result.data) {
+            renderGrid(result.data);
+          }
+        } catch (e) {
+          console.error("Fetch error:", e);
+        }
+      }
+
+      /**
+       * @param {Record<string, {queueNumber?: string, customerName?: string, type?: string, doctorName?: string}>} data
+       */
+      function renderGrid(data) {
+        /** @type {HTMLElement | null} */
+        const grid = document.getElementById('tv-grid');
+        if (!grid) return;
+        
+        const rooms = Object.keys(data);
+        
+        if (rooms.length === 0) {
+          if (isFirstLoad) grid.innerHTML = '<div class="tv-empty">Chưa có dữ liệu phòng khám</div>';
+          return;
+        }
+
+        let html = '';
+        /** @type {Array<{roomName: string, customerName: string, queueNumber: string}>} */
+        let newlyCalled = [];
+
+        rooms.forEach((roomId) => {
+          const info = data[roomId];
+          const ticketNum = info.queueNumber ? info.queueNumber.split('-').pop() : '---';
+          const custName = info.customerName || 'Chưa gọi';
+          const rType = info.type || 'Phòng';
+          
+          const roomLabel = `${rType} ${roomId}`.toUpperCase();
+
+          // Check if this is a new call (only after first load)
+          const stateKey = `${roomId}-${info.queueNumber}`;
+          let isNew = false;
+          
+          if (!isFirstLoad && info.queueNumber && lastState[roomId] !== info.queueNumber) {
+            isNew = true;
+            newlyCalled.push({
+              roomName: roomLabel,
+              customerName: custName,
+              queueNumber: info.queueNumber
+            });
+          }
+          
+          lastState[roomId] = info.queueNumber;
+
+          html += `
+            <div class="tv-card ${isNew ? 'flash' : ''}">
+              <div class="tv-card-header">
+                <span class="tv-room-label">${roomLabel}</span>
+                <span class="tv-doc-name">${info.doctorName || ''}</span>
+              </div>
+              <div class="tv-card-body">
+                <div class="tv-number ${info.queueNumber ? 'text-primary' : 'text-muted'}">
+                  ${ticketNum}
+                </div>
+                <div class="tv-customer">${custName}</div>
+              </div>
+            </div>
+          `;
+        });
+
+        grid.innerHTML = html;
+        isFirstLoad = false;
+
+        // Trigger alert for the first newly called person
+        if (newlyCalled.length > 0) {
+          const c = newlyCalled[0];
+          triggerAlert(c.roomName, c.customerName, c.queueNumber);
+        }
+      }
+
+      // Start Polling
+      fetchQueue();
+      setInterval(fetchQueue, 5000); // 5 seconds
+
+      // Fix for Speech Synthesis not loading voices immediately
+      if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = function() {
+          console.log("TTS Voices loaded");
+        };
+      }
+    </script>
+
+    <style>
+      :root {
+        --tv-bg: #0f172a;
+        --tv-card: #1e293b;
+        --tv-card-border: #334155;
+        --tv-primary: #38bdf8;
+        --tv-primary-glow: rgba(56, 189, 248, 0.4);
+        --tv-text: #f8fafc;
+        --tv-muted: #64748b;
+        --tv-accent: #f59e0b;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      
+      body.tv-body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background-color: var(--tv-bg);
+        color: var(--tv-text);
+        overflow: hidden; /* No scroll on TV */
+        height: 100vh;
+      }
+
+      .tv-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      /* Header */
+      .tv-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        background: rgba(15, 23, 42, 0.9);
+        border-bottom: 2px solid var(--tv-card-border);
+        flex-shrink: 0;
+      }
+      .tv-brand {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .tv-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      }
+      .tv-title {
+        font-size: 2.5rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: var(--tv-text);
+        margin-bottom: 0.25rem;
+      }
+      .tv-subtitle {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--tv-primary);
+        letter-spacing: 5px;
+      }
+      .tv-controls {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      .tv-btn {
+        background: transparent;
+        border: none;
+        color: var(--tv-muted);
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+      .tv-btn:hover { color: var(--tv-text); }
+      .tv-clock {
+        font-size: 3.5rem;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+        color: var(--tv-primary);
+        text-shadow: 0 0 20px var(--tv-primary-glow);
+      }
+
+      /* Alert Banner */
+      .tv-alert {
+        background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+        color: white;
+        padding: 1.5rem 3rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 2.5rem;
+        border-bottom: 4px solid #60a5fa;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        z-index: 50;
+      }
+      .tv-alert-icon { font-size: 3rem; animation: ring 1s infinite alternate; }
+      .tv-alert-text { font-weight: 500; }
+      .tv-alert strong { font-weight: 900; color: #fde047; }
+      
+      @keyframes ring {
+        0% { transform: rotate(-15deg); }
+        100% { transform: rotate(15deg); }
+      }
+      .slide-in { animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      .slide-out { animation: slideOut 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      @keyframes slideIn { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+      @keyframes slideOut { from { transform: translateY(0); } to { transform: translateY(-100%); } }
+
+      /* Main Grid */
+      .tv-main {
+        flex: 1;
+        padding: 3rem;
+        overflow-y: auto;
+      }
+      .tv-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2.5rem;
+        height: 100%;
+        align-content: start;
+      }
+      
+      /* Card View */
+      .tv-card {
+        background: var(--tv-card);
+        border: 2px solid var(--tv-card-border);
+        border-radius: 24px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        transition: transform 0.3s, border-color 0.3s;
+      }
+      .tv-card.flash {
+        animation: cardFlash 2s cubic-bezier(0.16, 1, 0.3, 1);
+        border-color: var(--tv-primary);
+      }
+      @keyframes cardFlash {
+        0% { transform: scale(1); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        10% { transform: scale(1.05); box-shadow: 0 0 50px var(--tv-primary-glow); border-color: var(--tv-primary); }
+        100% { transform: scale(1); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+      }
+      
+      .tv-card-header {
+        background: rgba(0,0,0,0.2);
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid var(--tv-card-border);
+      }
+      .tv-room-label {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--tv-muted);
+        letter-spacing: 1px;
+      }
+      .tv-doc-name {
+        font-size: 1.25rem;
+        color: var(--tv-muted);
+        font-weight: 500;
+      }
+      
+      .tv-card-body {
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      
+      .tv-number {
+        font-size: 8rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 1rem;
+        font-variant-numeric: tabular-nums;
+        text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      }
+      .text-primary { color: var(--tv-primary); }
+      .text-muted { color: var(--tv-card-border); }
+      
+      .tv-customer {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--tv-text);
+        text-transform: uppercase;
+        min-height: 3rem;
+      }
+
+      /* Loading / Empty */
+      .tv-loading, .tv-empty {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        font-size: 2rem;
+        color: var(--tv-muted);
+      }
+      .spinner {
+        width: 60px;
+        height: 60px;
+        border: 6px solid var(--tv-card-border);
+        border-top-color: var(--tv-primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1.5rem;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+
+      /* Footer Ticker */
+      .tv-footer {
+        background: var(--tv-primary);
+        color: #0f172a;
+        padding: 0.75rem 0;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .tv-ticker-wrap {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .tv-ticker {
+        display: inline-block;
+        animation: ticker 30s linear infinite;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .tv-ticker-item {
+        padding: 0 3rem;
+        position: relative;
+      }
+      .tv-ticker-item::after {
+        content: "•";
+        position: absolute;
+        right: -10px;
+        opacity: 0.5;
+      }
+      @keyframes ticker {
+        0% { transform: translate3d(100%, 0, 0); }
+        100% { transform: translate3d(-100%, 0, 0); }
+      }
+    </style>
+  </body>
+</html>
