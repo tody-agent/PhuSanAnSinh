@@ -202,6 +202,19 @@ const { frontmatter } = Astro.props;
     color: #b91c1c; /* red-700 for alert feeling */
   }
 
+  /* Mermaid diagram styling */
+  .prose :global(.mermaid) {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-2xl) 0;
+  }
+  
+  .prose :global(.mermaid svg) {
+    width: 100% !important;
+    max-width: 600px !important;
+    height: auto !important;
+  }
+
   @media (max-width: 768px) {
     .prose { padding: 1.5rem; }
   }
