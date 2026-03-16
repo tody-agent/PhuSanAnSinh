@@ -528,9 +528,9 @@
   /* ── Toast ── */
   .form-toast {
     position: fixed;
-    bottom: 80px;
+    top: 24px;
     left: 50%;
-    transform: translateX(-50%) translateY(20px);
+    transform: translateX(-50%) translateY(-20px);
     z-index: 10010;
     background: #1a1a2e;
     color: #fff;
@@ -705,24 +705,39 @@
   }
   .booking-cal-btn {
     width: 100%;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.875rem;
+    gap: 0.625rem;
+    padding: 1rem;
     background: var(--primary, #E47320);
     color: #fff;
     border: 2px solid var(--primary, #E47320);
-    border-radius: var(--radius-md, 10px);
+    border-radius: var(--radius-md, 12px);
     font-size: 1rem;
     font-weight: 700;
     font-family: var(--font-body);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  .booking-cal-btn[hidden] {
+    display: none !important;
   }
   .booking-cal-btn:hover {
-    filter: brightness(1.08);
+    filter: brightness(1.06);
     transform: translateY(-1px);
+  }
+  .booking-cal-btn:active {
+    transform: translateY(0) scale(0.98);
+    filter: brightness(0.95);
+  }
+  /* Ensure entire button area is clickable and children don't intercept events */
+  .booking-cal-btn * {
+    pointer-events: none;
   }
   .booking-cal-btn-outline {
     background: #fff;

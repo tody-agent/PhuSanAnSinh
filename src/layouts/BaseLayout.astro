@@ -4070,10 +4070,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 }
               }
 
-              // Configure buttons: 1 milestone = Google Cal + ICS, multi = ICS only
+               // Configure buttons: 1 milestone = Google Cal + ICS, multi = ICS only
               const btnGoogle = document.getElementById('booking-cal-google') as HTMLButtonElement;
               const btnIcs = document.getElementById('booking-cal-ics') as HTMLButtonElement;
-              if (btnGoogle) btnGoogle.hidden = ms.length > 1;
+              if (btnGoogle) {
+                btnGoogle.hidden = ms.length > 1;
+                btnGoogle.style.display = ms.length > 1 ? 'none' : 'flex';
+              }
               if (btnIcs) {
                 btnIcs.textContent = ms.length > 1 ? `📲 Tải ${ms.length} lịch (.ics)` : '📲 Tải lịch (.ics)';
               }
