@@ -4121,7 +4121,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         const bCtx = (window as any)._bookingContext;
         if (!bCtx.milestones || bCtx.milestones.length === 0) return;
         const m = bCtx.milestones[0];
-        const lmp = bCtx.lmpDate ? new Date(bCtx.lmpDate) : null;
+        let lmp = bCtx.lmpDate ? new Date(bCtx.lmpDate) : null;
+        if (!lmp) {
+          try {
+            const eddRaw = localStorage.getItem('ansinh_edd_info');
+            if (eddRaw) {
+              const eddInfo = JSON.parse(eddRaw);
+              if (eddInfo?.lmpDate) lmp = new Date(eddInfo.lmpDate);
+            }
+          } catch (e) { /* ignore */ }
+        }
         if (!lmp) { showToast('error', 'Không tìm thấy ngày kinh cuối.'); return; }
         const apptDate = new Date(lmp);
         apptDate.setDate(apptDate.getDate() + m.week * 7);
@@ -4141,13 +4150,53 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       document.getElementById('booking-cal-ics')?.addEventListener('click', () => {
         const bCtx = (window as any)._bookingContext;
         if (!bCtx.milestones || bCtx.milestones.length === 0) return;
-        const lmp = bCtx.lmpDate ? new Date(bCtx.lmpDate) : null;
-        if (!lmp) { showToast('error', 'Không tìm thấy ngày kinh cuối.'); return; }
+
+        // Try to get lmpDate from context, then localStorage fallback
+        let lmp = bCtx.lmpDate ? new Date(bCtx.lmpDate) : null;
+        if (!lmp) {
+          try {
+            const eddRaw = localStorage.getItem('ansinh_edd_info');
+            if (eddRaw) {
+              const eddInfo = JSON.parse(eddRaw);
+              if (eddInfo?.lmpDate) lmp = new Date(eddInfo.lmpDate);
+            }
+          } catch (e) { /* ignore */ }
+        }
+        if (!lmp) { showToast('error', 'Không tìm thấy ngày kinh cuối. Vui lòng tính ngày dự sinh trước.'); return; }
+
         const dayPref = bCtx.dayPref || '7';
         const timePref = bCtx.timePref || 'morning';
         const hours = timePref === 'morning' ? 8 : timePref === 'afternoon' ? 14 : 18;
 
-        let icsContent = 'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//AnSinh//PrenatalReminder//VI\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\n';
+        // Format date as local time for ICS (YYYYMMDDTHHmmss)
+        const fmtLocal = (d: Date) => {
+          const y = d.getFullYear();
+          const mo = String(d.getMonth() + 1).padStart(2, '0');
+          const da = String(d.getDate()).padStart(2, '0');
+          const h = String(d.getHours()).padStart(2, '0');
+          const mi = String(d.getMinutes()).padStart(2, '0');
+          return y.toString() + mo + da + 'T' + h + mi + '00';
+        };
+
+        const calLines: string[] = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//AnSinh//PrenatalReminder//VI',
+          'CALSCALE:GREGORIAN',
+          'METHOD:PUBLISH',
+          'X-WR-CALNAME:Lich Kham Thai - Phong Kham An Sinh',
+          'X-WR-TIMEZONE:Asia/Ho_Chi_Minh',
+          'BEGIN:VTIMEZONE',
+          'TZID:Asia/Ho_Chi_Minh',
+          'BEGIN:STANDARD',
+          'DTSTART:19700101T000000',
+          'TZOFFSETFROM:+0700',
+          'TZOFFSETTO:+0700',
+          'TZNAME:ICT',
+          'END:STANDARD',
+          'END:VTIMEZONE',
+        ];
+
         for (const m of bCtx.milestones) {
           const apptDate = new Date(lmp);
           apptDate.setDate(apptDate.getDate() + m.week * 7);
@@ -4155,20 +4204,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           apptDate.setHours(hours, 0, 0, 0);
           const endDate = new Date(apptDate);
           endDate.setHours(hours + 1);
-          const fmtIcs = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-          const uid = `ansinh-w${m.week}-${Date.now()}@phusanansinh.com`;
-          icsContent += `BEGIN:VEVENT\nUID:${uid}\nDTSTART:${fmtIcs(apptDate)}\nDTEND:${fmtIcs(endDate)}\nSUMMARY:🩺 ${m.title} — An Sinh\nDESCRIPTION:${m.reason.replace(/\n/g, '\\n')}\\n\\nPhòng Khám An Sinh\\nĐT: 0899 268 299\nLOCATION:Phòng Khám An Sinh\, Từ Sơn\, Bắc Ninh\nBEGIN:VALARM\nTRIGGER:-P1D\nACTION:DISPLAY\nDESCRIPTION:Nhắc lịch khám: ${m.title}\nEND:VALARM\nEND:VEVENT\n`;
+          const uid = 'ansinh-w' + m.week + '-' + Date.now() + '@phusanansinh.com';
+          const desc = ((m.reason || '').replace(/[\r\n]+/g, ' ')) + ' | Phong Kham An Sinh | DT: 0899 268 299';
+          calLines.push(
+            'BEGIN:VEVENT',
+            'UID:' + uid,
+            'DTSTART;TZID=Asia/Ho_Chi_Minh:' + fmtLocal(apptDate),
+            'DTEND;TZID=Asia/Ho_Chi_Minh:' + fmtLocal(endDate),
+            'SUMMARY:' + m.title + ' - An Sinh',
+            'DESCRIPTION:' + desc,
+            'LOCATION:Phong Kham An Sinh\\, Tu Son\\, Bac Ninh',
+            'BEGIN:VALARM',
+            'TRIGGER:-P1D',
+            'ACTION:DISPLAY',
+            'DESCRIPTION:Nhac lich kham: ' + m.title,
+            'END:VALARM',
+            'END:VEVENT',
+          );
         }
-        icsContent += 'END:VCALENDAR';
+        calLines.push('END:VCALENDAR');
+        const icsContent = calLines.join('\r\n') + '\r\n';
+
+        // Trigger download
         const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = bCtx.milestones.length === 1 ? `lich-kham-tuan-${bCtx.milestones[0].week}.ics` : 'lich-kham-thai-ky.ics';
+        a.download = bCtx.milestones.length === 1 ? 'lich-kham-tuan-' + bCtx.milestones[0].week + '.ics' : 'lich-kham-thai-ky.ics';
+        a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        // Delay cleanup for mobile browsers
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 250);
         showToast('success', 'Đã tải file lịch!');
       });
 

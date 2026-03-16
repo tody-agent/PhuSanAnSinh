@@ -29,6 +29,13 @@
   <!-- ── Scrollable Body ── -->
   <div class="booking-sheet-body">
 
+    <!-- ══ LOADING OVERLAY ══ -->
+    <div class="booking-loading-overlay" id="booking-loading-overlay" hidden>
+      <div class="booking-loading-spinner"></div>
+      <p class="booking-loading-text">Đang xử lý đặt lịch...</p>
+      <p class="booking-loading-sub">Vui lòng chờ trong giây lát</p>
+    </div>
+
     <!-- ══ STEP 1: BOOKING FORM ══ -->
     <div class="booking-step" id="booking-step-form">
       <!-- Smart Suggestion Banner -->
@@ -614,6 +621,41 @@
     background: var(--primary, #E47320);
     border-color: var(--primary, #E47320);
     color: #fff;
+  }
+
+  /* ── Loading overlay ── */
+  .booking-loading-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+    text-align: center;
+    animation: fadeInUp 0.3s ease-out;
+  }
+  .booking-loading-overlay[hidden] { display: none; }
+  .booking-loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border-light, #e5e7eb);
+    border-top-color: var(--primary, #E47320);
+    border-radius: 50%;
+    animation: bookingSpinAnim 0.8s linear infinite;
+    margin-bottom: 1.25rem;
+  }
+  @keyframes bookingSpinAnim {
+    to { transform: rotate(360deg); }
+  }
+  .booking-loading-text {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+  }
+  .booking-loading-sub {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin: 0;
   }
 
   /* ── Step 2: Calendar Save ── */
